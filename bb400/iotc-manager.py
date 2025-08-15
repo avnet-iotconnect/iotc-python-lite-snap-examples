@@ -243,6 +243,51 @@
     catch (e) { throw new Error("probe JSON parse error: " + e.message); }
   }
 
+  async function scanModbusAI() {
+    const ip     = document.getElementById("mb-ip")?.value?.trim();
+    const unit   = parseInt(document.getElementById("mb-unit")?.value || "1", 10) || 1;
+    const start  = parseInt(document.getElementById("mb-start")?.value || "30001", 10) || 30001;
+    const count  = parseInt(document.getElementById("mb-count")?.value || "8", 10) || 8;
+    const scale  = parseFloat(document.getElementById("mb-scale")?.value || "1") || 1;
+    const offset = parseFloat(document.getElementById("mb-offset")?.value || "0") || 0;
+    if (!ip) { log("Scan AI: please enter ED-589 IP"); return; }
+
+    try {
+      log(`Modbus scan: ip=${ip} unit=${unit} start=${start} count=${count}`);
+      const regs = await readModbusAIOnce(ip, unit, start, count);
+      const vals = applyScale(regs, scale, offset);
+      // Seed/extend state with ai0..aiN
+      for (let i = 0; i < vals.length; i++) {
+        const k = `ai${i}`;
+        if (!state[k]) state[k] = { val: vals[i], alias: k };
+        else state[k].val = vals[i];
+      }
+      // Remember params for refresh
+      window.__MB_AI_CFG__ = { ip, unit, start, count, scale, offset };
+      renderRows(state);
+      log("Modbus AI scanned OK");
+    } catch (e) {
+      log("Scan AI error: " + (e.message || e));
+    }
+  }
+
+  async function refreshModbusAI() {
+    const cfg = window.__MB_AI_CFG__;
+    if (!cfg) return; // not configured yet
+    try {
+      const regs = await readModbusAIOnce(cfg.ip, cfg.unit, cfg.start, cfg.count);
+      const vals = applyScale(regs, cfg.scale, cfg.offset);
+      for (let i = 0; i < vals.length; i++) {
+        const k = `ai${i}`;
+        if (!state[k]) state[k] = { val: null, alias: k };
+        state[k].val = vals[i];
+        updateValueCell(k, vals[i]);
+      }
+    } catch (e) {
+      log("Refresh AI error: " + (e.message || e));
+    }
+  }
+
   // --- Send to IoTConnect socket (normalize to SINGLE envelope) ---------------
   async function sendToSocket(payloadObj) {
     // If someone accidentally passed an envelope, unwrap it to flat once.
@@ -303,6 +348,8 @@
       });
 
       await refreshIO();
+
+      await refreshModbusAI();  // poll ED-589 analogs every interval
 
       const payload = buildPayloadFromState(state);
       if (Object.keys(payload).length === 0) { log("no selected signals; skipping send"); return; }
@@ -384,6 +431,8 @@
       try { await scanIO(); }
       catch (e) { log("scan error: " + e.message); }
     });
+
+    $("btn-scan-ai")?.addEventListener("click", () => { scanModbusAI(); });
 
     $("btn-start")?.addEventListener("click", async () => {
       if (timerId) return;
