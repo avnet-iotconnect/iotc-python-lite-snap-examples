@@ -1,1 +1,20 @@
-
+{
+  "version": 1,
+  "name": "iotc-manager",
+  "label": "IOTCONNECT",
+  "menu": {
+    "index": {
+      "label": "IOTCONNECT",
+      "order": 10,
+      "path": "index.html"
+    }
+  },
+  "dashboard": {
+    "index": {
+      "label": "IOTCONNECT",
+      "order": 10,
+      "path": "index.html"
+    }
+  },
+  "content-security-policy": "default-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data: blob:; connect-src *;"
+}
