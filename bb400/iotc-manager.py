@@ -317,6 +317,64 @@
     }
   }
 
+  // ---- Modbus/TCP (FC=04 Read Input Registers) via inline Python, no deps ----
+  async function readModbusAIOnce(ip, unit, startAddr, count) {
+    // ED-5xx often exposes analogs as "Input Registers" starting near 30001.
+    // We'll accept a 30001-style address and convert to 0-based for the PDU.
+    const zeroBased = Math.max(0, (startAddr >= 30001) ? (startAddr - 30001) : startAddr);
+
+    const py = [
+      "import socket, struct, sys, json",
+      "ip   = sys.argv[1]",
+      "unit = int(sys.argv[2])",
+      "addr = int(sys.argv[3])",
+      "qty  = int(sys.argv[4])",
+      "def read_input_registers(ip, unit, addr, qty):",
+      "  # Build MBAP (tid=1, pid=0, len=6, uid=unit) + PDU (fc=4, addr, qty)",
+      "  tid = 1; pid = 0; length = 6",
+      "  pdu = struct.pack('>BHH', 4, addr, qty)",
+      "  mbap = struct.pack('>HHHB', tid, pid, length, unit)",
+      "  req = mbap + pdu",
+      "  with socket.create_connection((ip, 502), timeout=2.0) as s:",
+      "    s.sendall(req)",
+      "    # Response: MBAP(7 bytes) + fc + bytecount + data",
+      "    hdr = s.recv(7)",
+      "    if len(hdr) < 7: raise RuntimeError('short MBAP')",
+      "    _,_,ln,uid = struct.unpack('>HHHB', hdr)",
+      "    body = b''",
+      "    while len(body) < (ln-1):",
+      "      chunk = s.recv((ln-1)-len(body))",
+      "      if not chunk: break",
+      "      body += chunk",
+      "    if len(body) < 2: raise RuntimeError('short PDU')",
+      "    fc = body[0]",
+      "    if fc & 0x80: raise RuntimeError('modbus exception: %d' % body[1])",
+      "    if fc != 4:   raise RuntimeError('unexpected fc: %d' % fc)",
+      "    bc = body[1]",
+      "    data = body[2:2+bc]",
+      "    if len(data) != 2*qty: raise RuntimeError('length mismatch')",
+      "    regs = list(struct.unpack('>' + 'H'*qty, data))",
+      "    return regs",
+      "vals = read_input_registers(ip, unit, addr, qty)",
+      "print(json.dumps(vals))"
+    ].join("\n");
+
+    const out = await runSpawn(
+      ["/usr/bin/env", "python3", "-c", py, ip, String(unit), String(zeroBased), String(count)],
+      { superuser: "try" }
+    );
+    // runSpawn returns captured stdout even for non-zero exits; try to parse.
+    let regs;
+    try { regs = JSON.parse(out); }
+    catch { throw new Error("modbus parse error (no JSON): " + (out || "<empty>")); }
+    if (!Array.isArray(regs)) throw new Error("modbus did not return an array");
+    return regs;
+  }
+
+   // Apply scale/offset to raw registers -> numbers
+   function applyScale(vals, scale, offset) {
+     return vals.map(v => (v == null ? null : (v * scale + offset)));
+  }
   // ---------- Wire UI ----------
   window.addEventListener("DOMContentLoaded", () => {
     renderRows(state);
