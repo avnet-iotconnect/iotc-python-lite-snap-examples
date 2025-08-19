@@ -1,0 +1,127 @@
+[
+  {
+    "vendor": "Advantech",
+    "model": "RSB-3810",
+    "arch": "arm64",
+    "os": "Ubuntu 22.04",
+    "status": "validated",
+    "examples": [
+      {
+        "path": "boards/advantech-rsb3810",
+        "features": [
+          "telemetry",
+          "commands"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "ASUS IoT",
+    "model": "Tinker Board 3N",
+    "arch": "arm64",
+    "os": "Debian",
+    "status": "validated",
+    "examples": [
+      {
+        "path": "boards/asus-tinker3n",
+        "features": [
+          "telemetry",
+          "commands"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "IEI",
+    "model": "HYPER-ASL",
+    "arch": "amd64",
+    "os": "Ubuntu/Debian",
+    "status": "validated",
+    "examples": [
+      {
+        "path": "boards/iei-hyper-asl",
+        "features": [
+          "telemetry"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "GIGAIPC",
+    "model": "PICO-N97A",
+    "arch": "amd64",
+    "os": "Ubuntu/Debian",
+    "status": "validated",
+    "examples": [
+      {
+        "path": "boards/gigaipc-pico-n97a",
+        "features": [
+          "telemetry"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "Engicam",
+    "model": "i.Core MX95",
+    "arch": "arm64",
+    "os": "Yocto/Ubuntu rootfs",
+    "status": "in-progress",
+    "examples": [
+      {
+        "path": "boards/engicam-icore-mx95",
+        "features": [
+          "telemetry",
+          "edge-ai"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "Avnet Embedded (MSC)",
+    "model": "SM2S-IMX95 + SMARC base",
+    "arch": "arm64",
+    "os": "Yocto/Ubuntu",
+    "status": "in-progress",
+    "examples": [
+      {
+        "path": "boards/avnet-msc-sm2s-imx95",
+        "features": [
+          "telemetry"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "Toradex",
+    "model": "Verdin i.MX95 EVK",
+    "arch": "arm64",
+    "os": "TorizonCore/Debian",
+    "status": "in-progress",
+    "examples": [
+      {
+        "path": "boards/toradex-verdin-imx95",
+        "features": [
+          "telemetry",
+          "ota"
+        ]
+      }
+    ]
+  },
+  {
+    "vendor": "Brainboxes",
+    "model": "BB-400",
+    "arch": "armhf",
+    "os": "Debian",
+    "status": "validated",
+    "examples": [
+      {
+        "path": "boards/bb400",
+        "features": [
+          "gpio",
+          "telemetry"
+        ]
+      }
+    ]
+  }
+]
