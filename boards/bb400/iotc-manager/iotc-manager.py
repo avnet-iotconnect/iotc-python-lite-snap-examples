@@ -2,7 +2,7 @@
 # Copyright (C) 2025 Avnet
 # Authors: Michael Lamp <michael.lamp@avnet.com> et al.
 
-// manager.js (Cockpit package) — with IoTConnect envelope format
+// manager.js (Cockpit package) — with IOTCONNECT envelope format
 (function () {
   "use strict";
 
@@ -288,7 +288,7 @@
     }
   }
 
-  // --- Send to IoTConnect socket (normalize to SINGLE envelope) ---------------
+  // --- Send to IOTCONNECT socket (normalize to SINGLE envelope) ---------------
   async function sendToSocket(payloadObj) {
     // If someone accidentally passed an envelope, unwrap it to flat once.
     let flat = payloadObj;

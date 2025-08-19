@@ -1,13 +1,13 @@
-# IoTConnect Snap – Example Applications
+# IOTCONNECT Snap – Example Applications
 
 [![arch-arm64](https://img.shields.io/badge/arm-arm64-informational)](#)
 [![arch-amd64](https://img.shields.io/badge/x86_64-amd64-informational)](#)
 [![arch-armhf](https://img.shields.io/badge/arm-armhf-informational)](#)
 
-Sample apps and reference snippets for the **IoTConnect Snap**  
-→ Snap repo: https://github.com/avnet-iotconnect/iotc-python-lite-snap
+Sample apps and reference snippets for the **IOTCONNECT Snap**  
+→ Snap repo: https://github.com/avnet-IOTCONNECT/iotc-python-lite-snap
 
-These examples show how to send telemetry, receive commands, and perform OTA updates with **Avnet IoTConnect** on Linux edge devices.
+These examples show how to send telemetry, receive commands, and perform OTA updates with **Avnet IOTCONNECT** on Linux edge devices.
 
 ---
 
@@ -25,11 +25,11 @@ These examples show how to send telemetry, receive commands, and perform OTA upd
 # 1) Ensure snapd is installed
 sudo apt update && sudo apt install -y snapd
 
-# 2) Install the IoTConnect Snap
+# 2) Install the IOTCONNECT Snap
 sudo snap install iotconnect
 
-# 3) One-time setup (provide your IoTConnect credentials/config)
-iotconnect.setup
+# 3) One-time setup (provide your IOTCONNECT credentials/config)
+IOTCONNECT.setup
 
 # 4) Run the socket service or a sample
 iotconnect.socket-run   # start the socket listener
@@ -102,7 +102,7 @@ This repo prioritizes examples for the Avnet Embedded ecosystem. Contributions c
 1. Create `boards/<vendor>-<model>/README.md` with:
    - CPU/arch, OS image link, tested kernel
    - Network steps (Ethernet/Wi‑Fi/5G)
-   - How you ran `iotconnect.setup`, and which examples you used
+   - How you ran `IOTCONNECT.setup`, and which examples you used
    - Any quirks
 
 2. Add a minimal demo script in that folder (copy from `00-hello-telemetry`).
