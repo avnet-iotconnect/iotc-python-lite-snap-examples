@@ -2,6 +2,8 @@
 
 - **Supplier:** Advantech
 - **Arch:** arm64
+- **Processor:** MediaTek Genio 1200
+- **AI acceleration:** MediaTek APU (~4.8 TOPS)
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
@@ -16,8 +18,9 @@
 - Buy on Newark: https://www.newark.com/search?st=RSB-3810%20%28Pico-ITX%29
 
 ## Known quirks
-- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
-- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
+- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
+- On Debian, enable `snapd` and reboot to activate AppArmor.
 
 ## Quick test
 ```bash

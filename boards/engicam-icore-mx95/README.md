@@ -2,6 +2,8 @@
 
 - **Supplier:** Engicam
 - **Arch:** arm64
+- **Processor:** NXP i.MX95
+- **AI acceleration:** Integrated NPU (Arm Ethos‑U85 class)
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
@@ -16,8 +18,8 @@
 - Buy on Newark: https://www.newark.com/search?st=i.Core%20MX95%20SoM%20%2B%20carrier
 
 ## Known quirks
-- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
-- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
+- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
 
 ## Quick test
 ```bash

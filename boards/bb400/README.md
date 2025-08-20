@@ -2,6 +2,8 @@
 
 - **Supplier:** Brainboxes
 - **Arch:** armhf
+- **Processor:** Broadcom BCM2837 (CM3+)
+- **AI acceleration:** —
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
@@ -16,8 +18,8 @@
 - Buy on Newark: https://www.newark.com/search?st=BB-400
 
 ## Known quirks
-- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
-- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
+- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
 
 ## Quick test
 ```bash
