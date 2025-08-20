@@ -1,26 +1,21 @@
-# GIGAIPC PICO-N97A
+# PICO-N97A
 
-    - **Arch:** amd64
-    - **Recommended OS:** Ubuntu/Debian
-    - **Snap install:** `sudo snap install iotconnect`
-    - **Setup:** `iotconnect.setup`
+- **Supplier:** GIGAIPC
+- **Arch:** amd64
+- **Snap install:** `sudo snap install iotconnect`
+- **Setup:** `iotconnect.setup`
 
-    ## Test telemetry
+## Official links
+- Product page: https://www.gigaipc.com/en/products-detail/pico-N97A/
 
-    ```bash
-    python3 ../../examples/00-hello-telemetry/hello_telemetry.py
-    ```
+### OS images & docs
+- Datasheet: https://gigaipc-download-bucket.s3.ap-northeast-1.amazonaws.com/Datasheet%2C%2Buser%2Bmanual%2C%2Bproduct%2Bphoto/Boards/Pico%2BSeries/Pico-N97A/PICO-N97A_20241231.pdf
 
-    ## Official links
-    - Product page: https://www.gigaipc.com/en/products-detail/pico-N97A/
+## Known quirks
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
+- If the IoTConnect socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`
 
-    ### OS images & docs
-    - Product page (specs, manuals): https://www.gigaipc.com/en/products-detail/pico-N97A/
-
-    ## Known quirks
-    - If using M.2 Wi‑Fi, ensure the module’s Linux drivers are present; Realtek chipsets may require DKMS packages.
-- For Debian 12, install `snapd` and reboot once before installing the IoTConnect snap.
-
-    ## Notes
-    - x86 gateway guide
-    - If the script cannot find the IoTConnect socket, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock` and re-run.
+## Quick test
+```bash
+python3 ../../examples/00-hello-telemetry/hello_telemetry.py
+```

@@ -1,27 +1,21 @@
-# Engicam i.Core MX95 SoM + carrier
+# i.Core MX95 SoM + carrier
 
-    - **Arch:** arm64
-    - **Recommended OS:** Yocto/Ubuntu rootfs
-    - **Snap install:** `sudo snap install iotconnect`
-    - **Setup:** `iotconnect.setup`
+- **Supplier:** Engicam
+- **Arch:** arm64
+- **Snap install:** `sudo snap install iotconnect`
+- **Setup:** `iotconnect.setup`
 
-    ## Test telemetry
+## Official links
+- Product page: https://www.engicam.com/vis-prod/iCore-MX95/iCore-MX95
 
-    ```bash
-    python3 ../../examples/00-hello-telemetry/hello_telemetry.py
-    ```
+### OS images & docs
+- (none)
 
-    ## Official links
-    - Product page: https://www.engicam.com/vis-prod/iCore-MX95/iCore-MX95
+## Known quirks
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
+- If the IoTConnect socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`
 
-    ### OS images & docs
-    - i.Core MX95 product page: https://www.engicam.com/vis-prod/iCore-MX95/iCore-MX95
-- SmarCore MX95 (SMARC) – docs & starter kit: https://www.engicam.com/vis-prod/SmarCore-MX95/SmarCore-iMX95
-
-    ## Known quirks
-    - Yocto BSP is typical; for snap usage, consider an Ubuntu 22.04 arm64 rootfs on the carrier (advanced).
-- If staying on vendor Yocto, prefer the Python `pip install iotconnect` path instead of snap.
-
-    ## Notes
-    - Edge AI + telemetry guide
-    - If the script cannot find the IoTConnect socket, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock` and re-run.
+## Quick test
+```bash
+python3 ../../examples/00-hello-telemetry/hello_telemetry.py
+```
