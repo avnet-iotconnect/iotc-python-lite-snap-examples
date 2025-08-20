@@ -11,6 +11,10 @@
 ### OS images & docs
 - Ubuntu Certification: https://canonical.com/blog/advantech-rsb-3810-mediatek-genio-ubuntu-certified
 
+## Buy
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=RSB-3810%20%28Pico-ITX%29
+- Buy on Newark: https://www.newark.com/search?st=RSB-3810%20%28Pico-ITX%29
+
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
 - If the IoTConnect socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`

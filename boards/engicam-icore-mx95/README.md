@@ -11,6 +11,10 @@
 ### OS images & docs
 - (none)
 
+## Buy
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=i.Core%20MX95%20SoM%20%2B%20carrier
+- Buy on Newark: https://www.newark.com/search?st=i.Core%20MX95%20SoM%20%2B%20carrier
+
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
 - If the IoTConnect socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`

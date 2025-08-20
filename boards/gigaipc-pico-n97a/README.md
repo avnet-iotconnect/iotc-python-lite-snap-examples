@@ -11,6 +11,10 @@
 ### OS images & docs
 - Datasheet: https://gigaipc-download-bucket.s3.ap-northeast-1.amazonaws.com/Datasheet%2C%2Buser%2Bmanual%2C%2Bproduct%2Bphoto/Boards/Pico%2BSeries/Pico-N97A/PICO-N97A_20241231.pdf
 
+## Buy
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PICO-N97A
+- Buy on Newark: https://www.newark.com/search?st=PICO-N97A
+
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps
 - If the IoTConnect socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`

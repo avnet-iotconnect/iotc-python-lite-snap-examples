@@ -30,7 +30,7 @@
     "folder": "engicam-icore-mx95"
   },
   {
-    "supplier": "Avnet Embedded (MSC)",
+    "supplier": "Tria",
     "model": "SM2S-IMX95 + SMARC base",
     "arch": "arm64",
     "folder": "avnet-msc-sm2s-imx95"
@@ -264,19 +264,19 @@
     "folder": "ibase-mi989"
   },
   {
-    "supplier": "Avnet Embedded (MSC)",
+    "supplier": "Tria",
     "model": "SM2S-EL (SMARC)",
     "arch": "amd64",
     "folder": "avnet-msc-sm2s-el"
   },
   {
-    "supplier": "Avnet Embedded (MSC)",
+    "supplier": "Tria",
     "model": "C6C-RPL (COMe Type 6)",
     "arch": "amd64",
     "folder": "avnet-msc-c6c-rpl"
   },
   {
-    "supplier": "Avnet Embedded (MSC)",
+    "supplier": "Tria",
     "model": "Q7-EL (Qseven)",
     "arch": "amd64",
     "folder": "avnet-msc-q7-el"
