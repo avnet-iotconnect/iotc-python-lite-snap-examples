@@ -1,63 +1,15 @@
 [
   {
     "supplier": "Advantech",
-    "model": "RSB-3810 (Pico-ITX)",
-    "arch": "arm64",
-    "folder": "advantech-rsb3810"
-  },
-  {
-    "supplier": "ASUS IoT",
-    "model": "Tinker Board 3N",
-    "arch": "arm64",
-    "folder": "asus-tinker3n"
-  },
-  {
-    "supplier": "IEI",
-    "model": "HYPER-ASL (Pico-ITX)",
-    "arch": "amd64",
-    "folder": "iei-hyper-asl"
-  },
-  {
-    "supplier": "GIGAIPC",
-    "model": "PICO-N97A",
-    "arch": "amd64",
-    "folder": "gigaipc-pico-n97a"
-  },
-  {
-    "supplier": "Engicam",
-    "model": "i.Core MX95 SoM + carrier",
-    "arch": "arm64",
-    "folder": "engicam-icore-mx95"
-  },
-  {
-    "supplier": "Tria",
-    "model": "SM2S-IMX95 + SMARC base",
-    "arch": "arm64",
-    "folder": "avnet-msc-sm2s-imx95"
-  },
-  {
-    "supplier": "Toradex",
-    "model": "Verdin i.MX95 EVK",
-    "arch": "arm64",
-    "folder": "toradex-verdin-imx95"
-  },
-  {
-    "supplier": "Brainboxes",
-    "model": "BB-400",
-    "arch": "armhf",
-    "folder": "bb400"
-  },
-  {
-    "supplier": "Advantech",
-    "model": "RSB-3720 (Pico-ITX)",
-    "arch": "arm64",
-    "folder": "advantech-rsb3720"
-  },
-  {
-    "supplier": "Advantech",
     "model": "MIO-2365 (3.5\")",
     "arch": "amd64",
     "folder": "advantech-mio2365"
+  },
+  {
+    "supplier": "Advantech",
+    "model": "ROM-5620 (SMARC)",
+    "arch": "arm64",
+    "folder": "advantech-rom5620"
   },
   {
     "supplier": "Advantech",
@@ -67,9 +19,39 @@
   },
   {
     "supplier": "Advantech",
-    "model": "ROM-5620 (SMARC)",
+    "model": "RSB-3720 (Pico-ITX)",
     "arch": "arm64",
-    "folder": "advantech-rom5620"
+    "folder": "advantech-rsb3720"
+  },
+  {
+    "supplier": "Advantech",
+    "model": "RSB-3810 (Pico-ITX)",
+    "arch": "arm64",
+    "folder": "advantech-rsb3810"
+  },
+  {
+    "supplier": "ASRock Industrial",
+    "model": "4X4 BOX-7735U",
+    "arch": "amd64",
+    "folder": "asrock-4x4-7735u"
+  },
+  {
+    "supplier": "ASRock Industrial",
+    "model": "iBOX-1265UE",
+    "arch": "amd64",
+    "folder": "asrock-ibox-1265ue"
+  },
+  {
+    "supplier": "ASRock Industrial",
+    "model": "IMB-ADLN (mITX)",
+    "arch": "amd64",
+    "folder": "asrock-imb-adln"
+  },
+  {
+    "supplier": "ASRock Industrial",
+    "model": "NUC BOX-1340P",
+    "arch": "amd64",
+    "folder": "asrock-nucbox-1340p"
   },
   {
     "supplier": "ASUS IoT",
@@ -79,9 +61,9 @@
   },
   {
     "supplier": "ASUS IoT",
-    "model": "Tinker Edge R",
+    "model": "Tinker Board 3N",
     "arch": "arm64",
-    "folder": "asus-tinker-edge-r"
+    "folder": "asus-tinker3n"
   },
   {
     "supplier": "ASUS IoT",
@@ -90,10 +72,112 @@
     "folder": "asus-tinker-s-r2"
   },
   {
-    "supplier": "IEI",
-    "model": "WAFER-ADLN (3.5\")",
+    "supplier": "ASUS IoT",
+    "model": "Tinker Edge R",
+    "arch": "arm64",
+    "folder": "asus-tinker-edge-r"
+  },
+  {
+    "supplier": "Avalue",
+    "model": "ECM-ADLN (3.5\")",
     "arch": "amd64",
-    "folder": "iei-wafer-adln"
+    "folder": "avalue-ecm-adln"
+  },
+  {
+    "supplier": "Avalue",
+    "model": "ECM-TGL (3.5\")",
+    "arch": "amd64",
+    "folder": "avalue-ecm-tgl"
+  },
+  {
+    "supplier": "Avalue",
+    "model": "EPM-1727 (Pico-ITX)",
+    "arch": "amd64",
+    "folder": "avalue-epm-1727"
+  },
+  {
+    "supplier": "Avalue",
+    "model": "SOM-EHL (SMARC)",
+    "arch": "amd64",
+    "folder": "avalue-som-ehl"
+  },
+  {
+    "supplier": "Brainboxes",
+    "model": "BB-400",
+    "arch": "armhf",
+    "folder": "bb400"
+  },
+  {
+    "supplier": "DFI",
+    "model": "EHL171 (mITX)",
+    "arch": "amd64",
+    "folder": "dfi-ehl171"
+  },
+  {
+    "supplier": "DFI",
+    "model": "EHL173 (mITX)",
+    "arch": "amd64",
+    "folder": "dfi-ehl173"
+  },
+  {
+    "supplier": "DFI",
+    "model": "GHF51 (1.8\" Femto-ITX)",
+    "arch": "amd64",
+    "folder": "dfi-ghf51"
+  },
+  {
+    "supplier": "Engicam",
+    "model": "i.Core MX8M Plus SoM + carrier",
+    "arch": "arm64",
+    "folder": "engicam-icore-imx8mp"
+  },
+  {
+    "supplier": "Engicam",
+    "model": "i.Core MX95 SoM + carrier",
+    "arch": "arm64",
+    "folder": "engicam-icore-mx95"
+  },
+  {
+    "supplier": "Engicam",
+    "model": "i.Core STM32MP2 SoM + carrier",
+    "arch": "arm64",
+    "folder": "engicam-icore-stm32mp2"
+  },
+  {
+    "supplier": "Engicam",
+    "model": "SmarCore MX95 (SMARC)",
+    "arch": "arm64",
+    "folder": "engicam-smarcore-mx95"
+  },
+  {
+    "supplier": "GIGAIPC",
+    "model": "PICO-N97A",
+    "arch": "amd64",
+    "folder": "gigaipc-pico-n97a"
+  },
+  {
+    "supplier": "iBASE",
+    "model": "ET977 (COMe Type 6)",
+    "arch": "amd64",
+    "folder": "ibase-et977"
+  },
+  {
+    "supplier": "iBASE",
+    "model": "IB836 (3.5\")",
+    "arch": "amd64",
+    "folder": "ibase-ib836"
+  },
+  {
+    "supplier": "iBASE",
+    "model": "MI989 (mITX)",
+    "arch": "amd64",
+    "folder": "ibase-mi989"
+  },
+  {
+    "supplier": "IEI",
+    "model": "HYPER-ASL (Pico-ITX)",
+    "arch": "amd64",
+    "folder": "iei-hyper-asl"
   },
   {
     "supplier": "IEI",
@@ -114,46 +198,10 @@
     "folder": "iei-tkino-adln"
   },
   {
-    "supplier": "Avalue",
-    "model": "ECM-ADLN (3.5\")",
+    "supplier": "IEI",
+    "model": "WAFER-ADLN (3.5\")",
     "arch": "amd64",
-    "folder": "avalue-ecm-adln"
-  },
-  {
-    "supplier": "Avalue",
-    "model": "EPM-1727 (Pico-ITX)",
-    "arch": "amd64",
-    "folder": "avalue-epm-1727"
-  },
-  {
-    "supplier": "Avalue",
-    "model": "SOM-EHL (SMARC)",
-    "arch": "amd64",
-    "folder": "avalue-som-ehl"
-  },
-  {
-    "supplier": "Avalue",
-    "model": "ECM-TGL (3.5\")",
-    "arch": "amd64",
-    "folder": "avalue-ecm-tgl"
-  },
-  {
-    "supplier": "Engicam",
-    "model": "SmarCore MX95 (SMARC)",
-    "arch": "arm64",
-    "folder": "engicam-smarcore-mx95"
-  },
-  {
-    "supplier": "Engicam",
-    "model": "i.Core STM32MP2 SoM + carrier",
-    "arch": "arm64",
-    "folder": "engicam-icore-stm32mp2"
-  },
-  {
-    "supplier": "Engicam",
-    "model": "i.Core MX8M Plus SoM + carrier",
-    "arch": "arm64",
-    "folder": "engicam-icore-imx8mp"
+    "folder": "iei-wafer-adln"
   },
   {
     "supplier": "Kontron",
@@ -163,9 +211,9 @@
   },
   {
     "supplier": "Kontron",
-    "model": "SMARC-sXEL",
+    "model": "pITX-APL",
     "arch": "amd64",
-    "folder": "kontron-smarc-sxel"
+    "folder": "kontron-pitx-apl"
   },
   {
     "supplier": "Kontron",
@@ -175,21 +223,9 @@
   },
   {
     "supplier": "Kontron",
-    "model": "pITX-APL",
+    "model": "SMARC-sXEL",
     "arch": "amd64",
-    "folder": "kontron-pitx-apl"
-  },
-  {
-    "supplier": "MSI IPC",
-    "model": "MS-98M3 (3.5\")",
-    "arch": "amd64",
-    "folder": "msi-ms98m3"
-  },
-  {
-    "supplier": "MSI IPC",
-    "model": "MS-98L9 (ATX)",
-    "arch": "amd64",
-    "folder": "msi-ms98l9"
+    "folder": "kontron-smarc-sxel"
   },
   {
     "supplier": "Mitac",
@@ -204,70 +240,40 @@
     "folder": "mitac-ph12cmi"
   },
   {
-    "supplier": "ASRock Industrial",
-    "model": "4X4 BOX-7735U",
+    "supplier": "MSI IPC",
+    "model": "MS-98L9 (ATX)",
     "arch": "amd64",
-    "folder": "asrock-4x4-7735u"
+    "folder": "msi-ms98l9"
   },
   {
-    "supplier": "ASRock Industrial",
-    "model": "IMB-ADLN (mITX)",
+    "supplier": "MSI IPC",
+    "model": "MS-98M3 (3.5\")",
     "arch": "amd64",
-    "folder": "asrock-imb-adln"
+    "folder": "msi-ms98m3"
   },
   {
-    "supplier": "ASRock Industrial",
-    "model": "iBOX-1265UE",
-    "arch": "amd64",
-    "folder": "asrock-ibox-1265ue"
+    "supplier": "Toradex",
+    "model": "Apalis i.MX8",
+    "arch": "arm64",
+    "folder": "toradex-apalis-imx8"
   },
   {
-    "supplier": "ASRock Industrial",
-    "model": "NUC BOX-1340P",
-    "arch": "amd64",
-    "folder": "asrock-nucbox-1340p"
+    "supplier": "Toradex",
+    "model": "Colibri iMX6ULL",
+    "arch": "armhf",
+    "folder": "toradex-colibri-imx6ull"
   },
   {
-    "supplier": "DFI",
-    "model": "GHF51 (1.8\" Femto-ITX)",
-    "arch": "amd64",
-    "folder": "dfi-ghf51"
+    "supplier": "Toradex",
+    "model": "Verdin i.MX8M Plus",
+    "arch": "arm64",
+    "folder": "toradex-verdin-imx8mp"
   },
   {
-    "supplier": "DFI",
-    "model": "EHL171 (mITX)",
-    "arch": "amd64",
-    "folder": "dfi-ehl171"
-  },
-  {
-    "supplier": "DFI",
-    "model": "EHL173 (mITX)",
-    "arch": "amd64",
-    "folder": "dfi-ehl173"
-  },
-  {
-    "supplier": "iBASE",
-    "model": "IB836 (3.5\")",
-    "arch": "amd64",
-    "folder": "ibase-ib836"
-  },
-  {
-    "supplier": "iBASE",
-    "model": "ET977 (COMe Type 6)",
-    "arch": "amd64",
-    "folder": "ibase-et977"
-  },
-  {
-    "supplier": "iBASE",
-    "model": "MI989 (mITX)",
-    "arch": "amd64",
-    "folder": "ibase-mi989"
-  },
-  {
-    "supplier": "Tria",
-    "model": "SM2S-EL (SMARC)",
-    "arch": "amd64",
-    "folder": "avnet-msc-sm2s-el"
+    "supplier": "Toradex",
+    "model": "Verdin i.MX95 EVK",
+    "arch": "arm64",
+    "folder": "toradex-verdin-imx95"
   },
   {
     "supplier": "Tria",
@@ -282,21 +288,15 @@
     "folder": "avnet-msc-q7-el"
   },
   {
-    "supplier": "Toradex",
-    "model": "Verdin i.MX8M Plus",
-    "arch": "arm64",
-    "folder": "toradex-verdin-imx8mp"
+    "supplier": "Tria",
+    "model": "SM2S-EL (SMARC)",
+    "arch": "amd64",
+    "folder": "avnet-msc-sm2s-el"
   },
   {
-    "supplier": "Toradex",
-    "model": "Apalis i.MX8",
+    "supplier": "Tria",
+    "model": "SM2S-IMX95 + SMARC base",
     "arch": "arm64",
-    "folder": "toradex-apalis-imx8"
-  },
-  {
-    "supplier": "Toradex",
-    "model": "Colibri iMX6ULL",
-    "arch": "armhf",
-    "folder": "toradex-colibri-imx6ull"
+    "folder": "avnet-msc-sm2s-imx95"
   }
 ]
