@@ -1,0 +1,27 @@
+# Tinker Board S R2.0
+
+- **Supplier:** ASUS IoT
+- **Arch:** armhf
+- **Processor:** Rockchip RK3288
+- **AI acceleration:** —
+- **Snap install:** `sudo snap install iotconnect`
+- **Setup:** `iotconnect.setup`
+
+## Official links
+- Product page: https://tinker-board.asus.com/series/tinker-board-s-r2.html
+
+### OS images & docs
+- Manuals: https://www.asus.com/us/supportonly/tinker%20board%20s%20r2.0/helpdesk_manual/
+
+## Buy
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Tinker%20Board%20S%20R2.0
+- Buy on Newark: https://www.newark.com/search?st=Tinker%20Board%20S%20R2.0
+
+## Known quirks
+- Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
+- If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
+
+## Quick test
+```bash
+python3 ../../examples/00-hello-telemetry/hello_telemetry.py
+```
