@@ -283,152 +283,152 @@
     "supplier": "INTEL",
     "model": "BX80684E2124G S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-bx80684e2124g-s"
   },
   {
     "supplier": "INTEL",
     "model": "BX80684E2134 S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-bx80684e2134-s"
   },
   {
     "supplier": "INTEL",
     "model": "BX80684E2136 S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-bx80684e2136-s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8067303535700S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8067303535700s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8067303536100S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8067303536100s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8067303567703S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8067303567703s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8067303645300S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8067303645300s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8067303645400S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8067303645400s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8068904655303S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8068904655303s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8068904656703S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8068904656703s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8068904657901S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8068904657901s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069503956302S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069503956302s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069503956900S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069503956900s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504212701S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504212701s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504283204S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504283204s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504283704S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504283704s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504444900S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504444900s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504448800S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504448800s"
   },
   {
     "supplier": "INTEL",
     "model": "CD8069504449200S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-cd8069504449200s"
   },
   {
@@ -451,8 +451,8 @@
     "supplier": "INTEL",
     "model": "PK8071305120102S",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "intel-pk8071305120102s"
   },
   {
@@ -995,16 +995,16 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-H11SSL-I-B",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "AMD EPYC",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-h11ssl-i-b"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-H12SSW-NTL-O",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "AMD EPYC",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-h12ssw-ntl-o"
   },
   {
@@ -1419,8 +1419,8 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-521AD-TN2",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Intel Xeon",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-521ad-tn2"
   },
   {

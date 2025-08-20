@@ -49,28 +49,28 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | INTEL | BKNUC8I3PNB | amd64 | TBD | TBD | [boards/intel-bknuc8i3pnb](boards/intel-bknuc8i3pnb/) |
 | INTEL | BNUC11TNKI3000099A8A2 | amd64 | TBD | TBD | [boards/intel-bnuc11tnki3000099a8a2](boards/intel-bnuc11tnki3000099a8a2/) |
 | INTEL | BNUC11TNKI3000199A8A3 | amd64 | TBD | TBD | [boards/intel-bnuc11tnki3000199a8a3](boards/intel-bnuc11tnki3000199a8a3/) |
-| INTEL | BX80684E2124G S | amd64 | TBD | TBD | [boards/intel-bx80684e2124g-s](boards/intel-bx80684e2124g-s/) |
-| INTEL | BX80684E2134 S | amd64 | TBD | TBD | [boards/intel-bx80684e2134-s](boards/intel-bx80684e2134-s/) |
-| INTEL | BX80684E2136 S | amd64 | TBD | TBD | [boards/intel-bx80684e2136-s](boards/intel-bx80684e2136-s/) |
-| INTEL | CD8067303535700S | amd64 | TBD | TBD | [boards/intel-cd8067303535700s](boards/intel-cd8067303535700s/) |
-| INTEL | CD8067303536100S | amd64 | TBD | TBD | [boards/intel-cd8067303536100s](boards/intel-cd8067303536100s/) |
-| INTEL | CD8067303567703S | amd64 | TBD | TBD | [boards/intel-cd8067303567703s](boards/intel-cd8067303567703s/) |
-| INTEL | CD8067303645300S | amd64 | TBD | TBD | [boards/intel-cd8067303645300s](boards/intel-cd8067303645300s/) |
-| INTEL | CD8067303645400S | amd64 | TBD | TBD | [boards/intel-cd8067303645400s](boards/intel-cd8067303645400s/) |
-| INTEL | CD8068904655303S | amd64 | TBD | TBD | [boards/intel-cd8068904655303s](boards/intel-cd8068904655303s/) |
-| INTEL | CD8068904656703S | amd64 | TBD | TBD | [boards/intel-cd8068904656703s](boards/intel-cd8068904656703s/) |
-| INTEL | CD8068904657901S | amd64 | TBD | TBD | [boards/intel-cd8068904657901s](boards/intel-cd8068904657901s/) |
-| INTEL | CD8069503956302S | amd64 | TBD | TBD | [boards/intel-cd8069503956302s](boards/intel-cd8069503956302s/) |
-| INTEL | CD8069503956900S | amd64 | TBD | TBD | [boards/intel-cd8069503956900s](boards/intel-cd8069503956900s/) |
-| INTEL | CD8069504212701S | amd64 | TBD | TBD | [boards/intel-cd8069504212701s](boards/intel-cd8069504212701s/) |
-| INTEL | CD8069504283204S | amd64 | TBD | TBD | [boards/intel-cd8069504283204s](boards/intel-cd8069504283204s/) |
-| INTEL | CD8069504283704S | amd64 | TBD | TBD | [boards/intel-cd8069504283704s](boards/intel-cd8069504283704s/) |
-| INTEL | CD8069504444900S | amd64 | TBD | TBD | [boards/intel-cd8069504444900s](boards/intel-cd8069504444900s/) |
-| INTEL | CD8069504448800S | amd64 | TBD | TBD | [boards/intel-cd8069504448800s](boards/intel-cd8069504448800s/) |
-| INTEL | CD8069504449200S | amd64 | TBD | TBD | [boards/intel-cd8069504449200s](boards/intel-cd8069504449200s/) |
+| INTEL | BX80684E2124G S | amd64 | Intel Xeon | — | [boards/intel-bx80684e2124g-s](boards/intel-bx80684e2124g-s/) |
+| INTEL | BX80684E2134 S | amd64 | Intel Xeon | — | [boards/intel-bx80684e2134-s](boards/intel-bx80684e2134-s/) |
+| INTEL | BX80684E2136 S | amd64 | Intel Xeon | — | [boards/intel-bx80684e2136-s](boards/intel-bx80684e2136-s/) |
+| INTEL | CD8067303535700S | amd64 | Intel Xeon | — | [boards/intel-cd8067303535700s](boards/intel-cd8067303535700s/) |
+| INTEL | CD8067303536100S | amd64 | Intel Xeon | — | [boards/intel-cd8067303536100s](boards/intel-cd8067303536100s/) |
+| INTEL | CD8067303567703S | amd64 | Intel Xeon | — | [boards/intel-cd8067303567703s](boards/intel-cd8067303567703s/) |
+| INTEL | CD8067303645300S | amd64 | Intel Xeon | — | [boards/intel-cd8067303645300s](boards/intel-cd8067303645300s/) |
+| INTEL | CD8067303645400S | amd64 | Intel Xeon | — | [boards/intel-cd8067303645400s](boards/intel-cd8067303645400s/) |
+| INTEL | CD8068904655303S | amd64 | Intel Xeon | — | [boards/intel-cd8068904655303s](boards/intel-cd8068904655303s/) |
+| INTEL | CD8068904656703S | amd64 | Intel Xeon | — | [boards/intel-cd8068904656703s](boards/intel-cd8068904656703s/) |
+| INTEL | CD8068904657901S | amd64 | Intel Xeon | — | [boards/intel-cd8068904657901s](boards/intel-cd8068904657901s/) |
+| INTEL | CD8069503956302S | amd64 | Intel Xeon | — | [boards/intel-cd8069503956302s](boards/intel-cd8069503956302s/) |
+| INTEL | CD8069503956900S | amd64 | Intel Xeon | — | [boards/intel-cd8069503956900s](boards/intel-cd8069503956900s/) |
+| INTEL | CD8069504212701S | amd64 | Intel Xeon | — | [boards/intel-cd8069504212701s](boards/intel-cd8069504212701s/) |
+| INTEL | CD8069504283204S | amd64 | Intel Xeon | — | [boards/intel-cd8069504283204s](boards/intel-cd8069504283204s/) |
+| INTEL | CD8069504283704S | amd64 | Intel Xeon | — | [boards/intel-cd8069504283704s](boards/intel-cd8069504283704s/) |
+| INTEL | CD8069504444900S | amd64 | Intel Xeon | — | [boards/intel-cd8069504444900s](boards/intel-cd8069504444900s/) |
+| INTEL | CD8069504448800S | amd64 | Intel Xeon | — | [boards/intel-cd8069504448800s](boards/intel-cd8069504448800s/) |
+| INTEL | CD8069504449200S | amd64 | Intel Xeon | — | [boards/intel-cd8069504449200s](boards/intel-cd8069504449200s/) |
 | INTEL | E810CQDA2 | amd64 | TBD | TBD | [boards/intel-e810cqda2](boards/intel-e810cqda2/) |
 | INTEL | I350T4V2 | amd64 | TBD | TBD | [boards/intel-i350t4v2](boards/intel-i350t4v2/) |
-| INTEL | PK8071305120102S | amd64 | TBD | TBD | [boards/intel-pk8071305120102s](boards/intel-pk8071305120102s/) |
+| INTEL | PK8071305120102S | amd64 | Intel Xeon | — | [boards/intel-pk8071305120102s](boards/intel-pk8071305120102s/) |
 | INTEL | RS3DC080 | amd64 | TBD | TBD | [boards/intel-rs3dc080](boards/intel-rs3dc080/) |
 | Kontron | 38034-0000-27-7US1 | amd64 | TBD | TBD | [boards/kontron-38034-0000-27-7us1](boards/kontron-38034-0000-27-7us1/) |
 | Kontron | 68010-0000-51-3MC1 | amd64 | TBD | TBD | [boards/kontron-68010-0000-51-3mc1](boards/kontron-68010-0000-51-3mc1/) |
@@ -138,8 +138,8 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | Super Micro Computer  Inc. | E100-9W-H-OTO | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-e100-9w-h-oto](boards/super-micro-computer-inc.-e100-9w-h-oto/) |
 | Super Micro Computer  Inc. | E200-8D-OTO | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-e200-8d-oto](boards/super-micro-computer-inc.-e200-8d-oto/) |
 | Super Micro Computer  Inc. | F629P3-RTB-OTO | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-f629p3-rtb-oto](boards/super-micro-computer-inc.-f629p3-rtb-oto/) |
-| Super Micro Computer  Inc. | MBD-H11SSL-I-B | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-mbd-h11ssl-i-b](boards/super-micro-computer-inc.-mbd-h11ssl-i-b/) |
-| Super Micro Computer  Inc. | MBD-H12SSW-NTL-O | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-mbd-h12ssw-ntl-o](boards/super-micro-computer-inc.-mbd-h12ssw-ntl-o/) |
+| Super Micro Computer  Inc. | MBD-H11SSL-I-B | amd64 | AMD EPYC | — | [boards/super-micro-computer-inc.-mbd-h11ssl-i-b](boards/super-micro-computer-inc.-mbd-h11ssl-i-b/) |
+| Super Micro Computer  Inc. | MBD-H12SSW-NTL-O | amd64 | AMD EPYC | — | [boards/super-micro-computer-inc.-mbd-h12ssw-ntl-o](boards/super-micro-computer-inc.-mbd-h12ssw-ntl-o/) |
 | Super Micro Computer  Inc. | MBD-X11DDW-NT-B | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-mbd-x11ddw-nt-b](boards/super-micro-computer-inc.-mbd-x11ddw-nt-b/) |
 | Super Micro Computer  Inc. | MBD-X11SCH-LN4F-B | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-mbd-x11sch-ln4f-b](boards/super-micro-computer-inc.-mbd-x11sch-ln4f-b/) |
 | Super Micro Computer  Inc. | MBD-X11SCW-F | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-mbd-x11scw-f](boards/super-micro-computer-inc.-mbd-x11scw-f/) |
@@ -191,7 +191,7 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | Super Micro Computer  Inc. | SYS-2029BT-HNT-ASD-PI021 | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-sys-2029bt-hnt-asd-pi021](boards/super-micro-computer-inc.-sys-2029bt-hnt-asd-pi021/) |
 | Super Micro Computer  Inc. | SYS-2029BT-HNTASD1-PI021 | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-sys-2029bt-hntasd1-pi021](boards/super-micro-computer-inc.-sys-2029bt-hntasd1-pi021/) |
 | Super Micro Computer  Inc. | SYS-2029BT-HNTASD3-PI021 | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-sys-2029bt-hntasd3-pi021](boards/super-micro-computer-inc.-sys-2029bt-hntasd3-pi021/) |
-| Super Micro Computer  Inc. | SYS-521AD-TN2 | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-sys-521ad-tn2](boards/super-micro-computer-inc.-sys-521ad-tn2/) |
+| Super Micro Computer  Inc. | SYS-521AD-TN2 | amd64 | Intel Xeon | — | [boards/super-micro-computer-inc.-sys-521ad-tn2](boards/super-micro-computer-inc.-sys-521ad-tn2/) |
 | Super Micro Computer  Inc. | SYS-E300-8D | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-sys-e300-8d](boards/super-micro-computer-inc.-sys-e300-8d/) |
 | Super Micro Computer  Inc. | X11DPH-T, CSE-836BTS-R1K23BP | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp](boards/super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp/) |
 | Xilinx | A-U55C-P00G-PQ-G |  | TBD | TBD | [boards/xilinx-a-u55c-p00g-pq-g](boards/xilinx-a-u55c-p00g-pq-g/) |
