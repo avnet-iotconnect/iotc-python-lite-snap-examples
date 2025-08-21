@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon E5 v4 (Broadwell‑EP) era
 - **AI acceleration:** —
 - **Form factor:** 1U rack server
 - **OS support:** Windows / Linux

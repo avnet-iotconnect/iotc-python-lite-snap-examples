@@ -2,8 +2,8 @@
 
 - **Supplier:** AMPERE COMPUTING LLC
 - **Arch:** arm64
-- **Processor:** TBD
-- **AI acceleration:** TBD
+- **Processor:** Ampere Altra / Altra Max
+- **AI acceleration:** —
 - **Form factor:** CPU (server processor) – details TBD
 - **OS support:** Linux (AArch64), *varies by platform*
 - **Description:** Ampere Computing part code; likely an Altra/Max CPU kit used by OEMs.

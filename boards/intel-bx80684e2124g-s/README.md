@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel Xeon
+- **Processor:** Intel® Xeon® E‑2124G (4C/8T, 3.4 GHz)
 - **AI acceleration:** —
 - **Form factor:** CPU (boxed)
 - **OS support:** OS‑dependent

@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon D‑1500 series
 - **AI acceleration:** —
 - **Form factor:** Short‑depth mini‑server
 - **OS support:** Windows / Linux

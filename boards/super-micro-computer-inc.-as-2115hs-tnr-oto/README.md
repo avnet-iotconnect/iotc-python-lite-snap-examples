@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** AMD EPYC 7003/7004 (HS series, dual‑socket)
 - **AI acceleration:** —
 - **Form factor:** 2U rack server (assembled system)
 - **OS support:** Windows Server / Linux

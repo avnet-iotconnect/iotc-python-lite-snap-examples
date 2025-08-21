@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Dual Intel Xeon Scalable (LGA3647); 10GbE (NT)
 - **AI acceleration:** —
 - **Form factor:** SSI‑EEB dual‑socket motherboard
 - **OS support:** Windows / Linux

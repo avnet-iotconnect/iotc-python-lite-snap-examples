@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** AMD EPYC (single‑socket)
 - **AI acceleration:** —
 - **Form factor:** 2U rack server (24× NVMe)
 - **OS support:** Windows / Linux

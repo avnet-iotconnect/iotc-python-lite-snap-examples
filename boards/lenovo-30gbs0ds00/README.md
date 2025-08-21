@@ -3,7 +3,7 @@
 - **Supplier:** LENOVO
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** Desktop / Tiny / SFF (ThinkCentre/ThinkStation)
 - **OS support:** Windows 10/11 (some Linux support)
 - **Description:** Lenovo desktop/Tiny model SKU; configuration varies.

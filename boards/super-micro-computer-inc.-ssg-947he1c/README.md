@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** x86 (Intel Xeon Scalable)
 - **AI acceleration:** —
 - **Form factor:** 4U high‑density storage server (SSG‑947)
 - **OS support:** Windows Server / Linux

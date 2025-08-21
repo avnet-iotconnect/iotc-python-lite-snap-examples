@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** Intel Xeon
+- **Processor:** Intel Xeon Scalable (Sapphire/Emerald Rapids)
 - **AI acceleration:** —
 - **Form factor:** 1U rack server (Intel 4th/5th Gen Xeon)
 - **OS support:** Windows / Linux

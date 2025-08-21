@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** x86 (Intel Xeon Scalable, 2‑node)
 - **AI acceleration:** —
 - **Form factor:** 2U BigTwin node (integration order)
 - **OS support:** Windows / Linux

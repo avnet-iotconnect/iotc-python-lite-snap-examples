@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Gold 6238 (Cascade Lake, 22C)
 - **AI acceleration:** —
 - **Form factor:** CPU kit
 - **OS support:** OS‑dependent

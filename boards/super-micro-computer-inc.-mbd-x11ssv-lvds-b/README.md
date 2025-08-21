@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** mini‑ITX embedded motherboard
 - **OS support:** Windows / Linux
 - **Description:** Industrial mITX with LVDS and rich I/O.

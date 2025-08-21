@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Dual Intel Xeon Scalable (LGA3647)
 - **AI acceleration:** —
 - **Form factor:** Motherboard + 3U chassis bundle
 - **OS support:** Windows / Linux

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** 4U GPU/compute server (integration code)
 - **OS support:** Windows / Linux
 - **Description:** Factory build variant for F629P3 platform.

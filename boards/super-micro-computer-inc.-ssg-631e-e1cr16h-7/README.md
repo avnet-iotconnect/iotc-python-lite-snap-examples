@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** 3U storage server (16× 3.5")
 - **OS support:** Windows / Linux
 - **Description:** SSG‑631E with expander backplane; high‑capacity storage.

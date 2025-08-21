@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel Xeon
+- **Processor:** Intel® Xeon® (Broadwell/Skylake era)
 - **AI acceleration:** —
 - **Form factor:** CPU (Xeon)
 - **OS support:** OS‑dependent

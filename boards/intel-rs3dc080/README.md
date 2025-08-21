@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** PCIe RAID Controller
 - **OS support:** Windows / Linux
 - **Description:** Hardware RAID (0/1/5/6/10/50/60).

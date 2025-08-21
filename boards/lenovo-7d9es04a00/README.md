@@ -2,7 +2,7 @@
 
 - **Supplier:** LENOVO
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** x86 (Intel Xeon/AMD EPYC, varies)
 - **AI acceleration:** —
 - **Form factor:** Rack/Tower Server (ThinkSystem/ThinkAgile)
 - **OS support:** Windows Server / Linux (RHEL/Ubuntu/SLES)

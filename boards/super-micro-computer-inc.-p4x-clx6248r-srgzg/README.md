@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Gold 6248R (Cascade Lake, 24C/48T)
 - **AI acceleration:** —
 - **Form factor:** CPU kit for servers
 - **OS support:** OS‑dependent (x86‑64 CPU)

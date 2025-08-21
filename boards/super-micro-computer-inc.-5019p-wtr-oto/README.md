@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon E3/E‑2100 series (X11 generation)
 - **AI acceleration:** —
 - **Form factor:** 1U rack server
 - **OS support:** Windows / Linux

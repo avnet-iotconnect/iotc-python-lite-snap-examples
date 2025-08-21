@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Gold 6226 (Cascade Lake, 12C/24T)
 - **AI acceleration:** —
 - **Form factor:** CPU kit for servers
 - **OS support:** OS‑dependent (x86‑64 CPU)

@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon E‑2300 (LGA1200); C256 chipset
 - **AI acceleration:** —
 - **Form factor:** ATX server motherboard
 - **OS support:** Windows / Linux

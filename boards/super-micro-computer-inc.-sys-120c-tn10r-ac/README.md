@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Scalable (Ice Lake/3rd Gen)
 - **AI acceleration:** —
 - **Form factor:** 1U rack server (AC power)
 - **OS support:** Windows / Linux

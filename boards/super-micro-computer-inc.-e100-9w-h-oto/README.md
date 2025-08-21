@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Atom C3000 / Xeon D (platform variant)
 - **AI acceleration:** —
 - **Form factor:** Embedded mini‑server
 - **OS support:** Windows / Linux

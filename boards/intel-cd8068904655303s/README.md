@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel Xeon
+- **Processor:** Intel® Xeon® Scalable
 - **AI acceleration:** —
 - **Form factor:** CPU (Xeon Scalable)
 - **OS support:** OS‑dependent

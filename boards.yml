@@ -20,14 +20,14 @@
     "model": "AIMB275G22306-T",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "advantech-aimb275g22306-t"
   },
   {
     "supplier": "Advantech",
     "model": "C-OLY01-USM5002",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Core\u2122 (8th\u201313th Gen) / Xeon\u00ae (varies by config)",
     "ai": "\u2014",
     "folder": "advantech-c-oly01-usm5002"
   },
@@ -35,7 +35,7 @@
     "supplier": "Advantech",
     "model": "C-OLY01-USM5003",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Core\u2122 (8th\u201313th Gen) / Xeon\u00ae (varies by config)",
     "ai": "\u2014",
     "folder": "advantech-c-oly01-usm5003"
   },
@@ -52,7 +52,7 @@
     "model": "HIT-BX2SN-CPH1E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "advantech-hit-bx2sn-cph1e"
   },
   {
@@ -60,7 +60,7 @@
     "model": "HIT-BX2SN-CPH2E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "advantech-hit-bx2sn-cph2e"
   },
   {
@@ -83,7 +83,7 @@
     "supplier": "Advantech",
     "model": "SKY",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable (Ice Lake, 3rd Gen)",
     "ai": "\u2014",
     "folder": "advantech-sky"
   },
@@ -92,22 +92,22 @@
     "model": "SOM-9461ES0C-MA2E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "advantech-som-9461es0c-ma2e"
   },
   {
     "supplier": "Advantech",
     "model": "SOM-C350C5R-U9A1",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "\u2014",
+    "processor": "12th/13th Gen Intel\u00ae Core\u2122 (Alder/Raptor Lake\u2011S, LGA1700) with Intel\u00ae R680E PCH; up to 16C/24T; DDR5",
+    "ai": "Intel Iris Xe (integrated)",
     "folder": "advantech-som-c350c5r-u9a1"
   },
   {
     "supplier": "Advantech",
     "model": "UNO137E13BA2103-T",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Atom (Apollo Lake)",
     "ai": "\u2014",
     "folder": "advantech-uno137e13ba2103-t"
   },
@@ -115,7 +115,7 @@
     "supplier": "Advantech",
     "model": "USM5002311-CT",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Core\u2122 (8th\u201313th Gen) or Xeon\u00ae",
     "ai": "\u2014",
     "folder": "advantech-usm5002311-ct"
   },
@@ -123,7 +123,7 @@
     "supplier": "Advantech",
     "model": "USM5002432-CT",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Core\u2122 (8th\u201313th Gen) or Xeon\u00ae (config\u2011dependent)",
     "ai": "\u2014",
     "folder": "advantech-usm5002432-ct"
   },
@@ -131,8 +131,8 @@
     "supplier": "AMPERE COMPUTING LLC",
     "model": "AC",
     "arch": "arm64",
-    "processor": "TBD",
-    "ai": "TBD",
+    "processor": "Ampere Altra / Altra Max",
+    "ai": "\u2014",
     "folder": "ampere-computing-llc-ac"
   },
   {
@@ -164,7 +164,7 @@
     "model": "PB63-BB5000XTL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "asus-computer-pb63-bb5000xtl"
   },
   {
@@ -172,7 +172,7 @@
     "model": "PB63-BB500X0TL-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "asus-computer-pb63-bb500x0tl-o"
   },
   {
@@ -180,7 +180,7 @@
     "model": "PB63-BBC000XTL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "asus-computer-pb63-bbc000xtl"
   },
   {
@@ -188,7 +188,7 @@
     "model": "PB63-BBC00X0TL-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "asus-computer-pb63-bbc00x0tl-o"
   },
   {
@@ -203,7 +203,7 @@
     "supplier": "Hewlett Packard",
     "model": "871681-B21",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Xeon\u00ae Silver 4110, 8\u2011core, 2.10\u202fGHz; LGA3647",
     "ai": "\u2014",
     "folder": "hewlett-packard-871681-b21"
   },
@@ -211,7 +211,7 @@
     "supplier": "Hewlett Packard",
     "model": "P67824-B21",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel\u00ae Xeon\u00ae Silver 4510, 12\u2011core, 2.4\u202fGHz (Intel 7), 150\u202fW; FCLGA4677",
     "ai": "\u2014",
     "folder": "hewlett-packard-p67824-b21"
   },
@@ -220,7 +220,7 @@
     "model": "R3T52B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "hewlett-packard-r3t52b"
   },
   {
@@ -228,7 +228,7 @@
     "model": "999NAF",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-999naf"
   },
   {
@@ -236,7 +236,7 @@
     "model": "99A5FC",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-99a5fc"
   },
   {
@@ -244,7 +244,7 @@
     "model": "99A5FC-REV1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-99a5fc-rev1"
   },
   {
@@ -252,7 +252,7 @@
     "model": "99C6RZ",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-99c6rz"
   },
   {
@@ -260,15 +260,15 @@
     "model": "BKNUC8I3PNB",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-bknuc8i3pnb"
   },
   {
     "supplier": "INTEL",
     "model": "BNUC11TNKI3000099A8A2",
     "arch": "amd64",
-    "processor": "TBD",
-    "ai": "\u2014",
+    "processor": "Intel\u00ae Core\u2122 i3 (11th Gen, Tiger Lake)",
+    "ai": "Intel Iris Xe (integrated)",
     "folder": "intel-bnuc11tnki3000099a8a2"
   },
   {
@@ -276,14 +276,14 @@
     "model": "BNUC11TNKI3000199A8A3",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-bnuc11tnki3000199a8a3"
   },
   {
     "supplier": "INTEL",
     "model": "BX80684E2124G S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae E\u20112124G (4C/8T, 3.4\u202fGHz)",
     "ai": "\u2014",
     "folder": "intel-bx80684e2124g-s"
   },
@@ -291,7 +291,7 @@
     "supplier": "INTEL",
     "model": "BX80684E2134 S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae E\u20112134 (4C/8T, 3.5\u202fGHz)",
     "ai": "\u2014",
     "folder": "intel-bx80684e2134-s"
   },
@@ -299,7 +299,7 @@
     "supplier": "INTEL",
     "model": "BX80684E2136 S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae E\u20112136 (6C/12T, 3.3\u202fGHz)",
     "ai": "\u2014",
     "folder": "intel-bx80684e2136-s"
   },
@@ -307,7 +307,7 @@
     "supplier": "INTEL",
     "model": "CD8067303535700S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae (Broadwell/Skylake era)",
     "ai": "\u2014",
     "folder": "intel-cd8067303535700s"
   },
@@ -315,7 +315,7 @@
     "supplier": "INTEL",
     "model": "CD8067303536100S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae",
     "ai": "\u2014",
     "folder": "intel-cd8067303536100s"
   },
@@ -323,7 +323,7 @@
     "supplier": "INTEL",
     "model": "CD8067303567703S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae",
     "ai": "\u2014",
     "folder": "intel-cd8067303567703s"
   },
@@ -331,7 +331,7 @@
     "supplier": "INTEL",
     "model": "CD8067303645300S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae",
     "ai": "\u2014",
     "folder": "intel-cd8067303645300s"
   },
@@ -339,7 +339,7 @@
     "supplier": "INTEL",
     "model": "CD8067303645400S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae",
     "ai": "\u2014",
     "folder": "intel-cd8067303645400s"
   },
@@ -347,7 +347,7 @@
     "supplier": "INTEL",
     "model": "CD8068904655303S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8068904655303s"
   },
@@ -355,7 +355,7 @@
     "supplier": "INTEL",
     "model": "CD8068904656703S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8068904656703s"
   },
@@ -363,7 +363,7 @@
     "supplier": "INTEL",
     "model": "CD8068904657901S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8068904657901s"
   },
@@ -371,7 +371,7 @@
     "supplier": "INTEL",
     "model": "CD8069503956302S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069503956302s"
   },
@@ -379,7 +379,7 @@
     "supplier": "INTEL",
     "model": "CD8069503956900S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069503956900s"
   },
@@ -387,7 +387,7 @@
     "supplier": "INTEL",
     "model": "CD8069504212701S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069504212701s"
   },
@@ -395,7 +395,7 @@
     "supplier": "INTEL",
     "model": "CD8069504283204S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069504283204s"
   },
@@ -403,7 +403,7 @@
     "supplier": "INTEL",
     "model": "CD8069504283704S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069504283704s"
   },
@@ -411,7 +411,7 @@
     "supplier": "INTEL",
     "model": "CD8069504444900S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069504444900s"
   },
@@ -419,7 +419,7 @@
     "supplier": "INTEL",
     "model": "CD8069504448800S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable (Cascade/Cooper Lake family)",
     "ai": "\u2014",
     "folder": "intel-cd8069504448800s"
   },
@@ -427,7 +427,7 @@
     "supplier": "INTEL",
     "model": "CD8069504449200S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae Scalable",
     "ai": "\u2014",
     "folder": "intel-cd8069504449200s"
   },
@@ -436,7 +436,7 @@
     "model": "E810CQDA2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-e810cqda2"
   },
   {
@@ -444,14 +444,14 @@
     "model": "I350T4V2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-i350t4v2"
   },
   {
     "supplier": "INTEL",
     "model": "PK8071305120102S",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel\u00ae Xeon\u00ae",
     "ai": "\u2014",
     "folder": "intel-pk8071305120102s"
   },
@@ -460,7 +460,7 @@
     "model": "RS3DC080",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "intel-rs3dc080"
   },
   {
@@ -468,7 +468,7 @@
     "model": "38034-0000-27-7US1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "kontron-38034-0000-27-7us1"
   },
   {
@@ -476,7 +476,7 @@
     "model": "68010-0000-51-3MC1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "kontron-68010-0000-51-3mc1"
   },
   {
@@ -484,7 +484,7 @@
     "model": "11AMS0FX00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-11ams0fx00"
   },
   {
@@ -492,7 +492,7 @@
     "model": "11USS0B700",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-11uss0b700"
   },
   {
@@ -500,7 +500,7 @@
     "model": "11V1S04H00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-11v1s04h00"
   },
   {
@@ -508,7 +508,7 @@
     "model": "21L2S0M600",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-21l2s0m600"
   },
   {
@@ -516,7 +516,7 @@
     "model": "21M4S61400",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-21m4s61400"
   },
   {
@@ -524,7 +524,7 @@
     "model": "21MX0006US",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-21mx0006us"
   },
   {
@@ -532,7 +532,7 @@
     "model": "21MXA00UUS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-21mxa00uus"
   },
   {
@@ -540,7 +540,7 @@
     "model": "30BQS08Q00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30bqs08q00"
   },
   {
@@ -548,7 +548,7 @@
     "model": "30BQS0E300",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30bqs0e300"
   },
   {
@@ -556,7 +556,7 @@
     "model": "30BQS0ET00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30bqs0et00"
   },
   {
@@ -564,7 +564,7 @@
     "model": "30F8S08B00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30f8s08b00"
   },
   {
@@ -572,7 +572,7 @@
     "model": "30F8S0NY00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30f8s0ny00"
   },
   {
@@ -580,7 +580,7 @@
     "model": "30G0S0QB00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30g0s0qb00"
   },
   {
@@ -588,7 +588,7 @@
     "model": "30G9S8KV00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30g9s8kv00"
   },
   {
@@ -596,14 +596,14 @@
     "model": "30GBS0DS00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "lenovo-30gbs0ds00"
   },
   {
     "supplier": "LENOVO",
     "model": "7D4FS1Q900",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d4fs1q900"
   },
@@ -611,7 +611,7 @@
     "supplier": "LENOVO",
     "model": "7D73SDG500",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73sdg500"
   },
@@ -619,7 +619,7 @@
     "supplier": "LENOVO",
     "model": "7D73SHDX00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73shdx00"
   },
@@ -627,7 +627,7 @@
     "supplier": "LENOVO",
     "model": "7D73SV3J00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73sv3j00"
   },
@@ -635,7 +635,7 @@
     "supplier": "LENOVO",
     "model": "7D73TDP800",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73tdp800"
   },
@@ -643,7 +643,7 @@
     "supplier": "LENOVO",
     "model": "7D73TDP900",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73tdp900"
   },
@@ -651,7 +651,7 @@
     "supplier": "LENOVO",
     "model": "7D73TDPA00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d73tdpa00"
   },
@@ -659,7 +659,7 @@
     "supplier": "LENOVO",
     "model": "7D76S73L00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d76s73l00"
   },
@@ -667,7 +667,7 @@
     "supplier": "LENOVO",
     "model": "7D76UMWR00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d76umwr00"
   },
@@ -675,7 +675,7 @@
     "supplier": "LENOVO",
     "model": "7D7AS2X700",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d7as2x700"
   },
@@ -683,7 +683,7 @@
     "supplier": "LENOVO",
     "model": "7D96S12R00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d96s12r00"
   },
@@ -691,7 +691,7 @@
     "supplier": "LENOVO",
     "model": "7D9ES04A00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d9es04a00"
   },
@@ -699,7 +699,7 @@
     "supplier": "LENOVO",
     "model": "7D9ES4LB00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d9es4lb00"
   },
@@ -707,7 +707,7 @@
     "supplier": "LENOVO",
     "model": "7D9ES4QJ00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7d9es4qj00"
   },
@@ -715,7 +715,7 @@
     "supplier": "LENOVO",
     "model": "7DE4S2PT00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7de4s2pt00"
   },
@@ -723,7 +723,7 @@
     "supplier": "LENOVO",
     "model": "7DE4S3M900",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7de4s3m900"
   },
@@ -731,7 +731,7 @@
     "supplier": "LENOVO",
     "model": "7DGDS09R00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7dgds09r00"
   },
@@ -739,7 +739,7 @@
     "supplier": "LENOVO",
     "model": "7Y63S1PK00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7y63s1pk00"
   },
@@ -747,7 +747,7 @@
     "supplier": "LENOVO",
     "model": "7Y74S5S800",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7y74s5s800"
   },
@@ -755,7 +755,7 @@
     "supplier": "LENOVO",
     "model": "7Y77S2YM00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7y77s2ym00"
   },
@@ -763,7 +763,7 @@
     "supplier": "LENOVO",
     "model": "7Z01S37T00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7z01s37t00"
   },
@@ -771,7 +771,7 @@
     "supplier": "LENOVO",
     "model": "7Z74S5AD00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7z74s5ad00"
   },
@@ -779,7 +779,7 @@
     "supplier": "LENOVO",
     "model": "7Z74S8NL00",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon/AMD EPYC, varies)",
     "ai": "\u2014",
     "folder": "lenovo-7z74s8nl00"
   },
@@ -787,7 +787,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "1029P-WTRT-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (Skylake/Cascade Lake)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-1029p-wtrt-oto"
   },
@@ -796,7 +796,7 @@
     "model": "111AD-HN2-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-111ad-hn2-oto"
   },
   {
@@ -804,14 +804,14 @@
     "model": "111TS-605WBP-AM047-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-111ts-605wbp-am047-oto"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "120C-TR-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-120c-tr-oto"
   },
@@ -819,7 +819,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "121C-TN2R-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-121c-tn2r-oto"
   },
@@ -828,14 +828,14 @@
     "model": "421GE-TNRT",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-421ge-tnrt"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "5019P-WTR-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon E3/E\u20112100 series (X11 generation)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-5019p-wtr-oto"
   },
@@ -843,7 +843,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "610C-TR-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-610c-tr-oto"
   },
@@ -851,7 +851,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "621C-TN12R-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-621c-tn12r-oto"
   },
@@ -908,7 +908,7 @@
     "model": "AOC-SGP-I4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-aoc-sgp-i4"
   },
   {
@@ -916,14 +916,14 @@
     "model": "AOC-STGF-I2S-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-aoc-stgf-i2s-o"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS -1014S-WTRT01",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC 7002 (Rome)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1014s-wtrt01"
   },
@@ -931,7 +931,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS-1114S-WN10T",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC (single\u2011socket)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1114s-wn10t"
   },
@@ -939,7 +939,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS-1115HS-TNR-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC (dual\u2011socket HS series)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1115hs-tnr-oto"
   },
@@ -947,7 +947,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS-1115S-FWTRT-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1115s-fwtrt-oto"
   },
@@ -955,7 +955,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS-2114S-WN24RT-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC (single\u2011socket)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-2114s-wn24rt-oto"
   },
@@ -963,7 +963,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "AS-2115HS-TNR-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "AMD EPYC 7003/7004 (HS series, dual\u2011socket)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-2115hs-tnr-oto"
   },
@@ -971,7 +971,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "E100-9W-H-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Atom C3000 / Xeon D (platform variant)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-e100-9w-h-oto"
   },
@@ -979,7 +979,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "E200-8D-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon D\u20111518/D\u20111528 (SoC)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-e200-8d-oto"
   },
@@ -988,14 +988,14 @@
     "model": "F629P3-RTB-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-f629p3-rtb-oto"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-H11SSL-I-B",
     "arch": "amd64",
-    "processor": "AMD EPYC",
+    "processor": "AMD EPYC 7001 (Naples, SP3)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-h11ssl-i-b"
   },
@@ -1003,7 +1003,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-H12SSW-NTL-O",
     "arch": "amd64",
-    "processor": "AMD EPYC",
+    "processor": "AMD EPYC 7002/7003 (SP3)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-h12ssw-ntl-o"
   },
@@ -1011,7 +1011,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X11DDW-NT-B",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Dual Intel Xeon Scalable (LGA3647); 10GbE (NT)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11ddw-nt-b"
   },
@@ -1019,7 +1019,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X11SCH-LN4F-B",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon E\u20112100/E\u20112200; C246 chipset; 4\u00d7 1GbE",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11sch-ln4f-b"
   },
@@ -1027,7 +1027,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X11SCW-F",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon E\u20112100/E\u20112200; C246",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11scw-f"
   },
@@ -1035,7 +1035,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X11SPA-T-B",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon W\u20113200 (LGA3647) + C621",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11spa-t-b"
   },
@@ -1043,7 +1043,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X11SPI-TF-O",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Dual Intel Xeon Scalable (LGA3647)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11spi-tf-o"
   },
@@ -1052,7 +1052,7 @@
     "model": "MBD-X11SSV-LVDS-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-lvds-b"
   },
   {
@@ -1060,7 +1060,7 @@
     "model": "MBD-X11SSV-Q-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-q-b"
   },
   {
@@ -1068,14 +1068,14 @@
     "model": "MBD-X11SSV-Q-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-q-o"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X12SCZ-TLN4F-O",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon W\u20111200 / 10th Gen Core; W480 chipset",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12scz-tln4f-o"
   },
@@ -1083,7 +1083,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X12SPL-F-O",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon W\u20111200 / 10th Gen Core; W480 chipset",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12spl-f-o"
   },
@@ -1091,7 +1091,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "MBD-X12STL-F-O",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon E\u20112300 (LGA1200); C256 chipset",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12stl-f-o"
   },
@@ -1100,7 +1100,7 @@
     "model": "MBD-X13SAE-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x13sae-f-o"
   },
   {
@@ -1108,7 +1108,7 @@
     "model": "MBD-X13SCH-F-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x13sch-f-b"
   },
   {
@@ -1116,14 +1116,14 @@
     "model": "MBD-X13SCL-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-mbd-x13scl-f-o"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "MC0014 - PIO-E100-12T-IA",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon D (E100 platform)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mc0014-pio-e100-12t-ia"
   },
@@ -1131,7 +1131,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX4209T-SRFBQ",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Silver 4209T (Cascade Lake)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4209t-srfbq"
   },
@@ -1139,7 +1139,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX4210-SRFBL",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Silver 4210 (Cascade Lake, 10C)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4210-srfbl"
   },
@@ -1147,7 +1147,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX4210T-SRGYH",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Silver 4210T (Cascade Lake)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4210t-srgyh"
   },
@@ -1155,7 +1155,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX4214R-SRG1W",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Silver 4214R (Cascade Lake, 12C)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4214r-srg1w"
   },
@@ -1163,7 +1163,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX5218T-SRFPM",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Gold 5218T (Cascade Lake, 16C)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx5218t-srfpm"
   },
@@ -1171,7 +1171,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX6226-SRFPP",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Gold 6226 (Cascade Lake, 12C/24T)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6226-srfpp"
   },
@@ -1179,7 +1179,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX6238-SRFPL",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Gold 6238 (Cascade Lake, 22C)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6238-srfpl"
   },
@@ -1187,7 +1187,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "P4X-CLX6248R-SRGZG",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Gold 6248R (Cascade Lake, 24C/48T)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6248r-srgzg"
   },
@@ -1196,7 +1196,7 @@
     "model": "PIO-119C-EYED",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-119c-eyed"
   },
   {
@@ -1204,7 +1204,7 @@
     "model": "PIO-119C-FES",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-119c-fes"
   },
   {
@@ -1212,7 +1212,7 @@
     "model": "PIO-119C-HRTS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-119c-hrts"
   },
   {
@@ -1220,7 +1220,7 @@
     "model": "PIO-119C-TCS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-119c-tcs"
   },
   {
@@ -1228,7 +1228,7 @@
     "model": "PIO-128R-FMS-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-128r-fms-4"
   },
   {
@@ -1236,7 +1236,7 @@
     "model": "PIO-128R-W-FES-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-128r-w-fes-4"
   },
   {
@@ -1244,14 +1244,14 @@
     "model": "PIO-128R-W-HRTS-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-pio-128r-w-hrts-4"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-229BT-ASD-NODE-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-asd-node-pi021"
   },
@@ -1259,7 +1259,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-229BT-HNTSR5-2-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-hntsr5-2-pi021"
   },
@@ -1267,7 +1267,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-229BT-SR5-NODE-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-sr5-node-pi021"
   },
@@ -1275,7 +1275,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-6029BT-H168-01-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon Scalable, 2\u2011node)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-6029bt-h168-01-pi021"
   },
@@ -1283,7 +1283,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-619P-WTR",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-619p-wtr"
   },
@@ -1291,7 +1291,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-E50-9AP",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Atom / Xeon D (E50 platform)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-e50-9ap"
   },
@@ -1299,7 +1299,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "PIO-F629P3-RTB-NODE-OTO",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-f629p3-rtb-node-oto"
   },
@@ -1308,14 +1308,14 @@
     "model": "SBE-820C-422-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-sbe-820c-422-oto"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "SSG-6039P-E1CR16H",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (X11 generation)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6039p-e1cr16h"
   },
@@ -1323,7 +1323,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SSG-6049SP",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon Scalable)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6049sp"
   },
@@ -1331,7 +1331,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SSG-6119P-ACR12N-1",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6119p-acr12n-1"
   },
@@ -1340,7 +1340,7 @@
     "model": "SSG-631E-E1CR16H-6",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-ssg-631e-e1cr16h-6"
   },
   {
@@ -1348,14 +1348,14 @@
     "model": "SSG-631E-E1CR16H-7",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "\u2014",
+    "ai": "TBD",
     "folder": "super-micro-computer-inc.-ssg-631e-e1cr16h-7"
   },
   {
     "supplier": "Super Micro Computer  Inc.",
     "model": "SSG-947HE1C",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "x86 (Intel Xeon Scalable)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-947he1c"
   },
@@ -1363,7 +1363,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-1028R-WC1R",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon E5 v4 (Broadwell\u2011EP) era",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-1028r-wc1r"
   },
@@ -1371,7 +1371,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-111AD-HN2",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (Whitley/Ice Lake)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-111ad-hn2"
   },
@@ -1379,7 +1379,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-120C-TN10R-AC",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (Ice Lake/3rd Gen)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-120c-tn10r-ac"
   },
@@ -1387,7 +1387,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-120C-TN10R-DC",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (Ice Lake/3rd Gen)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-120c-tn10r-dc"
   },
@@ -1395,7 +1395,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-2029BT-HNT-ASD-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable (Skylake/Cascade Lake)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hnt-asd-pi021"
   },
@@ -1403,7 +1403,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-2029BT-HNTASD1-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hntasd1-pi021"
   },
@@ -1411,7 +1411,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-2029BT-HNTASD3-PI021",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon Scalable",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hntasd3-pi021"
   },
@@ -1419,7 +1419,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-521AD-TN2",
     "arch": "amd64",
-    "processor": "Intel Xeon",
+    "processor": "Intel Xeon Scalable (Sapphire/Emerald Rapids)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-521ad-tn2"
   },
@@ -1427,7 +1427,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "SYS-E300-8D",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Intel Xeon D\u20111500 series",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-e300-8d"
   },
@@ -1435,7 +1435,7 @@
     "supplier": "Super Micro Computer  Inc.",
     "model": "X11DPH-T, CSE-836BTS-R1K23BP",
     "arch": "amd64",
-    "processor": "TBD",
+    "processor": "Dual Intel Xeon Scalable (LGA3647)",
     "ai": "\u2014",
     "folder": "super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp"
   },

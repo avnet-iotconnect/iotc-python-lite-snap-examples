@@ -2,7 +2,7 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel® Xeon® Scalable (Ice Lake, 3rd Gen)
 - **AI acceleration:** —
 - **Form factor:** 2U 4‑node rackmount server (SKY‑9232D3 base)
 - **OS support:** Not specified by Advantech

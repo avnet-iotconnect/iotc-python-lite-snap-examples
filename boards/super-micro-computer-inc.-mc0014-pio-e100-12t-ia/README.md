@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon D (E100 platform)
 - **AI acceleration:** —
 - **Form factor:** Short‑depth embedded server (integration)
 - **OS support:** Windows / Linux

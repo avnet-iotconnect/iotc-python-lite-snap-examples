@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Scalable
 - **AI acceleration:** —
 - **Form factor:** 2U BigTwin 4‑node server
 - **OS support:** Windows / Linux

@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel Xeon
+- **Processor:** Intel® Xeon® E‑2136 (6C/12T, 3.3 GHz)
 - **AI acceleration:** —
 - **Form factor:** CPU (boxed)
 - **OS support:** OS‑dependent

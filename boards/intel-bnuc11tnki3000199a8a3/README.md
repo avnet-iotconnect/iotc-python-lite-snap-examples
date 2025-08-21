@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** Mini PC (NUC 11)
 - **OS support:** Windows / Linux
 - **Description:** Intel NUC 11 Performance Kit, i3 model.

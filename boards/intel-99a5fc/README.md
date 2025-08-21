@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** CPU (OEM tray code)
 - **OS support:** OS‑dependent
 - **Description:** Intel OEM/engineering part code; model determined by S‑Spec/stepping.

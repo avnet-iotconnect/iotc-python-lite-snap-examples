@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon W‑1200 / 10th Gen Core; W480 chipset
 - **AI acceleration:** —
 - **Form factor:** ATX server/workstation motherboard
 - **OS support:** Windows / Linux

@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** AMD EPYC
+- **Processor:** AMD EPYC 7002/7003 (SP3)
 - **AI acceleration:** —
 - **Form factor:** SSI‑EEB server motherboard
 - **OS support:** Windows / Linux

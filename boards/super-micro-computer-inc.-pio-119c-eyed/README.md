@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** 1U server (integration code)
 - **OS support:** Windows / Linux
 - **Description:** Factory build EYED variant for 119C chassis.

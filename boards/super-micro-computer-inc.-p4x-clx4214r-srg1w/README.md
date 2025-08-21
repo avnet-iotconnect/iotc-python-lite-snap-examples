@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Silver 4214R (Cascade Lake, 12C)
 - **AI acceleration:** —
 - **Form factor:** CPU kit
 - **OS support:** OS‑dependent

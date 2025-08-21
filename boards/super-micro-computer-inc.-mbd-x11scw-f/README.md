@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon E‑2100/E‑2200; C246
 - **AI acceleration:** —
 - **Form factor:** micro‑ATX server motherboard
 - **OS support:** Windows / Linux

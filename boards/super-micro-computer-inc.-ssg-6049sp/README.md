@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** x86 (Intel Xeon Scalable)
 - **AI acceleration:** —
 - **Form factor:** 4U storage server (60‑bay / 90‑bay family)
 - **OS support:** Windows / Linux

@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon W‑3200 (LGA3647) + C621
 - **AI acceleration:** —
 - **Form factor:** ATX workstation motherboard
 - **OS support:** Windows / Linux

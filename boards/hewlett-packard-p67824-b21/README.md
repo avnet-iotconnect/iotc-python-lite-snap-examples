@@ -2,7 +2,7 @@
 
 - **Supplier:** Hewlett Packard
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel® Xeon® Silver 4510, 12‑core, 2.4 GHz (Intel 7), 150 W; FCLGA4677
 - **AI acceleration:** —
 - **Form factor:** CPU kit (for HPE servers)
 - **OS support:** OS‑dependent (x86‑64 CPU)

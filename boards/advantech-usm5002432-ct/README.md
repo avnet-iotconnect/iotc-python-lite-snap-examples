@@ -2,7 +2,7 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel® Core™ (8th–13th Gen) or Xeon® (config‑dependent)
 - **AI acceleration:** —
 - **Form factor:** Medical mini‑tower / standalone AI box PC (USM‑500 family)
 - **OS support:** Windows 10 or Linux (per Advantech)

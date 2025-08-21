@@ -2,7 +2,7 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Atom (Apollo Lake)
 - **AI acceleration:** —
 - **Form factor:** Compact DIN‑rail IoT controller
 - **OS support:** Windows 10 IoT Enterprise 2019 LTSC; AdvLinux (Ubuntu 20.04)

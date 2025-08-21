@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** 1U server (HRTS variant)
 - **OS support:** Windows / Linux
 - **Description:** Factory integration for 119C HRTS.

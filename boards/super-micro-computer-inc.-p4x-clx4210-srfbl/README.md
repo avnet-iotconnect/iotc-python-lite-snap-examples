@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Silver 4210 (Cascade Lake, 10C)
 - **AI acceleration:** —
 - **Form factor:** CPU kit
 - **OS support:** OS‑dependent

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** —
+- **AI acceleration:** TBD
 - **Form factor:** ATX workstation motherboard
 - **OS support:** Windows / Linux
 - **Description:** Workstation board with IPMI (‑F).

@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Scalable (X11 generation)
 - **AI acceleration:** —
 - **Form factor:** 3U storage server (16× 3.5")
 - **OS support:** Windows / Linux

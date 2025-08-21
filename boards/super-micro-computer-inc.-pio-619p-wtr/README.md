@@ -2,7 +2,7 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel Xeon Scalable
 - **AI acceleration:** —
 - **Form factor:** 2U rack server (integration)
 - **OS support:** Windows / Linux

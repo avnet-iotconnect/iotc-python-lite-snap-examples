@@ -2,7 +2,7 @@
 
 - **Supplier:** Hewlett Packard
 - **Arch:** amd64
-- **Processor:** TBD
+- **Processor:** Intel® Xeon® Silver 4110, 8‑core, 2.10 GHz; LGA3647
 - **AI acceleration:** —
 - **Form factor:** CPU kit (for HPE servers)
 - **OS support:** OS‑dependent (x86‑64 CPU)
