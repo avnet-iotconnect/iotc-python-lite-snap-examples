@@ -5,13 +5,12 @@
 - **Processor:** TBD
 - **AI acceleration:** TBD
 - **Form factor:** PE3000G
-- **OS support:** nan
 - **Description:** nan
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.asus.com/us/networking-iot-servers/aiot-industrial-solutions/embedded-computers-edge-ai-systems/pe3000g/
 
 ### OS images & docs
 - (none listed)

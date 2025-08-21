@@ -4,14 +4,13 @@
 - **Arch:** 
 - **Processor:** TBD
 - **AI acceleration:** TBD
-- **Form factor:** https://www.adlinktech.com/Products/Deep_Learning_Accelerator_Platform_and_Server/Inference_Platform/DLAP-211-JT2
-- **OS support:** nan
+- **Form factor:** https://www.adlinktech.com/Products/Deep_Learning_Accelerator_Platform_and_Server/Inference_Platform/DLAP-211-JT2 
 - **Description:** nan
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.adlinktech.com/products/deep_learning_accelerator_platform_and_server/inference_platform/dlap-211-jt2
 
 ### OS images & docs
 - (none listed)

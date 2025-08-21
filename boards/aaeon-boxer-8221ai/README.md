@@ -5,13 +5,12 @@
 - **Processor:** TBD
 - **AI acceleration:** TBD
 - **Form factor:** BOXER-8221AI
-- **OS support:** nan
 - **Description:** nan
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.aaeon.com/en/product/detail/nvidia-jetson-nano-embedded-box-pc-boxer-8221ai
 
 ### OS images & docs
 - (none listed)

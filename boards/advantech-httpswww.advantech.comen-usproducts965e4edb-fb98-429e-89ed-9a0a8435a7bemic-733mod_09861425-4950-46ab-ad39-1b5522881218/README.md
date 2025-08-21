@@ -5,13 +5,12 @@
 - **Processor:** TBD
 - **AI acceleration:** TBD
 - **Form factor:** https://www.advantech.com/en-us/products/965e4edb-fb98-429e-89ed-9a0a8435a7be/mic-733/mod_09861425-4950-46ab-ad39-1b5522881218
-- **OS support:** nan
 - **Description:** nan
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.advantech.com/en-us/products/9140b94e-bcfa-4aa4-8df2-1145026ad613/mic-733/mod_09861425-4950-46ab-ad39-1b5522881218
 
 ### OS images & docs
 - (none listed)

@@ -2,16 +2,15 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** Intel Atom (Apollo Lake)
-- **AI acceleration:** —
+- **Processor:** TBD
+- **AI acceleration:** TBD
 - **Form factor:** Compact DIN‑rail IoT controller
-- **OS support:** Windows 10 IoT Enterprise 2019 LTSC; AdvLinux (Ubuntu 20.04)
 - **Description:** UNO‑137 small‑size integrated DIN‑rail IPC with isolated DI/DO and dual DP.
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.advantech.com/en-us/products/gf-bvl2/uno-137/mod_8e73989f-0c2b-42a1-918d-741b8d983245
 
 ### OS images & docs
 - (none listed)

@@ -2,16 +2,15 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** Intel Xeon
-- **AI acceleration:** —
+- **Processor:** TBD
+- **AI acceleration:** TBD
 - **Form factor:** Medical mini‑tower / standalone AI box PC (USM‑500 family)
-- **OS support:** Windows 10 or Linux (per Advantech)
 - **Description:** USM‑500-series medical AI computer; NVIDIA‑certified, supports RTX A6000 and dual video capture cards.
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.advantech.com/en-us/products/a61f5423-4d9b-41db-aac4-2fc5f61d78fe/usm-500/mod_998946d1-edb0-435a-9a6a-b2fd98f78133
 
 ### OS images & docs
 - (none listed)

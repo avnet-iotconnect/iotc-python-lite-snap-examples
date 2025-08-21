@@ -5,13 +5,12 @@
 - **Processor:** Intel 13th Gen Core (Raptor Lake)
 - **AI acceleration:** Intel Iris Xe (integrated)
 - **Form factor:** COM‑HPC Client Size C module (160 × 120 mm)
-- **OS support:** Not specified (depends on BSP/carrier image)
 - **Description:** High‑performance COM‑HPC module; supports QFCS 2.0 active cooler.
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.advantech.com/en-us/products/f12b295d-220a-47b8-a41a-c2017d15a965/som-c350/mod_2e9b7201-7960-4f87-8bb0-ad53d8e9e574
 
 ### OS images & docs
 - (none listed)

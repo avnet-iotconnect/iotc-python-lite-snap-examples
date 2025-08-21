@@ -5,13 +5,12 @@
 - **Processor:** TBD
 - **AI acceleration:** TBD
 - **Form factor:** Computer‑on‑Module (Compact COM‑Express‑class SOM)
-- **OS support:** Windows (embedded) and Linux
 - **Description:** Low‑power SOM intended for embedded designs/carrier boards.
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: (add link)
+- Product page:  https://www.avnet.com/americas/product/advantech/som-9461es0c-ma2e/evolve-56577168/
 
 ### OS images & docs
 - (none listed)
