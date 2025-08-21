@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** CPU kit for servers
 - **OS support:** OS‑dependent (x86‑64 CPU)
 - **Description:** Supermicro boxed CPU option (S‑Spec SRGZG).

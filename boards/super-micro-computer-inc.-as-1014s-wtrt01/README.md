@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server
 - **OS support:** Windows / Linux
 - **Description:** AS‑1014S‑WTRT: 1U with 10×2.5" bays; NVMe‑ready.

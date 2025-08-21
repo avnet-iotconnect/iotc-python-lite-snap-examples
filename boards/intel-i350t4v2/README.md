@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** PCIe NIC (1 GbE)
 - **OS support:** Windows / Linux
 - **Description:** Quad‑port 1GbE server adapter.

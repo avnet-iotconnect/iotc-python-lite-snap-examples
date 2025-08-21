@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U server (FES variant)
 - **OS support:** Windows / Linux
 - **Description:** Integration for 119C FES.

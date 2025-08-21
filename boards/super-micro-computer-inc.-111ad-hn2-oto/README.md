@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server (integration code)
 - **OS support:** Windows / Linux
 - **Description:** Pre‑integrated 111AD‑HN2 configuration.

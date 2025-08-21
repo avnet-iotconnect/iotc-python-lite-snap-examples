@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server (AC power)
 - **OS support:** Windows / Linux
 - **Description:** SYS‑120C‑TN10R variant with AC PSUs.

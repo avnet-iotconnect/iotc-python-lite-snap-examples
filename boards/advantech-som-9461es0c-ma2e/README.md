@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Computer‑on‑Module (Compact COM‑Express‑class SOM)
 - **OS support:** Windows (embedded) and Linux
 - **Description:** Low‑power SOM intended for embedded designs/carrier boards.

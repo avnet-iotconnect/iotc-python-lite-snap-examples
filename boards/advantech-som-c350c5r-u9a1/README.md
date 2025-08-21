@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** COM‑HPC Client Size C module (160 × 120 mm)
 - **OS support:** Not specified (depends on BSP/carrier image)
 - **Description:** High‑performance COM‑HPC module; supports QFCS 2.0 active cooler.

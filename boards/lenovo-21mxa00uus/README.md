@@ -3,7 +3,7 @@
 - **Supplier:** LENOVO
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Laptop (ThinkPad family)
 - **OS support:** Windows 10/11 (Linux supported on many models)
 - **Description:** ThinkPad system SKU; configuration/CPU/RAM/storage vary by build.

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** SBE platform (integration code)
 - **OS support:** Windows / Linux
 - **Description:** SBE 820C build; details depend on BOM.

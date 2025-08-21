@@ -3,7 +3,7 @@
 - **Supplier:** Kontron
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Industrial computer / assembly code
 - **OS support:** Windows / Linux
 - **Description:** Kontron assembly/kit code; public spec not found.

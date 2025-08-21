@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Short‑depth embedded server (integration)
 - **OS support:** Windows / Linux
 - **Description:** Factory build of E100‑12T platform.

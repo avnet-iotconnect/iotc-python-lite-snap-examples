@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Compact DIN‑rail IoT controller
 - **OS support:** Windows 10 IoT Enterprise 2019 LTSC; AdvLinux (Ubuntu 20.04)
 - **Description:** UNO‑137 small‑size integrated DIN‑rail IPC with isolated DI/DO and dual DP.

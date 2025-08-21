@@ -20,7 +20,7 @@
     "model": "AIMB275G22306-T",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-aimb275g22306-t"
   },
   {
@@ -28,7 +28,7 @@
     "model": "C-OLY01-USM5002",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-c-oly01-usm5002"
   },
   {
@@ -36,7 +36,7 @@
     "model": "C-OLY01-USM5003",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-c-oly01-usm5003"
   },
   {
@@ -52,7 +52,7 @@
     "model": "HIT-BX2SN-CPH1E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-hit-bx2sn-cph1e"
   },
   {
@@ -60,7 +60,7 @@
     "model": "HIT-BX2SN-CPH2E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-hit-bx2sn-cph2e"
   },
   {
@@ -84,7 +84,7 @@
     "model": "SKY",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-sky"
   },
   {
@@ -92,7 +92,7 @@
     "model": "SOM-9461ES0C-MA2E",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-som-9461es0c-ma2e"
   },
   {
@@ -100,7 +100,7 @@
     "model": "SOM-C350C5R-U9A1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-som-c350c5r-u9a1"
   },
   {
@@ -108,7 +108,7 @@
     "model": "UNO137E13BA2103-T",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-uno137e13ba2103-t"
   },
   {
@@ -116,7 +116,7 @@
     "model": "USM5002311-CT",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-usm5002311-ct"
   },
   {
@@ -124,7 +124,7 @@
     "model": "USM5002432-CT",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "advantech-usm5002432-ct"
   },
   {
@@ -164,7 +164,7 @@
     "model": "PB63-BB5000XTL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "asus-computer-pb63-bb5000xtl"
   },
   {
@@ -172,7 +172,7 @@
     "model": "PB63-BB500X0TL-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "asus-computer-pb63-bb500x0tl-o"
   },
   {
@@ -180,7 +180,7 @@
     "model": "PB63-BBC000XTL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "asus-computer-pb63-bbc000xtl"
   },
   {
@@ -188,7 +188,7 @@
     "model": "PB63-BBC00X0TL-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "asus-computer-pb63-bbc00x0tl-o"
   },
   {
@@ -204,7 +204,7 @@
     "model": "871681-B21",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "hewlett-packard-871681-b21"
   },
   {
@@ -212,7 +212,7 @@
     "model": "P67824-B21",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "hewlett-packard-p67824-b21"
   },
   {
@@ -220,7 +220,7 @@
     "model": "R3T52B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "hewlett-packard-r3t52b"
   },
   {
@@ -228,7 +228,7 @@
     "model": "999NAF",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-999naf"
   },
   {
@@ -236,7 +236,7 @@
     "model": "99A5FC",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-99a5fc"
   },
   {
@@ -244,7 +244,7 @@
     "model": "99A5FC-REV1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-99a5fc-rev1"
   },
   {
@@ -252,7 +252,7 @@
     "model": "99C6RZ",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-99c6rz"
   },
   {
@@ -260,7 +260,7 @@
     "model": "BKNUC8I3PNB",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-bknuc8i3pnb"
   },
   {
@@ -268,7 +268,7 @@
     "model": "BNUC11TNKI3000099A8A2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-bnuc11tnki3000099a8a2"
   },
   {
@@ -276,7 +276,7 @@
     "model": "BNUC11TNKI3000199A8A3",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-bnuc11tnki3000199a8a3"
   },
   {
@@ -436,7 +436,7 @@
     "model": "E810CQDA2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-e810cqda2"
   },
   {
@@ -444,7 +444,7 @@
     "model": "I350T4V2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-i350t4v2"
   },
   {
@@ -460,7 +460,7 @@
     "model": "RS3DC080",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "intel-rs3dc080"
   },
   {
@@ -468,7 +468,7 @@
     "model": "38034-0000-27-7US1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "kontron-38034-0000-27-7us1"
   },
   {
@@ -476,7 +476,7 @@
     "model": "68010-0000-51-3MC1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "kontron-68010-0000-51-3mc1"
   },
   {
@@ -484,7 +484,7 @@
     "model": "11AMS0FX00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-11ams0fx00"
   },
   {
@@ -492,7 +492,7 @@
     "model": "11USS0B700",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-11uss0b700"
   },
   {
@@ -500,7 +500,7 @@
     "model": "11V1S04H00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-11v1s04h00"
   },
   {
@@ -508,7 +508,7 @@
     "model": "21L2S0M600",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-21l2s0m600"
   },
   {
@@ -516,7 +516,7 @@
     "model": "21M4S61400",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-21m4s61400"
   },
   {
@@ -524,7 +524,7 @@
     "model": "21MX0006US",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-21mx0006us"
   },
   {
@@ -532,7 +532,7 @@
     "model": "21MXA00UUS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-21mxa00uus"
   },
   {
@@ -540,7 +540,7 @@
     "model": "30BQS08Q00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30bqs08q00"
   },
   {
@@ -548,7 +548,7 @@
     "model": "30BQS0E300",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30bqs0e300"
   },
   {
@@ -556,7 +556,7 @@
     "model": "30BQS0ET00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30bqs0et00"
   },
   {
@@ -564,7 +564,7 @@
     "model": "30F8S08B00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30f8s08b00"
   },
   {
@@ -572,7 +572,7 @@
     "model": "30F8S0NY00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30f8s0ny00"
   },
   {
@@ -580,7 +580,7 @@
     "model": "30G0S0QB00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30g0s0qb00"
   },
   {
@@ -588,7 +588,7 @@
     "model": "30G9S8KV00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30g9s8kv00"
   },
   {
@@ -596,7 +596,7 @@
     "model": "30GBS0DS00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-30gbs0ds00"
   },
   {
@@ -604,7 +604,7 @@
     "model": "7D4FS1Q900",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d4fs1q900"
   },
   {
@@ -612,7 +612,7 @@
     "model": "7D73SDG500",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73sdg500"
   },
   {
@@ -620,7 +620,7 @@
     "model": "7D73SHDX00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73shdx00"
   },
   {
@@ -628,7 +628,7 @@
     "model": "7D73SV3J00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73sv3j00"
   },
   {
@@ -636,7 +636,7 @@
     "model": "7D73TDP800",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73tdp800"
   },
   {
@@ -644,7 +644,7 @@
     "model": "7D73TDP900",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73tdp900"
   },
   {
@@ -652,7 +652,7 @@
     "model": "7D73TDPA00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d73tdpa00"
   },
   {
@@ -660,7 +660,7 @@
     "model": "7D76S73L00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d76s73l00"
   },
   {
@@ -668,7 +668,7 @@
     "model": "7D76UMWR00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d76umwr00"
   },
   {
@@ -676,7 +676,7 @@
     "model": "7D7AS2X700",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d7as2x700"
   },
   {
@@ -684,7 +684,7 @@
     "model": "7D96S12R00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d96s12r00"
   },
   {
@@ -692,7 +692,7 @@
     "model": "7D9ES04A00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d9es04a00"
   },
   {
@@ -700,7 +700,7 @@
     "model": "7D9ES4LB00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d9es4lb00"
   },
   {
@@ -708,7 +708,7 @@
     "model": "7D9ES4QJ00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7d9es4qj00"
   },
   {
@@ -716,7 +716,7 @@
     "model": "7DE4S2PT00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7de4s2pt00"
   },
   {
@@ -724,7 +724,7 @@
     "model": "7DE4S3M900",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7de4s3m900"
   },
   {
@@ -732,7 +732,7 @@
     "model": "7DGDS09R00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7dgds09r00"
   },
   {
@@ -740,7 +740,7 @@
     "model": "7Y63S1PK00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7y63s1pk00"
   },
   {
@@ -748,7 +748,7 @@
     "model": "7Y74S5S800",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7y74s5s800"
   },
   {
@@ -756,7 +756,7 @@
     "model": "7Y77S2YM00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7y77s2ym00"
   },
   {
@@ -764,7 +764,7 @@
     "model": "7Z01S37T00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7z01s37t00"
   },
   {
@@ -772,7 +772,7 @@
     "model": "7Z74S5AD00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7z74s5ad00"
   },
   {
@@ -780,7 +780,7 @@
     "model": "7Z74S8NL00",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "lenovo-7z74s8nl00"
   },
   {
@@ -788,7 +788,7 @@
     "model": "1029P-WTRT-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-1029p-wtrt-oto"
   },
   {
@@ -796,7 +796,7 @@
     "model": "111AD-HN2-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-111ad-hn2-oto"
   },
   {
@@ -804,7 +804,7 @@
     "model": "111TS-605WBP-AM047-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-111ts-605wbp-am047-oto"
   },
   {
@@ -812,7 +812,7 @@
     "model": "120C-TR-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-120c-tr-oto"
   },
   {
@@ -820,7 +820,7 @@
     "model": "121C-TN2R-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-121c-tn2r-oto"
   },
   {
@@ -828,7 +828,7 @@
     "model": "421GE-TNRT",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-421ge-tnrt"
   },
   {
@@ -836,7 +836,7 @@
     "model": "5019P-WTR-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-5019p-wtr-oto"
   },
   {
@@ -844,7 +844,7 @@
     "model": "610C-TR-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-610c-tr-oto"
   },
   {
@@ -852,7 +852,7 @@
     "model": "621C-TN12R-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-621c-tn12r-oto"
   },
   {
@@ -908,7 +908,7 @@
     "model": "AOC-SGP-I4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-aoc-sgp-i4"
   },
   {
@@ -916,7 +916,7 @@
     "model": "AOC-STGF-I2S-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-aoc-stgf-i2s-o"
   },
   {
@@ -924,7 +924,7 @@
     "model": "AS -1014S-WTRT01",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1014s-wtrt01"
   },
   {
@@ -932,7 +932,7 @@
     "model": "AS-1114S-WN10T",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1114s-wn10t"
   },
   {
@@ -940,7 +940,7 @@
     "model": "AS-1115HS-TNR-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1115hs-tnr-oto"
   },
   {
@@ -948,7 +948,7 @@
     "model": "AS-1115S-FWTRT-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-1115s-fwtrt-oto"
   },
   {
@@ -956,7 +956,7 @@
     "model": "AS-2114S-WN24RT-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-2114s-wn24rt-oto"
   },
   {
@@ -964,7 +964,7 @@
     "model": "AS-2115HS-TNR-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-as-2115hs-tnr-oto"
   },
   {
@@ -972,7 +972,7 @@
     "model": "E100-9W-H-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-e100-9w-h-oto"
   },
   {
@@ -980,7 +980,7 @@
     "model": "E200-8D-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-e200-8d-oto"
   },
   {
@@ -988,7 +988,7 @@
     "model": "F629P3-RTB-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-f629p3-rtb-oto"
   },
   {
@@ -1012,7 +1012,7 @@
     "model": "MBD-X11DDW-NT-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11ddw-nt-b"
   },
   {
@@ -1020,7 +1020,7 @@
     "model": "MBD-X11SCH-LN4F-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11sch-ln4f-b"
   },
   {
@@ -1028,7 +1028,7 @@
     "model": "MBD-X11SCW-F",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11scw-f"
   },
   {
@@ -1036,7 +1036,7 @@
     "model": "MBD-X11SPA-T-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11spa-t-b"
   },
   {
@@ -1044,7 +1044,7 @@
     "model": "MBD-X11SPI-TF-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11spi-tf-o"
   },
   {
@@ -1052,7 +1052,7 @@
     "model": "MBD-X11SSV-LVDS-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-lvds-b"
   },
   {
@@ -1060,7 +1060,7 @@
     "model": "MBD-X11SSV-Q-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-q-b"
   },
   {
@@ -1068,7 +1068,7 @@
     "model": "MBD-X11SSV-Q-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x11ssv-q-o"
   },
   {
@@ -1076,7 +1076,7 @@
     "model": "MBD-X12SCZ-TLN4F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12scz-tln4f-o"
   },
   {
@@ -1084,7 +1084,7 @@
     "model": "MBD-X12SPL-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12spl-f-o"
   },
   {
@@ -1092,7 +1092,7 @@
     "model": "MBD-X12STL-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x12stl-f-o"
   },
   {
@@ -1100,7 +1100,7 @@
     "model": "MBD-X13SAE-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x13sae-f-o"
   },
   {
@@ -1108,7 +1108,7 @@
     "model": "MBD-X13SCH-F-B",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x13sch-f-b"
   },
   {
@@ -1116,7 +1116,7 @@
     "model": "MBD-X13SCL-F-O",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mbd-x13scl-f-o"
   },
   {
@@ -1124,7 +1124,7 @@
     "model": "MC0014 - PIO-E100-12T-IA",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-mc0014-pio-e100-12t-ia"
   },
   {
@@ -1132,7 +1132,7 @@
     "model": "P4X-CLX4209T-SRFBQ",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4209t-srfbq"
   },
   {
@@ -1140,7 +1140,7 @@
     "model": "P4X-CLX4210-SRFBL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4210-srfbl"
   },
   {
@@ -1148,7 +1148,7 @@
     "model": "P4X-CLX4210T-SRGYH",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4210t-srgyh"
   },
   {
@@ -1156,7 +1156,7 @@
     "model": "P4X-CLX4214R-SRG1W",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx4214r-srg1w"
   },
   {
@@ -1164,7 +1164,7 @@
     "model": "P4X-CLX5218T-SRFPM",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx5218t-srfpm"
   },
   {
@@ -1172,7 +1172,7 @@
     "model": "P4X-CLX6226-SRFPP",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6226-srfpp"
   },
   {
@@ -1180,7 +1180,7 @@
     "model": "P4X-CLX6238-SRFPL",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6238-srfpl"
   },
   {
@@ -1188,7 +1188,7 @@
     "model": "P4X-CLX6248R-SRGZG",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-p4x-clx6248r-srgzg"
   },
   {
@@ -1196,7 +1196,7 @@
     "model": "PIO-119C-EYED",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-119c-eyed"
   },
   {
@@ -1204,7 +1204,7 @@
     "model": "PIO-119C-FES",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-119c-fes"
   },
   {
@@ -1212,7 +1212,7 @@
     "model": "PIO-119C-HRTS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-119c-hrts"
   },
   {
@@ -1220,7 +1220,7 @@
     "model": "PIO-119C-TCS",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-119c-tcs"
   },
   {
@@ -1228,7 +1228,7 @@
     "model": "PIO-128R-FMS-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-128r-fms-4"
   },
   {
@@ -1236,7 +1236,7 @@
     "model": "PIO-128R-W-FES-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-128r-w-fes-4"
   },
   {
@@ -1244,7 +1244,7 @@
     "model": "PIO-128R-W-HRTS-4",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-128r-w-hrts-4"
   },
   {
@@ -1252,7 +1252,7 @@
     "model": "PIO-229BT-ASD-NODE-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-asd-node-pi021"
   },
   {
@@ -1260,7 +1260,7 @@
     "model": "PIO-229BT-HNTSR5-2-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-hntsr5-2-pi021"
   },
   {
@@ -1268,7 +1268,7 @@
     "model": "PIO-229BT-SR5-NODE-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-229bt-sr5-node-pi021"
   },
   {
@@ -1276,7 +1276,7 @@
     "model": "PIO-6029BT-H168-01-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-6029bt-h168-01-pi021"
   },
   {
@@ -1284,7 +1284,7 @@
     "model": "PIO-619P-WTR",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-619p-wtr"
   },
   {
@@ -1292,7 +1292,7 @@
     "model": "PIO-E50-9AP",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-e50-9ap"
   },
   {
@@ -1300,7 +1300,7 @@
     "model": "PIO-F629P3-RTB-NODE-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-pio-f629p3-rtb-node-oto"
   },
   {
@@ -1308,7 +1308,7 @@
     "model": "SBE-820C-422-OTO",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sbe-820c-422-oto"
   },
   {
@@ -1316,7 +1316,7 @@
     "model": "SSG-6039P-E1CR16H",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6039p-e1cr16h"
   },
   {
@@ -1324,7 +1324,7 @@
     "model": "SSG-6049SP",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6049sp"
   },
   {
@@ -1332,7 +1332,7 @@
     "model": "SSG-6119P-ACR12N-1",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-6119p-acr12n-1"
   },
   {
@@ -1340,7 +1340,7 @@
     "model": "SSG-631E-E1CR16H-6",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-631e-e1cr16h-6"
   },
   {
@@ -1348,7 +1348,7 @@
     "model": "SSG-631E-E1CR16H-7",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-631e-e1cr16h-7"
   },
   {
@@ -1356,7 +1356,7 @@
     "model": "SSG-947HE1C",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-ssg-947he1c"
   },
   {
@@ -1364,7 +1364,7 @@
     "model": "SYS-1028R-WC1R",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-1028r-wc1r"
   },
   {
@@ -1372,7 +1372,7 @@
     "model": "SYS-111AD-HN2",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-111ad-hn2"
   },
   {
@@ -1380,7 +1380,7 @@
     "model": "SYS-120C-TN10R-AC",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-120c-tn10r-ac"
   },
   {
@@ -1388,7 +1388,7 @@
     "model": "SYS-120C-TN10R-DC",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-120c-tn10r-dc"
   },
   {
@@ -1396,7 +1396,7 @@
     "model": "SYS-2029BT-HNT-ASD-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hnt-asd-pi021"
   },
   {
@@ -1404,7 +1404,7 @@
     "model": "SYS-2029BT-HNTASD1-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hntasd1-pi021"
   },
   {
@@ -1412,7 +1412,7 @@
     "model": "SYS-2029BT-HNTASD3-PI021",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-2029bt-hntasd3-pi021"
   },
   {
@@ -1428,7 +1428,7 @@
     "model": "SYS-E300-8D",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-sys-e300-8d"
   },
   {
@@ -1436,7 +1436,7 @@
     "model": "X11DPH-T, CSE-836BTS-R1K23BP",
     "arch": "amd64",
     "processor": "TBD",
-    "ai": "TBD",
+    "ai": "\u2014",
     "folder": "super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp"
   },
   {

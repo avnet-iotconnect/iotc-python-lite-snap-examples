@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** SSI‑EEB server motherboard
 - **OS support:** Windows / Linux
 - **Description:** X11 Purley platform board with dual 10GbE (TF).

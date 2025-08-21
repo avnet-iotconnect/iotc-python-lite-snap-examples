@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server
 - **OS support:** Windows / Linux
 - **Description:** SYS‑1028R series 1U server, WC1R variant.

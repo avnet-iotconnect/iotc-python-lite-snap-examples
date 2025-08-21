@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Embedded mini‑server
 - **OS support:** Windows / Linux
 - **Description:** SuperServer E100‑9W‑H integration.

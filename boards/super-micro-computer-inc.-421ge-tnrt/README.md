@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Rack server (integration code)
 - **OS support:** Windows / Linux (by image)
 - **Description:** Customer/OEM build code; exact platform unspecified.

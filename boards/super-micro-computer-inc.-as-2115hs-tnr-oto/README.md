@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 2U rack server (assembled system)
 - **OS support:** Windows Server / Linux
 - **Description:** Supermicro AS‑2115HS‑TNR platform; high‑performance compute.

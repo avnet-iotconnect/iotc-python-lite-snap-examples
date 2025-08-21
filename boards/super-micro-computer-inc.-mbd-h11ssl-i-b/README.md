@@ -2,8 +2,8 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
-- **AI acceleration:** TBD
+- **Processor:** AMD EPYC
+- **AI acceleration:** —
 - **Form factor:** ATX server motherboard
 - **OS support:** Windows / Linux
 - **Description:** Single‑socket EPYC board with IPMI.

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** BigTwin node only (integration order)
 - **OS support:** Windows / Linux
 - **Description:** Factory node for 2029BT/229BT BigTwin chassis.

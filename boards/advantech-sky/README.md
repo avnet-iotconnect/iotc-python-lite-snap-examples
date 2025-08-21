@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 2U 4‑node rackmount server (SKY‑9232D3 base)
 - **OS support:** Not specified by Advantech
 - **Description:** Listed as “Cohesity C5K System Production Chassis, V2” at distributors.

@@ -3,7 +3,7 @@
 - **Supplier:** ASUS COMPUTER
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Mini PC barebone (PB63)
 - **OS support:** Windows / Linux
 - **Description:** ASUS Mini PC PB63 barebone kit (O‑SKU).

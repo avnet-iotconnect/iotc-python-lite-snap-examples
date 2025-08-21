@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Medical mini‑tower / standalone AI box PC (USM‑500 family)
 - **OS support:** Windows 10 or Linux (per Advantech)
 - **Description:** USM‑500-series medical AI computer; NVIDIA‑certified, supports RTX A6000 and dual video capture cards.

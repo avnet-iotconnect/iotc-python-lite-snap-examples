@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Mini PC (NUC 8 Pro)
 - **OS support:** Windows / Linux
 - **Description:** Intel NUC 8 Pro Kit.

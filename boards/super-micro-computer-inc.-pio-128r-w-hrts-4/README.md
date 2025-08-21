@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U server (HRTS variant, DC)
 - **OS support:** Windows / Linux
 - **Description:** PIO build for 128R W‑HRTS (DC power).

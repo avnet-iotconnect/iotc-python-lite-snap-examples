@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** SSI‑EEB dual‑socket motherboard
 - **OS support:** Windows / Linux
 - **Description:** High‑end X11 dual‑CPU board with IPMI.

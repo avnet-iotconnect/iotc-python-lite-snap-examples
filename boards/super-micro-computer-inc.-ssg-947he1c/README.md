@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 4U high‑density storage server (SSG‑947)
 - **OS support:** Windows Server / Linux
 - **Description:** High‑capacity storage server; E1C expander backplane variant.

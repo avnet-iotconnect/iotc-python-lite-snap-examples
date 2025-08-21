@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Medical mini‑tower (USM‑500 family, custom bundle)
 - **OS support:** Windows / Linux (family support)
 - **Description:** Customer/OEM‑specific USM‑500 configuration; public details limited.

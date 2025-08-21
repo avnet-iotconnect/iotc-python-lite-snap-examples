@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Short‑depth mini‑server
 - **OS support:** Windows Server / Linux
 - **Description:** SuperServer E200‑8D integrated build.

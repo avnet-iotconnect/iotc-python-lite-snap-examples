@@ -3,7 +3,7 @@
 - **Supplier:** Hewlett Packard
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** CPU kit (for HPE servers)
 - **OS support:** OS‑dependent (x86‑64 CPU)
 - **Description:** Processor option kit for Gen11 platforms.

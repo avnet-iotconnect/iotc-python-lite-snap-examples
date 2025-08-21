@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U server bundle
 - **OS support:** Windows / Linux
 - **Description:** Pre‑integrated 111TS with 605 W PSU bundle.

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 4U GPU server node (integration)
 - **OS support:** Windows / Linux
 - **Description:** Node build for F629P3 platform.

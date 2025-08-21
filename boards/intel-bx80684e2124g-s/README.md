@@ -2,8 +2,8 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** TBD
-- **AI acceleration:** TBD
+- **Processor:** Intel Xeon
+- **AI acceleration:** —
 - **Form factor:** CPU (boxed)
 - **OS support:** OS‑dependent
 - **Description:** Boxed Xeon E‑2100 series processor with iGPU.

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Embedded mini‑server (integration)
 - **OS support:** Windows / Linux
 - **Description:** Factory build for E50‑9AP.

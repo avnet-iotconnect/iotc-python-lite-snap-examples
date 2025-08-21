@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** micro‑ATX industrial motherboard (AIMB‑275)
 - **OS support:** Windows 10; Windows 7 (KBL‑S supports Win10 only)
 - **Description:** Industrial micro‑ATX board; PCIe, multiple I/O; long‑life supply.

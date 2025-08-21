@@ -3,7 +3,7 @@
 - **Supplier:** INTEL
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** PCIe NIC (100 GbE)
 - **OS support:** Windows / Linux drivers
 - **Description:** Dual‑port 100 GbE adapter, QSFP28.

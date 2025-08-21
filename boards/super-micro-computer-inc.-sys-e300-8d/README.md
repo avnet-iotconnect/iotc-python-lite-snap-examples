@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Short‑depth mini‑server
 - **OS support:** Windows / Linux
 - **Description:** SuperServer E300‑8D build (variant 04).

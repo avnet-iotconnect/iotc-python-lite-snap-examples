@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** ATX workstation motherboard
 - **OS support:** Windows / Linux
 - **Description:** Workstation board with 8× DIMM, many PCIe; IPMI.

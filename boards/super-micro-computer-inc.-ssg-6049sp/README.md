@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 4U storage server (60‑bay / 90‑bay family)
 - **OS support:** Windows / Linux
 - **Description:** SSG‑60xx high‑density storage platform; specific BOM ‘581144’.

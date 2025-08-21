@@ -3,7 +3,7 @@
 - **Supplier:** Advantech
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Medical box PC (HIT‑BX2S series)
 - **OS support:** Windows (drivers available from Advantech); Linux not documented
 - **Description:** Healthcare‑grade box PC configuration (i5/4GB/500GB; TPM/antenna options vary by suffix).

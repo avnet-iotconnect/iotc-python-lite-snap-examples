@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 2U BigTwin node (integration order)
 - **OS support:** Windows / Linux
 - **Description:** PIO build for SYS‑2029BT/6029BT BigTwin platform.

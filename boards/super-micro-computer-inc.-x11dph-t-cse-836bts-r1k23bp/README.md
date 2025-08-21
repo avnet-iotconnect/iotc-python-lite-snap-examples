@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Motherboard + 3U chassis bundle
 - **OS support:** Windows / Linux
 - **Description:** X11DPH‑T board in CSE‑836BTS 3U/16‑bay chassis (1200W redundant PSU).

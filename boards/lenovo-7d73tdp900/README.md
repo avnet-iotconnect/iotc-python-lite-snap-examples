@@ -3,7 +3,7 @@
 - **Supplier:** LENOVO
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Rack/Tower Server (ThinkSystem/ThinkAgile)
 - **OS support:** Windows Server / Linux (RHEL/Ubuntu/SLES)
 - **Description:** Lenovo ThinkSystem/ThinkAgile server system SKU.

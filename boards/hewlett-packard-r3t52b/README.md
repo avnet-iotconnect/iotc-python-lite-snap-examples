@@ -3,7 +3,7 @@
 - **Supplier:** Hewlett Packard
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** Rack server configuration (base SKU)
 - **OS support:** Varies by server configuration
 - **Description:** Reseller lists as 'SE H90‑V91 TPM DR Base Server' (exact platform unspecified).

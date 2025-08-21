@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 2U BigTwin 4‑node server
 - **OS support:** Windows / Linux
 - **Description:** HNTASD1 variant with all‑SSD storage.

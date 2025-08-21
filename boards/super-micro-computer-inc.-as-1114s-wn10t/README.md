@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server (10× NVMe)
 - **OS support:** Windows / Linux
 - **Description:** AS‑1114S‑WN10T platform, QC‑verified build.

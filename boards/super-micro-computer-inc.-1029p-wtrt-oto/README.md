@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 1U rack server
 - **OS support:** Windows / Linux
 - **Description:** SYS‑1029P‑WTRT platform: 10x 2.5" bays; NVMe/SAS mix.

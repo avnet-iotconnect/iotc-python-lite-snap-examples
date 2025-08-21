@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** micro‑ATX server motherboard
 - **OS support:** Windows / Linux
 - **Description:** Board with IPMI; AM047 bundle.

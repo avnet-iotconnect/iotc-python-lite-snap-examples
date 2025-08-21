@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** ATX server motherboard
 - **OS support:** Windows / Linux
 - **Description:** X11SCH‑LN4F with quad GbE and IPMI.

@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** PCIe network adapter
 - **OS support:** Windows / Linux
 - **Description:** Supermicro 10G SFP+ NIC.

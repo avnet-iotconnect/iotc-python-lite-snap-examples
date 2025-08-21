@@ -2,8 +2,8 @@
 
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
-- **Processor:** TBD
-- **AI acceleration:** TBD
+- **Processor:** Intel Xeon
+- **AI acceleration:** —
 - **Form factor:** 1U rack server (Intel 4th/5th Gen Xeon)
 - **OS support:** Windows / Linux
 - **Description:** SYS‑521AD‑TN2 platform; next‑gen 1U with NVMe bays.

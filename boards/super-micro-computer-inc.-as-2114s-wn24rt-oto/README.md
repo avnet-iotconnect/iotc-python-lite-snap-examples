@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** 2U rack server (24× NVMe)
 - **OS support:** Windows / Linux
 - **Description:** AS‑2114S‑WN24RT: 2U with 24x hot‑swap NVMe.

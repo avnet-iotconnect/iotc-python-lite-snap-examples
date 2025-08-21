@@ -2,8 +2,8 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** TBD
-- **AI acceleration:** TBD
+- **Processor:** Intel Xeon
+- **AI acceleration:** —
 - **Form factor:** CPU (Xeon Scalable)
 - **OS support:** OS‑dependent
 - **Description:** OEM tray CPU; S‑Spec RFBL.

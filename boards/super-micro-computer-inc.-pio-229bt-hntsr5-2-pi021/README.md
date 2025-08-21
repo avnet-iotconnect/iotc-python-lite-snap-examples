@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** BigTwin node (integration order)
 - **OS support:** Windows / Linux
 - **Description:** Factory integration code for 2029/229 BigTwin HNTSR5 node.

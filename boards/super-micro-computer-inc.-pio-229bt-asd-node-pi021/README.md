@@ -3,7 +3,7 @@
 - **Supplier:** Super Micro Computer  Inc.
 - **Arch:** amd64
 - **Processor:** TBD
-- **AI acceleration:** TBD
+- **AI acceleration:** —
 - **Form factor:** BigTwin node (all‑SSD)
 - **OS support:** Windows / Linux
 - **Description:** Node‑only integration with all‑SSD configuration.
