@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.toradex.com/computer-on-modules/apalis-arm-family/nxp-imx-8
+- Product page: (add link)
 
 ### OS images & docs
-- Developer: https://developer.toradex.com/hardware/apalis-som-family/modules/apalis-imx8/
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Apalis%20i.MX8

@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.kontron.com/en/products/3.5--sbc-ekl/p162920
+- Product page: (add link)
 
 ### OS images & docs
-- User Guide: https://www.kontron.com/downloads/manuals/k/kontron-3d5-sbc-ekl-user-guide-rev-2d5-2025-02-03.pdf?product=174160
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=3.5%22-SBC-EKL
-- Buy on Newark: https://www.newark.com/search?st=3.5%22-SBC-EKL
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=3.5"-SBC-EKL
+- Buy on Newark: https://www.newark.com/search?st=3.5"-SBC-EKL
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

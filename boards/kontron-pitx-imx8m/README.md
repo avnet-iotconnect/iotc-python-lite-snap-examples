@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.kontron.com/en/products/pitx-imx8m-quad-industry-/p160549
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://www.kontron.com/downloads/datasheets/p/pitx-imx8m_datasheet.pdf?product=155258
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=pITX-IMX8M

@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://tinker-board.asus.com/series/tinker-board-s-r2.html
+- Product page: (add link)
 
 ### OS images & docs
-- Manuals: https://www.asus.com/us/supportonly/tinker%20board%20s%20r2.0/helpdesk_manual/
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Tinker%20Board%20S%20R2.0

@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.toradex.com/computer-on-modules/colibri-arm-family/nxp-imx6ull
+- Product page: (add link)
 
 ### OS images & docs
-- Developer: https://developer.toradex.com/hardware/colibri-som-family/modules/colibri-imx6ull/
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Colibri%20iMX6ULL

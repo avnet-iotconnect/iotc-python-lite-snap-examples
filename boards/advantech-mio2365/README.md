@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.advantech.com/en-us/products/460a67de-a7c8-94dc-0809-336fd7570e46/mio-2364/mod_6e929c2c-6213-4586-b747-3c7b7fd0dabe
+- Product page: (add link)
 
 ### OS images & docs
-- (none)
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MIO-2365%20%283.5%22%29
-- Buy on Newark: https://www.newark.com/search?st=MIO-2365%20%283.5%22%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MIO-2365%20(3.5")
+- Buy on Newark: https://www.newark.com/search?st=MIO-2365%20(3.5")
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.dfi.com/product/index/1535
+- Product page: (add link)
 
 ### OS images & docs
-- (none)
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=EHL171%20%28mITX%29
-- Buy on Newark: https://www.newark.com/search?st=EHL171%20%28mITX%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=EHL171%20(mITX)
+- Buy on Newark: https://www.newark.com/search?st=EHL171%20(mITX)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

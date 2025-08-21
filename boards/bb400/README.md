@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.brainboxes.com/product/industrial-edge-controller/bb-400
+- Product page: (add link)
 
 ### OS images & docs
-- Quick Start: https://www.brainboxes.com/files/catalog/product/BB/BB-400/documents/BB%20QSG%202019.pdf
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=BB-400

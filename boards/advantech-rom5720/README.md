@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.advantech.com/en-us/products/77b59009-31a9-4751-bee1-45827a844421/rom-5720/mod_4fbfe9fa-f5b2-4ba8-940e-e47585ad0fef
+- Product page: (add link)
 
 ### OS images & docs
-- Dev Kit: https://www.advantech.com/en-us/products/risc_evaluation_kit/rom-dk5720/mod_64c248c6-ede1-409b-a19e-59222a7f52da
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ROM-5720%20%28SMARC%29
-- Buy on Newark: https://www.newark.com/search?st=ROM-5720%20%28SMARC%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ROM-5720%20(SMARC)
+- Buy on Newark: https://www.newark.com/search?st=ROM-5720%20(SMARC)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

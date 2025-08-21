@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://ipc.mitacmdt.com/IndustrialMotherboard_PD10EHI_PD10EHI
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://download.mitacmct.com/Files/datasheets/motherboards/PD10EHI.pdf
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PD10EHI%20%28mITX%20Thin%29
-- Buy on Newark: https://www.newark.com/search?st=PD10EHI%20%28mITX%20Thin%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PD10EHI%20(mITX%20Thin)
+- Buy on Newark: https://www.newark.com/search?st=PD10EHI%20(mITX%20Thin)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

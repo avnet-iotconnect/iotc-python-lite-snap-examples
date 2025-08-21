@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95-evaluation-kit
+- Product page: (add link)
 
 ### OS images & docs
-- Torizon downloads: https://developer.toradex.com/software/toradex-embedded-software/toradex-download-links-torizon-linux-bsp-wince-and-partner-demos/
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Verdin%20i.MX95%20EVK

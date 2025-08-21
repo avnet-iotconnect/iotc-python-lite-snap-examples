@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://tinker-board.asus.com/series/tinker-board-3N.html
+- Product page: (add link)
 
 ### OS images & docs
-- Debian Images: https://tinker-board.asus.com/download-list.html?product=tinker-board-3n
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Tinker%20Board%203N
@@ -20,7 +20,6 @@
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
 - If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
-- GPIO/UART overlays may be disabled by default; enable as needed.
 
 ## Quick test
 ```bash

@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://embedded.avnet.com/product/msc-q7-el/
+- Product page: (add link)
 
 ### OS images & docs
-- (none)
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Q7-EL%20%28Qseven%29
-- Buy on Newark: https://www.newark.com/search?st=Q7-EL%20%28Qseven%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Q7-EL%20(Qseven)
+- Buy on Newark: https://www.newark.com/search?st=Q7-EL%20(Qseven)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

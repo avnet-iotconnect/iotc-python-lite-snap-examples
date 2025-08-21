@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.advantech.com/en/products/77b59009-31a9-4751-bee1-45827a844421/rom-5620/mod_af8aa75b-54fb-4890-8ea6-a927fe0ea2e1
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://advdownload.advantech.com/productfile/PIS/ROM-5620/file/ROM-5620_DS%28061622%2920220616202643.pdf
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ROM-5620%20%28SMARC%29
-- Buy on Newark: https://www.newark.com/search?st=ROM-5620%20%28SMARC%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ROM-5620%20(SMARC)
+- Buy on Newark: https://www.newark.com/search?st=ROM-5620%20(SMARC)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

@@ -23,7 +23,12 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | Advantech | HIT-BX2SN-CPH1E | amd64 | TBD | TBD | [boards/advantech-hit-bx2sn-cph1e](boards/advantech-hit-bx2sn-cph1e/) |
 | Advantech | HIT-BX2SN-CPH2E | amd64 | TBD | TBD | [boards/advantech-hit-bx2sn-cph2e](boards/advantech-hit-bx2sn-cph2e/) |
 | Advantech | https://www.advantech.com/en-us/products/965e4edb-fb98-429e-89ed-9a0a8435a7be/mic-733/mod_09861425-4950-46ab-ad39-1b5522881218 |  | TBD | TBD | [boards/advantech-httpswww.advantech.comen-usproducts965e4edb-fb98-429e-89ed-9a0a8435a7bemic-733mod_09861425-4950-46ab-ad39-1b5522881218](boards/advantech-httpswww.advantech.comen-usproducts965e4edb-fb98-429e-89ed-9a0a8435a7bemic-733mod_09861425-4950-46ab-ad39-1b5522881218/) |
+| Advantech | MIO-2365 (3.5") | amd64 | Intel Alder Lake‑N | — | [boards/advantech-mio2365](boards/advantech-mio2365/) |
 | Advantech | PCIE-1674E-AE |  | TBD | TBD | [boards/advantech-pcie-1674e-ae](boards/advantech-pcie-1674e-ae/) |
+| Advantech | ROM-5620 (SMARC) | arm64 | NXP i.MX8M Mini/Nano (SMARC) | — | [boards/advantech-rom5620](boards/advantech-rom5620/) |
+| Advantech | ROM-5720 (SMARC) | arm64 | NXP i.MX8M Plus (SMARC) | Integrated NPU (~2.3 TOPS) | [boards/advantech-rom5720](boards/advantech-rom5720/) |
+| Advantech | RSB-3720 (Pico-ITX) | arm64 | NXP i.MX8M Plus | Integrated NPU (~2.3 TOPS) | [boards/advantech-rsb3720](boards/advantech-rsb3720/) |
+| Advantech | RSB-3810 (Pico-ITX) | arm64 | MediaTek Genio 1200 | MediaTek APU (~4.8 TOPS) | [boards/advantech-rsb3810](boards/advantech-rsb3810/) |
 | Advantech | SKY | amd64 | Intel® Xeon® Scalable (Ice Lake, 3rd Gen) | — | [boards/advantech-sky](boards/advantech-sky/) |
 | Advantech | SOM-9461ES0C-MA2E | amd64 | TBD | TBD | [boards/advantech-som-9461es0c-ma2e](boards/advantech-som-9461es0c-ma2e/) |
 | Advantech | SOM-C350C5R-U9A1 | amd64 | 12th/13th Gen Intel® Core™ (Alder/Raptor Lake‑S, LGA1700) with Intel® R680E PCH; up to 16C/24T; DDR5 | Intel Iris Xe (integrated) | [boards/advantech-som-c350c5r-u9a1](boards/advantech-som-c350c5r-u9a1/) |
@@ -31,6 +36,10 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | Advantech | USM5002311-CT | amd64 | Intel® Core™ (8th–13th Gen) or Xeon® | — | [boards/advantech-usm5002311-ct](boards/advantech-usm5002311-ct/) |
 | Advantech | USM5002432-CT | amd64 | Intel® Core™ (8th–13th Gen) or Xeon® (config‑dependent) | — | [boards/advantech-usm5002432-ct](boards/advantech-usm5002432-ct/) |
 | AMPERE COMPUTING LLC | AC | arm64 | Ampere Altra / Altra Max | — | [boards/ampere-computing-llc-ac](boards/ampere-computing-llc-ac/) |
+| ASRock Industrial | 4X4 BOX-7735U | amd64 | AMD Ryzen 7 7735U | Radeon 680M (RDNA2) | [boards/asrock-4x4-7735u](boards/asrock-4x4-7735u/) |
+| ASRock Industrial | iBOX-1265UE | amd64 | Intel Core i7‑1265UE (12th Gen) | Intel Iris Xe GPU | [boards/asrock-ibox-1265ue](boards/asrock-ibox-1265ue/) |
+| ASRock Industrial | IMB-ADLN (mITX) | amd64 | Intel Alder Lake‑N | — | [boards/asrock-imb-adln](boards/asrock-imb-adln/) |
+| ASRock Industrial | NUC BOX-1340P | amd64 | Intel Core i5‑1340P (13th Gen) | Intel Iris Xe GPU | [boards/asrock-nucbox-1340p](boards/asrock-nucbox-1340p/) |
 | ASUS COMPUTER | 90AR00C1-M00090 |  | TBD | TBD | [boards/asus-computer-90ar00c1-m00090](boards/asus-computer-90ar00c1-m00090/) |
 | ASUS COMPUTER | 90AR00Q2-M001P0 |  | TBD | TBD | [boards/asus-computer-90ar00q2-m001p0](boards/asus-computer-90ar00q2-m001p0/) |
 | ASUS COMPUTER | 90ME09R0-S0P000 |  | TBD | TBD | [boards/asus-computer-90me09r0-s0p000](boards/asus-computer-90me09r0-s0p000/) |
@@ -39,9 +48,34 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | ASUS COMPUTER | PB63-BBC000XTL | amd64 | TBD | TBD | [boards/asus-computer-pb63-bbc000xtl](boards/asus-computer-pb63-bbc000xtl/) |
 | ASUS COMPUTER | PB63-BBC00X0TL-O | amd64 | TBD | TBD | [boards/asus-computer-pb63-bbc00x0tl-o](boards/asus-computer-pb63-bbc00x0tl-o/) |
 | ASUS IoT | PE3000G |  | TBD | TBD | [boards/asus-iot-pe3000g](boards/asus-iot-pe3000g/) |
+| ASUS IoT | Tinker Board 2S | arm64 | Rockchip RK3399 | — | [boards/asus-tinker2s](boards/asus-tinker2s/) |
+| ASUS IoT | Tinker Board 3N | arm64 | Rockchip RK3568 | — | [boards/asus-tinker3n](boards/asus-tinker3n/) |
+| ASUS IoT | Tinker Board S R2.0 | armhf | Rockchip RK3288 | — | [boards/asus-tinker-s-r2](boards/asus-tinker-s-r2/) |
+| ASUS IoT | Tinker Edge R | arm64 | Rockchip RK3399Pro | Integrated NPU (~3 TOPS) | [boards/asus-tinker-edge-r](boards/asus-tinker-edge-r/) |
+| Avalue | ECM-ADLN (3.5") | amd64 | Intel Alder Lake‑N | — | [boards/avalue-ecm-adln](boards/avalue-ecm-adln/) |
+| Avalue | ECM-TGL (3.5") | amd64 | Intel Tiger Lake‑U | Intel Iris Xe GPU | [boards/avalue-ecm-tgl](boards/avalue-ecm-tgl/) |
+| Avalue | EPM-1727 (Pico-ITX) | amd64 | Intel Elkhart Lake (Atom x6000) | — | [boards/avalue-epm-1727](boards/avalue-epm-1727/) |
+| Avalue | SOM-EHL (SMARC) | amd64 | Intel Elkhart Lake (SMARC) | — | [boards/avalue-som-ehl](boards/avalue-som-ehl/) |
+| Brainboxes | BB-400 | armhf | Broadcom BCM2837 (CM3+) | — | [boards/bb400](boards/bb400/) |
+| DFI | EHL171 (mITX) | amd64 | Intel Elkhart Lake | — | [boards/dfi-ehl171](boards/dfi-ehl171/) |
+| DFI | EHL173 (mITX) | amd64 | Intel Elkhart Lake | — | [boards/dfi-ehl173](boards/dfi-ehl173/) |
+| DFI | GHF51 (1.8" Femto-ITX) | amd64 | AMD Ryzen Embedded R1000 | Radeon Vega GPU | [boards/dfi-ghf51](boards/dfi-ghf51/) |
+| Engicam | i.Core MX8M Plus SoM + carrier | arm64 | NXP i.MX8M Plus | Integrated NPU (~2.3 TOPS) | [boards/engicam-icore-imx8mp](boards/engicam-icore-imx8mp/) |
+| Engicam | i.Core MX95 SoM + carrier | arm64 | NXP i.MX95 | Integrated NPU (Arm Ethos‑U85 class) | [boards/engicam-icore-mx95](boards/engicam-icore-mx95/) |
+| Engicam | i.Core STM32MP2 SoM + carrier | arm64 | ST STM32MP2 series | Integrated NPU (Arm Ethos‑U85 class) | [boards/engicam-icore-stm32mp2](boards/engicam-icore-stm32mp2/) |
+| Engicam | SmarCore MX95 (SMARC) | arm64 | NXP i.MX95 (SMARC) | Integrated NPU (Arm Ethos‑U85 class) | [boards/engicam-smarcore-mx95](boards/engicam-smarcore-mx95/) |
+| GIGAIPC | PICO-N97A | amd64 | Intel Alder Lake‑N N97 | — | [boards/gigaipc-pico-n97a](boards/gigaipc-pico-n97a/) |
 | Hewlett Packard | 871681-B21 | amd64 | Intel® Xeon® Silver 4110, 8‑core, 2.10 GHz; LGA3647 | — | [boards/hewlett-packard-871681-b21](boards/hewlett-packard-871681-b21/) |
 | Hewlett Packard | P67824-B21 | amd64 | Intel® Xeon® Silver 4510, 12‑core, 2.4 GHz (Intel 7), 150 W; FCLGA4677 | — | [boards/hewlett-packard-p67824-b21](boards/hewlett-packard-p67824-b21/) |
 | Hewlett Packard | R3T52B | amd64 | TBD | TBD | [boards/hewlett-packard-r3t52b](boards/hewlett-packard-r3t52b/) |
+| iBASE | ET977 (COMe Type 6) | amd64 | Intel 12th/13th Gen Core (COMe Type 6) | Intel Iris Xe / UHD (varies) | [boards/ibase-et977](boards/ibase-et977/) |
+| iBASE | IB836 (3.5") | amd64 | Intel Elkhart Lake | — | [boards/ibase-ib836](boards/ibase-ib836/) |
+| iBASE | MI989 (mITX) | amd64 | Intel 12th Gen Alder Lake‑S (LGA1700) | Intel UHD 770 GPU | [boards/ibase-mi989](boards/ibase-mi989/) |
+| IEI | HYPER-ASL (Pico-ITX) | amd64 | Intel Alder Lake‑N | — | [boards/iei-hyper-asl](boards/iei-hyper-asl/) |
+| IEI | KINO-ADLN (mITX) | amd64 | Intel Alder Lake‑N | — | [boards/iei-kino-adln](boards/iei-kino-adln/) |
+| IEI | NANO-ADL-P (EPIC) | amd64 | Intel Alder Lake‑P | Intel Iris Xe GPU | [boards/iei-nano-adlp](boards/iei-nano-adlp/) |
+| IEI | tKINO-ADLN (thin mITX) | amd64 | Intel Alder Lake‑N | — | [boards/iei-tkino-adln](boards/iei-tkino-adln/) |
+| IEI | WAFER-ADLN (3.5") | amd64 | Intel Alder Lake‑N | — | [boards/iei-wafer-adln](boards/iei-wafer-adln/) |
 | INTEL | 999NAF | amd64 | TBD | TBD | [boards/intel-999naf](boards/intel-999naf/) |
 | INTEL | 99A5FC | amd64 | TBD | TBD | [boards/intel-99a5fc](boards/intel-99a5fc/) |
 | INTEL | 99A5FC-REV1 | amd64 | TBD | TBD | [boards/intel-99a5fc-rev1](boards/intel-99a5fc-rev1/) |
@@ -72,8 +106,12 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | INTEL | I350T4V2 | amd64 | TBD | TBD | [boards/intel-i350t4v2](boards/intel-i350t4v2/) |
 | INTEL | PK8071305120102S | amd64 | Intel® Xeon® | — | [boards/intel-pk8071305120102s](boards/intel-pk8071305120102s/) |
 | INTEL | RS3DC080 | amd64 | TBD | TBD | [boards/intel-rs3dc080](boards/intel-rs3dc080/) |
+| Kontron | 3.5"-SBC-EKL | amd64 | Intel Elkhart Lake (Atom x6000) | — | [boards/kontron-35-sbc-ekl](boards/kontron-35-sbc-ekl/) |
 | Kontron | 38034-0000-27-7US1 | amd64 | TBD | TBD | [boards/kontron-38034-0000-27-7us1](boards/kontron-38034-0000-27-7us1/) |
 | Kontron | 68010-0000-51-3MC1 | amd64 | TBD | TBD | [boards/kontron-68010-0000-51-3mc1](boards/kontron-68010-0000-51-3mc1/) |
+| Kontron | pITX-APL | amd64 | Intel Apollo Lake | — | [boards/kontron-pitx-apl](boards/kontron-pitx-apl/) |
+| Kontron | pITX-IMX8M | arm64 | NXP i.MX8M (Quad) | — | [boards/kontron-pitx-imx8m](boards/kontron-pitx-imx8m/) |
+| Kontron | SMARC-sXEL | amd64 | Intel Elkhart Lake (SMARC) | — | [boards/kontron-smarc-sxel](boards/kontron-smarc-sxel/) |
 | LENOVO | 11AMS0FX00 | amd64 | TBD | TBD | [boards/lenovo-11ams0fx00](boards/lenovo-11ams0fx00/) |
 | LENOVO | 11USS0B700 | amd64 | TBD | TBD | [boards/lenovo-11uss0b700](boards/lenovo-11uss0b700/) |
 | LENOVO | 11V1S04H00 | amd64 | TBD | TBD | [boards/lenovo-11v1s04h00](boards/lenovo-11v1s04h00/) |
@@ -112,6 +150,10 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | LENOVO | 7Z01S37T00 | amd64 | x86 (Intel Xeon/AMD EPYC, varies) | — | [boards/lenovo-7z01s37t00](boards/lenovo-7z01s37t00/) |
 | LENOVO | 7Z74S5AD00 | amd64 | x86 (Intel Xeon/AMD EPYC, varies) | — | [boards/lenovo-7z74s5ad00](boards/lenovo-7z74s5ad00/) |
 | LENOVO | 7Z74S8NL00 | amd64 | x86 (Intel Xeon/AMD EPYC, varies) | — | [boards/lenovo-7z74s8nl00](boards/lenovo-7z74s8nl00/) |
+| Mitac | PD10EHI (mITX Thin) | amd64 | Intel Elkhart Lake | — | [boards/mitac-pd10ehi](boards/mitac-pd10ehi/) |
+| Mitac | PH12CMI (mITX Thin) | amd64 | Intel 12th Gen Alder Lake‑S | Intel UHD 770 GPU | [boards/mitac-ph12cmi](boards/mitac-ph12cmi/) |
+| MSI IPC | MS-98L9 (ATX) | amd64 | Intel 12th Gen Alder Lake‑S | Intel UHD 770 GPU | [boards/msi-ms98l9](boards/msi-ms98l9/) |
+| MSI IPC | MS-98M3 (3.5") | amd64 | Intel Tiger Lake‑UP3 | Intel Iris Xe GPU | [boards/msi-ms98m3](boards/msi-ms98m3/) |
 | Super Micro Computer  Inc. | 1029P-WTRT-OTO | amd64 | Intel Xeon Scalable (Skylake/Cascade Lake) | — | [boards/super-micro-computer-inc.-1029p-wtrt-oto](boards/super-micro-computer-inc.-1029p-wtrt-oto/) |
 | Super Micro Computer  Inc. | 111AD-HN2-OTO | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-111ad-hn2-oto](boards/super-micro-computer-inc.-111ad-hn2-oto/) |
 | Super Micro Computer  Inc. | 111TS-605WBP-AM047-OTO | amd64 | TBD | TBD | [boards/super-micro-computer-inc.-111ts-605wbp-am047-oto](boards/super-micro-computer-inc.-111ts-605wbp-am047-oto/) |
@@ -194,4 +236,12 @@ python3 examples/00-hello-telemetry/hello_telemetry.py
 | Super Micro Computer  Inc. | SYS-521AD-TN2 | amd64 | Intel Xeon Scalable (Sapphire/Emerald Rapids) | — | [boards/super-micro-computer-inc.-sys-521ad-tn2](boards/super-micro-computer-inc.-sys-521ad-tn2/) |
 | Super Micro Computer  Inc. | SYS-E300-8D | amd64 | Intel Xeon D‑1500 series | — | [boards/super-micro-computer-inc.-sys-e300-8d](boards/super-micro-computer-inc.-sys-e300-8d/) |
 | Super Micro Computer  Inc. | X11DPH-T, CSE-836BTS-R1K23BP | amd64 | Dual Intel Xeon Scalable (LGA3647) | — | [boards/super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp](boards/super-micro-computer-inc.-x11dph-t-cse-836bts-r1k23bp/) |
+| Toradex | Apalis i.MX8 | arm64 | NXP i.MX8 (Apalis) | — | [boards/toradex-apalis-imx8](boards/toradex-apalis-imx8/) |
+| Toradex | Colibri iMX6ULL | armhf | NXP i.MX6ULL (Colibri) | — | [boards/toradex-colibri-imx6ull](boards/toradex-colibri-imx6ull/) |
+| Toradex | Verdin i.MX8M Plus | arm64 | NXP i.MX8M Plus (Verdin) | Integrated NPU (~2.3 TOPS) | [boards/toradex-verdin-imx8mp](boards/toradex-verdin-imx8mp/) |
+| Toradex | Verdin i.MX95 EVK | arm64 | NXP i.MX95 (Verdin) | Integrated NPU (Arm Ethos‑U85 class) | [boards/toradex-verdin-imx95](boards/toradex-verdin-imx95/) |
+| Tria | C6C-RPL (COMe Type 6) | amd64 | Intel 13th Gen Core (Raptor Lake, COMe Type 6) | — | [boards/avnet-msc-c6c-rpl](boards/avnet-msc-c6c-rpl/) |
+| Tria | Q7-EL (Qseven) | amd64 | Intel Elkhart Lake (Qseven) | — | [boards/avnet-msc-q7-el](boards/avnet-msc-q7-el/) |
+| Tria | SM2S-EL (SMARC) | amd64 | Intel Elkhart Lake (SMARC) | — | [boards/avnet-msc-sm2s-el](boards/avnet-msc-sm2s-el/) |
+| Tria | SM2S-IMX95 + SMARC base | arm64 | NXP i.MX95 (SMARC) | Integrated NPU (Arm Ethos‑U85 class) | [boards/avnet-msc-sm2s-imx95](boards/avnet-msc-sm2s-imx95/) |
 | Xilinx | A-U55C-P00G-PQ-G |  | TBD | TBD | [boards/xilinx-a-u55c-p00g-pq-g](boards/xilinx-a-u55c-p00g-pq-g/) |

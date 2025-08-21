@@ -8,14 +8,14 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.engicam.com/vis-prod/SmarCore-MX95/SmarCore-iMX95
+- Product page: (add link)
 
 ### OS images & docs
-- (none)
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=SmarCore%20MX95%20%28SMARC%29
-- Buy on Newark: https://www.newark.com/search?st=SmarCore%20MX95%20%28SMARC%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=SmarCore%20MX95%20(SMARC)
+- Buy on Newark: https://www.newark.com/search?st=SmarCore%20MX95%20(SMARC)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

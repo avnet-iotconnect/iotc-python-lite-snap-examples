@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx-8m-plus
+- Product page: (add link)
 
 ### OS images & docs
-- Developer: https://developer.toradex.com/hardware/verdin-som-family/modules/verdin-imx8m-plus/
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Verdin%20i.MX8M%20Plus

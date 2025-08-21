@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.gigaipc.com/en/products-detail/pico-N97A/
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://gigaipc-download-bucket.s3.ap-northeast-1.amazonaws.com/Datasheet%2C%2Buser%2Bmanual%2C%2Bproduct%2Bphoto/Boards/Pico%2BSeries/Pico-N97A/PICO-N97A_20241231.pdf
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PICO-N97A

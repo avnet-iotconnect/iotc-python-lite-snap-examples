@@ -8,19 +8,18 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://ipc.msi.com/product_detail/Industrial-Motherboard/ATX/MS-98L9
+- Product page: (add link)
 
 ### OS images & docs
-- Downloads: https://ipc.msi.com/product_download/Industrial-Motherboard/ATX/MS-98L9
+- (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MS-98L9%20%28ATX%29
-- Buy on Newark: https://www.newark.com/search?st=MS-98L9%20%28ATX%29
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MS-98L9%20(ATX)
+- Buy on Newark: https://www.newark.com/search?st=MS-98L9%20(ATX)
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
 - If the IOTCONNECT socket path differs, set `IOTC_SOCKET=/var/snap/iotconnect/common/iotc.sock`.
-- Confirm UEFI boot mode; CSM can complicate installs.
 
 ## Quick test
 ```bash

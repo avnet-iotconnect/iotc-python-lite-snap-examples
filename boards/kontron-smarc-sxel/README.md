@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.kontron.com/en/products/smarc-sxel-j6426-4g-32g/p172682
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://www.kontron.com/downloads/datasheets/s/smarc-sxel_datasheet.pdf?product=160517
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=SMARC-sXEL

@@ -3,15 +3,15 @@
 - **Supplier:** ASUS IoT
 - **Arch:** arm64
 - **Processor:** Rockchip RK3399Pro
-- **AI acceleration:** Rockchip NPU (~3 TOPS)
+- **AI acceleration:** Integrated NPU (~3 TOPS)
 - **Snap install:** `sudo snap install iotconnect`
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://tinker-board.asus.com/series/tinker-edge-r.html
+- Product page: (add link)
 
 ### OS images & docs
-- Downloads: https://tinker-board.asus.com/download-list.html?product=tinker-edge-r
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Tinker%20Edge%20R

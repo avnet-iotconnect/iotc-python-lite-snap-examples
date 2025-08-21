@@ -8,10 +8,10 @@
 - **Setup:** `iotconnect.setup`
 
 ## Official links
-- Product page: https://www.kontron.com/en/products/pitx-apl-e3940/p146763
+- Product page: (add link)
 
 ### OS images & docs
-- Datasheet: https://www.kontron.com/downloads/datasheets/p/pitx-apl_20190225_datasheet.pdf
+- (add docs)
 
 ## Buy
 - Buy on Avnet: https://www.avnet.com/shop/us/search/?text=pITX-APL
