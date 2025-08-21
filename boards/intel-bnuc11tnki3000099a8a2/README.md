@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel® Core™ i3 (11th Gen, Tiger Lake)
+- **Processor:** Intel 11th Gen Core (Tiger Lake)
 - **AI acceleration:** Intel Iris Xe (integrated)
 - **Form factor:** Mini PC (NUC 11)
 - **OS support:** Windows / Linux

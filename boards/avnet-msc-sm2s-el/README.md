@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=SM2S-EL%20(SMARC)
-- Buy on Newark: https://www.newark.com/search?st=SM2S-EL%20(SMARC)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=SM2S-EL%20%28SMARC%29
+- Buy on Newark: https://www.newark.com/search?st=SM2S-EL%20%28SMARC%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

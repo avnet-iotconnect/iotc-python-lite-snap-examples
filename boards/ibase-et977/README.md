@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ET977%20(COMe%20Type%206)
-- Buy on Newark: https://www.newark.com/search?st=ET977%20(COMe%20Type%206)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=ET977%20%28COMe%20Type%206%29
+- Buy on Newark: https://www.newark.com/search?st=ET977%20%28COMe%20Type%206%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

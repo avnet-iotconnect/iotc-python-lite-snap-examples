@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=3.5"-SBC-EKL
-- Buy on Newark: https://www.newark.com/search?st=3.5"-SBC-EKL
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=3.5%22-SBC-EKL
+- Buy on Newark: https://www.newark.com/search?st=3.5%22-SBC-EKL
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

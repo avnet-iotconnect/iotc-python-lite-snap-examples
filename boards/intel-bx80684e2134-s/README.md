@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel® Xeon® E‑2134 (4C/8T, 3.5 GHz)
+- **Processor:** Intel Xeon
 - **AI acceleration:** —
 - **Form factor:** CPU (boxed)
 - **OS support:** OS‑dependent

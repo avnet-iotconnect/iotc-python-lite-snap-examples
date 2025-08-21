@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PH12CMI%20(mITX%20Thin)
-- Buy on Newark: https://www.newark.com/search?st=PH12CMI%20(mITX%20Thin)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=PH12CMI%20%28mITX%20Thin%29
+- Buy on Newark: https://www.newark.com/search?st=PH12CMI%20%28mITX%20Thin%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

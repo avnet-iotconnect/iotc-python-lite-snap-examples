@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MS-98M3%20(3.5")
-- Buy on Newark: https://www.newark.com/search?st=MS-98M3%20(3.5")
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=MS-98M3%20%283.5%22%29
+- Buy on Newark: https://www.newark.com/search?st=MS-98M3%20%283.5%22%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

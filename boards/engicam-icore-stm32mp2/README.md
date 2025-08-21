@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=i.Core%20STM32MP2%20SoM%20+%20carrier
-- Buy on Newark: https://www.newark.com/search?st=i.Core%20STM32MP2%20SoM%20+%20carrier
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=i.Core%20STM32MP2%20SoM%20%2B%20carrier
+- Buy on Newark: https://www.newark.com/search?st=i.Core%20STM32MP2%20SoM%20%2B%20carrier
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

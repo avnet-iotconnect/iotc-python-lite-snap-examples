@@ -2,7 +2,7 @@
 
 - **Supplier:** INTEL
 - **Arch:** amd64
-- **Processor:** Intel® Xeon® Scalable (Cascade/Cooper Lake family)
+- **Processor:** Intel Xeon
 - **AI acceleration:** —
 - **Form factor:** CPU (Xeon Scalable)
 - **OS support:** OS‑dependent

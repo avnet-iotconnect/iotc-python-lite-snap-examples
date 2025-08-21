@@ -2,7 +2,7 @@
 
 - **Supplier:** Advantech
 - **Arch:** amd64
-- **Processor:** 12th/13th Gen Intel® Core™ (Alder/Raptor Lake‑S, LGA1700) with Intel® R680E PCH; up to 16C/24T; DDR5
+- **Processor:** Intel 13th Gen Core (Raptor Lake)
 - **AI acceleration:** Intel Iris Xe (integrated)
 - **Form factor:** COM‑HPC Client Size C module (160 × 120 mm)
 - **OS support:** Not specified (depends on BSP/carrier image)

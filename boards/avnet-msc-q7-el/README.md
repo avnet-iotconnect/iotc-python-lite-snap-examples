@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Q7-EL%20(Qseven)
-- Buy on Newark: https://www.newark.com/search?st=Q7-EL%20(Qseven)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=Q7-EL%20%28Qseven%29
+- Buy on Newark: https://www.newark.com/search?st=Q7-EL%20%28Qseven%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=GHF51%20(1.8"%20Femto-ITX)
-- Buy on Newark: https://www.newark.com/search?st=GHF51%20(1.8"%20Femto-ITX)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=GHF51%20%281.8%22%20Femto-ITX%29
+- Buy on Newark: https://www.newark.com/search?st=GHF51%20%281.8%22%20Femto-ITX%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.

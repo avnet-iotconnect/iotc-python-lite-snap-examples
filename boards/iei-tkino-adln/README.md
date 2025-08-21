@@ -14,8 +14,8 @@
 - (add docs)
 
 ## Buy
-- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=tKINO-ADLN%20(thin%20mITX)
-- Buy on Newark: https://www.newark.com/search?st=tKINO-ADLN%20(thin%20mITX)
+- Buy on Avnet: https://www.avnet.com/shop/us/search/?text=tKINO-ADLN%20%28thin%20mITX%29
+- Buy on Newark: https://www.newark.com/search?st=tKINO-ADLN%20%28thin%20mITX%29
 
 ## Known quirks
 - Install `snapd` (and `apparmor` on Debian/armhf), then reboot before installing snaps.
