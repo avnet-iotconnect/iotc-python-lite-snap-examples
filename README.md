@@ -11,7 +11,7 @@ iotconnect.setup
 python3 examples/00-hello-telemetry/hello_telemetry.py
 ```
 
-## Board Catalog (servers removed)
+## Board Catalog (servers removed; TBDs filled)
 | Supplier | Model | Arch | Processor | AI acceleration | Folder |
 |---|---|---:|---|---|---|
 | AAEON | BOXER-8221AI |  | TBD | TBD | [boards/aaeon-boxer-8221ai](boards/aaeon-boxer-8221ai/) |
