@@ -1,6 +1,6 @@
 # IOTCONNECT Snap – Example Applications
 
-This repository collects **board-specific guides and examples** for deploying the `iotconnect` Snap across Avnet/Tria and partner platforms.  
+This repository collects **board-specific guides and examples** for deploying the `iotconnect` Snap across platforms supporting the IOTCONNECT Snapcraft Snap.  
 The catalog is **continuously growing** as new boards are validated by the community.
 
 ## Quick start
