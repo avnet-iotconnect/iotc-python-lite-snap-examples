@@ -1,5 +1,5 @@
 # IOTCONNECT Smart Asset Monitoring
-# KPI and Sensor Implementation Guide (Consolidated)
+# KPI and Sensor Implementation Guide
 
 This guide explains how to configure and interpret Key Performance Indicators (KPIs) in the Smart Asset Monitoring application and how to integrate common industrial sensors with the ED 549/BB 400 data acquisition system. It is written for engineers and operators who are connecting hardware to the platform and need to build meaningful dashboards. 
 
@@ -175,26 +175,49 @@ Schedule and track maintenance per asset; surface upcoming maintenance on dashbo
 - Ratiometric voltage (0.5-4.5 V), 0-10 V. Typical wiring: OUT -> AInX+; GND -> AInX-; channel mode: +/-5 V or +/-10 V.
 - Digital sensors (I2C or SPI): route via a microcontroller or DAC if your input module is analog-only.
 
-### Representative sensor to KPI map
-| Brand | Model | Measure | Output | Typical KPIs |
-|---|---|---|---|---|
-| Amphenol SSI | P51-500-S-A-P-20MA-000-000 | Pressure | 4-20 mA | MAX(pressure), AVERAGE(pressure), DURATION(pressure > limit) |
-| Amphenol SSI | P51-75-A-B-P-4.5V-000-000 | Pressure | 0.5-4.5 V | Same KPIs; configure +/-5 V channel. |
-| Wilcoxon | PC420VR-10 / PC420VP-20 | Vibration | 4-20 mA | MAX(vibration), COUNT(vibration > limit). Ensure 12-30 V loop supply. |
-| Telaire | HUMI-DP-XR-D / EHRH-2-I-F | RH and Temperature | 0-10 V or 4-20 mA | DURATION(temp in band), MIN and MAX for RH. |
-| Piher | PST360 G2 or G21 | Rotary position | 0.5-4.5 V | AVERAGE(position), COUNT(position > angle). |
-| TE | AST4000 | Pressure | 4-20 mA or voltage | Same pressure KPIs; select matching channel mode. |
-| TE | M3200 | Pressure | 4-20 mA or 0-10 V or 0.5-4.5 V | Pressure KPIs; wire per output type. |
-| TE | AST4520 | Level (submersible) | 4-20 mA | MIN and MAX(level), DURATION(level < lowLimit). |
-| TE (Celesco) | IT9420 | Tilt | 4-20 mA | MAX(abs(tilt)), DURATION(abs(tilt) > warn). |
-| TE (Celesco) | SG series string pot | Linear position | 4-20 mA or 0-10 V | Utilization or position-in-zone durations. |
+### 11.1 Sensor Catalog (Complete From Uploaded Documents)
 
-Wiring tips:
-- Match input mode to sensor type.
-- Use shielded cable for low-level voltages.
-- Ensure loop supply headroom through input resistance.
-- Avoid ground loops.
-- Translate I2C or SPI to analog if needed.
+The following table consolidates all sensors referenced in your documents. It lists measurement type, output signal, typical supply, wiring to the ED-549, and KPI ideas you can build in the KPI Builder.
+
+| Vendor / Division | Family / Model | Measurement | Output | Supply (typical) | Typical Wiring to ED-549 | KPI Ideas | Notes |
+|---|---|---|---|---|---|---|---|
+| Amphenol SSI Technologies | P51-500-S-A-P-20MA-000-000 | Pressure (sealed gauge, 500 psi) | 4-20 mA (2-wire) | 8-30 VDC | Loop: +24 V -> sensor +; sensor - -> AInX+; AInX- -> 0 V; set channel to 4-20 mA | MAX(pressure), AVERAGE(pressure), DURATION(pressure > limit) | Current loop requires adequate supply headroom. |
+| Amphenol SSI Technologies | P51-75-A-B-P-4.5V-000-000 | Pressure (absolute, 75 psi) | 0.5-4.5 V (ratiometric) | 5 VDC (5 +/- 0.5 V) | OUT -> AInX+; GND -> AInX-; channel +/-5 V | AVERAGE(pressure), MAX(pressure) | Stable 5 V supply required. |
+| Amphenol SSI Technologies | P51-150-A-A-D-5V-000-000 | Pressure (absolute, 150 psi) | 0.5-4.5 V (ratiometric) | 5 VDC | OUT -> AInX+; GND -> AInX-; channel +/-5 V | MAX(pressure), DURATION(pressure > limit) | Deutsch 3-pin connector variants exist. |
+| Amphenol Advanced Sensors (NovaSensor) | NPA500B001D | Pressure (differential, 1 psi) | Analog amplified | 5 VDC | OUT -> AInX+; GND -> AInX-; channel +/-5 V | AVERAGE(pressure_diff), MAX(pressure_diff) | Board-mount; amplified analog. |
+| Amphenol Advanced Sensors (NovaSensor) | NPA730B015G | Pressure (gauge, 15 psi) | Digital I2C | 3.3 VDC | Use MCU or DAC to convert to analog for ED-549 | COUNT or DURATION on thresholds after conversion | Digital-only; not directly compatible with analog input. |
+| Amphenol Advanced Sensors (NovaSensor) | NPA700M030A | Pressure (absolute, 30 psi) | Digital I2C | 5 VDC | Use MCU or DAC to convert to analog for ED-549 | Same as above | Digital-only. |
+| Amphenol All Sensors | 0.5 INCH-D-4V (ADCA) | Pressure (ultra-low differential, +/-0.5 inH2O) | 0.5-4.5 V (ratiometric) | 5 VDC | OUT -> AInX+; GND -> AInX-; channel +/-5 V | MIN/MAX(pressure_diff), DURATION(out of band) | Sensitive; use shielded cable. |
+| Amphenol Wilcoxon | PC420VR-10 | Vibration (RMS velocity) | 4-20 mA (loop) | 12-30 VDC | Loop: +24 V -> sensor +; sensor - -> AInX+; AInX- -> 0 V; set 4-20 mA | AVERAGE(vibration), MAX(vibration), COUNT(vibration > limit) | 1 ips full scale typical. |
+| Amphenol Wilcoxon | PC420VP-20 | Vibration (peak velocity) | 4-20 mA (loop) | 12-30 VDC | Same as PC420VR-10 | MAX(vibration_peak), DURATION(vibration > limit) | 2 ips full scale typical. |
+| Amphenol Advanced Sensors (Telaire) | HUMI-DP-XR-D (HumiTrac XR) | RH and Temperature (duct) | 0-10 V, 0-5 V, or 4-20 mA (selectable) | 12-30 VDC | Voltage: OUT -> AInX+; GND -> AInX-; +/-10 V. Current: loop wiring; 4-20 mA | DURATION(temp BETWEEN min AND max), MIN/MAX(RH) | Select output via device switches. |
+| Amphenol Advanced Sensors (Telaire) | EHRH-2-I-F | RH and Temperature (harsh env.) | 0-10 V, 0-5 V, or 4-20 mA (selectable) | 12-36 VDC | Voltage or loop wiring as above | DURATION(RH in band), DURATION(temp in band) | Environmental filter included. |
+| Amphenol Piher Sensing | PST360 G2 | Rotary position | 0.5-4.5 V | 5 VDC | OUT -> AInX+; GND -> AInX-; channel +/-5 V | AVERAGE(position), COUNT(position > threshold) | Non-contact Hall effect; define angle range. |
+| Amphenol Piher Sensing | PST360 G21 | Rotary position | 0.5-4.5 V (various ranges) | 5-15 VDC | OUT -> AInX+; GND -> AInX-; +/-5 V or +/-10 V | AVERAGE(position), DURATION(position in zone) | Confirm output range before wiring. |
+| TE Connectivity (Measurement Specialties) | AST4000 | Pressure (gauge/sealed/compound) | 4-20 mA, 0.5-4.5 V, 1-5 V, 1-6 V | 10-28 VDC (loop), 5 VDC (ratiometric) | Loop or voltage wiring; set channel accordingly | AVERAGE(pressure), MAX(pressure), DURATION(>limit) | Stainless construction; multiple outputs. |
+| TE Connectivity (Measurement Specialties) | M3200 | Pressure (liquid/gas) | 4-20 mA, 0.5-4.5 V, 0-10 V, 1-5 V | 9-30 VDC (loop), 12-30 VDC (0-10 V), 5 VDC (ratiometric) | Wire per output; set matching channel | AVERAGE(pressure), DURATION(pressure in band) | Microfused silicon. |
+| TE Connectivity (Measurement Specialties) | AST4520 | Level (submersible) | 4-20 mA | 10-28 VDC | 2-wire loop: loop + -> AInX+; return -> AInX-; 4-20 mA mode | MIN/MAX(level), DURATION(level < lowLimit) | Tank/well level sensing. |
+| TE Connectivity (Celesco / Measurement Specialties) | SG Series String Pot | Linear position | 4-20 mA or 0-10 V (selectable) | 12-30 VDC (voltage) or loop supply | For 4-20 mA: loop to AInX; For 0-10 V: OUT -> AInX+; GND -> AInX- | AVERAGE(position), DURATION(position at limit) | Motion tracking for cranes/hoists. |
+| TE Connectivity (Measurement Specialties) | CTS-420 LVDT/RVDT | Linear/rotary position (conditioned) | 4-20 mA | 10-36 VDC | 2-wire loop to AInX; 4-20 mA mode | DURATION(position in band), MAX(position) | LVDT/RVDT with 4-20 mA conditioner. |
+| TE Connectivity (Celesco) | IT9420 | Inclinometer (tilt/rotation) | 4-20 mA | 12-30 VDC | 2-wire loop: sensor + -> AInX+; sensor - -> AInX-; 4-20 mA mode | MAX(abs(tilt)), DURATION(abs(tilt) > warn) | Rugged inclinometer, damped pendulum. |
+
+### 11.2 Wiring and Channel Setup Quick Reference
+
+- 4-20 mA sensors (2-wire loops): +24 V -> sensor +; sensor - -> AInX+; AInX- -> 0 V; set channel to 4-20 mA. Verify loop supply headroom across ED-549 input resistance.
+- 0.5-4.5 V ratiometric sensors: OUT -> AInX+; GND -> AInX-; set channel to +/-5 V. Use twisted, shielded cable; keep leads short.
+- 0-10 V sensors: OUT -> AInX+; GND -> AInX-; set channel to +/-10 V.
+- Digital-only sensors (I2C/SPI): use a microcontroller or external A/D or DAC to convert to an analog signal for ED-549.
+- Grounding: reference all sensors to a common 0 V to avoid ground loops.
+
+### 11.3 KPI Recipe Examples By Sensor Type
+
+- Pressure (Amphenol P51, TE AST4000/M3200): AVERAGE(pressure) for stability; MAX(pressure) for safety; DURATION(pressure > threshold) for overshoot time.
+- Vibration (Wilcoxon PC420 series): AVERAGE(vibration) for health trend; MAX(vibration) vs. limit; COUNT(vibration > limit) for event frequency.
+- Humidity/Temperature (Telaire HUMI-DP-XR-D, EHRH-2-I-F): DURATION(temp BETWEEN low AND high) and DURATION(RH BETWEEN low AND high) for compliance minutes; MIN/MAX for excursions.
+- Rotary Position (Piher PST360): AVERAGE(position) for usage; COUNT(position > angle) or DURATION(position in operating zone) for activation time.
+- Linear Position (Celesco SG, CTS-420): DURATION(position at limit) for wear; MAX(position) for peak extension.
+- Level (AST4520): MIN(level) and DURATION(level < lowLimit) for stockout risk; MAX(level) for overflow risk.
+- Tilt (IT9420): MAX(abs(tilt)) for worst-case; DURATION(abs(tilt) > warn) for stability control.
 
 ---
 
