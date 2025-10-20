@@ -244,3 +244,216 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
     s.shutdown(1)
 print("sent")
 ```
+
+---
+
+## 8️⃣ Add the Snap Example Apps (PHT & CPU Performance)
+
+This section integrates two example apps from the Avnet repo (PHT/MS8607 and CPU Performance) into the same demo flow as your /IOTCONNECT Snap socket bridge.
+
+### 8.1 Get the examples
+
+```bash
+sudo apt install -y git python3-venv
+cd /home/ubuntu
+git clone https://github.com/avnet-iotconnect/iotc-python-lite-snap-examples.git
+# PIC64GX1000 board apps live here:
+cd iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications
+ls -la
+```
+
+> You should see folders for **PHT telemetry** (MS8607) and **CPU performance**.
+
+### 8.2 Create a Python venv for the apps
+
+```bash
+cd /home/ubuntu
+python3 -m venv ~/iotc-examples-venv
+source ~/iotc-examples-venv/bin/activate
+pip install --upgrade pip
+pip install --break-system-packages smbus2 psutil
+```
+
+* `smbus2` is used by the PHT (I²C) example.
+* `psutil` is typically used by CPU performance examples (usage, loads, temps).
+
+> If the example has a `requirements.txt`, you can instead do:
+>
+> ```bash
+> pip install -r requirements.txt
+> ```
+
+### 8.3 Wire the apps to the /IOTCONNECT socket
+
+Both examples publish JSON to the **telemetry TX** socket:
+
+```
+/var/snap/iotconnect/common/iotc.sock
+```
+
+> Ensure the snap’s socket bridge is running:
+>
+> ```bash
+> sudo snap start iotconnect.socket
+> sudo snap logs iotconnect.socket -f
+> ```
+
+### 8.4 Run the examples manually (quick test)
+
+**PHT (MS8607) example** — update the script path to the actual file in the repo:
+
+```bash
+source ~/iotc-examples-venv/bin/activate
+cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607
+python3 pht_ms8607_socket.py
+```
+
+Expected output every ~10s (example):
+
+```
+TX: {"timestamp": 1700000000, "PHT_temp": 30.8, "PHT_pressure": 995.2, "PHT_humidity": 24.6, "PHT_die_temp": 31.1}
+```
+
+**CPU Performance example** — update path per repo structure:
+
+```bash
+source ~/iotc-examples-venv/bin/activate
+cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance
+python3 cpu_perf_socket.py
+```
+
+Expected output (example):
+
+```
+TX: {"timestamp": 1700000100, "CPU_usage": 7.2, "CPU_load1": 0.11, "CPU_load5": 0.09, "CPU_load15": 0.08, "CPU_cores": 4}
+```
+
+### 8.5 Autostart with systemd services
+
+Create two services so the examples start at boot and restart on failure.
+
+**Service 1 — PHT**
+
+```bash
+sudo tee /etc/systemd/system/iotc-pht.service >/dev/null <<'UNIT'
+[Unit]
+Description=IOTCONNECT PHT (MS8607) Telemetry
+After=network-online.target snap.ioc...iotconnect.socket.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+Environment=VIRTUAL_ENV=/home/ubuntu/iotc-examples-venv
+Environment=PATH=/home/ubuntu/iotc-examples-venv/bin:/usr/bin
+WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607
+ExecStart=/home/ubuntu/iotc-examples-venv/bin/python3 pht_ms8607_socket.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+```
+
+**Service 2 — CPU Performance**
+
+```bash
+sudo tee /etc/systemd/system/iotc-cpumon.service >/dev/null <<'UNIT'
+[Unit]
+Description=IOTCONNECT CPU Performance Telemetry
+After=network-online.target snap.ioc...iotconnect.socket.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+Environment=VIRTUAL_ENV=/home/ubuntu/iotc-examples-venv
+Environment=PATH=/home/ubuntu/iotc-examples-venv/bin:/usr/bin
+WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance
+ExecStart=/home/ubuntu/iotc-examples-venv/bin/python3 cpu_perf_socket.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+```
+
+Enable and start both:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now iotc-pht.service iotc-cpumon.service
+systemctl --no-pager --full status iotc-pht.service iotc-cpumon.service
+journalctl -u iotc-pht.service -f
+```
+
+### 8.6 Optional: Start/stop from the /IOTCONNECT portal (C2D)
+
+If your examples also listen to the **command RX** socket
+
+```
+/var/snap/iotconnect/common/iotc_cmd.sock
+```
+
+you can map portal commands to actions. A simple pattern:
+
+* "program 1 pht"  → start PHT service
+* "program 1 perf" → start CPU perf service
+* "program 1 stop" → stop both
+
+Create a tiny command-handler that runs as a daemon, reading JSON from the command socket and calling `systemctl` accordingly (pseudo‑code shown here; adapt to your project’s existing command loop):
+
+```python
+import json, socket, subprocess
+CMD_SOCK = "/var/snap/iotconnect/common/iotc_cmd.sock"
+
+while True:
+    conn = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    conn.connect(CMD_SOCK)
+    data = conn.recv(8192)
+    cmd = json.loads(data.decode()).get("cmd", "").lower()
+    if cmd == "program 1 pht":
+        subprocess.run(["sudo","systemctl","restart","iotc-pht.service"]) 
+    elif cmd == "program 1 perf":
+        subprocess.run(["sudo","systemctl","restart","iotc-cpumon.service"]) 
+    elif cmd == "program 1 stop":
+        subprocess.run(["sudo","systemctl","stop","iotc-pht.service"]) 
+        subprocess.run(["sudo","systemctl","stop","iotc-cpumon.service"]) 
+```
+
+> If you already have a unified command-loop, just add handlers that shell out to `systemctl` or flip your app’s own run flags.
+
+### 8.7 Dashboard wiring (recommended widgets)
+
+* **PHT demo** → Gauges or dial widgets for `PHT_temp`, `PHT_pressure`, `PHT_humidity`, and `PHT_die_temp`; add thresholds and color bands for easy readout.
+* **CPU perf demo** → Timeseries charts for `CPU_usage`, `CPU_load1`, `CPU_load5`, `CPU_load15`, and a single‑value "CPU_cores"; optionally a rule that triggers a tile highlight if `CPU_usage > 80` for >30s.
+
+### 8.8 One‑liner runner (dev convenience)
+
+For quick dev sessions without systemd, drop this helper:
+
+```bash
+cat <<'SH' > ~/run-demos.sh
+#!/usr/bin/env bash
+set -euo pipefail
+source ~/iotc-examples-venv/bin/activate
+sudo snap start iotconnect.socket || true
+(
+  cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607 && \
+  nohup python3 pht_ms8607_socket.py >/tmp/pht.log 2>&1 &
+)
+(
+  cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance && \
+  nohup python3 cpu_perf_socket.py >/tmp/cpumon.log 2>&1 &
+)
+echo "Started PHT + CPU perf demos. Logs: /tmp/pht.log /tmp/cpumon.log"
+SH
+chmod +x ~/run-demos.sh
+~/run-demos.sh
+```
+
+---
