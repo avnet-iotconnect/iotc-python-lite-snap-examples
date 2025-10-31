@@ -1,0 +1,295 @@
+{
+    "code": "RPiFruit",
+    "name": "RPi Smart Zone Fruit Counter",
+    "authType": 2,
+    "attributes": [
+        {
+            "name": "v",
+            "displayName": "Version",
+            "type": "STRING",
+            "description": "payload schema version",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "type",
+            "displayName": "message type",
+            "type": "STRING",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "stream",
+            "displayName": "",
+            "type": "STRING",
+            "description": "logical stream/tag so you can route/visualize",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "ts",
+            "displayName": "Time Stamp",
+            "type": "TIME",
+            "description": "ISO-8601 UTC timestamp when the payload was generated.",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "apples_left",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "oranges_left",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "bananas_left",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "apples_right",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "oranges_right",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "bananas_right",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "apples_total",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "oranges_total",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "bananas_total",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "other_left",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "other_right",
+            "displayName": "",
+            "type": "INTEGER",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "left_cost_total",
+            "displayName": "Inventory Costs",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "$",
+            "attributeColor": "#009ce0",
+            "aggregateTypes": []
+        },
+        {
+            "name": "right_cost_total",
+            "displayName": "Retail Total",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "$",
+            "attributeColor": "#68bc00",
+            "aggregateTypes": []
+        },
+        {
+            "name": "profit_total",
+            "displayName": "profit",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "$",
+            "attributeColor": "#7b64ff",
+            "aggregateTypes": []
+        },
+        {
+            "name": "profit_percent",
+            "displayName": "",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "%",
+            "attributeColor": "#68bc00",
+            "aggregateTypes": []
+        }
+    ],
+    "commands": [
+        {
+            "name": "Set Price - Orange",
+            "command": "price_right orange",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "get_status",
+            "command": "get_status",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Price - Banana",
+            "command": "price_right banana",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "pause",
+            "command": "pause",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "classes",
+            "command": "classes",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "ping",
+            "command": "ping",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "send_interval",
+            "command": "send_interval",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "line",
+            "command": "line",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Cost - Banana",
+            "command": "price_left banana",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Price - Apple",
+            "command": "price_right apple",
+            "requiredParam": false,
+            "requiredAck": false,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Cost - Orange",
+            "command": "price_left orange",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "area_side",
+            "command": "area_side",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Cost - Apple",
+            "command": "price_left apple",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Cost - All",
+            "command": "price_left_all",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Price - All",
+            "command": "price_right_all",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "stream",
+            "command": "stream",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "resume",
+            "command": "resume",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        }
+    ],
+    "messageVersion": "2.1",
+    "msgCode": "XG4E9TY",
+    "capability": "0",
+    "properties": {
+        "description": null,
+        "dataFrequency": "5",
+        "fileSupport": false
+    },
+    "_meta": {
+        "version": "2.0"
+    }
+}

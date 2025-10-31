@@ -1,0 +1,14 @@
+
+[Unit]
+Description=/IOTCONNECT socket-debug (user)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/snap run iotconnect.socket-debug
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
