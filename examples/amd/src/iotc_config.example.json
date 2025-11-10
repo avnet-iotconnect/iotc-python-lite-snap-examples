@@ -1,0 +1,14 @@
+{
+  "socket_path": "/var/snap/iotconnect/common/iotc.sock",
+  "send_interval_sec": 4,
+  "model_path": "models/cards.onnx",
+  "model_input_w": 640,
+  "model_input_h": 640,
+  "conf_threshold": 0.15,
+  "iou_threshold": 0.6,
+  "video_source": 0,
+  "video_display": true,
+  "video_draw_boxes": true,
+  "labels_path": "labels.txt",
+  "simulate": false
+}
