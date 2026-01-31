@@ -227,19 +227,26 @@ mkdir -p ~/iotc-vision-ai-pi5/src/scripts ~/iotc-vision-ai-pi5/files ~/iotc-visi
 cd ~/iotc-vision-ai-pi5
 
 wget -O src/requirements.txt \
-  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/requirements.txt
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/requirements.txt
 
 wget -O src/scripts/smart_zone_fruit_counts_cmd.py \
-  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd.py
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd.py
 
 wget -O src/scripts/iotc_yolo_simple.py \
-  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/iotc_yolo_simple.py
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/iotc_yolo_simple.py
 
 wget -O files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json \
-  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json
 ```
 
-Then run the commands in Step 7 from `~/iotc-vision-ai-pi5`.
+Then run:
+
+```bash
+cd ~/iotc-vision-ai-pi5
+pip install -r src/requirements.txt
+```
+
+Now run the commands in Step 7 from `~/iotc-vision-ai-pi5` (skip the repo-clone path).
 
 ## 9) Systemd user units (optional)
 ```bash
