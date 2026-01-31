@@ -11,6 +11,11 @@ This package intentionally provides **two scripts**:
 - Uses the Smart Zone Fruit Counter template
   - `files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json`
 
+## A2) Smart Zone Retail (Pricing) Demo
+**`src/scripts/smart_zone_fruit_counts_cmd_retail.py`**
+- Adds pricing, profit, and runtime price controls
+- Sends `left_cost_total`, `right_cost_total`, `profit_total`, `profit_percent`
+
 ## B) Minimal YOLO Telemetry Demo
 **`src/scripts/iotc_yolo_simple.py`**
 - Pure object detection
@@ -144,6 +149,9 @@ wget -O src/requirements.txt \
 wget -O src/scripts/smart_zone_fruit_counts_cmd.py \
   https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd.py
 
+wget -O src/scripts/smart_zone_fruit_counts_cmd_retail.py \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd_retail.py
+
 wget -O src/scripts/iotc_yolo_simple.py \
   https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/iotc_yolo_simple.py
 
@@ -164,6 +172,32 @@ python src/scripts/smart_zone_fruit_counts_cmd.py \
   --iotc-stream vision.fruit \
   --fps-limit 18 --send-interval 4
 ```
+
+### Smart Zone Retail (Pricing) Demo
+```bash
+python src/scripts/smart_zone_fruit_counts_cmd_retail.py \
+  --model yolov8n.pt --source 0 \
+  --conf 0.25 --classes "" \
+  --line 80,380,560,380 --area-side left \
+  --iotc-sock "$IOTC_SOCK" \
+  --iotc-cmd-sock "$IOTC_CMD_SOCK" \
+  --iotc-stream vision.fruit \
+  --fps-limit 18 --send-interval 4
+```
+
+## 7.1) Dashboard Template (download + import)
+
+Download the dashboard template JSON:
+
+```bash
+wget -O files/rpi-fruit-counter-dashboard-template.json \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/main/examples/raspberry-pi5-iotc-vision-ai-pi5/files/rpi-fruit-counter-dashboard-template.json
+```
+
+In /IOTCONNECT:
+1) Go to **Templates** -> **Dashboard**.
+2) Click **Import** and choose `rpi-fruit-counter-dashboard-template.json`.
+3) Assign the dashboard to your device.
 
 ### Minimal YOLO Demo - Run
 ```bash
