@@ -134,7 +134,7 @@ export IOTC_CMD_SOCK=/home/$USER/snap/iotconnect/common/iotc_cmd.sock
 
 From the repo root:
 ```bash
-cd ~/iotc-python-lite-snap-examples/examples/raspberry-pi/iotc-vision-ai-pi5
+cd ~/iotc-python-lite-snap-examples/examples/raspberry-pi5-iotc-vision-ai-pi5
 pip install -r src/requirements.txt
 ```
 
@@ -162,7 +162,7 @@ To visualize `object1..3` and `confidence1..3`, import:
 source ~/vision/venv/bin/activate
 export QT_QPA_PLATFORM=wayland
 
-cd ~/iotc-python-lite-snap-examples/examples/raspberry-pi/iotc-vision-ai-pi5
+cd ~/iotc-python-lite-snap-examples/examples/raspberry-pi5-iotc-vision-ai-pi5
 python3 src/scripts/iotc_yolo_simple.py \
   --model yolov8n.pt \
   --source 0 \
@@ -218,7 +218,30 @@ s.close()
 PY
 ```
 
-## Systemd user units (optional)
+## 8) Run the demo (wget-only, no repo clone)
+
+If you do not want to clone the repo, download just the required files.
+
+```bash
+mkdir -p ~/iotc-vision-ai-pi5/src/scripts ~/iotc-vision-ai-pi5/files ~/iotc-vision-ai-pi5/src/systemd
+cd ~/iotc-vision-ai-pi5
+
+wget -O src/requirements.txt \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/requirements.txt
+
+wget -O src/scripts/smart_zone_fruit_counts_cmd.py \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd.py
+
+wget -O src/scripts/iotc_yolo_simple.py \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/src/scripts/iotc_yolo_simple.py
+
+wget -O files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json \
+  https://raw.githubusercontent.com/avnet-iotconnect/iotc-python-lite-snap-examples/temp/examples/raspberry-pi5-iotc-vision-ai-pi5/files/RPi_Smart_Zone_Fruit_Counter_template_WITH_top3.json
+```
+
+Then run the commands in Step 7 from `~/iotc-vision-ai-pi5`.
+
+## 9) Systemd user units (optional)
 ```bash
 mkdir -p ~/.config/systemd/user
 cp src/systemd/*.service ~/.config/systemd/user/
@@ -229,7 +252,7 @@ systemctl --user enable --now vision-fruit.service
 
 If you cloned the repo to a different path, update the `ExecStart` line in `vision-fruit.service` to point at your local checkout.
 
-## Troubleshooting
+## 10) Troubleshooting
 **Camera not opening**
 
 Confirm device exists:
@@ -275,12 +298,12 @@ Example:
   "top":[{"cls":"person","conf":0.91,"xyxy":[12,35,240,460]}]
 }
 
-## 12) References (links reused from Avnet repos/resources)
+## 11) References (links reused from Avnet repos/resources)
 - Demos repo (structure reference): https://github.com/avnet-iotconnect/iotc-python-lite-sdk-demos
 - /IOTCONNECT Training Library (videos): https://www.avnet.com/americas/solutions/iot/iotconnect/training/
 - Ultralytics YOLO (docs and images): https://docs.ultralytics.com/guides/
 
-## Raspberry Pi 5 Setup Links (public)
+## 12) Raspberry Pi 5 Setup Links (public)
 - Raspberry Pi 5 documentation: https://www.raspberrypi.com/documentation/computers/raspberry-pi-5.html
 - Raspberry Pi OS installation (Raspberry Pi Imager): https://www.raspberrypi.com/software/
 - Getting started with Raspberry Pi OS: https://www.raspberrypi.com/documentation/computers/getting-started.html
