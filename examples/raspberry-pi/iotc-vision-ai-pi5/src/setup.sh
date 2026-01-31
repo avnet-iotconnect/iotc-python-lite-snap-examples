@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Derive repo root no matter where this script is run from
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../../../" && pwd)"
 
 echo "[*] Repo root: ${REPO_ROOT}"
 echo "[*] Installing base packages..."
@@ -17,12 +17,12 @@ cd ~/vision
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
-pip install -r "${REPO_ROOT}/raspberry-pi/starter-demo/vision-smart-zone/requirements.txt" || true
+pip install -r "${SCRIPT_DIR}/requirements.txt"
 
 echo "[*] Copying systemd user units (optional)..."
 mkdir -p ~/.config/systemd/user
-cp "${REPO_ROOT}/raspberry-pi/starter-demo/vision-smart-zone/systemd/"*.service ~/.config/systemd/user/ || true
-systemctl --user daemon-reload || true
+cp "${SCRIPT_DIR}/systemd/"*.service ~/.config/systemd/user/
+systemctl --user daemon-reload
 
 echo "Done."
 echo "Start the socket bridge:   systemctl --user enable --now iotc-socket.service"

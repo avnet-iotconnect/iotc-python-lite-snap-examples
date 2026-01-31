@@ -8,7 +8,8 @@ Type=simple
 WorkingDirectory=%h/vision
 Environment=IOTC_SOCK=%h/snap/iotconnect/common/iotc.sock
 Environment=IOTC_CMD_SOCK=%h/snap/iotconnect/common/iotc_cmd.sock
-ExecStart=/bin/bash -lc 'source venv/bin/activate &&   python ~/iotc-vision-ai/raspberry-pi/starter-demo/vision-smart-zone/scripts/smart_zone_fruit_counts_cmd.py     --model yolov8n.pt --source 0     --conf 0.25 --classes ""     --line 80,380,560,380 --area-side left     --iotc-sock "$IOTC_SOCK"     --iotc-cmd-sock "$IOTC_CMD_SOCK"     --iotc-stream vision.fruit     --fps-limit 18 --send-interval 4     --log-jsonl ~/vision/fruit.jsonl'
+Environment=IOTC_REPO=%h/iotc-python-lite-snap-examples
+ExecStart=/bin/bash -lc 'source venv/bin/activate &&   python "$IOTC_REPO/examples/raspberry-pi/iotc-vision-ai-pi5/src/scripts/smart_zone_fruit_counts_cmd.py"     --model yolov8n.pt --source 0     --conf 0.25 --classes ""     --line 80,380,560,380 --area-side left     --iotc-sock "$IOTC_SOCK"     --iotc-cmd-sock "$IOTC_CMD_SOCK"     --iotc-stream vision.fruit     --fps-limit 18 --send-interval 4     --log-jsonl ~/vision/fruit.jsonl'
 Restart=always
 RestartSec=3
 
