@@ -459,8 +459,8 @@ def main():
             line_cur = parse_line(snap["line"]) if snap["line"] else None
             left_is_positive = (snap["area_side"] == "left")
             classes_filter = [c.strip().lower() for c in (snap["classes"] or "").split(",") if c.strip()]
-            price_left = snap["price_left"]    # inventory
-            price_right = snap["price_right"]  # retail
+            price_left = snap["price_left"]    # inventory (used for RIGHT side cost)
+            price_right = snap["price_right"]  # retail (used for LEFT side retail)
 
             # Inference
             res = model(frame, conf=args.conf, verbose=False)[0]
@@ -511,25 +511,19 @@ def main():
             bananas_total = int(totals_by_name.get("banana", 0))
 
             # ---- pricing totals ----
-            # Inventory cost for items on the LEFT side
-            left_cost = (
-                counts["apples_left"]  * price_left["apple"]  +
-                counts["oranges_left"] * price_left["orange"] +
-                counts["bananas_left"] * price_left["banana"]
+            # LEFT side is retail, RIGHT side is inventory cost
+            left_retail = (
+                counts["apples_left"]  * price_right["apple"]  +
+                counts["oranges_left"] * price_right["orange"] +
+                counts["bananas_left"] * price_right["banana"]
             )
-            # Retail total for items on the RIGHT side
-            right_retail = (
-                counts["apples_right"]  * price_right["apple"]  +
-                counts["oranges_right"] * price_right["orange"] +
-                counts["bananas_right"] * price_right["banana"]
+            right_cost = (
+                counts["apples_right"]  * price_left["apple"]  +
+                counts["oranges_right"] * price_left["orange"] +
+                counts["bananas_right"] * price_left["banana"]
             )
-            # PROFIT: only from items on the RIGHT side, retail minus their inventory cost
-            profit_total = (
-                counts["apples_right"]  * (price_right["apple"]  - price_left["apple"])  +
-                counts["oranges_right"] * (price_right["orange"] - price_left["orange"]) +
-                counts["bananas_right"] * (price_right["banana"] - price_left["banana"])
-            )
-            profit_percent = (profit_total / right_retail * 100.0) if right_retail > 0 else 0.0
+            profit_total = left_retail - right_cost
+            profit_percent = (profit_total / left_retail * 100.0) if left_retail > 0 else 0.0
 
             # Draw window (optional)
             if not args.no_draw:
@@ -547,7 +541,7 @@ def main():
                     cv2.putText(frame, label, (x1, max(20, y1-6)),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1, cv2.LINE_AA)
                 cv2.putText(frame,
-                            f"Left cost: ${left_cost:.2f}  Right retail: ${right_retail:.2f}  Profit: ${profit_total:.2f}  Profit%: {profit_percent:.1f}%",
+                            f"Left retail: ${left_retail:.2f}  Right cost: ${right_cost:.2f}  Profit: ${profit_total:.2f}  Profit%: {profit_percent:.1f}%",
                             (10, 26), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (50,255,50), 2, cv2.LINE_AA)
                 cv2.imshow("Vision Fruit (IoTConnect+CMD+Pricing)", frame)
                 if cv2.waitKey(1) & 0xFF == 27:
@@ -579,9 +573,9 @@ def main():
                     "other_left":  int(counts["other_left"]),
                     "other_right": int(counts["other_right"]),
 
-                    # pricing
-                    "left_cost_total": round(float(left_cost), 2),
-                    "right_cost_total": round(float(right_retail), 2),
+                    # pricing (left=retail, right=cost)
+                    "left_retail_total": round(float(left_retail), 2),
+                    "right_cost_total": round(float(right_cost), 2),
                     "profit_total": round(float(profit_total), 2),
                     "profit_percent": round(float(profit_percent), 2),
                 }
