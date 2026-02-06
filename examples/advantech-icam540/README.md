@@ -1,12 +1,12 @@
-# iCAM540 DeepStream → IoTConnect Snap (MQTT Bridge)
+# iCAM540 DeepStream → /IOTCONNECT Snap (MQTT Bridge)
 
-This demo enables DeepStream message output (nvmsgconv + nvmsgbroker), publishes detections to MQTT, and forwards those messages into the IoTConnect snap socket.
+This demo enables DeepStream message output (nvmsgconv + nvmsgbroker), publishes detections to MQTT, and forwards those messages into the /IOTCONNECT snap socket.
 
 ---
 
 ## Prerequisites
 
-- IoTConnect snap running (socket service)
+- /IOTCONNECT snap running (socket service)
 - DeepStream installed (as provided on the device)
 - An MQTT broker reachable from this device (example: mosquitto on localhost)
 - Python 3 with `paho-mqtt`
@@ -27,7 +27,7 @@ This demo enables DeepStream message output (nvmsgconv + nvmsgbroker), publishes
 - `cfg_mqtt.txt`  
   MQTT broker auth settings (username/password).
 - `mqtt_to_iotc_socket.py`  
-  MQTT → IoTConnect snap socket forwarder.
+  MQTT → /IOTCONNECT snap socket forwarder.
 - `icam540_iotc_agent.py`  
   Always-on agent: perf telemetry + command listener + DeepStream control.
 - `preflight.sh`  
@@ -35,7 +35,7 @@ This demo enables DeepStream message output (nvmsgconv + nvmsgbroker), publishes
 
 ---
 
-## 1. Start The IoTConnect Snap Socket
+## 1. Start The /IOTCONNECT Snap Socket
 
 Make sure the snap socket is running:
 
@@ -83,7 +83,7 @@ sudo apt-get install -y tmux
 
 Notes:
 - If the tmux session already exists, the script attaches instead of exiting.
-- The socket window auto‑restarts if the IoTConnect socket process exits.
+- The socket window auto‑restarts if the /IOTCONNECT socket process exits.
 
 If you want PeopleNet label mapping, run:
 
@@ -110,7 +110,7 @@ Manual sequence after a fresh reboot:
    ```bash
    sudo systemctl enable --now mosquitto
    ```
-2. Start the IoTConnect snap socket:
+2. Start the /IOTCONNECT snap socket:
    ```bash
    snap run iotconnect.socket-debug
    ```
@@ -118,7 +118,7 @@ Manual sequence after a fresh reboot:
    ```bash
    cd /home/icam-540/sample/repos/iotc-python-lite-snap-examples/examples/advantech-icam540 && ./agent.sh
    ```
-4. Start the MQTT → IoTConnect forwarder (summary every 4 seconds):
+4. Start the MQTT → /IOTCONNECT forwarder (summary every 4 seconds):
    ```bash
    /home/icam-540/sample/repos/iotc-python-lite-snap-examples/examples/advantech-icam540/mqtt_to_iotc_socket.py \
      --host localhost --port 1883 --topic icam540/ds \
@@ -219,7 +219,7 @@ sudo systemctl status mosquitto
 
 ---
 
-## 5. Start The MQTT → IoTConnect Forwarder
+## 5. Start The MQTT → /IOTCONNECT Forwarder
 
 ```bash
 /home/icam-540/sample/repos/iotc-python-lite-snap-examples/examples/advantech-icam540/mqtt_to_iotc_socket.py \
@@ -231,7 +231,7 @@ sudo systemctl status mosquitto
   --min-interval 4
 ```
 
-The forwarder subscribes to the MQTT topic, builds a summary, and writes it to the IoTConnect snap socket every N seconds (default 4).
+The forwarder subscribes to the MQTT topic, builds a summary, and writes it to the /IOTCONNECT snap socket every N seconds (default 4).
 
 **Forwarder telemetry**
 
@@ -264,7 +264,7 @@ To change the interval, use `--min-interval` or set `IOTC_MIN_INTERVAL=4`.
 
 ## 6. Run The Always-On Agent (Optional)
 
-This agent keeps running, sends performance telemetry, and listens for commands from IoTConnect (to start/stop DeepStream).
+This agent keeps running, sends performance telemetry, and listens for commands from /IOTCONNECT (to start/stop DeepStream).
 
 The agent does not change camera settings. If the camera is busy, stop the UI services manually:
 
@@ -294,7 +294,7 @@ If your DeepStream run requires sudo, start the agent with sudo or set:
 --deepstream-cmd "sudo -E deepstream-app"
 ```
 
-Supported commands (IoTConnect command payloads):
+Supported commands (/IOTCONNECT command payloads):
 
 ```
 {"name":"start_deepstream","args":["/path/to/config"],"ack_id":"123"}
@@ -340,7 +340,7 @@ Supported commands (IoTConnect command payloads):
 - `mem_avail_kb` (int): available memory (kB).
 - `cpu_temp_c` (float|null): CPU temperature in °C when available.
 
-If your IoTConnect UI limits command args length, use config aliases:
+If your /IOTCONNECT UI limits command args length, use config aliases:
 
 Start the agent with:
 
@@ -388,14 +388,14 @@ When using PeopleNet, set the label file for the forwarder:
 ## Troubleshooting
 
 - **No MQTT messages**: Verify DeepStream is running and the MQTT broker is reachable on the configured host/port.
-- **No IoTConnect telemetry**: Confirm the socket file exists and permissions allow write access.
+- **No /IOTCONNECT telemetry**: Confirm the socket file exists and permissions allow write access.
 - **Different socket paths**: Override with `--iotc-sock` or set `IOTC_SOCKET`.
 - **Broker library load error** (`unable to open shared library`): On Jetson, `libnvds_mqtt_proto.so` depends on `libmosquitto.so.1`. Install it:
   ```bash
   sudo apt-get update
   sudo apt-get install -y libmosquitto1
   ```
-- **Duplicate ID / multiple connections**: Ensure only one IoTConnect socket process is running.
+- **Duplicate ID / multiple connections**: Ensure only one /IOTCONNECT socket process is running.
   ```bash
   sudo snap stop iotconnect.socket
   pkill -f iotconnect.socket-debug
