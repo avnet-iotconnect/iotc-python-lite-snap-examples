@@ -1,0 +1,38 @@
+[property]
+gpu-id=0
+net-scale-factor=0.00392156862745098
+
+onnx-file=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/resnet34_peoplenet_int8.onnx
+model-engine-file=/opt/nvidia/deepstream/deepstream-6.3/samples/models/PeopleNet/resnet34_peoplenet_int8.onnx_b1_gpu0_fp32.engine
+labelfile-path=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/labels.txt
+
+# Match engine precision
+network-mode=0
+
+# PeopleNet / DetectNet_v2
+num-detected-classes=3
+process-mode=1
+model-color-format=0
+batch-size=1
+interval=0
+gie-unique-id=1
+
+# Explicit dims (matches your engine: 3x544x960)
+input-dims=3;544;960;0
+
+# Exact output bindings (note the :0)
+output-blob-names=output_bbox/BiasAdd:0;output_cov/Sigmoid:0
+
+# Use NMS clustering mode with required params
+cluster-mode=2
+
+[class-attrs-all]
+topk=20
+nms-iou-threshold=0.5
+pre-cluster-threshold=0.2
+
+# Per-class override for "person" (class 0) often works better
+[class-attrs-0]
+topk=20
+nms-iou-threshold=0.5
+pre-cluster-threshold=0.4
