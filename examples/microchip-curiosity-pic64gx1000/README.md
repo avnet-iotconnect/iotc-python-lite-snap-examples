@@ -1,5 +1,7 @@
 # PIC64GX1000 Curiosity Kit + /IOTCONNECT Snap — End-to-End Guide
 
+For the vision demo application, use [`applications/vision_iotc_socket.py`](./applications/vision_iotc_socket.py). It publishes inference telemetry over the `/IOTCONNECT` socket bridge and supports runtime commands plus the browser overlay stream. For live demo operations such as confidence/FPS tuning, model swaps, browser streaming, and OTA procedure, see [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md).
+
 This guide takes a first-time user from unboxing the **Microchip PIC64GX1000 Curiosity board** to:
 
 * Booting Ubuntu and connecting it to **/IOTCONNECT** via the official Snap.
