@@ -1,461 +1,136 @@
-# PIC64GX1000 Curiosity Kit + /IOTCONNECT Snap — End-to-End Guide
+# Microchip Curiosity PIC64GX1000 Kit + /IOTCONNECT Snap
 
-For the vision demo application, use [`applications/vision_iotc_socket.py`](./applications/vision_iotc_socket.py). It publishes inference telemetry over the `/IOTCONNECT` socket bridge and supports runtime commands plus the browser overlay stream. For live demo operations such as confidence/FPS tuning, model swaps, browser streaming, and OTA procedure, see [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md).
+Reference example for connecting the **Microchip Curiosity PIC64GX1000 Kit** running **Ubuntu 24.04 (riscv64)** to **/IOTCONNECT** using the official [`iotconnect` Snap](https://snapcraft.io/iotconnect).
 
-This guide takes a first-time user from unboxing the **Microchip PIC64GX1000 Curiosity board** to:
+The Snap provides provisioning, MQTT connectivity, cloud-to-device commands and OTA. Your application publishes JSON to a local UNIX socket and reads commands from a second socket, so no /IOTCONNECT SDK code, credentials handling, or cross-compilation is required in your application.
 
-* Booting Ubuntu and connecting it to **/IOTCONNECT** via the official Snap.
-* Adding a **mikroBUS™ PHT Click (MS8607 sensor)** and streaming its telemetry to **/IOTCONNECT**.
-
-Everything below is **copy-paste friendly**. When in doubt, confirm jumper/DIP positions against the PCB silkscreen and your board’s user guide.
-
----
-
-## 0️⃣ What You Need
-
-* PIC64GX1000 Curiosity Kit (USB-C cable included)
-* Host PC (Linux/macOS/Windows) with USB-C and an SD card reader (if using microSD)
-* Ubuntu image for PIC64GX (e.g. `ubuntu-24.04.x-preinstalled-server-riscv64+pic64gx.img.xz`)
-* Ethernet with DHCP
-* *(Optional)* microSD card (≥16 GB) for SD boot
-* *(Optional)* mikroE PHT Click (MS8607) for humidity/pressure/temperature
+<table>
+  <tr>
+    <td width="42%"><img src="./media/pic64gx-product.png" alt="Microchip PIC64GX1000"></td>
+    <td>The Curiosity PIC64GX1000 Kit is built around a quad-core, 64-bit RISC-V application-class processor that runs Linux alongside real-time workloads. The board provides 1 GB DDR4, a microSD slot for booting Linux, Gigabit Ethernet, three UARTs and a JTAG debug channel over USB-C, a MIPI CSI-2 receiver, HDMI output, and a mikroBUS socket for Click boards using I&sup2;C and SPI.</td>
+  </tr>
+</table>
 
 ---
 
-## 1️⃣ Board Setup (Power, Console, Boot Source)
+## Start here
 
-### Power & USB-C
+| If you want to | Read |
+| --- | --- |
+| Get telemetry on a dashboard as fast as possible, without building anything | **[QUICKSTART.md](./QUICKSTART.md)** |
+| Understand the architecture, socket protocol, templates, services and OTA | **[DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md)** |
+| Run and tune the camera / inference demo during a live demonstration | **[OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md)** |
 
-* Use the **DEBUG/PROG USB-C connector** for both power and console.
-* If powering from a barrel jack (J7), set jumper J47 accordingly — do **not** power via USB-C simultaneously.
-
-### Serial Console
-
-On your PC, open a serial terminal at **115200 8N1**:
-
-```bash
-sudo apt install -y screen
-screen /dev/ttyACM0 115200
-```
-
-(Your port may appear as `/dev/ttyUSB*` or `/dev/ttyACM*`.)
-
-### Networking
-
-* Connect Ethernet (RJ-45). DHCP is recommended.
-
-### DIP & Jumpers
-
-* Factory defaults are fine for Ubuntu boot.
-* If booting from SD, match the silkscreen legend for BOOT source.
-* Ensure **HSS Bootloader 2024.06+** is installed.
+The quickstart requires no compilation: you flash a prebuilt Ubuntu image, install a published Snap, and run stock Python scripts.
 
 ---
 
-## 2️⃣ Put Ubuntu on the Board
+## Dashboard
 
-You can boot from **eMMC** or **microSD**.
+The included dashboard export reproduces the layout below, which is the reference demo view for this kit.
 
-### Option A — eMMC via HSS USB Mass-Storage
+![/IOTCONNECT dashboard for the Curiosity PIC64GX1000 Kit](./media/dashboard.png)
 
-Plug the board into your host; the HSS presents a USB disk (`/dev/sdX`).
+| Widget | Bound to | Purpose |
+| --- | --- | --- |
+| Product image | Static URL | Board identification for the demo |
+| Temperature gauge | `PHT_temp` | MS8607 barometric temperature, 0-45 C with comfort bands |
+| Pressure gauge | `PHT_pressure` | MS8607 pressure, 990-1040 hPa |
+| Humidity gauge | `PHT_humidity` | MS8607 relative humidity, 0-100 % |
+| Die temperature gauge | `PHT_die_temp` | MS8607 humidity-die temperature, 20-45 C |
+| Telemetry - ALL | All PHT attributes plus `freq`, `osr` | Live attribute/value table with timestamps |
+| Installed Mikroe Click Board | Static URL | Shows which Click board the demo expects |
+| OTA Updates | Device | OTA history and status per device |
+| Device Command | Device template | Sends commands such as `freq` back to the board |
 
-```bash
-xzcat ubuntu-24.04.x-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
-sudo eject /dev/sdX
-```
+Import files are in [files/](./files/):
 
-Then power-cycle the board and keep the console open.
+- [`pic64gx1000-device-template.json`](./files/pic64gx1000-device-template.json) - device template with the attributes and commands used by all three applications. Import this **first**.
+- [`pic64gx1000-dashboard-template.json`](./files/pic64gx1000-dashboard-template.json) - the dashboard export shown above.
 
-### Option B — microSD
-
-Flash the same image to your microSD card:
-
-```bash
-xzcat ubuntu-24.04.x-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
-```
-
-Set **BOOT to SD**, power-cycle, and watch the console.
-
-### First Boot
-
-* Login as `ubuntu` and set your password.
-* Verify networking with `ip a` (should show `eth0`).
+Import steps are in [QUICKSTART.md, step 5](./QUICKSTART.md#5-import-the-device-template-and-dashboard).
 
 ---
 
-## 3️⃣ Update Ubuntu & Install Basics
+## Applications
 
-```bash
-sudo apt update
-sudo apt full-upgrade -y
-sudo reboot
-```
+All applications live in [applications/](./applications/) and speak the same socket contract.
 
-Optional but useful:
+| Application | Extra hardware | Publishes | Accepts commands |
+| --- | --- | --- | --- |
+| [`pht_iotc_socket.py`](./applications/pht_iotc_socket.py) | mikroBUS PHT Click (MS8607) | `PHT_temp`, `PHT_pressure`, `PHT_humidity`, `PHT_die_temp` | No |
+| [`perf_iotc_socket.py`](./applications/perf_iotc_socket.py) | None | `CPU_usage`, `CPU_load1/5/15`, `CPU_cores`, `CPU_freq_mhz`, `CPU_temp_c` | `freq` |
+| [`vision_iotc_socket.py`](./applications/vision_iotc_socket.py) | USB or CSI camera, or a video file | `object1-3`, `confidence1-3`, `detections`, `infer_ms`, `model` | `start`, `stop`, `set_conf`, `set_fps`, `set_interval`, `set_source`, `set_model`, `status` |
 
-```bash
-sudo apt install -y i2c-tools device-tree-compiler python3-pip
-```
+`perf_iotc_socket.py` is the zero-hardware path: it runs on a bare board and is the fastest way to prove the connection end to end. `pht_iotc_socket.py` drives the dashboard above.
 
----
-
-## 4️⃣ Install and Provision the /IOTCONNECT Snap
-
-### Install
-
-```bash
-sudo snap install iotconnect
-```
-
-### Provision
-
-```bash
-iotconnect.setup
-# or, if needed
-sudo snap run iotconnect.setup
-```
-
-Choose **Manual** (paste credentials) or **Automated** (API key).
-
-Device config/certs are stored under `$SNAP_COMMON` (typically `/var/snap/iotconnect/common`).
-
-### Start the Socket Bridge
-
-```bash
-# Foreground (debug)
-snap run iotconnect.socket
-
-# Background (service)
-sudo snap start iotconnect.socket
-sudo snap logs iotconnect.socket -f
-```
-
-**Expected log:**
-
-```
-[IOTCONNECT] SDK Connected.
-[SOCKET] Listening on /var/snap/iotconnect/common/iotc.sock
-[COMMAND-SOCKET] Listening on /var/snap/iotconnect/common/iotc_cmd.sock
-```
-
-**Socket Paths:**
-
-* TX (telemetry): `/var/snap/iotconnect/common/iotc.sock`
-* RX (commands): `/var/snap/iotconnect/common/iotc_cmd.sock`
+Telemetry schemas and the full command reference are in the [developer guide](./DEVELOPER_GUIDE.md#5-application-reference).
 
 ---
 
-## 5️⃣ (Optional) Enable I²C for mikroBUS
+## How it fits together
 
-If your image doesn’t already expose `/dev/i2c-*`, enable it with an overlay.
-
-```bash
-sudo apt install -y i2c-tools device-tree-compiler python3-pip python3-smbus2
-
-# 1) Overlay to mark I2C A/B "okay"
-cat <<'DTS' | sudo tee /boot/enable-i2c-ab.dts >/dev/null
-/dts-v1/;
-/plugin/;
-/ {
-    compatible = "microchip,pic64gx1000", "riscv";
-    fragment@0 { target-path = "/soc/i2c@2010a000"; __overlay__ { status = "okay"; clock-frequency = <100000>; }; };
-    fragment@1 { target-path = "/soc/i2c@2010b000"; __overlay__ { status = "okay"; clock-frequency = <100000>; }; };
-};
-DTS
-
-sudo dtc -@ -I dts -O dtb -o /boot/enable-i2c-ab.dtbo /boot/enable-i2c-ab.dts
-sudo dtc -I fs -O dtb -o /boot/board-base.dtb /proc/device-tree
-sudo fdtoverlay -i /boot/board-base.dtb -o /boot/board-i2c.dtb /boot/enable-i2c-ab.dtbo
-echo 'devicetree /boot/board-i2c.dtb' | sudo tee /boot/grub/custom.cfg
-sudo update-grub
-sudo reboot
+```
+   Curiosity PIC64GX1000 (Ubuntu 24.04 riscv64)
+   ┌──────────────────────────────────────────────────────────┐
+   │                                                          │
+   │  Example application            iotconnect Snap          │
+   │  ┌───────────────────┐          ┌────────────────────┐   │
+   │  │ pht / perf /      │  JSON    │ iotc.sock      (TX) │  │        ┌──────────────┐
+   │  │ vision            │─────────▶│                    │──┼── MQTT ▶│ /IOTCONNECT  │
+   │  │                   │◀─────────│ iotc_cmd.sock  (RX) │  │◀───────│              │
+   │  └───────────────────┘ commands └────────────────────┘   │        └──────────────┘
+   │        ▲                                                 │
+   │        │ I2C / V4L2                                      │
+   │  ┌─────┴───────────┐                                     │
+   │  │ PHT Click, USB  │                                     │
+   │  │ or CSI camera   │                                     │
+   │  └─────────────────┘                                     │
+   └──────────────────────────────────────────────────────────┘
 ```
 
-**Verify:**
+Sockets, when the Snap service runs as root:
 
-```bash
-ls -l /dev/i2c-*
-sudo i2cdetect -y 0
-```
+| Direction | Path |
+| --- | --- |
+| Telemetry out (device to cloud) | `/var/snap/iotconnect/common/iotc.sock` |
+| Commands in (cloud to device) | `/var/snap/iotconnect/common/iotc_cmd.sock` |
 
-You should see `0x40` and `0x76` once the PHT Click is attached.
+Running the bridge unprivileged relocates both sockets under `~/snap/iotconnect/common/`. See [socket path resolution](./DEVELOPER_GUIDE.md#3-socket-contract).
 
 ---
 
-## 6️⃣ Add the PHT Click (MS8607) and Stream Telemetry
-
-### 6.1 Hardware
-
-* Power off, seat the PHT Click in mikroBUS (A or B) with correct orientation.
-* Power on and verify I²C addresses:
-
-```bash
-sudo i2cdetect -y 0
-```
-
-You should see `0x40` and `0x76`.
-
-### 6.2 Install Runtime Libs
-
-```bash
-pip3 install --break-system-packages smbus2
-```
-
-### 6.3 Telemetry Bridge Script
-
-Create `/home/ubuntu/pht_iotc_socket.py` and paste the full Python script from the guide.
-
-Run it:
-
-```bash
-sudo snap start iotconnect.socket
-python3 pht_iotc_socket.py
-```
-
-You should see output like:
+## Folder contents
 
 ```
-TX: {'timestamp': 1700000000, 'PHT_temp': 30.8, 'PHT_pressure': 995.2, 'PHT_humidity': 24.6, 'PHT_die_temp': 31.1}
-```
-
-Check the **/IOTCONNECT portal** for live telemetry.
-
----
-
-## 7️⃣ Troubleshooting
-
-| Issue                         | Fix                                                                          |              |     |       |
-| ----------------------------- | ---------------------------------------------------------------------------- | ------------ | --- | ----- |
-| No serial                     | Try another USB-C cable/port; `dmesg                                         | grep -E 'tty | ACM | USB'` |
-| HSS USB disk shows `/dev/sg*` | Write to `/dev/sdX` (not `/dev/sgY`) — use `lsblk`                           |              |     |       |
-| No `/dev/i2c-*`               | Redo overlay + reboot; `sudo dmesg                                           | grep -i i2c` |     |       |
-| No `0x40`/`0x76`              | Reseat Click; verify 3.3 V on mikroBUS                                       |              |     |       |
-| Socket errors                 | Ensure `iotconnect.socket` is running; `sudo snap logs iotconnect.socket -f` |              |     |       |
-
----
-
-## Appendix — Minimal Telemetry Test (No Sensor)
-
-```python
-import socket, json, time
-sock = "/var/snap/iotconnect/common/iotc.sock"
-with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
-    s.connect(sock)
-    s.sendall(json.dumps({"hello": "IOTCONNECT", "ts": int(time.time())}).encode())
-    s.shutdown(1)
-print("sent")
+microchip-curiosity-pic64gx1000/
+├── README.md                 This page
+├── QUICKSTART.md             Board to dashboard, no compilation
+├── DEVELOPER_GUIDE.md        Architecture, protocol, services, OTA
+├── OPERATOR_GUIDE.md         Live-demo runbook for the vision application
+├── applications/
+│   ├── pht_iotc_socket.py    MS8607 PHT Click telemetry
+│   ├── perf_iotc_socket.py   CPU performance telemetry with freq command
+│   └── vision_iotc_socket.py Camera inference telemetry with runtime control
+├── files/
+│   ├── pic64gx1000-device-template.json     Import first
+│   └── pic64gx1000-dashboard-template.json  Import second
+└── media/
+    ├── board-connections.png
+    ├── dashboard.png
+    └── pic64gx-product.png
 ```
 
 ---
 
-## 8️⃣ Add the Snap Example Apps (PHT & CPU Performance)
+## Resources
 
-This section integrates two example apps from the Avnet repo (PHT/MS8607 and CPU Performance) into the same demo flow as your /IOTCONNECT Snap socket bridge.
-
-### 8.1 Get the examples
-
-```bash
-sudo apt install -y git python3-venv
-cd /home/ubuntu
-git clone https://github.com/avnet-iotconnect/iotc-python-lite-snap-examples.git
-# PIC64GX1000 board apps live here:
-cd iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications
-ls -la
-```
-
-> You should see folders for **PHT telemetry** (MS8607) and **CPU performance**.
-
-### 8.2 Create a Python venv for the apps
-
-```bash
-cd /home/ubuntu
-python3 -m venv ~/iotc-examples-venv
-source ~/iotc-examples-venv/bin/activate
-pip install --upgrade pip
-pip install --break-system-packages smbus2 psutil
-```
-
-* `smbus2` is used by the PHT (I²C) example.
-* `psutil` is typically used by CPU performance examples (usage, loads, temps).
-
-> If the example has a `requirements.txt`, you can instead do:
->
-> ```bash
-> pip install -r requirements.txt
-> ```
-
-### 8.3 Wire the apps to the /IOTCONNECT socket
-
-Both examples publish JSON to the **telemetry TX** socket:
-
-```
-/var/snap/iotconnect/common/iotc.sock
-```
-
-> Ensure the snap’s socket bridge is running:
->
-> ```bash
-> sudo snap start iotconnect.socket
-> sudo snap logs iotconnect.socket -f
-> ```
-
-### 8.4 Run the examples manually (quick test)
-
-**PHT (MS8607) example** — update the script path to the actual file in the repo:
-
-```bash
-source ~/iotc-examples-venv/bin/activate
-cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607
-python3 pht_ms8607_socket.py
-```
-
-Expected output every ~10s (example):
-
-```
-TX: {"timestamp": 1700000000, "PHT_temp": 30.8, "PHT_pressure": 995.2, "PHT_humidity": 24.6, "PHT_die_temp": 31.1}
-```
-
-**CPU Performance example** — update path per repo structure:
-
-```bash
-source ~/iotc-examples-venv/bin/activate
-cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance
-python3 cpu_perf_socket.py
-```
-
-Expected output (example):
-
-```
-TX: {"timestamp": 1700000100, "CPU_usage": 7.2, "CPU_load1": 0.11, "CPU_load5": 0.09, "CPU_load15": 0.08, "CPU_cores": 4}
-```
-
-### 8.5 Autostart with systemd services
-
-Create two services so the examples start at boot and restart on failure.
-
-**Service 1 — PHT**
-
-```bash
-sudo tee /etc/systemd/system/iotc-pht.service >/dev/null <<'UNIT'
-[Unit]
-Description=IOTCONNECT PHT (MS8607) Telemetry
-After=network-online.target snap.ioc...iotconnect.socket.service
-Wants=network-online.target
-
-[Service]
-Type=simple
-User=ubuntu
-Group=ubuntu
-Environment=VIRTUAL_ENV=/home/ubuntu/iotc-examples-venv
-Environment=PATH=/home/ubuntu/iotc-examples-venv/bin:/usr/bin
-WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607
-ExecStart=/home/ubuntu/iotc-examples-venv/bin/python3 pht_ms8607_socket.py
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-UNIT
-```
-
-**Service 2 — CPU Performance**
-
-```bash
-sudo tee /etc/systemd/system/iotc-cpumon.service >/dev/null <<'UNIT'
-[Unit]
-Description=IOTCONNECT CPU Performance Telemetry
-After=network-online.target snap.ioc...iotconnect.socket.service
-Wants=network-online.target
-
-[Service]
-Type=simple
-User=ubuntu
-Group=ubuntu
-Environment=VIRTUAL_ENV=/home/ubuntu/iotc-examples-venv
-Environment=PATH=/home/ubuntu/iotc-examples-venv/bin:/usr/bin
-WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance
-ExecStart=/home/ubuntu/iotc-examples-venv/bin/python3 cpu_perf_socket.py
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-UNIT
-```
-
-Enable and start both:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable --now iotc-pht.service iotc-cpumon.service
-systemctl --no-pager --full status iotc-pht.service iotc-cpumon.service
-journalctl -u iotc-pht.service -f
-```
-
-### 8.6 Optional: Start/stop from the /IOTCONNECT portal (C2D)
-
-If your examples also listen to the **command RX** socket
-
-```
-/var/snap/iotconnect/common/iotc_cmd.sock
-```
-
-you can map portal commands to actions. A simple pattern:
-
-* "program 1 pht"  → start PHT service
-* "program 1 perf" → start CPU perf service
-* "program 1 stop" → stop both
-
-Create a tiny command-handler that runs as a daemon, reading JSON from the command socket and calling `systemctl` accordingly (pseudo‑code shown here; adapt to your project’s existing command loop):
-
-```python
-import json, socket, subprocess
-CMD_SOCK = "/var/snap/iotconnect/common/iotc_cmd.sock"
-
-while True:
-    conn = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    conn.connect(CMD_SOCK)
-    data = conn.recv(8192)
-    cmd = json.loads(data.decode()).get("cmd", "").lower()
-    if cmd == "program 1 pht":
-        subprocess.run(["sudo","systemctl","restart","iotc-pht.service"]) 
-    elif cmd == "program 1 perf":
-        subprocess.run(["sudo","systemctl","restart","iotc-cpumon.service"]) 
-    elif cmd == "program 1 stop":
-        subprocess.run(["sudo","systemctl","stop","iotc-pht.service"]) 
-        subprocess.run(["sudo","systemctl","stop","iotc-cpumon.service"]) 
-```
-
-> If you already have a unified command-loop, just add handlers that shell out to `systemctl` or flip your app’s own run flags.
-
-### 8.7 Dashboard wiring (recommended widgets)
-
-* **PHT demo** → Gauges or dial widgets for `PHT_temp`, `PHT_pressure`, `PHT_humidity`, and `PHT_die_temp`; add thresholds and color bands for easy readout.
-* **CPU perf demo** → Timeseries charts for `CPU_usage`, `CPU_load1`, `CPU_load5`, `CPU_load15`, and a single‑value "CPU_cores"; optionally a rule that triggers a tile highlight if `CPU_usage > 80` for >30s.
-
-### 8.8 One‑liner runner (dev convenience)
-
-For quick dev sessions without systemd, drop this helper:
-
-```bash
-cat <<'SH' > ~/run-demos.sh
-#!/usr/bin/env bash
-set -euo pipefail
-source ~/iotc-examples-venv/bin/activate
-sudo snap start iotconnect.socket || true
-(
-  cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/pht-ms8607 && \
-  nohup python3 pht_ms8607_socket.py >/tmp/pht.log 2>&1 &
-)
-(
-  cd ~/iotc-python-lite-snap-examples/boards/microchip/CURIOSITY-PIC64GX1000-KIT/applications/cpu-performance && \
-  nohup python3 cpu_perf_socket.py >/tmp/cpumon.log 2>&1 &
-)
-echo "Started PHT + CPU perf demos. Logs: /tmp/pht.log /tmp/cpumon.log"
-SH
-chmod +x ~/run-demos.sh
-~/run-demos.sh
-```
-
----
+- [Purchase the Curiosity PIC64GX1000 Kit](https://www.newark.com/microchip/curiosity-pic64gx1000-kit/curiosity-kit-64bit-risc-v-quad/dp/46AM3917)
+- [Kit user guide (PDF)](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU64/ProductDocuments/SupportingCollateral/PIC64GX_Curiosity_Kit_User_Guide.pdf)
+- [Kit quickstart guide (PDF)](https://ww1.microchip.com/downloads/aemDocuments/documents/MPU64/ProductDocuments/UserGuides/production-kit-qsguide/Curiosity-PIC64GX1000-Kit_QSGuide.pdf)
+- [All Microchip resources for this kit](https://www.microchip.com/en-us/development-tool/curiosity-pic64gx1000-kit)
+- [mikroE PHT Click (MS8607)](https://www.mikroe.com/pht-click)
+- [`iotconnect` Snap on Snapcraft](https://snapcraft.io/iotconnect)
+- [/IOTCONNECT Snap user and developer guide](../../IOTCONNECT_SNAP_User_Developer_Guide.md)
+- [/IOTCONNECT Microchip partner guides](https://avnet-iotconnect.github.io/partners/microchip/)
+- [/IOTCONNECT knowledge base](https://help.iotconnect.io/)

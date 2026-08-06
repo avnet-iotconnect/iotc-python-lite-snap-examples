@@ -1,12 +1,16 @@
-# Vision IoTConnect Demo Operator Guide
+# Operator Guide: Vision Demo
 
-This runbook is for operating `iotc_vision.py` / `vision_iotc_socket.py` on the board using OpenCV-only mode, including browser overlay streaming and OTA model update demos.
+Runbook for presenting [`applications/vision_iotc_socket.py`](./applications/vision_iotc_socket.py) live: starting the demo, tuning it while it runs, streaming the overlay to a browser, and demonstrating an OTA model swap.
+
+For first-time bring-up see [QUICKSTART.md](./QUICKSTART.md); for the command and telemetry interface see [DEVELOPER_GUIDE.md, section 5.3](./DEVELOPER_GUIDE.md#53-vision_iotc_socketpy---camera-inference-telemetry).
+
+All commands below run from the `applications/` directory of this example.
 
 ## 1. Prerequisites
 
 - Python 3
-- OpenCV (`cv2`) installed
-- IoTConnect sockets available:
+- OpenCV (`cv2`) installed: `sudo apt-get install -y python3-opencv`
+- The /IOTCONNECT socket bridge running as root, so both sockets exist:
   - `/var/snap/iotconnect/common/iotc.sock`
   - `/var/snap/iotconnect/common/iotc_cmd.sock`
 - Optional tools:
@@ -19,12 +23,14 @@ sudo apt update
 sudo apt install -y socat
 ```
 
+On the PIC64GX1000 always use `--backend cv_only`. The board has no AI accelerator, and PyTorch and ONNX Runtime wheels are not generally available for `riscv64`.
+
 ## 2. Start The Demo
 
 Headless + browser overlay stream (recommended):
 
 ```bash
-python3 iotc_vision.py \
+python3 vision_iotc_socket.py \
   --backend cv_only \
   --model hog \
   --source /path/to/video.mp4 \
@@ -105,9 +111,9 @@ Supported with `--backend cv_only`:
 Startup examples:
 
 ```bash
-python3 iotc_vision.py --backend cv_only --model hog --source /path/to/video.mp4 --auto-start
-python3 iotc_vision.py --backend cv_only --model face --source /path/to/video.mp4 --auto-start
-python3 iotc_vision.py --backend cv_only --model /path/to/haarcascade_frontalface_default.xml --source /path/to/video.mp4 --auto-start
+python3 vision_iotc_socket.py --backend cv_only --model hog --source /path/to/video.mp4 --auto-start
+python3 vision_iotc_socket.py --backend cv_only --model face --source /path/to/video.mp4 --auto-start
+python3 vision_iotc_socket.py --backend cv_only --model /path/to/haarcascade_frontalface_default.xml --source /path/to/video.mp4 --auto-start
 ```
 
 Runtime model switch example:
@@ -120,7 +126,7 @@ printf 'set_model /var/snap/iotconnect/common/models/face_v2.xml\n' | socat - UN
 
 Include in OTA payload:
 
-- App script updates (`iotc_vision.py` / `vision_iotc_socket.py`)
+- App script updates (`vision_iotc_socket.py`)
 - Model artifacts in versioned filenames:
   - Example: `face_v1.xml`, `face_v2.xml`
 - Optional labels/config files:
@@ -154,7 +160,7 @@ printf 'set_model /var/snap/iotconnect/common/models/face_v2.xml\n' | socat - UN
 printf 'status\n' | socat - UNIX-CONNECT:/var/snap/iotconnect/common/iotc_cmd.sock
 ```
 
-5. Confirm overlays/telemetry behavior in browser and cloud telemetry feed.
+5. Confirm overlays/telemetry behavior in browser and /IOTCONNECT telemetry feed.
 
 ## 8. Safe Shutdown and Restart
 
@@ -163,9 +169,9 @@ Stop with `Ctrl+C` once and wait a few seconds for clean thread join.
 If restart fails, clear stale instances/port holders:
 
 ```bash
-pgrep -af 'iotc_vision.py|vision_iotc_socket.py'
+pgrep -af vision_iotc_socket.py
 ss -ltnp | grep ':8080'
-pkill -f 'iotc_vision.py|vision_iotc_socket.py'
+pkill -f vision_iotc_socket.py
 ```
 
 Check auto-restart services (if process keeps coming back):
@@ -186,7 +192,7 @@ snap services | grep -Ei 'iot'
   - Use a source with clear persons/faces.
   - Try `face` model for frontal face clips.
 - TX warnings (`[TX] failed`):
-  - Confirm IoTConnect TX socket exists.
+  - Confirm the /IOTCONNECT TX socket exists.
 - Crash on stop:
   - Ensure you are running latest script containing non-daemon worker threads and `join(timeout=5.0)` on shutdown.
 
@@ -194,7 +200,7 @@ snap services | grep -Ei 'iot'
 
 ```bash
 # Start
-python3 iotc_vision.py --backend cv_only --model hog --source /path/to/video.mp4 --auto-start --web --web-host 0.0.0.0 --web-port 8080
+python3 vision_iotc_socket.py --backend cv_only --model hog --source /path/to/video.mp4 --auto-start --web --web-host 0.0.0.0 --web-port 8080
 
 # Status
 printf 'status\n' | socat - UNIX-CONNECT:/var/snap/iotconnect/common/iotc_cmd.sock

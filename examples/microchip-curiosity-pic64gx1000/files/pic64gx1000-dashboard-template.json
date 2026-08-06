@@ -1,0 +1,854 @@
+{
+    "ddType": 2,
+    "items": [
+        {
+            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetProperties": {
+                "i": "Image",
+                "background": "#FFFFFF",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "10",
+                "title": "",
+                "titleAlign": "",
+                "contents": {
+                    "option": {
+                        "imageUpload": "false",
+                        "imageUrl": "true",
+                        "imageDevice": "false",
+                        "imageTelemetry": "false",
+                        "key": "option",
+                        "position": "center"
+                    },
+                    "upload": {
+                        "imageurl": "",
+                        "key": "upload"
+                    },
+                    "url": {
+                        "imageurl": "https://www.microchip.com/content/dam/mchp/mrt-dam/ic-images/custom/microchip-pic64-gx-a-blank1-2-30-regular.jpg",
+                        "key": "url"
+                    },
+                    "device": {
+                        "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "device",
+                        "deviceUniqueId": "mclPIC64GX1000"
+                    },
+                    "telemetry": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "telemetry"
+                    },
+                    "classification": {
+                        "showClassification": "false"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "0",
+                "w": "15",
+                "h": "10",
+                "i": "Image",
+                "minW": "5",
+                "minH": "5",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#fff",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "22",
+                "title": "Temperature (°C)",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                            "deviceUniqueId": "mclPIC64GX1000"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "7459AE72-0314-4D75-A52C-120A40485D06",
+                                    "attributeName": "freq",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "10.0",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "10.0"
+                                },
+                                {
+                                    "attributeGuid": "A721C0BC-52D2-405C-960C-38586A1F605C",
+                                    "attributeName": "PHT_pressure",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "994.55",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "994.55"
+                                },
+                                {
+                                    "attributeGuid": "87647E07-90E3-4B9F-8AD8-5A471F51DD4D",
+                                    "attributeName": "random",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "33",
+                                    "deviceUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "gatewayUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "attributeValue": "33"
+                                },
+                                {
+                                    "attributeGuid": "7B076132-22D2-43BF-A371-693D1C730791",
+                                    "attributeName": "PHT_die_temp",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "28.78",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "28.78"
+                                },
+                                {
+                                    "attributeGuid": "38644A16-D04E-4329-A011-82546259ADC4",
+                                    "attributeName": "osr",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "4096",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "4096"
+                                },
+                                {
+                                    "attributeGuid": "79EF4F52-5E38-4B9F-B52D-8FC609479FB8",
+                                    "attributeName": "PHT_temp",
+                                    "displayName": "PHT_temp",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "28.78",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "28.78"
+                                },
+                                {
+                                    "attributeGuid": "22027E5E-769B-484D-A9DB-AF0291BF16C1",
+                                    "attributeName": "PHT_humidity",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "29.05",
+                                    "deviceUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:18:21.100Z",
+                                    "attributeValue": "29.05"
+                                }
+                            ]
+                        },
+                        "minValue": "0",
+                        "maxValue": "45",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#3a7bd5",
+                                "zoneName": "cold",
+                                "upToValue": "15",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "comf",
+                                "zoneColor": "#00bfa6",
+                                "upToValue": "25",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "warm",
+                                "zoneColor": "#ffc107",
+                                "upToValue": "35",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "Hot",
+                                "zoneColor": "#ff5722",
+                                "upToValue": "45",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge",
+                        "attrType": "1"
+                    }
+                }
+            },
+            "properties": {
+                "x": "15",
+                "y": "0",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#fff",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "22",
+                "title": "Pressure (hPa)",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                            "deviceUniqueId": "mclPIC64GX1000"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "7459AE72-0314-4D75-A52C-120A40485D06",
+                                    "attributeName": "freq",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "5.0",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:13.200Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:13.200Z",
+                                    "attributeValue": "5.0"
+                                },
+                                {
+                                    "attributeGuid": "A721C0BC-52D2-405C-960C-38586A1F605C",
+                                    "attributeName": "PHT_pressure",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "994.4",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "attributeValue": "994.4"
+                                },
+                                {
+                                    "attributeGuid": "87647E07-90E3-4B9F-8AD8-5A471F51DD4D",
+                                    "attributeName": "random",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "33",
+                                    "deviceUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "gatewayUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "attributeValue": "33"
+                                },
+                                {
+                                    "attributeGuid": "7B076132-22D2-43BF-A371-693D1C730791",
+                                    "attributeName": "PHT_die_temp",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.56",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "attributeValue": "30.56"
+                                },
+                                {
+                                    "attributeGuid": "38644A16-D04E-4329-A011-82546259ADC4",
+                                    "attributeName": "osr",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "4096",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "attributeValue": "4096"
+                                },
+                                {
+                                    "attributeGuid": "79EF4F52-5E38-4B9F-B52D-8FC609479FB8",
+                                    "attributeName": "PHT_temp",
+                                    "displayName": "PHT_temp",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.56",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "attributeValue": "30.56"
+                                },
+                                {
+                                    "attributeGuid": "22027E5E-769B-484D-A9DB-AF0291BF16C1",
+                                    "attributeName": "PHT_humidity",
+                                    "displayName": "",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "26.1",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:12.103Z",
+                                    "attributeValue": "26.1"
+                                }
+                            ]
+                        },
+                        "minValue": "990",
+                        "maxValue": "1040",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#7e57c2",
+                                "zoneName": "low",
+                                "upToValue": "995",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "med",
+                                "zoneColor": "#2196f3",
+                                "upToValue": "1010",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "comf",
+                                "zoneColor": "#8bc34a",
+                                "upToValue": "1025",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "very high",
+                                "zoneColor": "#ffeb3b",
+                                "upToValue": "1040",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge",
+                        "attrType": "1"
+                    }
+                }
+            },
+            "properties": {
+                "x": "25",
+                "y": "0",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#fff",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "22",
+                "title": "Humidity (%)",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                            "deviceUniqueId": "mclPIC64GX1000"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "7459AE72-0314-4D75-A52C-120A40485D06",
+                                    "attributeName": "freq",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "10.0",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "10.0"
+                                },
+                                {
+                                    "attributeGuid": "A721C0BC-52D2-405C-960C-38586A1F605C",
+                                    "attributeName": "PHT_pressure",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "994.63",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "994.63"
+                                },
+                                {
+                                    "attributeGuid": "87647E07-90E3-4B9F-8AD8-5A471F51DD4D",
+                                    "attributeName": "random",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "33",
+                                    "deviceUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "gatewayUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "attributeValue": "33"
+                                },
+                                {
+                                    "attributeGuid": "7B076132-22D2-43BF-A371-693D1C730791",
+                                    "attributeName": "PHT_die_temp",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.51",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "30.51"
+                                },
+                                {
+                                    "attributeGuid": "38644A16-D04E-4329-A011-82546259ADC4",
+                                    "attributeName": "osr",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "4096",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "4096"
+                                },
+                                {
+                                    "attributeGuid": "79EF4F52-5E38-4B9F-B52D-8FC609479FB8",
+                                    "attributeName": "PHT_temp",
+                                    "displayName": "PHT_temp",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.51",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "30.51"
+                                },
+                                {
+                                    "attributeGuid": "22027E5E-769B-484D-A9DB-AF0291BF16C1",
+                                    "attributeName": "PHT_humidity",
+                                    "displayName": "",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "26.1",
+                                    "deviceUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:15:40.600Z",
+                                    "attributeValue": "26.1"
+                                }
+                            ]
+                        },
+                        "minValue": "0",
+                        "maxValue": "100",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#c68642",
+                                "zoneName": "low",
+                                "upToValue": "20",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "med",
+                                "zoneColor": "#ffb74d",
+                                "upToValue": "40",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "comf",
+                                "zoneColor": "#8bc34a",
+                                "upToValue": "60",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "humid",
+                                "zoneColor": "#009688",
+                                "upToValue": "80",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "very humid",
+                                "zoneColor": "#607d8b",
+                                "upToValue": "100",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge",
+                        "attrType": "1"
+                    }
+                }
+            },
+            "properties": {
+                "x": "35",
+                "y": "0",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#fff",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "22",
+                "title": "Die Temperature (°C)",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                            "deviceUniqueId": "mclPIC64GX1000"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "7459AE72-0314-4D75-A52C-120A40485D06",
+                                    "attributeName": "freq",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "5.0",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:58.440Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:58.440Z",
+                                    "attributeValue": "5.0"
+                                },
+                                {
+                                    "attributeGuid": "A721C0BC-52D2-405C-960C-38586A1F605C",
+                                    "attributeName": "PHT_pressure",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "994.38",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "attributeValue": "994.38"
+                                },
+                                {
+                                    "attributeGuid": "87647E07-90E3-4B9F-8AD8-5A471F51DD4D",
+                                    "attributeName": "random",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "33",
+                                    "deviceUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "gatewayUpdatedDate": "2025-10-20T16:08:22.823Z",
+                                    "attributeValue": "33"
+                                },
+                                {
+                                    "attributeGuid": "7B076132-22D2-43BF-A371-693D1C730791",
+                                    "attributeName": "PHT_die_temp",
+                                    "displayName": "",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.74",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "attributeValue": "30.74"
+                                },
+                                {
+                                    "attributeGuid": "38644A16-D04E-4329-A011-82546259ADC4",
+                                    "attributeName": "osr",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "4096",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "attributeValue": "4096"
+                                },
+                                {
+                                    "attributeGuid": "79EF4F52-5E38-4B9F-B52D-8FC609479FB8",
+                                    "attributeName": "PHT_temp",
+                                    "displayName": "PHT_temp",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.74",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "attributeValue": "30.74"
+                                },
+                                {
+                                    "attributeGuid": "22027E5E-769B-484D-A9DB-AF0291BF16C1",
+                                    "attributeName": "PHT_humidity",
+                                    "displayName": "",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "25.9",
+                                    "deviceUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "gatewayUpdatedDate": "2025-10-20T17:24:52.150Z",
+                                    "attributeValue": "25.9"
+                                }
+                            ]
+                        },
+                        "minValue": "20",
+                        "maxValue": "45",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#b8e986",
+                                "zoneName": "low",
+                                "upToValue": "30",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "med",
+                                "zoneColor": "#f8e71c",
+                                "upToValue": "40",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "hot",
+                                "zoneColor": "#d0021b",
+                                "upToValue": "45",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge",
+                        "attrType": "1"
+                    }
+                }
+            },
+            "properties": {
+                "x": "45",
+                "y": "0",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "A0326788-ACC8-4C4C-8243-98112CAEB98B",
+            "widgetProperties": {
+                "i": "Telemetry",
+                "background": "#fff",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Telemetry - ALL",
+                "titleAlign": "",
+                "contents": {
+                    "telemetry": {
+                        "showHeader": "true",
+                        "showDate": "true",
+                        "device": {
+                            "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                            "deviceUniqueId": "mclPIC64GX1000"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "7459AE72-0314-4D75-A52C-120A40485D06",
+                                    "attributeName": "freq",
+                                    "displayName": "",
+                                    "checked": "true"
+                                },
+                                {
+                                    "attributeGuid": "A721C0BC-52D2-405C-960C-38586A1F605C",
+                                    "attributeName": "PHT_pressure",
+                                    "displayName": "",
+                                    "checked": "true"
+                                },
+                                {
+                                    "attributeGuid": "7B076132-22D2-43BF-A371-693D1C730791",
+                                    "attributeName": "PHT_die_temp",
+                                    "displayName": "",
+                                    "checked": "true"
+                                },
+                                {
+                                    "attributeGuid": "38644A16-D04E-4329-A011-82546259ADC4",
+                                    "attributeName": "osr",
+                                    "displayName": "",
+                                    "checked": "true"
+                                },
+                                {
+                                    "attributeGuid": "79EF4F52-5E38-4B9F-B52D-8FC609479FB8",
+                                    "attributeName": "PHT_temp",
+                                    "displayName": "PHT_temp",
+                                    "checked": "true"
+                                },
+                                {
+                                    "attributeGuid": "22027E5E-769B-484D-A9DB-AF0291BF16C1",
+                                    "attributeName": "PHT_humidity",
+                                    "displayName": "",
+                                    "checked": "true"
+                                }
+                            ]
+                        },
+                        "dateToUse": "Gateway Date",
+                        "key": "telemetry",
+                        "attrType": "1"
+                    }
+                }
+            },
+            "properties": {
+                "x": "15",
+                "y": "9",
+                "w": "40",
+                "h": "10",
+                "i": "Telemetry",
+                "minW": "15",
+                "minH": "6",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetProperties": {
+                "i": "Image",
+                "background": "#FFFFFF",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "21",
+                "title": "Installed Mikroe Click Board",
+                "titleAlign": "",
+                "contents": {
+                    "option": {
+                        "imageUpload": "false",
+                        "imageUrl": "true",
+                        "imageDevice": "false",
+                        "imageTelemetry": "false",
+                        "key": "option",
+                        "position": "center"
+                    },
+                    "upload": {
+                        "imageurl": "",
+                        "key": "upload"
+                    },
+                    "url": {
+                        "imageurl": "https://cdn1-shop.mikroe.com/img/product/pht-click/pht-click-thickbox_default-1.jpg",
+                        "key": "url"
+                    },
+                    "device": {
+                        "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "device",
+                        "deviceUniqueId": "mclPIC64GX1000"
+                    },
+                    "telemetry": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "telemetry"
+                    },
+                    "classification": {
+                        "showClassification": "false",
+                        "key": "classification"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "10",
+                "w": "15",
+                "h": "9",
+                "i": "Image",
+                "minW": "5",
+                "minH": "5",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "4EE53CD1-E428-402D-B610-A6664D39024E",
+            "widgetProperties": {
+                "i": "OTAUpdates",
+                "background": "#fff",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "OTA Updates",
+                "titleAlign": "",
+                "contents": {
+                    "uniqueId": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Unique ID",
+                        "contentTitle": "Unique Id"
+                    },
+                    "version": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Version",
+                        "contentTitle": "Version"
+                    },
+                    "updatedDate": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Updated Date",
+                        "contentTitle": "Updated Date"
+                    },
+                    "status": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Status",
+                        "contentTitle": "Status"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "19",
+                "w": "30",
+                "h": "9",
+                "i": "OTAUpdates",
+                "minW": "13",
+                "minH": "9",
+                "maxH": "902",
+                "maxW": "1094",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "E413CDFD-54EB-465E-BA97-CE610867E440",
+            "widgetProperties": {
+                "i": "DeviceCommand",
+                "background": "#fff",
+                "fontColor": "#000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Device Command",
+                "titleAlign": "",
+                "contents": {
+                    "deviceCommand": {
+                        "template": "7436C0F4-2B35-49DD-BF14-58A52F9FB74A",
+                        "device": "mclPIC64GX1000",
+                        "deviceGuid": "EC8CA6E4-E6B5-404C-AEC4-97FE62DA33A0"
+                    }
+                }
+            },
+            "properties": {
+                "x": "30",
+                "y": "19",
+                "w": "25",
+                "h": "10",
+                "i": "DeviceCommand",
+                "minW": "22",
+                "minH": "10",
+                "maxH": "20",
+                "maxW": "35",
+                "isStatic": "false"
+            }
+        }
+    ]
+}

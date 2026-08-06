@@ -1,0 +1,352 @@
+{
+    "code": "PIC64GX",
+    "name": "Microchip PIC64GX1000 Curiosity Kit",
+    "authType": 2,
+    "attributes": [
+        {
+            "name": "timestamp",
+            "displayName": "Sample Time",
+            "type": "INTEGER",
+            "description": "Unix epoch seconds when the sample was taken",
+            "unit": "s",
+            "aggregateTypes": []
+        },
+        {
+            "name": "source",
+            "displayName": "Source",
+            "type": "STRING",
+            "description": "Publishing application identifier",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "freq",
+            "displayName": "Publish Interval",
+            "type": "DECIMAL",
+            "description": "Telemetry publish period in use by the application",
+            "unit": "s",
+            "aggregateTypes": []
+        },
+        {
+            "name": "random",
+            "displayName": "Random",
+            "type": "INTEGER",
+            "description": "Connectivity smoke-test value published by iotconnect.quickstart",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "sdk_version",
+            "displayName": "SDK Version",
+            "type": "STRING",
+            "description": "Python Lite SDK version reported by iotconnect.quickstart",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "PHT_temp",
+            "displayName": "Temperature",
+            "type": "DECIMAL",
+            "description": "MS8607 barometric temperature",
+            "unit": "C",
+            "aggregateTypes": []
+        },
+        {
+            "name": "PHT_pressure",
+            "displayName": "Pressure",
+            "type": "DECIMAL",
+            "description": "MS8607 barometric pressure",
+            "unit": "hPa",
+            "aggregateTypes": []
+        },
+        {
+            "name": "PHT_humidity",
+            "displayName": "Humidity",
+            "type": "DECIMAL",
+            "description": "MS8607 relative humidity",
+            "unit": "%",
+            "aggregateTypes": []
+        },
+        {
+            "name": "PHT_die_temp",
+            "displayName": "Die Temperature",
+            "type": "DECIMAL",
+            "description": "MS8607 humidity-die temperature",
+            "unit": "C",
+            "aggregateTypes": []
+        },
+        {
+            "name": "osr",
+            "displayName": "Oversampling",
+            "type": "INTEGER",
+            "description": "MS8607 ADC oversampling ratio (reserved; published by tuned PHT builds)",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_usage",
+            "displayName": "CPU Usage",
+            "type": "DECIMAL",
+            "description": "Aggregate CPU utilisation",
+            "unit": "%",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_load1",
+            "displayName": "Load 1m",
+            "type": "DECIMAL",
+            "description": "1-minute load average",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_load5",
+            "displayName": "Load 5m",
+            "type": "DECIMAL",
+            "description": "5-minute load average",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_load15",
+            "displayName": "Load 15m",
+            "type": "DECIMAL",
+            "description": "15-minute load average",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_cores",
+            "displayName": "Cores",
+            "type": "INTEGER",
+            "description": "Logical core count",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_freq_mhz",
+            "displayName": "CPU Frequency",
+            "type": "DECIMAL",
+            "description": "Current average core frequency",
+            "unit": "MHz",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_freq_min_mhz",
+            "displayName": "CPU Frequency Min",
+            "type": "DECIMAL",
+            "description": "Minimum scaling frequency",
+            "unit": "MHz",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_freq_max_mhz",
+            "displayName": "CPU Frequency Max",
+            "type": "DECIMAL",
+            "description": "Maximum scaling frequency",
+            "unit": "MHz",
+            "aggregateTypes": []
+        },
+        {
+            "name": "CPU_temp_c",
+            "displayName": "CPU Temperature",
+            "type": "DECIMAL",
+            "description": "Hottest reported thermal zone",
+            "unit": "C",
+            "aggregateTypes": []
+        },
+        {
+            "name": "type",
+            "displayName": "Message Type",
+            "type": "STRING",
+            "description": "Payload discriminator, e.g. vision_inference",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "stream",
+            "displayName": "Stream",
+            "type": "STRING",
+            "description": "Logical stream tag used for routing",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "status",
+            "displayName": "Status",
+            "type": "STRING",
+            "description": "Inference pipeline state",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "model",
+            "displayName": "Model",
+            "type": "STRING",
+            "description": "Active model file name",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "frame_index",
+            "displayName": "Frame Index",
+            "type": "INTEGER",
+            "description": "Frame counter since capture start",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "infer_ms",
+            "displayName": "Inference Latency",
+            "type": "DECIMAL",
+            "description": "Per-frame inference time",
+            "unit": "ms",
+            "aggregateTypes": []
+        },
+        {
+            "name": "detections",
+            "displayName": "Detections",
+            "type": "INTEGER",
+            "description": "Detections above the confidence threshold",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "object1",
+            "displayName": "Object 1",
+            "type": "STRING",
+            "description": "Highest ranked detection label",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "confidence1",
+            "displayName": "Confidence 1",
+            "type": "DECIMAL",
+            "description": "Confidence of object1",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "object2",
+            "displayName": "Object 2",
+            "type": "STRING",
+            "description": "Second ranked detection label",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "confidence2",
+            "displayName": "Confidence 2",
+            "type": "DECIMAL",
+            "description": "Confidence of object2",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "object3",
+            "displayName": "Object 3",
+            "type": "STRING",
+            "description": "Third ranked detection label",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "confidence3",
+            "displayName": "Confidence 3",
+            "type": "DECIMAL",
+            "description": "Confidence of object3",
+            "unit": "",
+            "aggregateTypes": []
+        }
+    ],
+    "commands": [
+        {
+            "name": "Set Publish Interval",
+            "command": "freq",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Start Inference",
+            "command": "start",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Stop Inference",
+            "command": "stop",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Resume Inference",
+            "command": "resume",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Report Status",
+            "command": "status",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Confidence",
+            "command": "set_conf",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set FPS Limit",
+            "command": "set_fps",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Send Interval",
+            "command": "set_interval",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Source",
+            "command": "set_source",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Set Model",
+            "command": "set_model",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Reload Model",
+            "command": "reload",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        }
+    ],
+    "messageVersion": "2.1",
+    "capability": "0",
+    "properties": {
+        "description": "Telemetry and commands for the /IOTCONNECT Snap examples on the Microchip Curiosity PIC64GX1000 Kit",
+        "dataFrequency": "10",
+        "fileSupport": false
+    },
+    "_meta": {
+        "version": "2.0"
+    }
+}
