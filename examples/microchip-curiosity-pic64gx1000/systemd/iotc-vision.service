@@ -1,0 +1,53 @@
+[Unit]
+Description=/IOTCONNECT vision inference telemetry
+Documentation=https://github.com/avnet-iotconnect/iotc-python-lite-snap-examples/tree/main/examples/microchip-curiosity-pic64gx1000
+After=network-online.target snap.iotconnect.socket.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+
+# Defaults first, then the environment file overrides them if it exists.
+Environment=IOTC_SOCK=/var/snap/iotconnect/common/iotc.sock
+Environment=IOTC_CMD_SOCK=/var/snap/iotconnect/common/iotc_cmd.sock
+Environment=VISION_PYTHON=/usr/bin/python3
+Environment=VISION_SOURCE=0
+Environment=VISION_MODEL=hog
+Environment=VISION_CONF=0.35
+Environment=VISION_FPS=2
+Environment=VISION_SEND_INTERVAL=1
+Environment=VISION_STREAM=vision.objects
+Environment=VISION_WEB_PORT=8080
+Environment=VISION_EXTRA=--loop
+EnvironmentFile=-/etc/default/iotc-examples
+
+WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/examples/microchip-curiosity-pic64gx1000/applications
+
+# systemd forbids a variable as the first token, so the interpreter is invoked
+# through env. ${VAR} is one argument; $VISION_EXTRA is split on whitespace.
+ExecStart=/usr/bin/env ${VISION_PYTHON} vision_iotc_socket.py \
+  --backend cv_only \
+  --model ${VISION_MODEL} \
+  --source ${VISION_SOURCE} \
+  --auto-start \
+  --conf ${VISION_CONF} \
+  --fps-limit ${VISION_FPS} \
+  --send-interval ${VISION_SEND_INTERVAL} \
+  --stream ${VISION_STREAM} \
+  --iotc-sock ${IOTC_SOCK} \
+  --iotc-cmd-sock ${IOTC_CMD_SOCK} \
+  --web --web-host 0.0.0.0 --web-port ${VISION_WEB_PORT} \
+  $VISION_EXTRA
+
+# The application joins its worker threads on SIGINT; SIGTERM would kill it
+# mid-frame and can leave the web port held briefly.
+KillSignal=SIGINT
+TimeoutStopSec=15
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

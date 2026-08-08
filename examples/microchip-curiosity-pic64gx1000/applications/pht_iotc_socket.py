@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 # pht_iotc_socket.py — Read MS8607 (PHT Click) and send telemetry to IOTCONNECT Snap
-import json, socket, time
+#
+# Environment overrides (used by the systemd unit in ../systemd):
+#   IOTC_SOCK     telemetry socket path (default /var/snap/iotconnect/common/iotc.sock)
+#   PHT_I2C_BUS   I2C bus number for the mikroBUS socket in use (default 0)
+#   PHT_INTERVAL  seconds between samples (default 10)
+import json, os, socket, time
 from smbus2 import SMBus, i2c_msg
 
-BUS = 0
-SOCK_TX = "/var/snap/iotconnect/common/iotc.sock"
+BUS = int(os.environ.get("PHT_I2C_BUS", "0"))
+SOCK_TX = os.environ.get("IOTC_SOCK", "/var/snap/iotconnect/common/iotc.sock")
+PERIOD = float(os.environ.get("PHT_INTERVAL", "10"))
 ADDR_RH, ADDR_PT = 0x40, 0x76
 CMD_RH_HOLD, CMD_TEMP_HOLD, CMD_SOFT_RST = 0xE5, 0xE3, 0xFE
 ADC_READ, RESET_PT, D1_OSR4096, D2_OSR4096 = 0x00, 0x1E, 0x48, 0x58
@@ -66,15 +72,39 @@ def read_ms8607_once(C):
     return round(TEMP/100.0,2), round(P,2), rh, t_rh
 
 def send_iotc(payload):
+    # The bridge may not be up yet at boot, and it recreates its sockets on
+    # restart. Treat both as transient so the service keeps sampling.
     wire=json.dumps(payload).encode()
-    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
-        s.connect(SOCK_TX); s.sendall(wire); s.shutdown(socket.SHUT_WR)
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
+            s.settimeout(2.0)
+            s.connect(SOCK_TX); s.sendall(wire); s.shutdown(socket.SHUT_WR)
+        return True
+    except OSError as e:
+        print(f"[TX] {SOCK_TX}: {e}")
+        return False
+
+def init_sensor():
+    # Retry rather than exit, so the service survives a Click board that is
+    # seated late or an I2C bus that appears after this unit starts.
+    while True:
+        try:
+            rh_soft_reset()
+            return pt_reset_and_prom()
+        except OSError as e:
+            print(f"[I2C] bus {BUS}: {e}; retrying in 5s")
+            time.sleep(5.0)
 
 def main():
-    rh_soft_reset(); C=pt_reset_and_prom()
+    C=init_sensor()
+    print(f"[PHT] bus={BUS} interval={PERIOD}s tx={SOCK_TX}")
     while True:
-        t,p,rh,trh=read_ms8607_once(C)
+        try:
+            t,p,rh,trh=read_ms8607_once(C)
+        except OSError as e:
+            print(f"[I2C] read failed: {e}; re-initialising")
+            C=init_sensor(); continue
         payload={"timestamp":int(time.time()),"PHT_temp":t,"PHT_pressure":p,"PHT_humidity":rh,"PHT_die_temp":trh}
-        print("TX:",payload); send_iotc(payload); time.sleep(10)
+        print("TX:",payload); send_iotc(payload); time.sleep(PERIOD)
 
 if __name__=="__main__": main()

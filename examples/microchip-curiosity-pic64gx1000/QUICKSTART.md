@@ -151,7 +151,7 @@ You are looking for:
 
 Press `Ctrl+C` to stop following the log; the service keeps running.
 
-> Run the bridge with `sudo snap start iotconnect.socket` (service) or `sudo snap run iotconnect.socket-debug` (foreground). Both place the sockets under `/var/snap/iotconnect/common/`, which is the path hard-coded in the PHT and CPU applications. Running `snap run iotconnect.socket-debug` without `sudo` puts them under `~/snap/iotconnect/common/` instead.
+> Run the bridge with `sudo snap start iotconnect.socket` (service) or `sudo snap run iotconnect.socket-debug` (foreground). Both place the sockets under `/var/snap/iotconnect/common/`, which is the default the example applications expect. Running `snap run iotconnect.socket-debug` without `sudo` puts them under `~/snap/iotconnect/common/` instead, and only a root bridge can start at boot.
 
 ---
 
@@ -168,7 +168,7 @@ Both files are in [files/](./files/) in this repository. Download them to the ma
 2. Select **Create Template** > **Import**, choose `pic64gx1000-device-template.json`, and save.
 3. Assign the template to your device under **Device** > **Devices** > *your device* if you did not already select it during onboarding.
 
-The template carries 32 attributes covering all three example applications and 11 commands. Attribute names must match the JSON keys the applications publish, so do not rename them.
+The template carries 32 attributes and 19 commands covering all three example applications. Attribute names must match the JSON keys the applications publish, so do not rename them.
 
 **Dashboard:**
 
@@ -289,7 +289,7 @@ Commands can also be issued from **Device** > **Devices** > *your device* > **Co
 
 ## Next steps
 
-- Keep the applications running across reboots with systemd: [DEVELOPER_GUIDE.md, section 8](./DEVELOPER_GUIDE.md#8-running-as-a-service).
+- Run the PHT and vision applications together, starting at boot, with `sudo ./systemd/install-services.sh`: [DEVELOPER_GUIDE.md, section 8](./DEVELOPER_GUIDE.md#8-running-as-a-service).
 - Deliver new scripts or models to the board over the air: [DEVELOPER_GUIDE.md, section 9](./DEVELOPER_GUIDE.md#9-ota-updates).
 - Run the camera demo with live overlay streaming: [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md).
 - Publish your own telemetry from any language that can write to a UNIX socket: [DEVELOPER_GUIDE.md, section 3](./DEVELOPER_GUIDE.md#3-socket-contract).

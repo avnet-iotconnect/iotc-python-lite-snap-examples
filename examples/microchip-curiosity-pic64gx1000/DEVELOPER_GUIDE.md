@@ -206,19 +206,45 @@ Attributes that an application never sends simply stay empty; one template cover
 
 ### Commands in the template
 
+The SDK splits the delivered command string on whitespace: the first token becomes `command_name` and the rest become `command_args`. A template command can therefore carry its own argument, which turns a parameterised action into a one-click button. `set_model hog` with no parameter arrives at the application exactly as `set_model` with the parameter `hog` would.
+
+The template uses both forms. Prefixes group them in the portal's dropdown, which sorts alphabetically.
+
 | Portal name | Command string | Parameter | Handled by |
 | --- | --- | --- | --- |
-| Set Publish Interval | `freq` | seconds | `perf_iotc_socket.py` |
-| Start Inference | `start` | | `vision_iotc_socket.py` |
-| Stop Inference | `stop` | | `vision_iotc_socket.py` |
-| Resume Inference | `resume` | | `vision_iotc_socket.py` |
-| Report Status | `status` | | `vision_iotc_socket.py` |
-| Set Confidence | `set_conf` | 0.0-1.0 | `vision_iotc_socket.py` |
-| Set FPS Limit | `set_fps` | frames per second, 0 for unlimited | `vision_iotc_socket.py` |
-| Set Send Interval | `set_interval` | seconds | `vision_iotc_socket.py` |
-| Set Source | `set_source` | camera index, path or URL | `vision_iotc_socket.py` |
-| Set Model | `set_model` | model path or keyword | `vision_iotc_socket.py` |
-| Reload Model | `reload` | | `vision_iotc_socket.py` |
+| Vision: Start | `start` | | vision |
+| Vision: Stop | `stop` | | vision |
+| Vision: Resume | `resume` | | vision |
+| Vision: Status | `status` | | vision |
+| Model: HOG People | `set_model hog` | | vision |
+| Model: Haar Face | `set_model face` | | vision |
+| Model: OTA Face v2 | `set_model /var/snap/iotconnect/common/models/face_v2.xml` | | vision |
+| Model: Set Path | `set_model` | model path or keyword | vision |
+| Source: Camera 0 | `set_source 0` | | vision |
+| Source: Demo Clip | `set_source /home/ubuntu/ppl-walking-640x360-5fps.mp4` | | vision |
+| Source: Set | `set_source` | camera index, path or URL | vision |
+| Confidence: Low 0.25 | `set_conf 0.25` | | vision |
+| Confidence: High 0.60 | `set_conf 0.6` | | vision |
+| Confidence: Set | `set_conf` | 0.0-1.0 | vision |
+| FPS Limit: Set | `set_fps` | frames per second, 0 for unlimited | vision |
+| Vision Interval: Set | `set_interval` | seconds | vision |
+| Preview: Show | `show` | | vision |
+| Preview: Hide | `hide` | | vision |
+| CPU: Publish Interval | `freq` | seconds | perf |
+
+Constraints on baked-in arguments:
+
+- Whitespace is the separator, so paths in a command string cannot contain spaces.
+- Relative paths resolve against the service `WorkingDirectory`, so use absolute paths.
+- Adjust `Model: OTA Face v2` and `Source: Demo Clip` to the paths that exist on your board, or delete them.
+
+Two commands are deliberately absent. `reload` parses and acknowledges but has no effect, so a button for it would report success while doing nothing. `pause` is an alias for `stop`.
+
+Behaviour worth understanding before you demonstrate this:
+
+- Every command reaches every connected listener. Sending `freq` for the CPU application also reaches the vision application, which acknowledges it as unknown. That is harmless, but you will see it in the journal.
+- The Snap acknowledges to the cloud when it forwards, not when the application acts, so the portal shows success even for a command nothing handled. The real outcome is in the application's own acknowledgement telemetry and in `journalctl`.
+- `show` and `hide` only do something with a display session attached. On a headless board they succeed and change nothing visible; the browser stream is controlled by `--web`, not by these.
 
 ### Dashboard anatomy
 
@@ -254,7 +280,15 @@ pip3 install --break-system-packages smbus2
 python3 pht_iotc_socket.py
 ```
 
-No arguments. The publish interval is a 10 second `time.sleep` and the I2C bus number is the `BUS` constant, default `0`. Edit both in place if you need different values.
+No command-line arguments. Three environment variables cover the settings the systemd unit needs:
+
+| Variable | Default | Meaning |
+| --- | --- | --- |
+| `IOTC_SOCK` | `/var/snap/iotconnect/common/iotc.sock` | Telemetry socket path |
+| `PHT_I2C_BUS` | `0` | I2C bus for the mikroBUS socket in use |
+| `PHT_INTERVAL` | `10` | Seconds between samples |
+
+The application retries rather than exits when the socket is missing or the sensor does not answer, so it can start before the bridge and survive a Click board that is seated late.
 
 Payload:
 
@@ -342,6 +376,9 @@ python3 vision_iotc_socket.py \
 | `--show` | off | Local preview window, requires a display session |
 | `--web`, `--web-host`, `--web-port`, `--web-quality` | off, `0.0.0.0`, `8080`, `80` | MJPEG overlay stream at `http://<board-ip>:8080/` |
 | `--auto-start` | off | Begin inference without waiting for a `start` command |
+| `--loop` | off | Reopen a video file source when it reaches the end. Ignored for camera indexes and stream URLs |
+
+Without `--loop`, a finite clip ends and the log fills with `no frame from source, retrying`. Sending `stop` then `start` also rewinds it, because `stop` releases the capture; `set_source` with the path it already has does not, and `reload` is only an acknowledgement.
 
 Payload:
 
@@ -432,42 +469,58 @@ Regenerate `board-i2c.dtb` after any kernel or firmware update that ships a new 
 
 ## 8. Running as a service
 
-Systemd keeps a demo alive across reboots and process failures. Adjust `User`, `WorkingDirectory` and `ExecStart` to match your checkout.
+The [`systemd/`](./systemd/) folder installs the PHT and vision applications as boot-time services that publish through the same bridge at the same time. Running both is the clearest demonstration that the socket is a shared bus rather than a single-application channel.
 
 ```bash
-sudo tee /etc/systemd/system/iotc-pht.service >/dev/null <<'UNIT'
-[Unit]
-Description=/IOTCONNECT PHT (MS8607) telemetry
-After=network-online.target snap.iotconnect.socket.service
-Wants=network-online.target
-Requires=snap.iotconnect.socket.service
-
-[Service]
-Type=simple
-User=ubuntu
-WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/examples/microchip-curiosity-pic64gx1000/applications
-ExecStart=/usr/bin/python3 pht_iotc_socket.py
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-UNIT
-
-sudo systemctl daemon-reload
-sudo systemctl enable --now iotc-pht.service
-systemctl status iotc-pht.service
-journalctl -u iotc-pht.service -f
+cd examples/microchip-curiosity-pic64gx1000/systemd
+sudo ./install-services.sh
 ```
 
-For the CPU application, copy the unit as `iotc-cpuperf.service` and set `ExecStart=/usr/bin/python3 perf_iotc_socket.py --freq 5`.
+The installer:
 
-Points that save time later:
+1. Confirms the bridge can find device credentials in `/var/snap/iotconnect/common/`, copying them from `~/snap/iotconnect/common/` if the device was provisioned unprivileged. Only a root bridge can start at boot, so the credentials have to be on the root side.
+2. Runs `snap start --enable iotconnect.socket` so the bridge itself comes back after a power cycle.
+3. Writes `/etc/default/iotc-examples`, detecting the Python interpreter (a `~/iotc-vision-venv` is preferred over the system one) and a video source (first `.mp4` in the home directory, otherwise `/dev/video0` as camera index `0`).
+4. Installs both units with `User`, `Group` and `WorkingDirectory` set to the invoking user and this checkout, then enables and starts them.
 
-- Enable the bridge itself so it comes back after a reboot: `sudo snap start --enable iotconnect.socket`.
-- Confirm the exact bridge unit name with `systemctl list-units 'snap.iotconnect*'` before referencing it in `After=` or `Requires=`; it varies with the Snap revision.
-- `Restart=always` with `RestartSec=5` handles the case where the application starts before the sockets exist.
-- If you use a virtual environment, point `ExecStart` at the interpreter inside it rather than sourcing `activate`.
+Re-running is safe. An existing `/etc/default/iotc-examples` is preserved, so local edits survive an upgrade of the checkout.
+
+| File | Role |
+| --- | --- |
+| [`iotc-pht.service`](./systemd/iotc-pht.service) | MS8607 telemetry, 10 second interval |
+| [`iotc-vision.service`](./systemd/iotc-vision.service) | Inference telemetry plus the MJPEG overlay on port 8080 |
+| [`iotc-examples.env`](./systemd/iotc-examples.env) | Shared settings, installed to `/etc/default/iotc-examples` |
+| [`install-services.sh`](./systemd/install-services.sh) | Installer described above |
+
+Day-to-day operation:
+
+```bash
+journalctl -u iotc-pht.service -u iotc-vision.service -f
+sudo systemctl restart iotc-vision.service          # after editing the env file
+sudo systemctl disable --now iotc-vision.service    # drop back to one producer
+```
+
+To change the camera, clip, confidence or publish rates, edit `/etc/default/iotc-examples` and restart the services. `VISION_EXTRA` is appended to the vision command line verbatim; it defaults to `--loop`, which restarts a video file when it reaches the end and is ignored for cameras and RTSP sources.
+
+For the CPU application, copy `iotc-pht.service` to `iotc-cpuperf.service` and set `ExecStart=/usr/bin/python3 perf_iotc_socket.py --freq 5`. Note that `perf_iotc_socket.py` does not read `IOTC_SOCK`; its paths are constants.
+
+Details worth knowing if you write your own units:
+
+- systemd will not accept a variable as the first token of `ExecStart`. The vision unit calls the interpreter through `/usr/bin/env` so `${VISION_PYTHON}` can come from the environment file.
+- `${VAR}` is one argument; `$VAR` is split on whitespace. That is why `VISION_EXTRA` uses the unbraced form.
+- The vision unit sets `KillSignal=SIGINT`. The application joins its worker threads on `SIGINT` but not on the default `SIGTERM`, which can leave port 8080 held for a few seconds.
+- Both units use `After=` on `snap.iotconnect.socket.service` but not `Requires=`. The unit name varies with the Snap revision, and `Requires=` on a name that does not exist fails the whole unit. Confirm yours with `systemctl list-units 'snap.iotconnect*'`.
+- Ordering is a hint, not a guarantee that the sockets exist. Both applications retry a missing socket rather than exiting, so the startup race resolves itself.
+
+### Multiple producers on one bridge
+
+Nothing in the bridge is per-application. Each publish is an independent connect, write and close, so any number of processes can share it:
+
+- The listen backlog is 5 and telemetry is processed one connection at a time. Two applications at 1 and 10 second intervals are nowhere near that. Hundreds of messages per second are not what this design is for.
+- Keep the 150 ms minimum spacing per producer. Coordinated bursts from several producers are what will fill the backlog.
+- Every connected command listener receives every command. The vision application acts on the ones it recognises and acknowledges the rest as unknown; the PHT application does not open the command socket at all.
+- All producers publish into one device, so their attributes share a device template. The included template covers all three applications for exactly this reason, which is why PHT gauges and vision detections can appear on the same dashboard with no re-provisioning.
+- Telemetry from different producers arrives as separate messages, not a merged record. Widgets bound to `PHT_temp` and to `object1` update independently.
 
 ---
 

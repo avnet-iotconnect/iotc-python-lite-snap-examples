@@ -64,6 +64,8 @@ All applications live in [applications/](./applications/) and speak the same soc
 
 `perf_iotc_socket.py` is the zero-hardware path: it runs on a bare board and is the fastest way to prove the connection end to end. `pht_iotc_socket.py` drives the dashboard above.
 
+The applications are independent processes sharing one bridge, so they can run concurrently. [`systemd/install-services.sh`](./systemd/install-services.sh) starts the PHT and vision applications together at boot, which is the demonstration that the socket is a shared bus rather than a single-application channel. See [running as a service](./DEVELOPER_GUIDE.md#8-running-as-a-service).
+
 Telemetry schemas and the full command reference are in the [developer guide](./DEVELOPER_GUIDE.md#5-application-reference).
 
 ---
@@ -115,6 +117,11 @@ microchip-curiosity-pic64gx1000/
 ├── files/
 │   ├── pic64gx1000-device-template.json     Import first
 │   └── pic64gx1000-dashboard-template.json  Import second
+├── systemd/
+│   ├── install-services.sh   Installs both services, run once with sudo
+│   ├── iotc-pht.service      PHT telemetry at boot
+│   ├── iotc-vision.service   Vision telemetry and overlay stream at boot
+│   └── iotc-examples.env     Shared settings, becomes /etc/default/iotc-examples
 └── media/
     ├── board-connections.png
     ├── dashboard.png

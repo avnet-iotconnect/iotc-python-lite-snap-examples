@@ -1,0 +1,27 @@
+[Unit]
+Description=/IOTCONNECT PHT (MS8607) telemetry
+Documentation=https://github.com/avnet-iotconnect/iotc-python-lite-snap-examples/tree/main/examples/microchip-curiosity-pic64gx1000
+After=network-online.target snap.iotconnect.socket.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+
+# Defaults first, then the environment file overrides them if it exists.
+Environment=IOTC_SOCK=/var/snap/iotconnect/common/iotc.sock
+Environment=PHT_I2C_BUS=0
+Environment=PHT_INTERVAL=10
+EnvironmentFile=-/etc/default/iotc-examples
+
+WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/examples/microchip-curiosity-pic64gx1000/applications
+ExecStart=/usr/bin/python3 pht_iotc_socket.py
+
+# The application retries a missing socket and a missing sensor on its own,
+# so a restart here only covers an outright crash.
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

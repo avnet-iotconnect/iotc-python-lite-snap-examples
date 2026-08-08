@@ -839,9 +839,11 @@ class CommandState:
         labels: Optional[str] = None,
         web: bool = False,
         web_quality: int = 80,
+        loop: bool = False,
     ):
         self.lock = threading.Lock()
         self.running = False
+        self.loop = bool(loop)
         raw_model_path = str(model_path) if model_path else model_path
         if raw_model_path and raw_model_path.strip().lower() in CV_ONLY_SPECIAL_MODELS:
             self.model_path = raw_model_path
@@ -874,6 +876,7 @@ class CommandState:
                 "show": self.show,
                 "web": self.web,
                 "web_quality": self.web_quality,
+                "loop": self.loop,
             }
 
 
@@ -1185,6 +1188,7 @@ def run_inference(state: CommandState, stop_event: threading.Event):
         with state.lock:
             running = state.running
             source = state.source
+            loop_source = state.loop
             conf = state.confidence
             send_interval = state.send_interval
             fps_limit = state.fps_limit
@@ -1236,6 +1240,14 @@ def run_inference(state: CommandState, stop_event: threading.Event):
                         continue
                 ok, frame = cap.read()
                 if not ok or frame is None:
+                    # A finite file source has reached its end. With --loop, reopen it
+                    # from the start so unattended demos keep running; camera indexes
+                    # and stream URLs fall through to the normal retry path.
+                    if loop_source and isinstance(active_source, str) and os.path.isfile(active_source):
+                        print(f"[INF] end of {os.path.basename(active_source)}, restarting source")
+                        ensure_capture(_coerce_source(source))
+                        time.sleep(0.05)  # guard against a spin if the file stops decoding
+                        continue
                     print(f"[INF] no frame from source: {source}, retrying")
                     time.sleep(0.5)
                     continue
@@ -1303,6 +1315,7 @@ def main():
     ap.add_argument("--web-port", type=int, default=8080, help="Web stream bind port")
     ap.add_argument("--web-quality", type=int, default=80, help="Web stream JPEG quality (10-100)")
     ap.add_argument("--auto-start", action="store_true", help="Start immediately without requiring a start command")
+    ap.add_argument("--loop", action="store_true", help="Restart a video file source when it reaches the end")
     args = ap.parse_args()
 
     _require_cv2()
@@ -1343,6 +1356,7 @@ def main():
         labels=args.labels,
         web=args.web,
         web_quality=args.web_quality,
+        loop=args.loop,
     )
     if args.auto_start:
         state.running = True

@@ -262,79 +262,135 @@
     ],
     "commands": [
         {
-            "name": "Set Publish Interval",
-            "command": "freq",
-            "requiredParam": true,
-            "requiredAck": true,
-            "isOTACommand": false
-        },
-        {
-            "name": "Start Inference",
+            "name": "Vision: Start",
             "command": "start",
             "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Stop Inference",
+            "name": "Vision: Stop",
             "command": "stop",
             "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Resume Inference",
+            "name": "Vision: Resume",
             "command": "resume",
             "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Report Status",
+            "name": "Vision: Status",
             "command": "status",
             "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Set Confidence",
-            "command": "set_conf",
-            "requiredParam": true,
+            "name": "Model: HOG People",
+            "command": "set_model hog",
+            "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Set FPS Limit",
-            "command": "set_fps",
-            "requiredParam": true,
+            "name": "Model: Haar Face",
+            "command": "set_model face",
+            "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Set Send Interval",
-            "command": "set_interval",
-            "requiredParam": true,
+            "name": "Model: OTA Face v2",
+            "command": "set_model /var/snap/iotconnect/common/models/face_v2.xml",
+            "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Set Source",
-            "command": "set_source",
-            "requiredParam": true,
-            "requiredAck": true,
-            "isOTACommand": false
-        },
-        {
-            "name": "Set Model",
+            "name": "Model: Set Path",
             "command": "set_model",
             "requiredParam": true,
             "requiredAck": true,
             "isOTACommand": false
         },
         {
-            "name": "Reload Model",
-            "command": "reload",
+            "name": "Source: Camera 0",
+            "command": "set_source 0",
             "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Source: Demo Clip",
+            "command": "set_source /home/ubuntu/ppl-walking-640x360-5fps.mp4",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Source: Set",
+            "command": "set_source",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Confidence: Low 0.25",
+            "command": "set_conf 0.25",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Confidence: High 0.60",
+            "command": "set_conf 0.6",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Confidence: Set",
+            "command": "set_conf",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "FPS Limit: Set",
+            "command": "set_fps",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Vision Interval: Set",
+            "command": "set_interval",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Preview: Show",
+            "command": "show",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "Preview: Hide",
+            "command": "hide",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "CPU: Publish Interval",
+            "command": "freq",
+            "requiredParam": true,
             "requiredAck": true,
             "isOTACommand": false
         }
