@@ -12,7 +12,7 @@ BUS = int(os.environ.get("PHT_I2C_BUS", "0"))
 SOCK_TX = os.environ.get("IOTC_SOCK", "/var/snap/iotconnect/common/iotc.sock")
 PERIOD = float(os.environ.get("PHT_INTERVAL", "10"))
 ADDR_RH, ADDR_PT = 0x40, 0x76
-CMD_RH_HOLD, CMD_TEMP_HOLD, CMD_SOFT_RST = 0xE5, 0xE3, 0xFE
+CMD_RH_HOLD, CMD_SOFT_RST = 0xE5, 0xFE
 ADC_READ, RESET_PT, D1_OSR4096, D2_OSR4096 = 0x00, 0x1E, 0x48, 0x58
 
 def rh_soft_reset():
@@ -30,7 +30,6 @@ def read_hold(addr, cmd, n=3):
         return list(msgs[1])
 
 def rh_from_raw(raw): return -6.0 + 125.0 * (raw / 65536.0)
-def t_rh_from_raw(raw): return -46.85 + 175.72 * (raw / 65536.0)
 
 def pt_reset_and_prom():
     with SMBus(BUS) as i2c: i2c.write_byte(ADDR_PT, RESET_PT)
@@ -51,11 +50,8 @@ def convert_and_read(cmd):
 
 def read_ms8607_once(C):
     rrh = read_hold(ADDR_RH, CMD_RH_HOLD)
-    rtrh = read_hold(ADDR_RH, CMD_TEMP_HOLD)
     rh_raw = ((rrh[0]<<8)|rrh[1]) & 0xFFFC
-    trh_raw = ((rtrh[0]<<8)|rtrh[1]) & 0xFFFC
     rh = round(rh_from_raw(rh_raw), 2)
-    t_rh = round(t_rh_from_raw(trh_raw), 2)
     D1 = convert_and_read(D1_OSR4096)
     D2 = convert_and_read(D2_OSR4096)
     dT = D2 - C[5]*256
@@ -69,7 +65,12 @@ def read_ms8607_once(C):
         TEMP-=T2; OFF-=OFF2; SENS-=SENS2
     else: TEMP-=(dT*dT)/137438953472.0
     P=(((D1*SENS)/2097152.0)-OFF)/32768.0
-    return round(TEMP/100.0,2), round(P,2), rh, t_rh
+    # TEMP is in 0.01 C and P is in 0.01 mbar, so both are scaled to C and hPa.
+    # The MS8607 humidity die has no temperature command (0xE3 returns zeros on
+    # this part, unlike the HTU21 it resembles), so the pressure die is the only
+    # temperature source and PHT_die_temp mirrors PHT_temp.
+    t = round(TEMP/100.0, 2)
+    return t, round(P/100.0, 2), rh, t
 
 def send_iotc(payload):
     # The bridge may not be up yet at boot, and it recreates its sockets on

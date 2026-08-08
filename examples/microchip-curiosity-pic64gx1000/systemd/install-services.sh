@@ -89,7 +89,10 @@ for unit in iotc-pht.service iotc-vision.service; do
 done
 
 systemctl daemon-reload
-systemctl enable --now iotc-pht.service iotc-vision.service
+systemctl enable iotc-pht.service iotc-vision.service
+# restart, not "enable --now": --now does nothing to an already-running
+# service, so a re-run would leave the old unit configuration in effect.
+systemctl restart iotc-pht.service iotc-vision.service
 
 echo
 systemctl --no-pager --lines=0 status iotc-pht.service iotc-vision.service || true
