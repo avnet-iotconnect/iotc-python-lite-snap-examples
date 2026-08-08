@@ -103,7 +103,9 @@ The bridge chooses its base directory from the effective user ID at startup:
 | `sudo snap run iotconnect.socket-debug` | `$SNAP_COMMON` - `/var/snap/iotconnect/common` |
 | `snap run iotconnect.socket-debug` as a normal user | `$SNAP_USER_COMMON` - `~/snap/iotconnect/common` |
 
-`pht_iotc_socket.py` and `perf_iotc_socket.py` hard-code the system paths, so run the bridge as root or edit the `SOCKET_TX` and `SOCKET_RX` constants. `vision_iotc_socket.py` accepts `--iotc-sock` and `--iotc-cmd-sock`, defaulting to the `IOTC_SOCK` and `IOTC_CMD_SOCK` environment variables.
+`vision_iotc_socket.py` accepts `--iotc-sock` and `--iotc-cmd-sock`, defaulting to the `IOTC_SOCK` and `IOTC_CMD_SOCK` environment variables. `pht_iotc_socket.py` reads `IOTC_SOCK`. `perf_iotc_socket.py` hard-codes the system paths, so run the bridge as root or edit its `SOCKET_TX` and `SOCKET_RX` constants.
+
+Only a root bridge can start at boot, so a deployment that must survive a power cycle uses the system paths.
 
 Provisioning follows the same rule. Run `sudo snap run iotconnect.setup` so the configuration is written where the root service will read it.
 
@@ -295,14 +297,14 @@ Payload:
 ```json
 {
   "timestamp": 1761000000,
-  "PHT_temp": 22.41,
-  "PHT_pressure": 995.22,
-  "PHT_humidity": 41.63,
-  "PHT_die_temp": 22.95
+  "PHT_temp": 26.92,
+  "PHT_pressure": 995.95,
+  "PHT_humidity": 41.32,
+  "PHT_die_temp": 26.92
 }
 ```
 
-`PHT_temp` is the second-order compensated temperature from the pressure die; `PHT_die_temp` is the temperature reported by the humidity die. On a stable bench they track within a degree or so, and the difference is a useful demonstration of sensor fusion.
+`PHT_temp` is the second-order compensated temperature from the pressure die. `PHT_die_temp` carries the same value; see [section 6](#6-pht-click-ms8607-hardware-notes) for why.
 
 The application does not listen for commands.
 
@@ -409,17 +411,23 @@ The [PHT Click](https://www.mikroe.com/pht-click) carries a TE Connectivity MS86
 
 | Address | Function |
 | --- | --- |
-| `0x40` | Relative humidity and humidity-die temperature |
+| `0x40` | Relative humidity |
 | `0x76` | Pressure and temperature, with a 6-word calibration PROM |
 
-The application reads humidity with hold-master commands `0xE5` and `0xE3`, resets the pressure die with `0x1E`, reads calibration words `0xA2`-`0xAC`, then converts D1 and D2 at OSR 4096 (`0x48` and `0x58`) with a 12 ms conversion wait. Second-order temperature compensation below 20 C is implemented per the datasheet.
+The application reads humidity with hold-master command `0xE5`, resets the pressure die with `0x1E`, reads calibration words `0xA2`-`0xAC`, then converts D1 and D2 at OSR 4096 (`0x48` and `0x58`) with a 12 ms conversion wait. Second-order temperature compensation below 20 C is implemented per the datasheet.
+
+Two results of the raw conversion are easy to get wrong, and both were verified against hardware:
+
+- **Units.** The compensated outputs are in hundredths: `TEMP` is 0.01 C and `P` is 0.01 mbar. Both need dividing by 100 to reach C and hPa. Publishing `P` unscaled sends about `99590`, which silently pins the dashboard's 990-1040 hPa gauge.
+- **There is only one temperature source.** The MS8607 resembles an HTU21 on the humidity side, but its humidity die has no temperature command. `0xE3` returns `00 00` under hold-master and `0xF3` returns the same under no-hold, so any conversion of that reading yields the constant -46.85 C, the floor of the formula. `PHT_die_temp` therefore mirrors `PHT_temp`, which is what the reference dashboard shows. If a second distinct temperature would be more useful than a duplicate, rebind that gauge to `CPU_temp_c` from the performance application.
 
 Practical notes:
 
 - Seat the Click with the notch matching the mikroBUS silkscreen and power the board down while doing so.
 - `sudo i2cdetect -y 0` must show both `0x40` and `0x76`. One address only usually means a partially seated board.
+- `/dev/i2c-*` is `root:i2c` mode 660. Add your user to the `i2c` group to run the application by hand; the systemd unit uses `SupplementaryGroups=i2c` instead.
 - The board reports temperature roughly one to two degrees above ambient once it has been powered for a while. That is self-heating, not a calibration fault.
-- If you move the Click to the second mikroBUS socket, change `BUS` in the script to match the bus number that appears in `/dev`.
+- If you move the Click to the second mikroBUS socket, set `PHT_I2C_BUS` to the bus number that appears in `/dev`.
 
 ---
 
@@ -622,6 +630,10 @@ The generic examples in [`examples/generic/`](../generic/) show the same contrac
 | No `/dev/i2c-*` | mikroBUS I2C controllers disabled in the device tree | [Section 7](#7-enabling-i2c-for-mikrobus) |
 | `i2cdetect` shows neither `0x40` nor `0x76` | Click not seated, or no 3.3 V on mikroBUS | Reseat with the board powered down, confirm rail voltage |
 | PHT values frozen at one reading | I2C read error swallowed by the retry path | Restart the application, check `dmesg` for bus errors |
+| `PermissionError: /dev/i2c-0` | `/dev/i2c-*` is `root:i2c` mode 660 and your user is not in the group | `sudo usermod -aG i2c $USER` then re-login, or run under the systemd unit, which sets `SupplementaryGroups=i2c` |
+| A service runs but its journal only shows `Started ...` | Python buffers stdout when it is not a terminal | Set `Environment=PYTHONUNBUFFERED=1`; the shipped units already do |
+| Pressure reads near 99590 | Raw value is 0.01 mbar and was published unscaled | Divide by 100; fixed in the current script |
+| `PHT_die_temp` is -46.85 | The humidity die returned zeros; it has no temperature command | Expected on stock code before the fix; the current script mirrors `PHT_temp` |
 | Vision application exits on import | OpenCV missing, or a wheel unavailable for riscv64 | `sudo apt-get install -y python3-opencv` and use `--backend cv_only` |
 | Payload silently truncated | Message exceeds 8192 bytes | Publish a summary and move bulk data to OTA or an object store |
 

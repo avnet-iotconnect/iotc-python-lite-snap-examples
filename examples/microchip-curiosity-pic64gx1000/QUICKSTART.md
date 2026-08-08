@@ -234,7 +234,14 @@ You should see addresses `0x40` (humidity) and `0x76` (pressure and temperature)
 
 > No `/dev/i2c-*` nodes? The mikroBUS I&sup2;C controllers are disabled in some device trees. Enabling them is a one-time step documented in [DEVELOPER_GUIDE.md, section 7](./DEVELOPER_GUIDE.md#7-enabling-i2c-for-mikrobus). Until then, use Option A.
 
-3. Run the application:
+3. Give your user access to the I2C bus. `/dev/i2c-*` is `root:i2c` mode 660, so an unprivileged process cannot open it:
+
+```bash
+sudo usermod -aG i2c $USER
+newgrp i2c        # or log out and back in
+```
+
+4. Run the application:
 
 ```bash
 python3 pht_iotc_socket.py
@@ -243,9 +250,11 @@ python3 pht_iotc_socket.py
 Expected output every ten seconds:
 
 ```
-TX: {'timestamp': 1761000000, 'PHT_temp': 22.4, 'PHT_pressure': 995.2,
-     'PHT_humidity': 41.6, 'PHT_die_temp': 22.9}
+TX: {'timestamp': 1761000000, 'PHT_temp': 26.92, 'PHT_pressure': 995.95,
+     'PHT_humidity': 41.32, 'PHT_die_temp': 26.92}
 ```
+
+`PHT_die_temp` matching `PHT_temp` is expected. The MS8607 has one usable temperature source; see [section 6 of the developer guide](./DEVELOPER_GUIDE.md#6-pht-click-ms8607-hardware-notes).
 
 Stop either application with `Ctrl+C`.
 
