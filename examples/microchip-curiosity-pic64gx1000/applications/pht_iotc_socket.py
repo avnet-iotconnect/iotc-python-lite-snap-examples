@@ -5,15 +5,31 @@
 #   IOTC_SOCK     telemetry socket path (default /var/snap/iotconnect/common/iotc.sock)
 #   PHT_I2C_BUS   I2C bus number for the mikroBUS socket in use (default 0)
 #   PHT_INTERVAL  seconds between samples (default 10)
-import json, os, socket, time
+import json, os, select, socket, threading, time
 from smbus2 import SMBus, i2c_msg
 
 BUS = int(os.environ.get("PHT_I2C_BUS", "0"))
 SOCK_TX = os.environ.get("IOTC_SOCK", "/var/snap/iotconnect/common/iotc.sock")
+SOCK_RX = os.environ.get("IOTC_CMD_SOCK", "/var/snap/iotconnect/common/iotc_cmd.sock")
 PERIOD = float(os.environ.get("PHT_INTERVAL", "10"))
 ADDR_RH, ADDR_PT = 0x40, 0x76
 CMD_RH_HOLD, CMD_SOFT_RST = 0xE5, 0xFE
-ADC_READ, RESET_PT, D1_OSR4096, D2_OSR4096 = 0x00, 0x1E, 0x48, 0x58
+ADC_READ, RESET_PT = 0x00, 0x1E
+
+# MS8607 pressure-die oversampling. Higher OSR averages more ADC samples: about
+# sqrt(2) less noise and twice the conversion time per step. The wait must clear
+# the datasheet maximum conversion time or the previous result is read back.
+OSR_TABLE = {                 # osr: (D1 cmd, D2 cmd, conversion wait)
+     256: (0x40, 0x50, 0.002),
+     512: (0x42, 0x52, 0.003),
+    1024: (0x44, 0x54, 0.004),
+    2048: (0x46, 0x56, 0.006),
+    4096: (0x48, 0x58, 0.012),
+}
+DEFAULT_OSR = int(os.environ.get("PHT_OSR", "4096"))
+
+_state = {"osr": DEFAULT_OSR if DEFAULT_OSR in OSR_TABLE else 4096}
+_state_lock = threading.Lock()
 
 def rh_soft_reset():
     try:
@@ -41,19 +57,20 @@ def pt_reset_and_prom():
             C[i] = (d[0]<<8)|d[1]
     return C
 
-def convert_and_read(cmd):
+def convert_and_read(cmd, wait):
     with SMBus(BUS) as i2c: i2c.write_byte(ADDR_PT, cmd)
-    time.sleep(0.012)
+    time.sleep(wait)
     with SMBus(BUS) as i2c:
         d = i2c.read_i2c_block_data(ADDR_PT, ADC_READ, 3)
     return (d[0]<<16)|(d[1]<<8)|d[2]
 
-def read_ms8607_once(C):
+def read_ms8607_once(C, osr):
+    d1_cmd, d2_cmd, wait = OSR_TABLE[osr]
     rrh = read_hold(ADDR_RH, CMD_RH_HOLD)
     rh_raw = ((rrh[0]<<8)|rrh[1]) & 0xFFFC
     rh = round(rh_from_raw(rh_raw), 2)
-    D1 = convert_and_read(D1_OSR4096)
-    D2 = convert_and_read(D2_OSR4096)
+    D1 = convert_and_read(d1_cmd, wait)
+    D2 = convert_and_read(d2_cmd, wait)
     dT = D2 - C[5]*256
     TEMP = 2000 + (dT*C[6]) / 8388608.0
     OFF = C[2]*131072.0 + (C[4]*dT)/64.0
@@ -96,16 +113,73 @@ def init_sensor():
             print(f"[I2C] bus {BUS}: {e}; retrying in 5s")
             time.sleep(5.0)
 
+def apply_osr(value):
+    try:
+        osr = int(float(value))
+    except (TypeError, ValueError):
+        return False, f"osr must be one of {sorted(OSR_TABLE)}"
+    if osr not in OSR_TABLE:
+        return False, f"osr must be one of {sorted(OSR_TABLE)}"
+    with _state_lock:
+        _state["osr"] = osr
+    print(f"[CMD] osr -> {osr} (applied)")
+    return True, ""
+
+def command_loop():
+    # Read-only listener. Every connected client sees every command, so anything
+    # that is not ours is ignored quietly.
+    decoder = json.JSONDecoder()
+    while True:
+        s = None
+        try:
+            s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            s.connect(SOCK_RX)
+            buf = ""
+            while True:
+                if not select.select([s], [], [], 60.0)[0]:
+                    continue
+                chunk = s.recv(4096)
+                if not chunk:
+                    break
+                buf += chunk.decode("utf-8", errors="ignore")
+                while buf.strip():
+                    try:
+                        msg, end = decoder.raw_decode(buf.strip())
+                    except ValueError:
+                        break
+                    buf = buf.strip()[end:]
+                    if not isinstance(msg, dict):
+                        continue
+                    name = str(msg.get("name", "")).strip().lower()
+                    args = msg.get("args")
+                    if isinstance(args, (list, tuple)):
+                        args = args[0] if args else None
+                    if name == "osr":
+                        ok, err = apply_osr(args)
+                        if msg.get("ack_id"):
+                            send_iotc({"ack": msg["ack_id"], "status": "success" if ok else "error",
+                                       "message": err, "ts": int(time.time())})
+        except OSError as e:
+            print(f"[CMD] {SOCK_RX}: {e}; retrying in 2s")
+            time.sleep(2.0)
+        finally:
+            if s:
+                try: s.close()
+                except OSError: pass
+
 def main():
     C=init_sensor()
-    print(f"[PHT] bus={BUS} interval={PERIOD}s tx={SOCK_TX}")
+    threading.Thread(target=command_loop, daemon=True).start()
+    print(f"[PHT] bus={BUS} interval={PERIOD}s osr={_state['osr']} tx={SOCK_TX}")
     while True:
+        with _state_lock:
+            osr = _state["osr"]
         try:
-            t,p,rh,trh=read_ms8607_once(C)
+            t,p,rh,trh=read_ms8607_once(C, osr)
         except OSError as e:
             print(f"[I2C] read failed: {e}; re-initialising")
             C=init_sensor(); continue
-        payload={"timestamp":int(time.time()),"PHT_temp":t,"PHT_pressure":p,"PHT_humidity":rh,"PHT_die_temp":trh}
+        payload={"timestamp":int(time.time()),"PHT_temp":t,"PHT_pressure":p,"PHT_humidity":rh,"PHT_die_temp":trh,"osr":osr}
         print("TX:",payload); send_iotc(payload); time.sleep(PERIOD)
 
 if __name__=="__main__": main()

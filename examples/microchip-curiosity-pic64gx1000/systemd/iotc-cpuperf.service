@@ -1,0 +1,25 @@
+[Unit]
+Description=/IOTCONNECT CPU performance telemetry
+Documentation=https://github.com/avnet-iotconnect/iotc-python-lite-snap-examples/tree/main/examples/microchip-curiosity-pic64gx1000
+After=network-online.target snap.iotconnect.socket.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+
+# Python buffers stdout when it is not a terminal, which hides print() output
+# from the journal until several kilobytes accumulate.
+Environment=PYTHONUNBUFFERED=1
+Environment=PERF_INTERVAL=5
+EnvironmentFile=-/etc/default/iotc-examples
+
+WorkingDirectory=/home/ubuntu/iotc-python-lite-snap-examples/examples/microchip-curiosity-pic64gx1000/applications
+ExecStart=/usr/bin/env /usr/bin/python3 perf_iotc_socket.py --freq ${PERF_INTERVAL}
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

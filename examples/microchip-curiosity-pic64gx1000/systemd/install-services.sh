@@ -79,7 +79,7 @@ else
 fi
 
 # --- 4. Units ----------------------------------------------------------------
-for unit in iotc-pht.service iotc-vision.service; do
+for unit in iotc-pht.service iotc-vision.service iotc-cpuperf.service; do
   echo "Installing ${unit}"
   sed -e "s|^User=.*|User=${RUN_USER}|" \
       -e "s|^Group=.*|Group=${RUN_USER}|" \
@@ -89,14 +89,14 @@ for unit in iotc-pht.service iotc-vision.service; do
 done
 
 systemctl daemon-reload
-systemctl enable iotc-pht.service iotc-vision.service
+systemctl enable iotc-pht.service iotc-vision.service iotc-cpuperf.service
 # restart, not "enable --now": --now does nothing to an already-running
 # service, so a re-run would leave the old unit configuration in effect.
-systemctl restart iotc-pht.service iotc-vision.service
+systemctl restart iotc-pht.service iotc-vision.service iotc-cpuperf.service
 
 echo
-systemctl --no-pager --lines=0 status iotc-pht.service iotc-vision.service || true
+systemctl --no-pager --lines=0 status iotc-pht.service iotc-vision.service iotc-cpuperf.service || true
 echo
 echo "Both services are enabled and will start at boot."
-echo "  journalctl -u iotc-pht.service -u iotc-vision.service -f"
+echo "  journalctl -u iotc-pht.service -u iotc-vision.service -u iotc-cpuperf.service -f"
 echo "  http://\$(hostname -I | awk '{print \$1}'):8080/"

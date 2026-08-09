@@ -973,6 +973,23 @@ def command_thread(stop_event: threading.Event, state: CommandState):
                     elif cmd in ("stop", "pause"):
                         with state.lock:
                             state.running = False
+                            stopped_model = os.path.basename(str(state.model_path))
+                            stopped_stream = state.stream
+                        # The inference loop publishes nothing while stopped, so a
+                        # dashboard bound to `status` would keep showing "running"
+                        # forever. Emit one final message to settle it.
+                        socket_send({
+                            "timestamp": int(time.time()),
+                            "ts_utc": iso_now(),
+                            "type": "vision_inference",
+                            "stream": stopped_stream,
+                            "model": stopped_model,
+                            "detections": 0,
+                            "object1": "", "confidence1": 0.0,
+                            "object2": "", "confidence2": 0.0,
+                            "object3": "", "confidence3": 0.0,
+                            "status": "stopped",
+                        })
                         msg = "inference stopped"
 
                     elif cmd == "resume":
