@@ -63,6 +63,31 @@ COCO80_NAMES = (
     "hair drier", "toothbrush"
 )
 DEFAULT_HAAR_CASCADE = "haarcascade_frontalface_default.xml"
+HAAR_SEARCH_DIRS = (
+    "/usr/share/opencv4/haarcascades",
+    "/usr/local/share/opencv4/haarcascades",
+    "/usr/share/opencv/haarcascades",
+    "/var/snap/iotconnect/common/models",
+)
+
+
+def _resolve_haar_cascade(name: str = DEFAULT_HAAR_CASCADE) -> Optional[str]:
+    """Locate a bundled Haar cascade.
+
+    cv2.data exists only in the pip opencv-python wheels. Distribution packages
+    such as Ubuntu's python3-opencv omit it and install the cascades under
+    /usr/share instead, so fall back to searching the usual locations.
+    """
+    candidates = []
+    data = getattr(cv2, "data", None)
+    haar_dir = getattr(data, "haarcascades", None) if data is not None else None
+    if haar_dir:
+        candidates.append(os.path.join(haar_dir, name))
+    candidates.extend(os.path.join(d, name) for d in HAAR_SEARCH_DIRS)
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return None
 CV_ONLY_DNN_PRESETS = {"ssd", "yolo", "auto"}
 CV_ONLY_SPECIAL_MODELS = {
     "hog",
@@ -498,7 +523,12 @@ class ModelManager:
             return
 
         if model_norm in ("face", "haar", "haarcascade", "haarcascade_face", "face_haar"):
-            cascade_path = model_cfg or os.path.join(cv2.data.haarcascades, DEFAULT_HAAR_CASCADE)
+            cascade_path = model_cfg or _resolve_haar_cascade()
+            if not cascade_path:
+                raise RuntimeError(
+                    f"{DEFAULT_HAAR_CASCADE} not found. Searched cv2.data and "
+                    + ", ".join(HAAR_SEARCH_DIRS)
+                )
             if not os.path.exists(cascade_path):
                 raise RuntimeError(f"Haar cascade not found: {cascade_path}")
             cascade = cv2.CascadeClassifier(cascade_path)
@@ -1127,7 +1157,13 @@ def command_thread(stop_event: threading.Event, state: CommandState):
 
                     else:
                         ok = False
-                        msg = f"unknown command: {cmd}"
+                        # Every listener on the command socket receives every
+                        # command, including ones owned by another application
+                        # (the PHT app's `osr`, for example). Acking those as
+                        # failures makes a succeeded command look rejected on the
+                        # dashboard, so unknown commands are logged and ignored.
+                        print(f"[CMD] ignoring command owned by another application: {cmd}")
+                        continue
 
                     _send_ack(cmd, ok, ack_id=ack_id, message=msg)
 
@@ -1180,6 +1216,7 @@ def run_inference(state: CommandState, stop_event: threading.Event):
     active_source = None
     is_image = False
     frame_idx = 0
+    last_good_model = None
     last_send = 0.0
     last_frame_time = 0.0
     window_name = "iotc_vision"
@@ -1240,6 +1277,9 @@ def run_inference(state: CommandState, stop_event: threading.Event):
                 labels_path=labels_path,
             )
             names = model_mgr.names
+            # ensure_model raises on failure, so reaching here means this
+            # combination loads. Remember it as the rollback target.
+            last_good_model = (model_path, model_cfg, labels_path)
 
             frame = None
             if is_image:
@@ -1302,6 +1342,16 @@ def run_inference(state: CommandState, stop_event: threading.Event):
                         state.running = False
         except Exception as e:
             print(f"[INF] loop error: {e}")
+            # A model that fails to load would otherwise be retried forever,
+            # leaving the demo dead until someone restarts the service. Roll
+            # back to the last combination that loaded and say so.
+            if last_good_model is not None and model_path != last_good_model[0]:
+                print(f"[INF] reverting model to {last_good_model[0]}")
+                with state.lock:
+                    state.model_path, state.model_cfg, state.labels_path = last_good_model
+                _send_ack("set_model", False, None,
+                          f"{os.path.basename(str(model_path))} failed to load, reverted to "
+                          f"{os.path.basename(str(last_good_model[0]))}: {e}")
             time.sleep(0.5)
             if cap is not None:
                 try:
