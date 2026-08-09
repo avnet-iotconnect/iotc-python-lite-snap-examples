@@ -263,7 +263,7 @@ Stop either application with `Ctrl+C`.
 ## 8. Verify in /IOTCONNECT
 
 1. Open **Device** > **Devices** > *your device* > **Live Data** and confirm messages are arriving with the expected attribute names.
-2. Open your imported dashboard. With the PHT application running, the four gauges track the sensor and the **Telemetry - ALL** table fills in with timestamps.
+2. Open your imported dashboard. With the PHT application running, the three environment gauges track the sensor. The inference, CPU and video panels fill in once the vision and CPU services are running, see [DEVELOPER_GUIDE.md section 8](./DEVELOPER_GUIDE.md#8-running-as-a-service).
 
 If Live Data shows messages but the dashboard is empty, the widgets are still bound to the exported device. Re-open each widget and select your device, as described in step 5.
 

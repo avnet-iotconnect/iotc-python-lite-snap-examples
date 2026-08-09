@@ -31,17 +31,20 @@ The included dashboard export reproduces the layout below, which is the referenc
 
 ![/IOTCONNECT dashboard for the Curiosity PIC64GX1000 Kit](./media/dashboard.png)
 
-| Widget | Bound to | Purpose |
+All three applications publish into one device, so a single dashboard covers the sensor, the inference pipeline and the system load at once.
+
+| Group | Widgets | Bound to |
 | --- | --- | --- |
-| Product image | Static URL | Board identification for the demo |
-| Temperature gauge | `PHT_temp` | MS8607 barometric temperature, 0-45 C with comfort bands |
-| Pressure gauge | `PHT_pressure` | MS8607 pressure, 990-1040 hPa |
-| Humidity gauge | `PHT_humidity` | MS8607 relative humidity, 0-100 % |
-| Die temperature gauge | `PHT_die_temp` | MS8607 humidity-die temperature, 20-45 C |
-| Telemetry - ALL | All PHT attributes plus `freq`, `osr` | Live attribute/value table with timestamps |
-| Installed Mikroe Click Board | Static URL | Shows which Click board the demo expects |
-| OTA Updates | Device | OTA history and status per device |
-| Device Command | Device template | Sends commands such as `freq` back to the board |
+| Environment | Three gauges: temperature 0-50 C, humidity 0-100 %, pressure 900-1100 hPa | `PHT_temp`, `PHT_humidity`, `PHT_pressure` |
+| State panels | Detection, Active Model and Pipeline image transformations | `detections`, `model`, `status` |
+| Inference | Three gauges: latency 0-2000 ms, detections 0-5, confidence 0-1 | `infer_ms`, `detections`, `confidence1` |
+| Video | Embedded MJPEG overlay stream from the board | `http://<board-ip>:8080/` |
+| System | Three gauges: CPU usage 0-100 %, load 0-4, publish rate 0-30 s | `CPU_usage`, `CPU_load1`, `freq` |
+| Live values | Object 1, Frame #, OSR, Load 1m, Source | `object1`, `frame_index`, `osr`, `CPU_load1`, `source` |
+| Charts | Pressure (OSR noise demo) and CPU usage with load | `PHT_pressure`, `CPU_usage` + `CPU_load1` |
+| Controls | Run, Pipeline, Model, PHT OSR, Confidence, Publish, plus a command console | Device template commands |
+
+The embedded video widget points at the board's own MJPEG stream. Because the portal is served over HTTPS, browsers block that plain-HTTP frame as mixed content; expect it to render only where mixed content is permitted and the viewer is on the same network as the board.
 
 Import files are in [files/](./files/):
 

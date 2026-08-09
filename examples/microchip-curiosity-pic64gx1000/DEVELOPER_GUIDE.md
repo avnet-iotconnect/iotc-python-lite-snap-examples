@@ -250,24 +250,37 @@ Behaviour worth understanding before you demonstrate this:
 
 ### Dashboard anatomy
 
-The export is a `ddType: 2` document with an `items` array; each entry pairs a `widgetProperties` block with a grid `properties` block using a 55-column layout.
+The export is a `ddType: 2` document with an `items` array of 32 widgets; each entry pairs a `widgetProperties` block with a grid `properties` block on a ~103-column wide layout. All numbers in `properties` are strings.
 
 | Widget | `widgetGuid` | Notes |
 | --- | --- | --- |
-| Image | `A8CB394D-...` | Two instances: product shot and Click board shot, both by URL |
-| Gauge | `21A18C90-...` | Four instances. `minValue`, `maxValue` and the `zones` array define the coloured bands |
-| Telemetry | `A0326788-...` | Attribute table, `dateToUse` is set to `Gateway Date` |
-| OTAUpdates | `4EE53CD1-...` | Per-device OTA history |
-| DeviceCommand | `E413CDFD-...` | Bound to a device template GUID, renders that template's command list |
+| Image | `A8CB394D-...` | Two banners by URL, `position: center` |
+| Label | `F66A9747-...` | Coloured section bands; the text is the `title`, no device binding |
+| Gauge | `21A18C90-...` | Nine instances. `attributes.attribute` is a single object, not a list. `minValue`, `maxValue` and `zones` define the bands |
+| Transformation | `6FEFF6B7-...` | Value to image. Rules evaluate top-down, first match wins |
+| Embedded | `E1C837D5-...` | Iframe onto the board's MJPEG stream |
+| Live | `F7979C1B-...` | Single value plus timestamp. Value text renders dark, so keep the background light |
+| LiveLineChart | `8BF5A2DF-...` | Multiple checked attributes give multiple lines |
+| Control | `C6C9FCF9-...` | Command buttons and switches; requires the device template GUID |
+| DeviceCommand | `E413CDFD-...` | Renders the template's full command list |
 
-Each widget carries `deviceGuid` and `deviceUniqueId` from the environment where it was exported (`mclPIC64GX1000`). After import, open each widget and re-select your device so the bindings resolve. Gauge ranges worth knowing:
+Every widget carries `deviceGuid` and `deviceUniqueId` from the environment it was exported from (`mclPIC64GX1000`). After import, open each widget and re-select your own device so the bindings resolve.
 
 | Gauge | Range | Bands |
 | --- | --- | --- |
-| Temperature | 0-45 C | cold to 15, comfortable to 25, warm to 35, hot to 45 |
-| Pressure | 990-1040 hPa | low to 995, medium to 1010, comfortable to 1025, very high to 1040 |
-| Humidity | 0-100 % | low to 20, medium to 40, comfortable to 60, humid to 80, very humid to 100 |
-| Die temperature | 20-45 C | low to 30, medium to 40, hot to 45 |
+| PHT Temp | 0-50 C | cool to 18, comfort to 26, warm to 35, hot to 50 |
+| Humidity | 0-100 % | dry to 30, comfort to 60, humid to 100 |
+| Pressure | 900-1100 hPa | single band; too wide to show the OSR noise change, use the line chart for that |
+| Inference | 0-2000 ms | fast to 300, ok to 1000, heavy to 2000 |
+| Detections | 0-5 | single band |
+| Confidence #1 | 0-1 | low to 0.4, medium to 0.7, high to 1 |
+| CPU Usage | 0-100 % | to 50, to 85, to 100 |
+| CPU Load (1m) | 0-4 | idle to 1, busy to 2.5, saturated to 4 |
+| Publish Rate | 0-30 s | fast to 5, normal to 15, slow to 30 |
+
+Three transformation widgets turn values into state images: `detections` (0 versus 1 or more), `model` (`hog` versus `face`), and `status` (`running` versus `stopped`). A model value with no matching rule leaves the widget blank, so add a rule whenever you introduce a new model filename.
+
+Two gauges deliberately avoid `CPU_temp_c` and `CPU_freq_mhz`: this board exposes no thermal zone and no cpufreq, so those attributes are never published. They are bound to `CPU_load1` and `freq` instead.
 
 ---
 
@@ -418,7 +431,7 @@ The application reads humidity with hold-master command `0xE5`, resets the press
 
 Two results of the raw conversion are easy to get wrong, and both were verified against hardware:
 
-- **Units.** The compensated outputs are in hundredths: `TEMP` is 0.01 C and `P` is 0.01 mbar. Both need dividing by 100 to reach C and hPa. Publishing `P` unscaled sends about `99590`, which silently pins the dashboard's 990-1040 hPa gauge.
+- **Units.** The compensated outputs are in hundredths: `TEMP` is 0.01 C and `P` is 0.01 mbar. Both need dividing by 100 to reach C and hPa. Publishing `P` unscaled sends about `99590`, which silently pins the dashboard's 900-1100 hPa gauge.
 - **There is only one temperature source.** The MS8607 resembles an HTU21 on the humidity side, but its humidity die has no temperature command. `0xE3` returns `00 00` under hold-master and `0xF3` returns the same under no-hold, so any conversion of that reading yields the constant -46.85 C, the floor of the formula. `PHT_die_temp` therefore mirrors `PHT_temp`, which is what the reference dashboard shows. If a second distinct temperature would be more useful than a duplicate, rebind that gauge to `CPU_temp_c` from the performance application.
 
 Practical notes:
@@ -526,7 +539,7 @@ Nothing in the bridge is per-application. Each publish is an independent connect
 
 - The listen backlog is 5 and telemetry is processed one connection at a time. Two applications at 1 and 10 second intervals are nowhere near that. Hundreds of messages per second are not what this design is for.
 - Keep the 150 ms minimum spacing per producer. Coordinated bursts from several producers are what will fill the backlog.
-- Every connected command listener receives every command. The vision application acts on the ones it recognises and acknowledges the rest as unknown; the PHT application does not open the command socket at all.
+- Every connected command listener receives every command, including ones addressed at another application. Both applications act only on the commands they own and stay silent about the rest. This matters: an application that acknowledges an unrecognised command as failed will report another application's *successful* command as rejected, because the portal shows the last acknowledgement it received. `osr` reaching the vision application is the concrete case.
 - All producers publish into one device, so their attributes share a device template. The included template covers all three applications for exactly this reason, which is why PHT gauges and vision detections can appear on the same dashboard with no re-provisioning.
 - Telemetry from different producers arrives as separate messages, not a merged record. Widgets bound to `PHT_temp` and to `object1` update independently.
 
@@ -575,7 +588,7 @@ Build and upload:
 tar czf package.tar.gz install.sh pht_iotc_socket.py models/
 ```
 
-Upload under **Device** > **Firmware**, create a version, then push it to the device or template. The OTA Updates widget on the dashboard shows each attempt with its version and status, which is the panel visible in the screenshot in [README.md](./README.md#dashboard).
+Upload under **Device** > **Firmware**, create a version, then push it to the device or template. Progress is visible in the Snap log and under the device's OTA history; add an OTAUpdates widget to the dashboard if you want it on screen during a demo.
 
 Guidance:
 
