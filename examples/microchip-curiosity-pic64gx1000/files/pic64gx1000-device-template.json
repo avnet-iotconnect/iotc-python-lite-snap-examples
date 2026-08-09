@@ -393,6 +393,27 @@
             "requiredParam": true,
             "requiredAck": true,
             "isOTACommand": false
+        },
+        {
+            "name": "PHT OSR: 4096 Hi-Res",
+            "command": "osr 4096",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "PHT OSR: 256 Noisy",
+            "command": "osr 256",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "PHT OSR: Set",
+            "command": "osr",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
         }
     ],
     "messageVersion": "2.1",
