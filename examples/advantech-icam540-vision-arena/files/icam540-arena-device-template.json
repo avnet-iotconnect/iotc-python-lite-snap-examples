@@ -1,0 +1,566 @@
+{
+  "code": "ICAM540A",
+  "name": "Advantech iCAM-540 Vision Arena",
+  "authType": 2,
+  "attributes": [
+    {
+      "name": "ts",
+      "displayName": "Sample Time",
+      "type": "INTEGER",
+      "description": "Unix epoch seconds when the payload was built",
+      "unit": "s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "type",
+      "displayName": "Message Type",
+      "type": "STRING",
+      "description": "Payload discriminator (arena)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "pipeline",
+      "displayName": "Pipeline State",
+      "type": "STRING",
+      "description": "stopped | starting | running | restarting | error",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "message",
+      "displayName": "Status Message",
+      "type": "STRING",
+      "description": "Human readable pipeline status / last error",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "streams",
+      "displayName": "Streams",
+      "type": "INTEGER",
+      "description": "Video streams in the DeepStream batch (camera + looping videos)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "streams_active",
+      "displayName": "Streams Reporting",
+      "type": "INTEGER",
+      "description": "Streams that produced detections in the last 3 s",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "model",
+      "displayName": "Model",
+      "type": "STRING",
+      "description": "peoplenet | resnet10",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "precision",
+      "displayName": "Precision",
+      "type": "STRING",
+      "description": "TensorRT precision of the running engine (fp32/fp16/int8)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "batch",
+      "displayName": "Engine Batch",
+      "type": "INTEGER",
+      "description": "nvinfer batch size of the running engine",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "infer_interval",
+      "displayName": "Inference Interval",
+      "type": "INTEGER",
+      "description": "Frames skipped between inferences (0 = every frame)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "osd_analytics",
+      "displayName": "Overlay",
+      "type": "STRING",
+      "description": "on when the zone/line overlay is drawn by nvdsanalytics",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "uptime_s",
+      "displayName": "Device Uptime",
+      "type": "DECIMAL",
+      "description": "Linux uptime",
+      "unit": "s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "pipeline_uptime_s",
+      "displayName": "Pipeline Uptime",
+      "type": "DECIMAL",
+      "description": "Seconds since deepstream-app was (re)started",
+      "unit": "s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "fps_cam",
+      "displayName": "Camera FPS",
+      "type": "DECIMAL",
+      "description": "Frames per second on the camera stream",
+      "unit": "fps",
+      "aggregateTypes": [],
+      "attributeColor": "#76b900"
+    },
+    {
+      "name": "fps_total",
+      "displayName": "Total FPS",
+      "type": "DECIMAL",
+      "description": "Sum of FPS across all streams (inference throughput)",
+      "unit": "fps",
+      "aggregateTypes": [],
+      "attributeColor": "#76b900"
+    },
+    {
+      "name": "fps_min",
+      "displayName": "Slowest Stream FPS",
+      "type": "DECIMAL",
+      "description": "Minimum FPS across streams",
+      "unit": "fps",
+      "aggregateTypes": []
+    },
+    {
+      "name": "fps_avg",
+      "displayName": "Average Stream FPS",
+      "type": "DECIMAL",
+      "description": "Mean FPS across streams",
+      "unit": "fps",
+      "aggregateTypes": []
+    },
+    {
+      "name": "fps_streams",
+      "displayName": "Streams With FPS",
+      "type": "INTEGER",
+      "description": "Streams present in the last PERF report",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "infer_mpx_s",
+      "displayName": "Megapixels Inferred / s",
+      "type": "DECIMAL",
+      "description": "fps_total x streammux resolution",
+      "unit": "Mpx/s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "msgs_per_s",
+      "displayName": "Detection Messages / s",
+      "type": "DECIMAL",
+      "description": "DeepStream metadata messages received over MQTT",
+      "unit": "msg/s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "objects_total",
+      "displayName": "Objects Tracked",
+      "type": "INTEGER",
+      "description": "Objects in the latest message of every stream",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "persons_total",
+      "displayName": "Persons (all streams)",
+      "type": "INTEGER",
+      "description": "Person detections across all streams",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "vehicles_total",
+      "displayName": "Vehicles (all streams)",
+      "type": "INTEGER",
+      "description": "Vehicle detections across all streams",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "visitors_in",
+      "displayName": "Visitors In",
+      "type": "INTEGER",
+      "description": "Line crossings into the booth since reset",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#7ed321"
+    },
+    {
+      "name": "visitors_out",
+      "displayName": "Visitors Out",
+      "type": "INTEGER",
+      "description": "Line crossings out of the booth since reset",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#f5a623"
+    },
+    {
+      "name": "occupancy",
+      "displayName": "At Booth Now",
+      "type": "INTEGER",
+      "description": "People inside the booth zone right now",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#4a90e2"
+    },
+    {
+      "name": "occupancy_peak",
+      "displayName": "Peak Occupancy",
+      "type": "INTEGER",
+      "description": "Highest booth occupancy since reset",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "people_now",
+      "displayName": "People In View",
+      "type": "INTEGER",
+      "description": "Tracked people anywhere in the camera frame",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "engaged",
+      "displayName": "Engaged",
+      "type": "INTEGER",
+      "description": "People in the zone longer than the engage threshold",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "dwell_avg_s",
+      "displayName": "Avg Dwell",
+      "type": "DECIMAL",
+      "description": "Average time spent in the booth zone",
+      "unit": "s",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "dwell_max_s",
+      "displayName": "Max Dwell",
+      "type": "DECIMAL",
+      "description": "Longest time spent in the booth zone",
+      "unit": "s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "dwell_last_s",
+      "displayName": "Last Dwell",
+      "type": "DECIMAL",
+      "description": "Dwell time of the last person who left the zone",
+      "unit": "s",
+      "aggregateTypes": []
+    },
+    {
+      "name": "tracks_total",
+      "displayName": "Unique Tracks",
+      "type": "INTEGER",
+      "description": "Unique tracker IDs seen on the camera since reset",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "hot_zone",
+      "displayName": "Hot Zone",
+      "type": "STRING",
+      "description": "left | center | right third of the frame with most people",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "event",
+      "displayName": "Last Event",
+      "type": "STRING",
+      "description": "visitor_in | visitor_out | overcrowded (cleared after 30 s)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "gpu_load_pct",
+      "displayName": "GPU Load",
+      "type": "DECIMAL",
+      "description": "GR3D utilisation from tegrastats",
+      "unit": "%",
+      "aggregateTypes": [],
+      "attributeColor": "#76b900"
+    },
+    {
+      "name": "gpu_freq_mhz",
+      "displayName": "GPU Clock",
+      "type": "DECIMAL",
+      "description": "GR3D frequency",
+      "unit": "MHz",
+      "aggregateTypes": []
+    },
+    {
+      "name": "gpu_temp_c",
+      "displayName": "GPU Temperature",
+      "type": "DECIMAL",
+      "description": "GPU thermal zone",
+      "unit": "C",
+      "aggregateTypes": [],
+      "attributeColor": "#d0021b"
+    },
+    {
+      "name": "cpu_load_pct",
+      "displayName": "CPU Load",
+      "type": "DECIMAL",
+      "description": "Aggregate CPU utilisation",
+      "unit": "%",
+      "aggregateTypes": []
+    },
+    {
+      "name": "cpu_temp_c",
+      "displayName": "CPU Temperature",
+      "type": "DECIMAL",
+      "description": "CPU thermal zone",
+      "unit": "C",
+      "aggregateTypes": []
+    },
+    {
+      "name": "soc_temp_c",
+      "displayName": "SoC Temperature",
+      "type": "DECIMAL",
+      "description": "SoC / junction thermal zone",
+      "unit": "C",
+      "aggregateTypes": []
+    },
+    {
+      "name": "power_w",
+      "displayName": "Module Power",
+      "type": "DECIMAL",
+      "description": "VDD_IN from tegrastats",
+      "unit": "W",
+      "aggregateTypes": [],
+      "attributeColor": "#f5a623"
+    },
+    {
+      "name": "power_gpu_w",
+      "displayName": "GPU Rail Power",
+      "type": "DECIMAL",
+      "description": "VDD_CPU_GPU_CV rail",
+      "unit": "W",
+      "aggregateTypes": []
+    },
+    {
+      "name": "ram_used_mb",
+      "displayName": "RAM Used",
+      "type": "INTEGER",
+      "description": "Memory in use",
+      "unit": "MB",
+      "aggregateTypes": []
+    },
+    {
+      "name": "ram_total_mb",
+      "displayName": "RAM Total",
+      "type": "INTEGER",
+      "description": "Memory installed",
+      "unit": "MB",
+      "aggregateTypes": []
+    },
+    {
+      "name": "emc_pct",
+      "displayName": "Memory Bandwidth",
+      "type": "DECIMAL",
+      "description": "EMC utilisation",
+      "unit": "%",
+      "aggregateTypes": []
+    },
+    {
+      "name": "nvdec_mhz",
+      "displayName": "NVDEC Clock",
+      "type": "DECIMAL",
+      "description": "Hardware decoder clock (0/absent when idle)",
+      "unit": "MHz",
+      "aggregateTypes": []
+    }
+  ],
+  "commands": [
+    {
+      "name": "Pipeline: Start",
+      "command": "start",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Pipeline: Stop",
+      "command": "stop",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Pipeline: Restart",
+      "command": "restart",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Pipeline: Status",
+      "command": "status",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Preset: Booth (1 stream)",
+      "command": "preset booth",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Preset: Stress (4 streams)",
+      "command": "preset stress",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Preset: Max (9 streams)",
+      "command": "preset max",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Streams (1-9)",
+      "command": "set_streams",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Model: PeopleNet",
+      "command": "set_model peoplenet",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Model: ResNet10 4-class",
+      "command": "set_model resnet10",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Precision (fp32|fp16|int8)",
+      "command": "set_precision",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Inference Interval (0-10)",
+      "command": "set_interval",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Batched Engine (on|off)",
+      "command": "set_batched",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Overlay: On",
+      "command": "set_osd 1",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Overlay: Off",
+      "command": "set_osd 0",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Booth Zone (x,y;x,y;x,y;...)",
+      "command": "set_roi",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Count Line (x1,y1;x2,y2)",
+      "command": "set_line",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Flip Count Line Direction",
+      "command": "flip_line",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Engage Seconds",
+      "command": "set_engage",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Overcrowd Threshold",
+      "command": "set_overcrowd",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Reset Counters",
+      "command": "reset_counts",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Set Telemetry Interval (s)",
+      "command": "set_telemetry_interval",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "Ping",
+      "command": "ping",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    }
+  ],
+  "messageVersion": "2.1",
+  "capability": "0",
+  "properties": {
+    "description": "DeepStream multi-stream vision analytics on the Advantech iCAM-540 (NVIDIA Jetson Orin) via the /IOTCONNECT Snap",
+    "dataFrequency": "3",
+    "fileSupport": false
+  },
+  "_meta": {
+    "version": "2.0"
+  }
+}

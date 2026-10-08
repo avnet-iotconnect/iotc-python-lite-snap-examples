@@ -1,0 +1,3873 @@
+{
+  "ddType": 2,
+  "items": [
+    {
+      "widgetGuid": "24E8EA23-80C0-4B4E-AC92-E893AF628132",
+      "widgetProperties": {
+        "i": "Label",
+        "background": "#0b1226",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "26",
+        "title": "ADVANTECH iCAM-540  |  NVIDIA JETSON ORIN  |  /IOTCONNECT VISION ARENA",
+        "titleAlign": "",
+        "contents": ""
+      },
+      "properties": {
+        "x": "0",
+        "y": "0",
+        "w": "103",
+        "h": "2",
+        "i": "Label",
+        "isStatic": "false",
+        "minW": "6",
+        "minH": "2",
+        "maxH": "2"
+      }
+    },
+    {
+      "widgetGuid": "F426F2BF-1607-4894-BCA5-082D24BB3203",
+      "widgetProperties": {
+        "i": "Label",
+        "background": "#EE2E24",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "22",
+        "title": "BOOTH ANALYTICS - PeopleNet + NvDCF tracker on the live camera",
+        "titleAlign": "",
+        "contents": ""
+      },
+      "properties": {
+        "x": "0",
+        "y": "2",
+        "w": "52",
+        "h": "2",
+        "i": "Label",
+        "isStatic": "false",
+        "minW": "6",
+        "minH": "2",
+        "maxH": "2"
+      }
+    },
+    {
+      "widgetGuid": "CDA83323-D493-46C6-B4ED-B4C84FCBF4AB",
+      "widgetProperties": {
+        "i": "Label",
+        "background": "#76b900",
+        "fontColor": "#000000",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "22",
+        "title": "JETSON LIVE LOAD - crank the streams from the cloud and watch the Orin work",
+        "titleAlign": "",
+        "contents": ""
+      },
+      "properties": {
+        "x": "52",
+        "y": "2",
+        "w": "51",
+        "h": "2",
+        "i": "Label",
+        "isStatic": "false",
+        "minW": "6",
+        "minH": "2",
+        "maxH": "2"
+      }
+    },
+    {
+      "widgetGuid": "FE088A65-9047-4C71-AA54-5BF454B64C56",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Visitors In",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "visitors_in",
+                "attributeName": "visitors_in",
+                "displayName": "visitors_in",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "100",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Quiet",
+                "upToValue": "10"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Busy",
+                "upToValue": "40"
+              },
+              {
+                "zoneColor": "#f5a623",
+                "zoneName": "Packed",
+                "upToValue": "100"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "4",
+        "w": "13",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "8180ABD0-4F7F-4F12-9D5E-D4054F9583DE",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "At Booth Now",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "occupancy",
+                "attributeName": "occupancy",
+                "displayName": "occupancy",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "8",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Empty",
+                "upToValue": "1"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Good",
+                "upToValue": "4"
+              },
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Crowded",
+                "upToValue": "8"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "13",
+        "y": "4",
+        "w": "13",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "FC8F78BC-A260-473F-BEE8-4AE3644CDFDC",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Engaged (>5 s)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "engaged",
+                "attributeName": "engaged",
+                "displayName": "engaged",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "8",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "None",
+                "upToValue": "1"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Some",
+                "upToValue": "4"
+              },
+              {
+                "zoneColor": "#7b64ff",
+                "zoneName": "Many",
+                "upToValue": "8"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "26",
+        "y": "4",
+        "w": "13",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "A1665BEA-5BB3-4AF6-87D4-276AB29BC7D2",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Avg Dwell (s)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "dwell_avg_s",
+                "attributeName": "dwell_avg_s",
+                "displayName": "dwell_avg_s",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "60",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Glance",
+                "upToValue": "5"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Interested",
+                "upToValue": "20"
+              },
+              {
+                "zoneColor": "#7b64ff",
+                "zoneName": "Hooked",
+                "upToValue": "60"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "39",
+        "y": "4",
+        "w": "13",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "D2E22C2F-108A-4968-B029-B0F1AB3D15CA",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "GPU Load (%)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "gpu_load_pct",
+                "attributeName": "gpu_load_pct",
+                "displayName": "gpu_load_pct",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "100",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Idle",
+                "upToValue": "30"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Working",
+                "upToValue": "80"
+              },
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Maxed",
+                "upToValue": "100"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "52",
+        "y": "4",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "14CBACF6-BE1B-411A-A936-EAD2A438478E",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Total FPS",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "fps_total",
+                "attributeName": "fps_total",
+                "displayName": "fps_total",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "300",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "1 stream",
+                "upToValue": "35"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Multi",
+                "upToValue": "150"
+              },
+              {
+                "zoneColor": "#76b900",
+                "zoneName": "Max",
+                "upToValue": "300"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "64",
+        "y": "4",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "F053F66C-A84D-4FEF-B856-8DE48776431F",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Module Power (W)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "power_w",
+                "attributeName": "power_w",
+                "displayName": "power_w",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "30",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Low",
+                "upToValue": "10"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Mid",
+                "upToValue": "20"
+              },
+              {
+                "zoneColor": "#f5a623",
+                "zoneName": "High",
+                "upToValue": "30"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "76",
+        "y": "4",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "356AC7C3-5EE7-420D-9EA9-41F148B30DF9",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "GPU Temp (C)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "gpu_temp_c",
+                "attributeName": "gpu_temp_c",
+                "displayName": "gpu_temp_c",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "90",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Cool",
+                "upToValue": "50"
+              },
+              {
+                "zoneColor": "#f5a623",
+                "zoneName": "Warm",
+                "upToValue": "70"
+              },
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Hot",
+                "upToValue": "90"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "88",
+        "y": "4",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "DCB1C03C-E1C0-43F6-BCC1-1E35042613A1",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#f5a623",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "22",
+        "title": "Visitors Out",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "visitors_out",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "visitors_out",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "visitors_out",
+                "attributeName": "visitors_out",
+                "displayName": "visitors_out",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "13",
+        "w": "13",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "DE99E7C5-6030-4E1C-B1B2-7F6CD6BF0602",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#4a90e2",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "22",
+        "title": "Peak Occupancy",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "occupancy_peak",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "occupancy_peak",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "occupancy_peak",
+                "attributeName": "occupancy_peak",
+                "displayName": "occupancy_peak",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "13",
+        "y": "13",
+        "w": "13",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "C6DBE2E3-F82B-4D97-AC80-6B9F963844AB",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#d0021b",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Last Event",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "event",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "event",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "event",
+                "attributeName": "event",
+                "displayName": "event",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "26",
+        "y": "13",
+        "w": "13",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "B51BFB34-4E2C-4BBA-B7AA-B64550A20588",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#7b64ff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Hot Zone",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "hot_zone",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "hot_zone",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "hot_zone",
+                "attributeName": "hot_zone",
+                "displayName": "hot_zone",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "39",
+        "y": "13",
+        "w": "13",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "05A96188-259B-44B3-B29D-D580972E612D",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#76b900",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "22",
+        "title": "Streams",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "streams",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "streams",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "streams",
+                "attributeName": "streams",
+                "displayName": "streams",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "52",
+        "y": "13",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "972CDBF0-1654-4372-B0CF-C9F24FA57B89",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Model",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "model",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "model",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "model",
+                "attributeName": "model",
+                "displayName": "model",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "64",
+        "y": "13",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "7B462B77-7B3B-4F27-B673-F3A92816033A",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Precision / Batch",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "precision",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "precision",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "precision",
+                "attributeName": "precision",
+                "displayName": "precision",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "76",
+        "y": "13",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "C451167C-33A7-43EF-A047-43D0B38B0CE7",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#7ed321",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Pipeline",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "pipeline",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "pipeline",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "pipeline",
+                "attributeName": "pipeline",
+                "displayName": "pipeline",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "88",
+        "y": "13",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "916A9C28-C02B-49FB-BAF8-69FB19A0E8B7",
+      "widgetProperties": {
+        "i": "LiveLineChart",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Booth - people in view / at booth / engaged",
+        "titleAlign": "",
+        "contents": {
+          "liveChart": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": [
+                {
+                  "attributeGuid": "ts",
+                  "attributeName": "ts",
+                  "displayName": "ts",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "type",
+                  "attributeName": "type",
+                  "displayName": "type",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline",
+                  "attributeName": "pipeline",
+                  "displayName": "pipeline",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "message",
+                  "attributeName": "message",
+                  "displayName": "message",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams",
+                  "attributeName": "streams",
+                  "displayName": "streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams_active",
+                  "attributeName": "streams_active",
+                  "displayName": "streams_active",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "model",
+                  "attributeName": "model",
+                  "displayName": "model",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "precision",
+                  "attributeName": "precision",
+                  "displayName": "precision",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "batch",
+                  "attributeName": "batch",
+                  "displayName": "batch",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_interval",
+                  "attributeName": "infer_interval",
+                  "displayName": "infer_interval",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "osd_analytics",
+                  "attributeName": "osd_analytics",
+                  "displayName": "osd_analytics",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "uptime_s",
+                  "attributeName": "uptime_s",
+                  "displayName": "uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline_uptime_s",
+                  "attributeName": "pipeline_uptime_s",
+                  "displayName": "pipeline_uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_cam",
+                  "attributeName": "fps_cam",
+                  "displayName": "fps_cam",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_total",
+                  "attributeName": "fps_total",
+                  "displayName": "fps_total",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_min",
+                  "attributeName": "fps_min",
+                  "displayName": "fps_min",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_avg",
+                  "attributeName": "fps_avg",
+                  "displayName": "fps_avg",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_streams",
+                  "attributeName": "fps_streams",
+                  "displayName": "fps_streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_mpx_s",
+                  "attributeName": "infer_mpx_s",
+                  "displayName": "infer_mpx_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "msgs_per_s",
+                  "attributeName": "msgs_per_s",
+                  "displayName": "msgs_per_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "objects_total",
+                  "attributeName": "objects_total",
+                  "displayName": "objects_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "persons_total",
+                  "attributeName": "persons_total",
+                  "displayName": "persons_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "vehicles_total",
+                  "attributeName": "vehicles_total",
+                  "displayName": "vehicles_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_in",
+                  "attributeName": "visitors_in",
+                  "displayName": "visitors_in",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_out",
+                  "attributeName": "visitors_out",
+                  "displayName": "visitors_out",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy",
+                  "attributeName": "occupancy",
+                  "displayName": "occupancy",
+                  "checked": "true",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy_peak",
+                  "attributeName": "occupancy_peak",
+                  "displayName": "occupancy_peak",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "people_now",
+                  "attributeName": "people_now",
+                  "displayName": "people_now",
+                  "checked": "true",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "engaged",
+                  "attributeName": "engaged",
+                  "displayName": "engaged",
+                  "checked": "true",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_avg_s",
+                  "attributeName": "dwell_avg_s",
+                  "displayName": "dwell_avg_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_max_s",
+                  "attributeName": "dwell_max_s",
+                  "displayName": "dwell_max_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_last_s",
+                  "attributeName": "dwell_last_s",
+                  "displayName": "dwell_last_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "tracks_total",
+                  "attributeName": "tracks_total",
+                  "displayName": "tracks_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "hot_zone",
+                  "attributeName": "hot_zone",
+                  "displayName": "hot_zone",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "event",
+                  "attributeName": "event",
+                  "displayName": "event",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_load_pct",
+                  "attributeName": "gpu_load_pct",
+                  "displayName": "gpu_load_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_freq_mhz",
+                  "attributeName": "gpu_freq_mhz",
+                  "displayName": "gpu_freq_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_temp_c",
+                  "attributeName": "gpu_temp_c",
+                  "displayName": "gpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_load_pct",
+                  "attributeName": "cpu_load_pct",
+                  "displayName": "cpu_load_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_temp_c",
+                  "attributeName": "cpu_temp_c",
+                  "displayName": "cpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "soc_temp_c",
+                  "attributeName": "soc_temp_c",
+                  "displayName": "soc_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_w",
+                  "attributeName": "power_w",
+                  "displayName": "power_w",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_gpu_w",
+                  "attributeName": "power_gpu_w",
+                  "displayName": "power_gpu_w",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_used_mb",
+                  "attributeName": "ram_used_mb",
+                  "displayName": "ram_used_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_total_mb",
+                  "attributeName": "ram_total_mb",
+                  "displayName": "ram_total_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "emc_pct",
+                  "attributeName": "emc_pct",
+                  "displayName": "emc_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "nvdec_mhz",
+                  "attributeName": "nvdec_mhz",
+                  "displayName": "nvdec_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                }
+              ]
+            },
+            "lineColor": "#4a90e2",
+            "barColor": "#4a90e2",
+            "barCount": "10",
+            "attrType": "1",
+            "key": "line",
+            "recentEndPoints": "30"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "17",
+        "w": "52",
+        "h": "12",
+        "i": "LiveLineChart",
+        "isStatic": "false",
+        "minW": "12",
+        "minH": "12",
+        "maxH": "30",
+        "maxW": "60"
+      }
+    },
+    {
+      "widgetGuid": "3086B6B1-085B-4CA7-90B4-BB200B9F6C10",
+      "widgetProperties": {
+        "i": "LiveLineChart",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Jetson - GPU load, total FPS, power",
+        "titleAlign": "",
+        "contents": {
+          "liveChart": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": [
+                {
+                  "attributeGuid": "ts",
+                  "attributeName": "ts",
+                  "displayName": "ts",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "type",
+                  "attributeName": "type",
+                  "displayName": "type",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline",
+                  "attributeName": "pipeline",
+                  "displayName": "pipeline",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "message",
+                  "attributeName": "message",
+                  "displayName": "message",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams",
+                  "attributeName": "streams",
+                  "displayName": "streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams_active",
+                  "attributeName": "streams_active",
+                  "displayName": "streams_active",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "model",
+                  "attributeName": "model",
+                  "displayName": "model",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "precision",
+                  "attributeName": "precision",
+                  "displayName": "precision",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "batch",
+                  "attributeName": "batch",
+                  "displayName": "batch",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_interval",
+                  "attributeName": "infer_interval",
+                  "displayName": "infer_interval",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "osd_analytics",
+                  "attributeName": "osd_analytics",
+                  "displayName": "osd_analytics",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "uptime_s",
+                  "attributeName": "uptime_s",
+                  "displayName": "uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline_uptime_s",
+                  "attributeName": "pipeline_uptime_s",
+                  "displayName": "pipeline_uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_cam",
+                  "attributeName": "fps_cam",
+                  "displayName": "fps_cam",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_total",
+                  "attributeName": "fps_total",
+                  "displayName": "fps_total",
+                  "checked": "true",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_min",
+                  "attributeName": "fps_min",
+                  "displayName": "fps_min",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_avg",
+                  "attributeName": "fps_avg",
+                  "displayName": "fps_avg",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_streams",
+                  "attributeName": "fps_streams",
+                  "displayName": "fps_streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_mpx_s",
+                  "attributeName": "infer_mpx_s",
+                  "displayName": "infer_mpx_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "msgs_per_s",
+                  "attributeName": "msgs_per_s",
+                  "displayName": "msgs_per_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "objects_total",
+                  "attributeName": "objects_total",
+                  "displayName": "objects_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "persons_total",
+                  "attributeName": "persons_total",
+                  "displayName": "persons_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "vehicles_total",
+                  "attributeName": "vehicles_total",
+                  "displayName": "vehicles_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_in",
+                  "attributeName": "visitors_in",
+                  "displayName": "visitors_in",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_out",
+                  "attributeName": "visitors_out",
+                  "displayName": "visitors_out",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy",
+                  "attributeName": "occupancy",
+                  "displayName": "occupancy",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy_peak",
+                  "attributeName": "occupancy_peak",
+                  "displayName": "occupancy_peak",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "people_now",
+                  "attributeName": "people_now",
+                  "displayName": "people_now",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "engaged",
+                  "attributeName": "engaged",
+                  "displayName": "engaged",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_avg_s",
+                  "attributeName": "dwell_avg_s",
+                  "displayName": "dwell_avg_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_max_s",
+                  "attributeName": "dwell_max_s",
+                  "displayName": "dwell_max_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_last_s",
+                  "attributeName": "dwell_last_s",
+                  "displayName": "dwell_last_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "tracks_total",
+                  "attributeName": "tracks_total",
+                  "displayName": "tracks_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "hot_zone",
+                  "attributeName": "hot_zone",
+                  "displayName": "hot_zone",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "event",
+                  "attributeName": "event",
+                  "displayName": "event",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_load_pct",
+                  "attributeName": "gpu_load_pct",
+                  "displayName": "gpu_load_pct",
+                  "checked": "true",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_freq_mhz",
+                  "attributeName": "gpu_freq_mhz",
+                  "displayName": "gpu_freq_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_temp_c",
+                  "attributeName": "gpu_temp_c",
+                  "displayName": "gpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_load_pct",
+                  "attributeName": "cpu_load_pct",
+                  "displayName": "cpu_load_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_temp_c",
+                  "attributeName": "cpu_temp_c",
+                  "displayName": "cpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "soc_temp_c",
+                  "attributeName": "soc_temp_c",
+                  "displayName": "soc_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_w",
+                  "attributeName": "power_w",
+                  "displayName": "power_w",
+                  "checked": "true",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_gpu_w",
+                  "attributeName": "power_gpu_w",
+                  "displayName": "power_gpu_w",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_used_mb",
+                  "attributeName": "ram_used_mb",
+                  "displayName": "ram_used_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_total_mb",
+                  "attributeName": "ram_total_mb",
+                  "displayName": "ram_total_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "emc_pct",
+                  "attributeName": "emc_pct",
+                  "displayName": "emc_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "nvdec_mhz",
+                  "attributeName": "nvdec_mhz",
+                  "displayName": "nvdec_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                }
+              ]
+            },
+            "lineColor": "#76b900",
+            "barColor": "#76b900",
+            "barCount": "10",
+            "attrType": "1",
+            "key": "line",
+            "recentEndPoints": "30"
+          }
+        }
+      },
+      "properties": {
+        "x": "52",
+        "y": "17",
+        "w": "51",
+        "h": "12",
+        "i": "LiveLineChart",
+        "isStatic": "false",
+        "minW": "12",
+        "minH": "12",
+        "maxH": "30",
+        "maxW": "60"
+      }
+    },
+    {
+      "widgetGuid": "C4CE8353-F2B2-46F9-9D64-F7518F94708C",
+      "widgetProperties": {
+        "i": "Label",
+        "background": "#343434",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "CLOUD CONTROLS - every button regenerates the DeepStream pipeline on the device (restart takes a few seconds)",
+        "titleAlign": "",
+        "contents": ""
+      },
+      "properties": {
+        "x": "0",
+        "y": "29",
+        "w": "103",
+        "h": "2",
+        "i": "Label",
+        "isStatic": "false",
+        "minW": "6",
+        "minH": "2",
+        "maxH": "2"
+      }
+    },
+    {
+      "widgetGuid": "3A1A483D-207B-4EBF-A6D7-9F7C53F44065",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Preset",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Booth",
+            "leftCommand": "preset",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "booth",
+            "rightText": "Stress",
+            "rightCommand": "preset",
+            "rightSwitchColor": "#f5a623",
+            "rightBackgroundColor": "",
+            "rightParam": "stress",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "6F58F96B-4EF5-4FBD-99F1-7726B7ED0587",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Max Load",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "9 streams",
+            "leftCommand": "preset",
+            "leftSwitchColor": "#d0021b",
+            "leftBackgroundColor": "",
+            "leftParam": "max",
+            "rightText": "4 streams",
+            "rightCommand": "preset",
+            "rightSwitchColor": "#f5a623",
+            "rightBackgroundColor": "",
+            "rightParam": "stress",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "10",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "F2F8B60E-F466-4EB0-BD60-474BCD2112A7",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Model",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "PeopleNet",
+            "leftCommand": "set_model",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "peoplenet",
+            "rightText": "ResNet10",
+            "rightCommand": "set_model",
+            "rightSwitchColor": "#4a90e2",
+            "rightBackgroundColor": "",
+            "rightParam": "resnet10",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "20",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "3287491A-7D2F-4E60-8F35-09475BB494E1",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Precision",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "FP16",
+            "leftCommand": "set_precision",
+            "leftSwitchColor": "#76b900",
+            "leftBackgroundColor": "",
+            "leftParam": "fp16",
+            "rightText": "FP32",
+            "rightCommand": "set_precision",
+            "rightSwitchColor": "#4a90e2",
+            "rightBackgroundColor": "",
+            "rightParam": "fp32",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "30",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "A901890D-40B5-4BEB-9E5A-844DAFAB4E2E",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Skip Frames",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Every frame",
+            "leftCommand": "set_interval",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "0",
+            "rightText": "Every 3rd",
+            "rightCommand": "set_interval",
+            "rightSwitchColor": "#f5a623",
+            "rightBackgroundColor": "",
+            "rightParam": "2",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "40",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "FC5C26ED-1B03-47A8-87E0-184839AEB3C5",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Pipeline",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Restart",
+            "leftCommand": "restart",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "",
+            "rightText": "Stop",
+            "rightCommand": "stop",
+            "rightSwitchColor": "#d0021b",
+            "rightBackgroundColor": "",
+            "rightParam": "",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "50",
+        "y": "31",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "D6C2A1AE-F466-485A-8E47-EC3BADBC6166",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Counters",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Reset",
+            "leftCommand": "reset_counts",
+            "leftSwitchColor": "#f5a623",
+            "leftBackgroundColor": "",
+            "leftParam": "",
+            "rightText": "Status",
+            "rightCommand": "status",
+            "rightSwitchColor": "#4a90e2",
+            "rightBackgroundColor": "",
+            "rightParam": "",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "37",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "C3D3EED2-0864-4D7B-95BA-FF08AA95E5D4",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Overlay",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "On",
+            "leftCommand": "set_osd",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "1",
+            "rightText": "Off",
+            "rightCommand": "set_osd",
+            "rightSwitchColor": "#9b9b9b",
+            "rightBackgroundColor": "",
+            "rightParam": "0",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "10",
+        "y": "37",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "5D832B45-3DF4-4D84-991B-E4A226CB5CBE",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Count Line",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Flip dir",
+            "leftCommand": "flip_line",
+            "leftSwitchColor": "#7b64ff",
+            "leftBackgroundColor": "",
+            "leftParam": "",
+            "rightText": "Ping",
+            "rightCommand": "ping",
+            "rightSwitchColor": "#4a90e2",
+            "rightBackgroundColor": "",
+            "rightParam": "",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "20",
+        "y": "37",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "33F7B48E-9C06-44EE-9C77-0C4C834C992F",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "16",
+        "title": "Status Message",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "message",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "message",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "message",
+                "attributeName": "message",
+                "displayName": "message",
+                "checked": "true",
+                "dataType": "STRING",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "30",
+        "y": "37",
+        "w": "30",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "FA8599B0-4EC6-4608-853E-85A0CD571A48",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Msgs / s",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "msgs_per_s",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "msgs_per_s",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "msgs_per_s",
+                "attributeName": "msgs_per_s",
+                "displayName": "msgs_per_s",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "30",
+        "y": "41",
+        "w": "15",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "6E51BD0E-56D4-4681-8B06-950455BC4CBC",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Objects Tracked",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "objects_total",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "objects_total",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "objects_total",
+                "attributeName": "objects_total",
+                "displayName": "objects_total",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "45",
+        "y": "41",
+        "w": "15",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "3F2022E2-9BEB-45F8-960D-EC0B7418F628",
+      "widgetProperties": {
+        "i": "DeviceCommand",
+        "background": "#fff",
+        "fontColor": "#000",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Command Console (set_streams 1-9, set_roi, set_line ...)",
+        "titleAlign": "",
+        "contents": {
+          "deviceCommand": {
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540"
+          }
+        }
+      },
+      "properties": {
+        "x": "60",
+        "y": "31",
+        "w": "33",
+        "h": "12",
+        "i": "DeviceCommand",
+        "isStatic": "false",
+        "minW": "22",
+        "minH": "10",
+        "maxH": "20",
+        "maxW": "35"
+      }
+    },
+    {
+      "widgetGuid": "F34B2ACF-93CF-4722-B325-6F3E4A671735",
+      "widgetProperties": {
+        "i": "Label",
+        "background": "#0b1226",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "MORE JETSON COUNTERS",
+        "titleAlign": "",
+        "contents": ""
+      },
+      "properties": {
+        "x": "0",
+        "y": "45",
+        "w": "103",
+        "h": "2",
+        "i": "Label",
+        "isStatic": "false",
+        "minW": "6",
+        "minH": "2",
+        "maxH": "2"
+      }
+    },
+    {
+      "widgetGuid": "BF88B27A-6678-4993-A921-CF2F5AD6CA3B",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "CPU Load (%)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "cpu_load_pct",
+                "attributeName": "cpu_load_pct",
+                "displayName": "cpu_load_pct",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "100",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Idle",
+                "upToValue": "30"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Busy",
+                "upToValue": "80"
+              },
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Maxed",
+                "upToValue": "100"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "47",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "62B5E3DD-8C63-485A-B20B-76282B988D91",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Memory BW (%)",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "emc_pct",
+                "attributeName": "emc_pct",
+                "displayName": "emc_pct",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "100",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#4a90e2",
+                "zoneName": "Low",
+                "upToValue": "30"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Mid",
+                "upToValue": "70"
+              },
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Saturated",
+                "upToValue": "100"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "12",
+        "y": "47",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "5E190EAC-9922-43B5-9856-5FD3B1549975",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Camera FPS",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "fps_cam",
+                "attributeName": "fps_cam",
+                "displayName": "fps_cam",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "35",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Slow",
+                "upToValue": "10"
+              },
+              {
+                "zoneColor": "#f5a623",
+                "zoneName": "OK",
+                "upToValue": "25"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Full",
+                "upToValue": "35"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "24",
+        "y": "47",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "1E921A71-1D35-4EBF-99B1-C75DD55AEADA",
+      "widgetProperties": {
+        "i": "gauge",
+        "background": "#000000",
+        "fontColor": "#ffffff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Slowest Stream FPS",
+        "titleAlign": "",
+        "contents": {
+          "gauge": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "fps_min",
+                "attributeName": "fps_min",
+                "displayName": "fps_min",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "minValue": "0",
+            "maxValue": "35",
+            "version": "2.0",
+            "zones": [
+              {
+                "zoneColor": "#d0021b",
+                "zoneName": "Slow",
+                "upToValue": "10"
+              },
+              {
+                "zoneColor": "#f5a623",
+                "zoneName": "OK",
+                "upToValue": "25"
+              },
+              {
+                "zoneColor": "#7ed321",
+                "zoneName": "Full",
+                "upToValue": "35"
+              }
+            ],
+            "attrType": "1",
+            "key": "gauge"
+          }
+        }
+      },
+      "properties": {
+        "x": "36",
+        "y": "47",
+        "w": "12",
+        "h": "9",
+        "i": "gauge",
+        "isStatic": "false",
+        "minW": "10",
+        "minH": "9",
+        "maxH": "15",
+        "maxW": "16"
+      }
+    },
+    {
+      "widgetGuid": "5F5151B3-1689-4711-A58D-DBF68D18C63C",
+      "widgetProperties": {
+        "i": "LiveLineChart",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Per-run FPS - camera vs slowest stream",
+        "titleAlign": "",
+        "contents": {
+          "liveChart": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": [
+                {
+                  "attributeGuid": "ts",
+                  "attributeName": "ts",
+                  "displayName": "ts",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "type",
+                  "attributeName": "type",
+                  "displayName": "type",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline",
+                  "attributeName": "pipeline",
+                  "displayName": "pipeline",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "message",
+                  "attributeName": "message",
+                  "displayName": "message",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams",
+                  "attributeName": "streams",
+                  "displayName": "streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "streams_active",
+                  "attributeName": "streams_active",
+                  "displayName": "streams_active",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "model",
+                  "attributeName": "model",
+                  "displayName": "model",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "precision",
+                  "attributeName": "precision",
+                  "displayName": "precision",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "batch",
+                  "attributeName": "batch",
+                  "displayName": "batch",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_interval",
+                  "attributeName": "infer_interval",
+                  "displayName": "infer_interval",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "osd_analytics",
+                  "attributeName": "osd_analytics",
+                  "displayName": "osd_analytics",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "uptime_s",
+                  "attributeName": "uptime_s",
+                  "displayName": "uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "pipeline_uptime_s",
+                  "attributeName": "pipeline_uptime_s",
+                  "displayName": "pipeline_uptime_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_cam",
+                  "attributeName": "fps_cam",
+                  "displayName": "fps_cam",
+                  "checked": "true",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_total",
+                  "attributeName": "fps_total",
+                  "displayName": "fps_total",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_min",
+                  "attributeName": "fps_min",
+                  "displayName": "fps_min",
+                  "checked": "true",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_avg",
+                  "attributeName": "fps_avg",
+                  "displayName": "fps_avg",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "fps_streams",
+                  "attributeName": "fps_streams",
+                  "displayName": "fps_streams",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "infer_mpx_s",
+                  "attributeName": "infer_mpx_s",
+                  "displayName": "infer_mpx_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "msgs_per_s",
+                  "attributeName": "msgs_per_s",
+                  "displayName": "msgs_per_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "objects_total",
+                  "attributeName": "objects_total",
+                  "displayName": "objects_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "persons_total",
+                  "attributeName": "persons_total",
+                  "displayName": "persons_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "vehicles_total",
+                  "attributeName": "vehicles_total",
+                  "displayName": "vehicles_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_in",
+                  "attributeName": "visitors_in",
+                  "displayName": "visitors_in",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "visitors_out",
+                  "attributeName": "visitors_out",
+                  "displayName": "visitors_out",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy",
+                  "attributeName": "occupancy",
+                  "displayName": "occupancy",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "occupancy_peak",
+                  "attributeName": "occupancy_peak",
+                  "displayName": "occupancy_peak",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "people_now",
+                  "attributeName": "people_now",
+                  "displayName": "people_now",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "engaged",
+                  "attributeName": "engaged",
+                  "displayName": "engaged",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_avg_s",
+                  "attributeName": "dwell_avg_s",
+                  "displayName": "dwell_avg_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_max_s",
+                  "attributeName": "dwell_max_s",
+                  "displayName": "dwell_max_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "dwell_last_s",
+                  "attributeName": "dwell_last_s",
+                  "displayName": "dwell_last_s",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "tracks_total",
+                  "attributeName": "tracks_total",
+                  "displayName": "tracks_total",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "hot_zone",
+                  "attributeName": "hot_zone",
+                  "displayName": "hot_zone",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "event",
+                  "attributeName": "event",
+                  "displayName": "event",
+                  "checked": "false",
+                  "dataType": "STRING",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_load_pct",
+                  "attributeName": "gpu_load_pct",
+                  "displayName": "gpu_load_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_freq_mhz",
+                  "attributeName": "gpu_freq_mhz",
+                  "displayName": "gpu_freq_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "gpu_temp_c",
+                  "attributeName": "gpu_temp_c",
+                  "displayName": "gpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_load_pct",
+                  "attributeName": "cpu_load_pct",
+                  "displayName": "cpu_load_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "cpu_temp_c",
+                  "attributeName": "cpu_temp_c",
+                  "displayName": "cpu_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "soc_temp_c",
+                  "attributeName": "soc_temp_c",
+                  "displayName": "soc_temp_c",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_w",
+                  "attributeName": "power_w",
+                  "displayName": "power_w",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "power_gpu_w",
+                  "attributeName": "power_gpu_w",
+                  "displayName": "power_gpu_w",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_used_mb",
+                  "attributeName": "ram_used_mb",
+                  "displayName": "ram_used_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "ram_total_mb",
+                  "attributeName": "ram_total_mb",
+                  "displayName": "ram_total_mb",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "emc_pct",
+                  "attributeName": "emc_pct",
+                  "displayName": "emc_pct",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "nvdec_mhz",
+                  "attributeName": "nvdec_mhz",
+                  "displayName": "nvdec_mhz",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                }
+              ]
+            },
+            "lineColor": "#f5a623",
+            "barColor": "#f5a623",
+            "barCount": "10",
+            "attrType": "1",
+            "key": "line",
+            "recentEndPoints": "30"
+          }
+        }
+      },
+      "properties": {
+        "x": "48",
+        "y": "47",
+        "w": "55",
+        "h": "12",
+        "i": "LiveLineChart",
+        "isStatic": "false",
+        "minW": "12",
+        "minH": "12",
+        "maxH": "30",
+        "maxW": "60"
+      }
+    },
+    {
+      "widgetGuid": "83A356B4-7565-4F69-9DA5-00BFA1958C7F",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "RAM Used (MB)",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "ram_used_mb",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "ram_used_mb",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "ram_used_mb",
+                "attributeName": "ram_used_mb",
+                "displayName": "ram_used_mb",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "56",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "3930BB5C-76FC-4F9C-8582-5646F6B660AD",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "GPU Clock (MHz)",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "gpu_freq_mhz",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "gpu_freq_mhz",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "gpu_freq_mhz",
+                "attributeName": "gpu_freq_mhz",
+                "displayName": "gpu_freq_mhz",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "12",
+        "y": "56",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "1509BEB1-AB5C-4AFE-94F6-4BFC3844C2C5",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#76b900",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Mpx inferred / s",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "infer_mpx_s",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "infer_mpx_s",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "infer_mpx_s",
+                "attributeName": "infer_mpx_s",
+                "displayName": "infer_mpx_s",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "24",
+        "y": "56",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "DD338917-1052-42DE-B41D-CBE3BEF7180B",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Unique Tracks",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "tracks_total",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "tracks_total",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "tracks_total",
+                "attributeName": "tracks_total",
+                "displayName": "tracks_total",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "36",
+        "y": "56",
+        "w": "12",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    }
+  ]
+}

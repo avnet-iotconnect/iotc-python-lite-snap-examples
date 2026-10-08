@@ -1,0 +1,41 @@
+# PeopleNet (TAO ResNet-34, INT8-exported ONNX) base infer config for the Vision Arena.
+# icam540_arena.py rewrites batch-size, network-mode and model-engine-file into
+# generated/infer_peoplenet_<precision>_b<N>.txt on every pipeline start.
+# Everything else here is used verbatim.
+
+[property]
+gpu-id=0
+net-scale-factor=0.00392156862745098
+
+onnx-file=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/resnet34_peoplenet_int8.onnx
+model-engine-file=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/resnet34_peoplenet_int8.onnx_b1_gpu0_fp32.engine
+labelfile-path=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/labels.txt
+# Present in the NGC PeopleNet package; only used when network-mode=1 (int8)
+int8-calib-file=/opt/nvidia/deepstream/deepstream/samples/models/PeopleNet/resnet34_peoplenet_int8.txt
+
+# 0=fp32 1=int8 2=fp16  (overridden by --precision / set_precision)
+network-mode=0
+
+# PeopleNet / DetectNet_v2
+num-detected-classes=3
+process-mode=1
+model-color-format=0
+batch-size=1
+interval=0
+gie-unique-id=1
+
+input-dims=3;544;960;0
+output-blob-names=output_bbox/BiasAdd:0;output_cov/Sigmoid:0
+
+cluster-mode=2
+
+[class-attrs-all]
+topk=20
+nms-iou-threshold=0.5
+pre-cluster-threshold=0.2
+
+# person
+[class-attrs-0]
+topk=20
+nms-iou-threshold=0.5
+pre-cluster-threshold=0.4

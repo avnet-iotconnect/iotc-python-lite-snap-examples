@@ -1,0 +1,6 @@
+[message-broker]
+# Uncomment if your broker requires authentication.
+#username = user
+#password = password
+#share-connection = 1
+#loop-timeout = 2000
