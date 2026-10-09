@@ -27,6 +27,14 @@ Environment="JETSON_JETPACK=${JP}"
 Environment="OLLAMA_KEEP_ALIVE=-1"
 Environment="OLLAMA_NUM_PARALLEL=1"
 Environment="OLLAMA_MAX_LOADED_MODELS=1"
+# The narrator sends ~1250 prompt tokens and asks for 120; the 4096 default wastes KV-cache memory on an 8 GB board.
+Environment="OLLAMA_CONTEXT_LENGTH=2048"
+# RAM is shared with the GPU. Keep the OOM killer away from the model server (it is the largest process,
+# so it is the default victim); a browser tab on the desktop dies first instead.
+OOMScoreAdjust=-900
+# llama-server keeps a RAM cache of recent prompts (~135 MB of KV per image prompt) up to an 8 GB default cap;
+# with a new image every cycle it grew the runner from 1 GB to 3.2 GB and OOM-killed the box. Off.
+Environment="LLAMA_ARG_CACHE_RAM=0"
 EOF
 sudo systemctl daemon-reload
 sudo systemctl enable ollama

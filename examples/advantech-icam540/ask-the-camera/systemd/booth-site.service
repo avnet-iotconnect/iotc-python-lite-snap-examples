@@ -1,0 +1,17 @@
+[Unit]
+Description=Ask the camera: booth web site fed by /IOTCONNECT
+After=network-online.target vlm-narrator.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=icam-540
+WorkingDirectory=/home/icam-540/iotc-python-lite-snap-examples/examples/advantech-icam540/ask-the-camera
+EnvironmentFile=/etc/default/booth-site
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 booth_site.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

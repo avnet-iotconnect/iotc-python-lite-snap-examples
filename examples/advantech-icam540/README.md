@@ -3,6 +3,8 @@
 This demo enables DeepStream message output (nvmsgconv + nvmsgbroker), publishes detections to MQTT, and forwards those messages into the /IOTCONNECT snap socket.
 
 > Looking for the booth demo? See [advantech-icam540-vision-arena](../advantech-icam540-vision-arena/) for multi-stream load control, booth visitor analytics and a ready-made dashboard built on the same bridge.
+>
+> Looking for the VLM demo? See [ask-the-camera](./ask-the-camera/): a 2B vision-language model narrates the booth, answers questions and evaluates alert rules from the cloud, streams video into /IOTCONNECT over KVS, with a booth web page fed by the /IOTCONNECT API.
 
 ---
 

@@ -1,0 +1,19 @@
+[Unit]
+Description=Ask the camera: live video to /IOTCONNECT Kinesis Video Streams (WebRTC)
+# Video comes from the narrator's live view; the snap must be provisioned (iotcDeviceConfig.json + cert).
+After=network-online.target vlm-narrator.service
+Wants=vlm-narrator.service
+
+[Service]
+Environment=PYTHONUNBUFFERED=1
+Type=simple
+User=icam-540
+WorkingDirectory=/home/icam-540/iotc-python-lite-snap-examples/examples/advantech-icam540/ask-the-camera
+EnvironmentFile=-/etc/default/kvs-webrtc
+ExecStart=/usr/bin/python3 kvs_webrtc.py
+Restart=always
+RestartSec=10
+OOMScoreAdjust=-300
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Ask the camera: public HTTPS tunnel to the booth site (Cloudflare quick tunnel)
+After=network-online.target booth-site.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+# A quick tunnel needs no account and gets a random *.trycloudflare.com address at every start;
+# for a fixed address, replace this with a named tunnel from your Cloudflare account.
+ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8090
+Restart=always
+RestartSec=10
+DynamicUser=yes
+
+[Install]
+WantedBy=multi-user.target

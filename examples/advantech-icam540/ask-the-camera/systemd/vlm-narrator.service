@@ -1,0 +1,22 @@
+[Unit]
+Description=Ask the camera: VLM narrator for the iCAM-540 (/IOTCONNECT)
+# Ollama serves the model; the snap socket service carries telemetry and commands.
+After=network-online.target ollama.service snap.iotconnect.socket.service
+Wants=ollama.service
+
+[Service]
+Type=simple
+User=icam-540
+Group=video
+WorkingDirectory=/home/icam-540/iotc-python-lite-snap-examples/examples/advantech-icam540/ask-the-camera
+EnvironmentFile=-/etc/default/vlm-narrator
+# The stock web UI holds the sensor; it is enabled, so stop it every time we start (root).
+ExecStartPre=+/bin/systemctl stop web.service autoui.service
+ExecStart=/usr/bin/python3 vlm_narrator.py --source v4l2:/dev/video0 --interval ${VLM_INTERVAL} --web ${VLM_WEB} --focus ${VLM_FOCUS}
+Restart=always
+RestartSec=5
+# Shares the 8 GB with the model server; let a browser tab go before the narrator.
+OOMScoreAdjust=-500
+
+[Install]
+WantedBy=multi-user.target
