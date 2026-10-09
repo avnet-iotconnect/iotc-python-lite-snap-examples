@@ -98,14 +98,26 @@ Commands arrive on the snap command socket, as JSON `{"name": "ask", "args": ["i
 | `ask <question>` | one-shot answer about the latest frame, published as `question` / `answer` |
 | `set_alert <rule>` | add a yes/no rule (max 3), evaluated every cycle into `alert_1..3` |
 | `clear_alerts` | remove all rules |
-| `set_interval <s>` | seconds between cycles (min 2) |
-| `set_model <tag>` | switch model on the endpoint |
-| `set_max_tokens <n>` | |
-| `pause` / `resume` / `status` / `ping` | |
+| `vlm_interval <s>` | seconds between cycles (min 2); alias `set_interval` |
+| `vlm_model <tag>` | switch model on the endpoint; alias `set_model` |
+| `vlm_max_tokens <n>` | alias `set_max_tokens` |
+| `vlm_pause` / `vlm_resume` / `vlm_status` / `vlm_ping` | aliases `pause` / `resume` / `status` / `ping` |
+
+The `vlm_` names exist because the narrator shares the device, the command socket and the template with the Vision Arena agent, which owns `set_interval`, `set_model`, `status` and `ping`. Each agent ignores, without an ack, the commands it does not own, so the cloud gets exactly one ack per command. `ts`, `type` (`vlm` here, `arena` there) and `message` are the shared attributes.
 
 Telemetry is one flat JSON object per cycle (and after each `ask`): `type=vlm`, `vlm_state`, `vlm_model`, `scene_caption`, `people_vlm`, `engagement`, `unusual`, `question`, `answer`, `alert_rules`, `alerts_active`, `alert_text`, `alert_1`, `alert_2`, `alert_3`, `vlm_latency_ms`, `vlm_prefill_ms`, `vlm_tok_s`, `vlm_prompt_tokens`, `vlm_completion_tokens`, `vlm_cycle`, `message`.
 
-Without the snap the narrator prints the same objects to stdout and disables the command listener. To connect it: `sudo snap install iotconnect`, then `iotconnect.setup` with the account's device credentials (see the repository README); the narrator finds `iotc.sock` / `iotc_cmd.sock` on its own. Device template and dashboard widgets for these attributes are the next item (they will be added to the arena's template so one device carries both demos).
+Without the snap the narrator prints the same objects to stdout and disables the command listener. To connect it: `sudo snap install iotconnect`, then `iotconnect.setup` with the account's device credentials (see the repository README); the narrator finds `iotc.sock` / `iotc_cmd.sock` on its own.
+
+**Device template and dashboard.** One device carries both demos, so the attributes and commands above live in the Vision Arena's template, and the dashboard export has an "ASK THE CAMERA" section (caption, answer, alerts, latency gauges, buttons for ask / set_alert / pause / interval, and a console for free-text questions):
+
+| File | Purpose |
+| --- | --- |
+| [`../../advantech-icam540-vision-arena/files/icam540-arena-device-template.json`](../../advantech-icam540-vision-arena/files/icam540-arena-device-template.json) | device template, arena + VLM attributes and commands |
+| [`../../advantech-icam540-vision-arena/files/icam540-arena-dashboard-template.json`](../../advantech-icam540-vision-arena/files/icam540-arena-dashboard-template.json) | dashboard export with the VLM section at the bottom |
+| [`../../advantech-icam540-vision-arena/tools/make_templates.py`](../../advantech-icam540-vision-arena/tools/make_templates.py) | regenerates both |
+
+Import steps are in the [arena README, section 2](../../advantech-icam540-vision-arena/README.md): template first, then the dashboard, then re-select your device in each widget. The narrator alone (arena not running) works with the same template; the arena widgets just stay empty.
 
 ## 6. Measured on the 8 GB Orin NX (15 W mode)
 

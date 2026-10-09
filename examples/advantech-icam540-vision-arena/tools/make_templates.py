@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate the /IOTCONNECT device template and dashboard export for the Vision Arena.
+Generate the /IOTCONNECT device template and dashboard export for the Vision Arena
+and the ask-the-camera VLM narrator (../advantech-icam540/ask-the-camera), which run
+on the same device and share this template.
 
   ./tools/make_templates.py            # writes files/icam540-arena-*.json
 
@@ -33,7 +35,7 @@ def attr(name, display, typ, desc, unit="", color=None):
 
 
 attr("ts", "Sample Time", "INTEGER", "Unix epoch seconds when the payload was built", "s")
-attr("type", "Message Type", "STRING", "Payload discriminator (arena)")
+attr("type", "Message Type", "STRING", "Payload discriminator: arena (DeepStream agent) | vlm (ask-the-camera narrator)")
 attr("pipeline", "Pipeline State", "STRING", "stopped | starting | running | restarting | error")
 attr("message", "Status Message", "STRING", "Human readable pipeline status / last error")
 attr("streams", "Streams", "INTEGER", "Video streams in the DeepStream batch (camera + looping videos)")
@@ -83,6 +85,28 @@ attr("ram_total_mb", "RAM Total", "INTEGER", "Memory installed", "MB")
 attr("emc_pct", "Memory Bandwidth", "DECIMAL", "EMC utilisation", "%")
 attr("nvdec_mhz", "NVDEC Clock", "DECIMAL", "Hardware decoder clock (0/absent when idle)", "MHz")
 
+# ask-the-camera VLM narrator (type=vlm payloads; ts, type and message are shared with the arena)
+attr("vlm_state", "VLM State", "STRING", "starting | running | paused | error", "", PURPLE := "#7b64ff")
+attr("vlm_model", "VLM Model", "STRING", "Model tag served by Ollama / llama.cpp (e.g. qwen3-vl:2b-instruct)")
+attr("scene_caption", "Scene Caption", "STRING", "One-sentence description of the current frame from the VLM", "", PURPLE)
+attr("people_vlm", "People (VLM)", "INTEGER", "People the VLM counts in the frame (independent of the DeepStream tracker)")
+attr("engagement", "Engagement", "STRING", "none | low | medium | high, the VLM's read of the booth")
+attr("unusual", "Unusual", "STRING", "Anything the VLM flags as out of the ordinary (empty when nothing)")
+attr("question", "Last Question", "STRING", "Free-text question sent with the ask command")
+attr("answer", "Answer", "STRING", "The VLM's answer to the last question, against the latest frame", "", PURPLE)
+attr("alert_rules", "Alert Rules Set", "INTEGER", "Plain-English alert rules currently defined (0-3)")
+attr("alerts_active", "Alerts Firing", "INTEGER", "Rules the VLM judged true on the last cycle", "", "#d0021b")
+attr("alert_text", "Alert Rules", "STRING", "The rules that fired, separated by ;")
+attr("alert_1", "Alert 1", "INTEGER", "1 when rule 1 is true on the latest frame", "", "#d0021b")
+attr("alert_2", "Alert 2", "INTEGER", "1 when rule 2 is true on the latest frame", "", "#d0021b")
+attr("alert_3", "Alert 3", "INTEGER", "1 when rule 3 is true on the latest frame", "", "#d0021b")
+attr("vlm_latency_ms", "VLM Round Trip", "INTEGER", "Wall-clock time of the last VLM call (frame upload to answer)", "ms", PURPLE)
+attr("vlm_prefill_ms", "VLM Image Prefill", "INTEGER", "Time the model spent encoding the image and prompt", "ms")
+attr("vlm_tok_s", "VLM Decode Speed", "DECIMAL", "Generated tokens per second on the Orin GPU", "tok/s", PURPLE)
+attr("vlm_prompt_tokens", "VLM Prompt Tokens", "INTEGER", "Tokens in the prompt, mostly the image (~1100 for a 640 px frame)")
+attr("vlm_completion_tokens", "VLM Completion Tokens", "INTEGER", "Tokens generated for the answer")
+attr("vlm_cycle", "VLM Cycle", "INTEGER", "Narration cycles since the narrator started")
+
 # ---------------------------------------------------------------- commands
 C = []
 
@@ -115,6 +139,19 @@ cmd("Reset Counters", "reset_counts")
 cmd("Set Telemetry Interval (s)", "set_telemetry_interval", param=True)
 cmd("Ping", "ping")
 
+# ask-the-camera VLM narrator. Both agents listen on the same snap command socket, so the
+# narrator's commands use names the arena does not: ask / set_alert / clear_alerts and vlm_*.
+cmd("VLM: Ask (question)", "ask", param=True)
+cmd("VLM: Set Alert Rule (plain English)", "set_alert", param=True)
+cmd("VLM: Clear Alert Rules", "clear_alerts")
+cmd("VLM: Set Cycle Interval (s)", "vlm_interval", param=True)
+cmd("VLM: Set Model (Ollama tag)", "vlm_model", param=True)
+cmd("VLM: Set Max Tokens", "vlm_max_tokens", param=True)
+cmd("VLM: Pause", "vlm_pause")
+cmd("VLM: Resume", "vlm_resume")
+cmd("VLM: Status", "vlm_status")
+cmd("VLM: Ping", "vlm_ping")
+
 device_template = {
     "code": "ICAM540A",
     "name": "Advantech iCAM-540 Vision Arena",
@@ -124,7 +161,7 @@ device_template = {
     "messageVersion": "2.1",
     "capability": "0",
     "properties": {
-        "description": "DeepStream multi-stream vision analytics on the Advantech iCAM-540 (NVIDIA Jetson Orin) via the /IOTCONNECT Snap",
+        "description": "DeepStream multi-stream vision analytics and the ask-the-camera VLM narrator on the Advantech iCAM-540 (NVIDIA Jetson Orin) via the /IOTCONNECT Snap",
         "dataFrequency": "3",
         "fileSupport": False,
     },
@@ -230,7 +267,7 @@ def device_command(title, x, y, w, h):
                   extra_props={"minW": "22", "minH": "10", "maxH": "20", "maxW": "35"})
 
 
-GREEN, BLUE, AMBER, RED, PURPLE = "#7ed321", "#4a90e2", "#f5a623", "#d0021b", "#7b64ff"
+GREEN, BLUE, AMBER, RED = "#7ed321", "#4a90e2", "#f5a623", "#d0021b"
 NV = "#76b900"
 
 items = []
@@ -290,6 +327,38 @@ items.append(live("RAM Used (MB)", "ram_used_mb", 0, 56, 12, fg="#343434", size=
 items.append(live("GPU Clock (MHz)", "gpu_freq_mhz", 12, 56, 12, fg="#343434", size="18"))
 items.append(live("Mpx inferred / s", "infer_mpx_s", 24, 56, 12, fg=NV, size="18"))
 items.append(live("Unique Tracks", "tracks_total", 36, 56, 12, fg="#343434", size="18"))
+
+# ---------------------------------------------------------------- ask the camera (VLM narrator)
+items.append(label("ASK THE CAMERA - a 2B vision-language model (qwen3-vl on the Orin GPU) narrates the booth and answers questions", 0, 60, 103, bg=PURPLE, size="22"))
+items.append(live("Scene Caption (updates every cycle)", "scene_caption", 0, 62, 52, fg=PURPLE, size="16"))
+items.append(live("Answer", "answer", 52, 62, 51, fg=PURPLE, size="16"))
+items.append(live("Last Question", "question", 0, 66, 26, fg="#343434", size="14"))
+items.append(live("People (VLM)", "people_vlm", 26, 66, 13, fg=BLUE))
+items.append(live("Engagement", "engagement", 39, 66, 13, fg=GREEN, size="18"))
+items.append(live("Unusual", "unusual", 52, 66, 25, fg=AMBER, size="14"))
+items.append(live("Narrator", "vlm_state", 77, 66, 13, fg=GREEN, size="18"))
+items.append(live("Model", "vlm_model", 90, 66, 13, fg="#343434", size="14"))
+
+items.append(gauge("VLM Round Trip (ms)", "vlm_latency_ms", 0, 70, 13, 9, 30000, [("Fast", 10000, GREEN), ("OK", 20000, AMBER), ("Slow", 30000, RED)]))
+items.append(gauge("Image Prefill (ms)", "vlm_prefill_ms", 13, 70, 13, 9, 15000, [("Fast", 5000, GREEN), ("OK", 10000, AMBER), ("Slow", 15000, RED)]))
+items.append(gauge("Decode (tok/s)", "vlm_tok_s", 26, 70, 13, 9, 30, [("Slow", 8, RED), ("OK", 15, AMBER), ("Fast", 30, GREEN)]))
+items.append(chart("VLM - round trip vs image prefill (ms)", ["vlm_latency_ms", "vlm_prefill_ms"], 39, 70, 38, 12, PURPLE))
+items.append(live("Alert 1", "alert_1", 77, 70, 13, fg=RED))
+items.append(live("Alert 2", "alert_2", 90, 70, 13, fg=RED))
+items.append(live("Alert 3", "alert_3", 77, 74, 13, fg=RED))
+items.append(live("Alerts Firing", "alerts_active", 90, 74, 13, fg=RED))
+items.append(live("Rules That Fired", "alert_text", 77, 78, 26, fg=RED, size="14"))
+
+items.append(label("VLM CONTROLS - ask a question or set a plain-English alert rule; the model answers against the latest frame (about 10 s per round trip)", 0, 82, 103, bg="#343434", size="18"))
+items.append(control("Ask", 0, 84, ("People?", "ask", "how many people are at the booth and what are they doing", BLUE), ("Describe", "ask", "describe the scene in one sentence", PURPLE)))
+items.append(control("Alert Rule", 10, 84, ("Hard hat", "set_alert", "someone is wearing a hard hat", AMBER), ("Phone", "set_alert", "someone is looking at a phone", AMBER)))
+items.append(control("Alerts", 20, 84, ("Clear", "clear_alerts", "", "#9b9b9b"), ("Status", "vlm_status", "", BLUE)))
+items.append(control("Narrator", 30, 84, ("Pause", "vlm_pause", "", RED), ("Resume", "vlm_resume", "", GREEN)))
+items.append(control("Cycle", 40, 84, ("Every 8 s", "vlm_interval", "8", GREEN), ("Every 20 s", "vlm_interval", "20", AMBER)))
+items.append(device_command("VLM Console (ask <question>, set_alert <rule>, vlm_model <tag>, vlm_max_tokens <n>)", 50, 84, 33, 12))
+items.append(live("Cycle #", "vlm_cycle", 83, 84, 20, fg="#343434", size="18"))
+items.append(live("Prompt Tokens (image)", "vlm_prompt_tokens", 83, 88, 20, fg="#343434", size="18"))
+items.append(live("Completion Tokens", "vlm_completion_tokens", 83, 92, 20, fg="#343434", size="18"))
 
 dashboard = {"ddType": 2, "items": items}
 

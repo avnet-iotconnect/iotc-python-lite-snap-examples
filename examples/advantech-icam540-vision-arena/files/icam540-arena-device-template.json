@@ -15,7 +15,7 @@
       "name": "type",
       "displayName": "Message Type",
       "type": "STRING",
-      "description": "Payload discriminator (arena)",
+      "description": "Payload discriminator: arena (DeepStream agent) | vlm (ask-the-camera narrator)",
       "unit": "",
       "aggregateTypes": []
     },
@@ -388,6 +388,175 @@
       "description": "Hardware decoder clock (0/absent when idle)",
       "unit": "MHz",
       "aggregateTypes": []
+    },
+    {
+      "name": "vlm_state",
+      "displayName": "VLM State",
+      "type": "STRING",
+      "description": "starting | running | paused | error",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "vlm_model",
+      "displayName": "VLM Model",
+      "type": "STRING",
+      "description": "Model tag served by Ollama / llama.cpp (e.g. qwen3-vl:2b-instruct)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "scene_caption",
+      "displayName": "Scene Caption",
+      "type": "STRING",
+      "description": "One-sentence description of the current frame from the VLM",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "people_vlm",
+      "displayName": "People (VLM)",
+      "type": "INTEGER",
+      "description": "People the VLM counts in the frame (independent of the DeepStream tracker)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "engagement",
+      "displayName": "Engagement",
+      "type": "STRING",
+      "description": "none | low | medium | high, the VLM's read of the booth",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "unusual",
+      "displayName": "Unusual",
+      "type": "STRING",
+      "description": "Anything the VLM flags as out of the ordinary (empty when nothing)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "question",
+      "displayName": "Last Question",
+      "type": "STRING",
+      "description": "Free-text question sent with the ask command",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "answer",
+      "displayName": "Answer",
+      "type": "STRING",
+      "description": "The VLM's answer to the last question, against the latest frame",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "alert_rules",
+      "displayName": "Alert Rules Set",
+      "type": "INTEGER",
+      "description": "Plain-English alert rules currently defined (0-3)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "alerts_active",
+      "displayName": "Alerts Firing",
+      "type": "INTEGER",
+      "description": "Rules the VLM judged true on the last cycle",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#d0021b"
+    },
+    {
+      "name": "alert_text",
+      "displayName": "Alert Rules",
+      "type": "STRING",
+      "description": "The rules that fired, separated by ;",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "alert_1",
+      "displayName": "Alert 1",
+      "type": "INTEGER",
+      "description": "1 when rule 1 is true on the latest frame",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#d0021b"
+    },
+    {
+      "name": "alert_2",
+      "displayName": "Alert 2",
+      "type": "INTEGER",
+      "description": "1 when rule 2 is true on the latest frame",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#d0021b"
+    },
+    {
+      "name": "alert_3",
+      "displayName": "Alert 3",
+      "type": "INTEGER",
+      "description": "1 when rule 3 is true on the latest frame",
+      "unit": "",
+      "aggregateTypes": [],
+      "attributeColor": "#d0021b"
+    },
+    {
+      "name": "vlm_latency_ms",
+      "displayName": "VLM Round Trip",
+      "type": "INTEGER",
+      "description": "Wall-clock time of the last VLM call (frame upload to answer)",
+      "unit": "ms",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "vlm_prefill_ms",
+      "displayName": "VLM Image Prefill",
+      "type": "INTEGER",
+      "description": "Time the model spent encoding the image and prompt",
+      "unit": "ms",
+      "aggregateTypes": []
+    },
+    {
+      "name": "vlm_tok_s",
+      "displayName": "VLM Decode Speed",
+      "type": "DECIMAL",
+      "description": "Generated tokens per second on the Orin GPU",
+      "unit": "tok/s",
+      "aggregateTypes": [],
+      "attributeColor": "#7b64ff"
+    },
+    {
+      "name": "vlm_prompt_tokens",
+      "displayName": "VLM Prompt Tokens",
+      "type": "INTEGER",
+      "description": "Tokens in the prompt, mostly the image (~1100 for a 640 px frame)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "vlm_completion_tokens",
+      "displayName": "VLM Completion Tokens",
+      "type": "INTEGER",
+      "description": "Tokens generated for the answer",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "vlm_cycle",
+      "displayName": "VLM Cycle",
+      "type": "INTEGER",
+      "description": "Narration cycles since the narrator started",
+      "unit": "",
+      "aggregateTypes": []
     }
   ],
   "commands": [
@@ -551,12 +720,82 @@
       "requiredParam": false,
       "requiredAck": true,
       "isOTACommand": false
+    },
+    {
+      "name": "VLM: Ask (question)",
+      "command": "ask",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Set Alert Rule (plain English)",
+      "command": "set_alert",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Clear Alert Rules",
+      "command": "clear_alerts",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Set Cycle Interval (s)",
+      "command": "vlm_interval",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Set Model (Ollama tag)",
+      "command": "vlm_model",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Set Max Tokens",
+      "command": "vlm_max_tokens",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Pause",
+      "command": "vlm_pause",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Resume",
+      "command": "vlm_resume",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Status",
+      "command": "vlm_status",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Ping",
+      "command": "vlm_ping",
+      "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
     }
   ],
   "messageVersion": "2.1",
   "capability": "0",
   "properties": {
-    "description": "DeepStream multi-stream vision analytics on the Advantech iCAM-540 (NVIDIA Jetson Orin) via the /IOTCONNECT Snap",
+    "description": "DeepStream multi-stream vision analytics and the ask-the-camera VLM narrator on the Advantech iCAM-540 (NVIDIA Jetson Orin) via the /IOTCONNECT Snap",
     "dataFrequency": "3",
     "fileSupport": false
   },

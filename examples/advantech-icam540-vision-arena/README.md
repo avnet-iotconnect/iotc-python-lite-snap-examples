@@ -41,8 +41,8 @@ Every press is a /IOTCONNECT command; the device acks it, regenerates the DeepSt
 | `cfg_mqtt.txt` | nvmsgbroker MQTT settings (credentials if your broker needs them) |
 | `start_arena.sh` / `stop_arena.sh` | One-command start (broker, snap socket, agent) and stop |
 | `preflight.sh` | Booth-morning checklist: DeepStream, models, engines, sample streams, camera, broker, sudo, snap |
-| `files/icam540-arena-device-template.json` | /IOTCONNECT device template: 47 attributes, 23 commands |
-| `files/icam540-arena-dashboard-template.json` | /IOTCONNECT dashboard export (45 widgets) |
+| `files/icam540-arena-device-template.json` | /IOTCONNECT device template: 67 attributes, 33 commands (47 + 23 for the arena, the rest for the [ask-the-camera](../advantech-icam540/ask-the-camera/) VLM narrator that shares the device) |
+| `files/icam540-arena-dashboard-template.json` | /IOTCONNECT dashboard export (73 widgets; the "ASK THE CAMERA" section at the bottom belongs to the narrator) |
 | `tools/make_templates.py` | Regenerates both template files |
 | `tools/mock_deepstream_mqtt.py` | Publishes synthetic DeepStream messages (simulated visitors) for desk testing |
 | `tools/iotc_sock_sniffer.py` | Stand-in for the snap sockets: prints telemetry, forwards typed commands |
@@ -111,6 +111,8 @@ Both files are in [files/](./files/).
 2. Edit each widget and select your device (and template on the control widgets). Layout, gauge ranges, colour bands and titles are kept.
 
 If a control button sends the opposite command to its label, swap the left/right command in that widget; the mapping of the two halves differs between portal versions.
+
+The same template and dashboard serve the [ask-the-camera](../advantech-icam540/ask-the-camera/) VLM narrator: its attributes (`scene_caption`, `answer`, `alert_1..3`, `vlm_*`) and commands (`ask`, `set_alert`, `clear_alerts`, `vlm_*`) are included, and the dashboard's bottom section shows them. Both agents listen on the snap command socket; each ignores, without an ack, the commands the other owns. Running only one of the two is fine, the other's widgets stay empty.
 
 ---
 

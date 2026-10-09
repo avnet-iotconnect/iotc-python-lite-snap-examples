@@ -1699,9 +1699,17 @@ class Agent:
             except Exception:
                 pass
 
+    # Commands owned by the ask-the-camera VLM narrator (../advantech-icam540/ask-the-camera), which
+    # shares this device, template and command socket. Ignored here without an ack so the cloud
+    # gets exactly one ack per command.
+    VLM_COMMANDS = {"ask", "set_alert", "alert", "add_alert", "clear_alerts", "clear_alert"}
+
     def _dispatch(self, raw):
         cmd, args, ack_id = self.parse_command(raw)
         log("CMD", f"recv: {cmd} {args} ack={ack_id}")
+        if cmd in self.VLM_COMMANDS or cmd.startswith("vlm_"):
+            log("CMD", f"ignored: '{cmd}' belongs to the VLM narrator")
+            return
         try:
             ok, msg, extra = self.handle_command(cmd, args)
         except Exception as e:

@@ -19,10 +19,15 @@ Commands (snap command socket, JSON {"name":..,"args":[..],"ack_id":..} or text)
   ask <question>          one-shot question about the latest frame
   set_alert <rule>        add a yes/no rule, e.g. "someone is wearing a hard hat"
   clear_alerts            remove all rules
-  set_interval <s>        seconds between cycles
-  set_model <tag>         model name on the endpoint
-  set_max_tokens <n>
-  pause | resume | status | ping
+  vlm_interval <s>        seconds between cycles            (alias: set_interval)
+  vlm_model <tag>         model name on the endpoint        (alias: set_model)
+  vlm_max_tokens <n>                                        (alias: set_max_tokens)
+  vlm_pause | vlm_resume | vlm_status | vlm_ping            (aliases: pause, resume, status, ping)
+
+The vlm_* names are what the shared device template uses: the Vision Arena agent listens
+on the same command socket and owns set_interval, set_model, status and ping there.
+Commands this agent does not know are ignored without an ack, so the other agent's
+commands do not get a second, conflicting ack from here.
 """
 
 import argparse
@@ -541,42 +546,42 @@ class Narrator:
                 self.state["alerts_active"] = 0
                 self.state["alert_text"] = ""
             return True, "alerts cleared", {}
-        if cmd in ("set_interval", "interval"):
+        if cmd in ("set_interval", "interval", "vlm_interval"):
             try:
                 self.interval = max(2.0, float(args[0]))
             except (IndexError, ValueError):
                 return False, "usage: set_interval <seconds>", {}
             return True, f"interval={self.interval}", {}
-        if cmd in ("set_model", "model"):
+        if cmd in ("set_model", "model", "vlm_model"):
             if not text:
                 return False, "usage: set_model <tag>", {}
             self.vlm.model = text
             with self.lock:
                 self.state["vlm_model"] = text
             return True, f"model={text}", {}
-        if cmd in ("set_max_tokens", "max_tokens"):
+        if cmd in ("set_max_tokens", "max_tokens", "vlm_max_tokens"):
             try:
                 self.vlm.max_tokens = max(16, min(1024, int(args[0])))
             except (IndexError, ValueError):
                 return False, "usage: set_max_tokens <n>", {}
             return True, f"max_tokens={self.vlm.max_tokens}", {}
-        if cmd == "pause":
+        if cmd in ("pause", "vlm_pause"):
             self.paused = True
             with self.lock:
                 self.state["vlm_state"] = "paused"
             self.publish()
             return True, "paused", {}
-        if cmd == "resume":
+        if cmd in ("resume", "vlm_resume"):
             self.paused = False
             return True, "resumed", {}
-        if cmd in ("status", "get_status"):
+        if cmd in ("status", "get_status", "vlm_status"):
             with self.lock:
                 snap = dict(self.state)
                 snap["alerts"] = list(self.alerts)
             return True, f"vlm_state={snap['vlm_state']}", {"state": snap}
-        if cmd == "ping":
+        if cmd in ("ping", "vlm_ping"):
             return True, "pong", {}
-        return False, f"unknown command '{cmd}'", {}
+        return None, f"not mine: '{cmd}'", {}
 
     def _ask_bg(self, question):
         try:
@@ -634,6 +639,10 @@ class Narrator:
             ok, msg, extra = self.handle_command(cmd, args)
         except Exception as e:
             ok, msg, extra = False, f"command failed: {e}", {}
+        if ok is None:
+            # another agent on this device (the Vision Arena) owns it; stay silent so it gets one ack
+            log("CMD", f"ignored: {msg}")
+            return
         log("CMD", f"{'OK' if ok else 'ERR'}: {msg}")
         if ack_id:
             self.send_ack(ack_id, ok, msg, extra)
