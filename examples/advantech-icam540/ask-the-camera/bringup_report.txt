@@ -1,0 +1,186 @@
+
+=== Identity
+tegra-ubuntu
+ICAM-540_ORIN-NX_6.2_GA_3.1.8.2, Build Date: 2025-06-18 14:26:20
+# R36 (release), REVISION: 4.3, GCID: 38968081, BOARD: generic, EABI: aarch64, DATE: Wed Jan  8 01:49:37 UTC 2025
+# KERNEL_VARIANT: oot
+TARGET_USERSPACE_LIB_DIR=nvidia
+TARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+VERSION_ID="22.04"
+5.15.148-rt-tegra
+NVIDIA Jetson Orin NX Engineering Reference Developer Kit
+
+=== JetPack / CUDA / TensorRT
+nvidia-cuda 6.2+b77
+nvidia-l4t-core 36.4.3-20250107174145
+nvidia-tensorrt 6.2+b77
+Build cuda_12.6.r12.6/compiler.34714021_0
+libnvinfer10 10.3.0.30-1+cuda12.5
+
+=== DeepStream
+deepstream-app: error while loading shared libraries: libnvdla_compiler.so: cannot open shared object file: No such file or directory
+(not available: deepstream-app --version)
+/opt/nvidia/deepstream/deepstream
+/opt/nvidia/deepstream/deepstream-7.1
+Primary_Detector
+Secondary_VehicleMake
+pointcloud
+sample_1080p_h264.mp4
+sample_720p.jpg
+sample_cans_jpg.tbz2
+sample_industrial.jpg
+yoga.jpg
+/opt/nvidia/deepstream/deepstream/lib/libnvds_mqtt_proto.so
+Factory Details:
+  Rank                     primary (256)
+  Long-name                DsAnalytics plugin
+
+=== Power and thermals
+(collected separately with sudo over SSH)
+NV Power Mode: 15W
+2
+--- modes
+NVPM VERB: PARAM TYPE=FILE NAME=CPU_ONLINE
+NVPM VERB: PARAM TYPE=FILE NAME=FBP_POWER_GATING
+NVPM VERB: PARAM TYPE=FILE NAME=TPC_POWER_GATING
+NVPM VERB: PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_ENABLE
+NVPM VERB: GPU_PWR_CNTL_EN /sys/devices/platform/gpu.0/power/control
+NVPM VERB: PARAM TYPE=FILE NAME=GPU_POWER_CONTROL_DISABLE
+NVPM VERB: GPU_PWR_CNTL_DIS /sys/devices/platform/gpu.0/power/control
+NVPM VERB: PARAM TYPE=CLOCK NAME=CPU_A78_0
+NVPM VERB: MAX_FREQ /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+NVPM VERB: PARAM TYPE=CLOCK NAME=CPU_A78_1
+NVPM VERB: MAX_FREQ /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+NVPM VERB: PARAM TYPE=CLOCK NAME=GPU
+NVPM VERB: MAX_FREQ /sys/devices/platform/17000000.gpu/devfreq_dev/max_freq
+NVPM VERB: PARAM TYPE=CLOCK NAME=EMC
+NVPM VERB: MAX_FREQ /sys/kernel/nvpmodel_clk_cap/emc
+NVPM VERB: PARAM TYPE=CLOCK NAME=DLA0_CORE
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_core
+NVPM VERB: PARAM TYPE=CLOCK NAME=DLA0_FALCON
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/15880000.nvdla0/clk_cap/dla0_falcon
+NVPM VERB: PARAM TYPE=CLOCK NAME=DLA1_CORE
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_core
+NVPM VERB: PARAM TYPE=CLOCK NAME=DLA1_FALCON
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/158c0000.nvdla1/clk_cap/dla1_falcon
+NVPM VERB: PARAM TYPE=CLOCK NAME=PVA0_VPS
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_vps
+NVPM VERB: PARAM TYPE=CLOCK NAME=PVA0_AXI
+NVPM VERB: MAX_FREQ /sys/devices/platform/bus@0/13e00000.host1x/16000000.pva0/clk_cap/pva0_cpu_axi
+NVPM VERB: POWER_MODEL: ID=0 NAME=MAXN
+NVPM VERB: CPU_ONLINE CORE_0 1
+NVPM VERB: CPU_ONLINE CORE_1 1
+NVPM VERB: CPU_ONLINE CORE_2 1
+NVPM VERB: CPU_ONLINE CORE_3 1
+NVPM VERB: CPU_ONLINE CORE_4 1
+NVPM VERB: CPU_ONLINE CORE_5 1
+NVPM VERB: GPU_POWER_CONTROL_ENABLE GPU_PWR_CNTL_EN on
+NVPM VERB: CPU_A78_0 MAX_FREQ 9223372036854775807
+NVPM VERB: CPU_A78_1 MAX_FREQ 9223372036854775807
+NVPM VERB: GPU MIN_FREQ 0
+NVPM VERB: GPU MAX_FREQ 9223372036854775807
+NVPM VERB: GPU_POWER_CONTROL_DISABLE GPU_PWR_CNTL_DIS auto
+--- tegrastats
+10-09-2026 15:10:49 RAM 1519/7621MB (lfb 113x4MB) SWAP 1/3811MB (cached 0MB) CPU [6%@1420,6%@1420,4%@1420,6%@1420,off,off] EMC_FREQ 1%@3199 GR3D_FREQ 0%@[306] NVENC off NVDEC off NVJPG off NVJPG1 off VIC off OFA off NVDLA0 off PVA0_FREQ off APE 174 cv0@45.687C cpu@48.031C soc2@46.968C soc0@48.25C cv1@46C gpu@46.156C tj@50.75C soc1@50.75C cv2@46.875C VDD_IN 6705mW/6705mW VDD_CPU_GPU_CV 554mW/554mW VDD_SOC 2693mW/2693mW
+10-09-2026 15:10:50 RAM 1520/7621MB (lfb 113x4MB) SWAP 1/3811MB (cached 0MB) CPU [3%@1420,4%@1420,3%@1420,2%@1420,off,off] EMC_FREQ 1%@3199 GR3D_FREQ 0%@[306] NVENC off NVDEC off NVJPG off NVJPG1 off VIC off OFA off NVDLA0 off PVA0_FREQ off APE 174 cv0@45.718C cpu@48.031C soc2@46.906C soc0@48.281C cv1@46.062C gpu@46.125C tj@50.718C soc1@50.718C cv2@46.906C VDD_IN 6626mW/6666mW VDD_CPU_GPU_CV 475mW/515mW VDD_SOC 2693mW/2693mW
+=== Memory and storage
+               total        used        free      shared  buff/cache   available
+Mem:           7.4Gi       1.4Gi       4.8Gi        21Mi       1.3Gi       5.9Gi
+Swap:          3.7Gi       1.0Mi       3.7Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1  233G   16G  206G   7% /
+/dev/nvme0n1p1  233G   16G  206G   7% /
+NAME       ALGORITHM DISKSIZE  DATA COMPR TOTAL STREAMS MOUNTPOINT
+/dev/zram3 lzo-rle     952.6M   16K  5.8K   40K       4 [SWAP]
+/dev/zram2 lzo-rle     952.6M  132K 38.4K  200K       4 [SWAP]
+/dev/zram1 lzo-rle     952.6M  260K 71.6K  196K       4 [SWAP]
+/dev/zram0 lzo-rle     952.6M  260K 41.8K  288K       4 [SWAP]
+NAME       TYPE        SIZE USED PRIO
+/dev/zram0 partition 952.6M 256K    5
+/dev/zram1 partition 952.6M 256K    5
+/dev/zram2 partition 952.6M 256K    5
+/dev/zram3 partition 952.6M 256K    5
+
+=== Camera
+crw-rw----+ 1 root video 81, 0 Oct  9 14:53 /dev/video0
+crw-rw----+ 1 root video 81, 3 Oct  9 14:53 /dev/video10
+crw-rw----+ 1 root video 81, 4 Oct  9 14:53 /dev/video11
+ ():
+	/dev/v4l-subdev1
+
+NVIDIA Tegra Video Input Device (platform:tegra-camrtc-ca):
+	/dev/media0
+
+vi-output, adv_icam500 9-0050 (platform:tegra-capture-vi:0):
+	/dev/video0
+
+Dummy video device (0x0000) (platform:v4l2loopback-000):
+	/dev/video10
+
+Dummy video device (0x0001) (platform:v4l2loopback-001):
+	/dev/video11
+
+ioctl: VIDIOC_ENUM_FMT
+	Type: Video Capture
+
+	[0]: 'GREY' (8-bit Greyscale)
+		Size: Discrete 1408x1080
+			Interval: Discrete 0.017s (60.000 fps)
+		Size: Discrete 3840x2160
+			Interval: Discrete 0.033s (30.000 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+	[1]: 'AR24' (32-bit BGRA 8-8-8-8)
+		Size: Discrete 1408x1080
+			Interval: Discrete 0.017s (60.000 fps)
+		Size: Discrete 3840x2160
+			Interval: Discrete 0.050s (20.000 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+	[2]: 'YUYV' (YUYV 4:2:2)
+		Size: Discrete 1408x1080
+			Interval: Discrete 0.017s (60.000 fps)
+		Size: Discrete 3840x2160
+			Interval: Discrete 0.033s (30.000 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+web.service autoui.service: active	inactive
+
+=== Containers and Python
+/tmp/bringup_report.sh: line 8: docker: command not found
+(not available: docker --version)
+Python 3.10.12
+cv2 4.11.0
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'paho'
+(not available: python3 -c import paho.mqtt; print('paho-mqtt', paho.mqtt.__version__))
+pip 25.1.1 from /usr/local/lib/python3.10/dist-packages/pip (python 3.10)
+
+=== LLM runtimes already present
+/tmp/bringup_report.sh: line 8: ollama: command not found
+(not available: ollama --version)
+ls: cannot access '/home/icam-540/llama.cpp': No such file or directory
+ls: cannot access '/home/icam-540/jetson-containers': No such file or directory
+ls: cannot access '/opt/llama.cpp': No such file or directory
+(not available: ls -d /home/icam-540/llama.cpp /home/icam-540/jetson-containers /opt/llama.cpp)
+(not available: which llama-server llama-mtmd-cli)
+
+=== /IOTCONNECT snap
+error: no matching snaps installed
+(not available: snap list iotconnect)
+error: snap "iotconnect" not found
+(not available: snap services iotconnect)
+
+=== Network
+lo               UNKNOWN        127.0.0.1/8 
+enP8p1s0         UP             192.168.68.51/22 
+140.82.112.4    github.com
+
+=== Display
+DISPLAY=unset
+1 1000 icam-540 seat0 tty2
+4 1000 icam-540       
+
+=== done

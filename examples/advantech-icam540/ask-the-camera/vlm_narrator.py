@@ -9,7 +9,8 @@ socket. Cloud commands let a visitor ask the camera a free-text question or
 define plain-English alert rules that are evaluated on every cycle.
 
 Frame sources:
-  v4l2:/dev/video0            direct camera (needs OpenCV; camera must be free)
+  v4l2:/dev/video0            direct camera (camera must be free; falls back to v4l2-ctl
+                              when OpenCV cannot negotiate the format, as on the iCAM-540)
   rtsp://127.0.0.1:8554/ds-test   DeepStream RTSP output (needs OpenCV)
   file:///path/to/frame.jpg   a JPEG, re-read every cycle (desk testing)
   http://host/snapshot.jpg    any HTTP JPEG snapshot URL
@@ -31,7 +32,9 @@ import os
 import re
 import select
 import socket
+import subprocess
 import sys
+import tempfile
 import threading
 import time
 import urllib.request
@@ -95,10 +98,14 @@ def send_json_line(sock_path, payload, timeout=2.0):
 # --------------------------------------------------------------------------
 
 class FrameSource:
-    def __init__(self, source, max_width=640, jpeg_quality=80):
+    def __init__(self, source, max_width=640, jpeg_quality=80, v4l2_size=(1920, 1080), v4l2_ctrls=""):
         self.source = source
         self.max_width = max_width
         self.jpeg_quality = jpeg_quality
+        self.v4l2_size = tuple(int(x) for x in v4l2_size)
+        self.v4l2_ctrls = v4l2_ctrls.strip()
+        self.use_v4l2ctl = False
+        self.primed = False
         self.cap = None
         self.kind = "file"
         if source.startswith("v4l2:"):
@@ -112,18 +119,68 @@ class FrameSource:
         if self.kind in ("v4l2", "rtsp") and cv2 is None:
             raise SystemExit("OpenCV (cv2) is required for v4l2/rtsp sources: pip3 install opencv-python-headless")
 
+    def _v4l2_node(self):
+        return self.source.split(":", 1)[1] or "/dev/video0"
+
+    def _apply_v4l2_ctrls(self):
+        """Best effort: the iCAM-540 sensor boots in manual exposure (exposure_time=50, gain 0)
+        and gives a near-black frame until auto exposure and auto gain are switched on. Uncapped,
+        auto exposure in a dim room picks ~200 ms exposures and the sensor runs at ~5 fps."""
+        if not self.v4l2_ctrls:
+            return
+        r = subprocess.run(["v4l2-ctl", "-d", self._v4l2_node(), "-c", self.v4l2_ctrls],
+                           capture_output=True, text=True, timeout=10)
+        if r.returncode == 0:
+            log("SRC", f"v4l2 controls set: {self.v4l2_ctrls}")
+        else:
+            log("SRC", f"v4l2 controls not applied ({r.stderr.strip()[:120]})")
+
     def _open(self):
         if self.kind == "v4l2":
-            node = self.source.split(":", 1)[1] or "/dev/video0"
-            m = re.search(r"(\d+)$", node)
-            self.cap = cv2.VideoCapture(int(m.group(1)) if m else node, cv2.CAP_V4L2)
-            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-        else:
-            self.cap = cv2.VideoCapture(self.source)
+            node = self._v4l2_node()
+            w, h = self.v4l2_size
+            self._apply_v4l2_ctrls()
+            cap = cv2.VideoCapture(node, cv2.CAP_V4L2,
+                                   [cv2.CAP_PROP_FRAME_WIDTH, w, cv2.CAP_PROP_FRAME_HEIGHT, h])
+            if cap.isOpened():
+                self.cap = cap
+                return
+            # The iCAM-540's Tegra VI node rejects every VIDIOC_S_FMT OpenCV tries (EINVAL),
+            # while v4l2-ctl streams it fine. Grab single YUYV frames through v4l2-ctl instead.
+            self.use_v4l2ctl = True
+            log("SRC", f"OpenCV cannot open {node}; falling back to v4l2-ctl {w}x{h} YUYV")
+            return
+        self.cap = cv2.VideoCapture(self.source)
         if not self.cap.isOpened():
             self.cap = None
             raise RuntimeError(f"cannot open {self.source}")
+
+    def _grab_v4l2ctl(self):
+        """One frame via v4l2-ctl (YUYV, mmap streaming), decoded to BGR."""
+        import numpy as np
+        node = self._v4l2_node()
+        w, h = self.v4l2_size
+        # Auto exposure converges over ~100 frames after the first stream-on and the converged
+        # state survives stream stop/start, so skip 120 frames once, then only 3 per grab.
+        skip = 3 if self.primed else 120
+        fd, path = tempfile.mkstemp(suffix=".yuv")
+        os.close(fd)
+        try:
+            cmd = ["v4l2-ctl", "-d", node, f"--set-fmt-video=width={w},height={h},pixelformat=YUYV",
+                   "--stream-mmap", "--stream-count=1", f"--stream-skip={skip}", f"--stream-to={path}"]
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+            with open(path, "rb") as f:
+                data = f.read()
+        finally:
+            try:
+                os.unlink(path)
+            except OSError:
+                pass
+        if len(data) < w * h * 2:
+            raise RuntimeError(f"v4l2-ctl returned {len(data)} bytes (rc={r.returncode}): {r.stderr.strip()[:200]}")
+        self.primed = True
+        yuyv = np.frombuffer(data[:w * h * 2], dtype=np.uint8).reshape(h, w, 2)
+        return cv2.cvtColor(yuyv, cv2.COLOR_YUV2BGR_YUYV)
 
     def grab(self):
         """Return JPEG bytes of the current frame."""
@@ -134,8 +191,10 @@ class FrameSource:
         if self.kind == "http":
             with urllib.request.urlopen(self.source, timeout=5) as r:
                 return self._shrink(r.read())
-        if self.cap is None:
+        if self.cap is None and not self.use_v4l2ctl:
             self._open()
+        if self.use_v4l2ctl:
+            return self._encode(self._grab_v4l2ctl())
         # drain buffered frames so the VLM sees "now", not a stale RTSP frame
         frame = None
         for _ in range(5):
@@ -172,16 +231,36 @@ class FrameSource:
 # --------------------------------------------------------------------------
 
 class VLMClient:
-    def __init__(self, endpoint, model, max_tokens=120, timeout=60.0, api_key=""):
+    """Talks to a VLM over either Ollama's native /api/chat or an OpenAI-compatible /v1.
+
+    Ollama native is preferred when available: it lets us turn thinking off (Qwen3-VL
+    thinks by default and spends the whole token budget on it), force JSON output, and
+    get the prefill/decode timing breakdown for the dashboard.
+    """
+
+    def __init__(self, endpoint, model, max_tokens=120, timeout=60.0, api_key="", api="auto"):
         self.endpoint = endpoint.rstrip("/")
         self.model = model
         self.max_tokens = max_tokens
         self.timeout = timeout
         self.api_key = api_key
+        self.base = re.sub(r"/v1$", "", self.endpoint)
+        self.api = api if api != "auto" else self._detect_api()
+
+    def _detect_api(self):
+        try:
+            with urllib.request.urlopen(self.base + "/api/version", timeout=3) as r:
+                ver = json.loads(r.read().decode()).get("version", "?")
+            log("VLM", f"Ollama {ver} detected, using native API (thinking off, JSON mode)")
+            return "ollama"
+        except Exception:
+            return "openai"
 
     def ask(self, jpeg_bytes, prompt):
         """Return (text, usage dict, latency_s)."""
         b64 = base64.b64encode(jpeg_bytes).decode()
+        if self.api == "ollama":
+            return self._ask_ollama(b64, prompt)
         body = {
             "model": self.model,
             "max_tokens": int(self.max_tokens),
@@ -211,6 +290,40 @@ class VLMClient:
             pass
         return text.strip(), resp.get("usage") or {}, latency
 
+    def _ask_ollama(self, b64, prompt):
+        body = {
+            "model": self.model,
+            "stream": False,
+            "think": False,
+            "format": "json",
+            "keep_alive": -1,
+            "options": {"num_predict": int(self.max_tokens), "temperature": 0.2},
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": prompt, "images": [b64]},
+            ],
+        }
+        req = urllib.request.Request(self.base + "/api/chat", data=json.dumps(body).encode(),
+                                     headers={"Content-Type": "application/json"})
+        t0 = time.time()
+        with urllib.request.urlopen(req, timeout=self.timeout) as r:
+            resp = json.loads(r.read().decode())
+        latency = time.time() - t0
+        msg = resp.get("message") or {}
+        text = (msg.get("content") or "").strip()
+        if not text and msg.get("thinking"):
+            # thinking variant of the model: the budget went to reasoning, nothing left for the answer
+            log("VLM", "empty answer, model spent its tokens thinking; use an instruct model tag")
+        usage = {
+            "prompt_tokens": resp.get("prompt_eval_count") or 0,
+            "completion_tokens": resp.get("eval_count") or 0,
+            "load_s": (resp.get("load_duration") or 0) / 1e9,
+            "prefill_s": (resp.get("prompt_eval_duration") or 0) / 1e9,
+            "decode_s": (resp.get("eval_duration") or 0) / 1e9,
+            "server_s": (resp.get("total_duration") or 0) / 1e9,
+        }
+        return text, usage, latency
+
 
 def extract_json(text):
     """Best-effort: pull the first {...} object out of a model reply."""
@@ -238,9 +351,10 @@ class Narrator:
         self.args = args
         self.stop_event = threading.Event()
         self.lock = threading.Lock()
-        self.frames = FrameSource(args.source, max_width=args.max_width)
+        self.frames = FrameSource(args.source, max_width=args.max_width, v4l2_size=args.v4l2_size,
+                                  v4l2_ctrls=args.v4l2_ctrls)
         self.vlm = VLMClient(args.endpoint, args.model, max_tokens=args.max_tokens, timeout=args.timeout,
-                             api_key=os.environ.get("VLM_API_KEY", ""))
+                             api_key=os.environ.get("VLM_API_KEY", ""), api=args.api)
         self.interval = float(args.interval)
         self.paused = args.paused
         self.alerts = list(args.alert)
@@ -250,7 +364,7 @@ class Narrator:
             "scene_caption": "", "people_vlm": 0, "engagement": "none", "unusual": "",
             "question": "", "answer": "",
             "alert_rules": len(self.alerts), "alerts_active": 0, "alert_text": "",
-            "vlm_latency_ms": 0, "vlm_tok_s": 0.0, "vlm_prompt_tokens": 0, "vlm_completion_tokens": 0,
+            "vlm_latency_ms": 0, "vlm_prefill_ms": 0, "vlm_tok_s": 0.0, "vlm_prompt_tokens": 0, "vlm_completion_tokens": 0,
             "vlm_cycle": 0, "message": "",
         }
         for i in range(1, 4):
@@ -328,12 +442,15 @@ class Narrator:
             self.state["alerts_active"] = active
             self.state["alert_text"] = "; ".join(texts)[:200]
             self.state["vlm_latency_ms"] = int(latency * 1000)
-            self.state["vlm_tok_s"] = round(comp / latency, 1) if latency > 0 and comp else 0.0
+            self.state["vlm_prefill_ms"] = int(float(usage.get("prefill_s") or 0) * 1000)
+            decode_s = float(usage.get("decode_s") or 0) or latency
+            self.state["vlm_tok_s"] = round(comp / decode_s, 1) if decode_s > 0 and comp else 0.0
             self.state["vlm_prompt_tokens"] = int(usage.get("prompt_tokens") or 0)
             self.state["vlm_completion_tokens"] = comp
             self.state["vlm_cycle"] += 1
             self.state["message"] = ""
-        log("VLM", f"{latency:.1f}s {comp} tok: {self.state['scene_caption']}")
+        log("VLM", f"{latency:.1f}s (server {usage.get('server_s', 0):.1f} load {usage.get('load_s', 0):.1f} "
+                   f"prefill {usage.get('prefill_s', 0):.1f} decode {usage.get('decode_s', 0):.1f}) {comp} tok: {self.state['scene_caption']}")
         self.publish()
 
     def answer(self, question):
@@ -542,10 +659,16 @@ def main():
     ap = argparse.ArgumentParser(description="Ask-the-camera VLM narrator for the iCAM-540")
     ap.add_argument("--source", default=env("VLM_SOURCE", "rtsp://127.0.0.1:8554/ds-test"))
     ap.add_argument("--endpoint", default=env("VLM_ENDPOINT", "http://localhost:11434/v1"), help="OpenAI-compatible base URL")
-    ap.add_argument("--model", default=env("VLM_MODEL", "qwen3-vl:2b"))
+    ap.add_argument("--model", default=env("VLM_MODEL", "qwen3-vl:2b-instruct"))
+    ap.add_argument("--api", choices=["auto", "ollama", "openai"], default=env("VLM_API", "auto"),
+                    help="auto: Ollama native if the endpoint answers /api/version, else OpenAI-compatible")
     ap.add_argument("--interval", type=float, default=float(env("VLM_INTERVAL", "8")))
     ap.add_argument("--max-tokens", type=int, default=int(env("VLM_MAX_TOKENS", "120")))
     ap.add_argument("--max-width", type=int, default=int(env("VLM_MAX_WIDTH", "640")), help="frame is downscaled to this width before upload")
+    ap.add_argument("--v4l2-size", default=env("VLM_V4L2_SIZE", "1920x1080"), help="capture size for v4l2 sources, WxH (iCAM-540: 1920x1080, 1408x1080, 3840x2160)")
+    ap.add_argument("--v4l2-ctrls", default=env("VLM_V4L2_CTRLS", "exposure_mode=1,sensor_gain_mode=1,auto_exposure_max=330"),
+                    help="v4l2-ctl controls applied once at open. iCAM-540 default: auto exposure and gain, exposure capped "
+                         "at one 30 fps frame (330 x 100 us) so a dim room does not drop the sensor to a few fps; '' to skip")
     ap.add_argument("--timeout", type=float, default=90.0)
     ap.add_argument("--alert", action="append", default=[], help="initial alert rule (repeatable, max 3)")
     ap.add_argument("--paused", action="store_true")
@@ -554,6 +677,11 @@ def main():
     ap.add_argument("--print-telemetry", action="store_true")
     ap.add_argument("--once", action="store_true", help="run one cycle, print the result and exit")
     args = ap.parse_args()
+    try:
+        args.v4l2_size = tuple(int(x) for x in args.v4l2_size.lower().split("x"))
+        assert len(args.v4l2_size) == 2
+    except Exception:
+        ap.error("--v4l2-size must look like 1920x1080")
 
     n = Narrator(args)
     if args.once:
