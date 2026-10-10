@@ -3,6 +3,8 @@ Description=Ask the camera: booth web site fed by /IOTCONNECT
 After=network-online.target vlm-narrator.service
 Wants=network-online.target
 
+StartLimitIntervalSec=0
+
 [Service]
 Type=simple
 User=icam-540

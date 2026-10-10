@@ -3,6 +3,9 @@ Description=Ask the camera: VLM narrator for the iCAM-540 (/IOTCONNECT)
 # Ollama serves the model; the snap socket service carries telemetry and commands.
 After=network-online.target ollama.service snap.iotconnect.socket.service
 Wants=ollama.service
+Conflicts=web.service autoui.service
+
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple

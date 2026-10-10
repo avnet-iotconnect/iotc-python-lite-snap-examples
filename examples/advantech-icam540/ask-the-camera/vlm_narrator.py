@@ -334,6 +334,7 @@ class LensFocus:
     There is no optical zoom (12 mm fixed focal length): "zoom" in this demo is a digital crop.
     """
     MAX = 2294
+    STATE = os.environ.get("VLM_FOCUS_FILE", os.path.join(HERE, ".focus"))
 
     def __init__(self, node, frames):
         self.node = node
@@ -425,9 +426,24 @@ class LensFocus:
                 time.sleep(0.2)
                 self.sharpness()
                 log("LENS", f"autofocus done: position {best[0]}, sharpness {best[1]:.1f}")
+                self.save()
                 return best
             finally:
                 self.busy = False
+
+    def save(self):
+        try:
+            with open(self.STATE, "w") as f:
+                f.write(str(self.read_position()))
+        except OSError as e:
+            log("LENS", f"could not save the focus position: {e}")
+
+    def saved(self):
+        try:
+            with open(self.STATE) as f:
+                return int(f.read().strip())
+        except (OSError, ValueError):
+            return None
 
 
 # --------------------------------------------------------------------------
@@ -787,13 +803,31 @@ class Narrator:
         for i in range(1, 4):
             self.state[f"alert_{i}"] = 0
         user = os.environ.get("SUDO_USER") or os.environ.get("USER", "")
-        self.tx_sock = pick_socket([args.iotc_sock, f"/home/{user}/snap/iotconnect/common/iotc.sock" if user else "",
-                                    "/var/snap/iotconnect/common/iotc.sock"])
-        self.cmd_sock = pick_socket([args.iotc_cmd_sock, f"/home/{user}/snap/iotconnect/common/iotc_cmd.sock" if user else "",
-                                     "/var/snap/iotconnect/common/iotc_cmd.sock"])
+        self.tx_candidates = [args.iotc_sock, f"/home/{user}/snap/iotconnect/common/iotc.sock" if user else "", "/var/snap/iotconnect/common/iotc.sock"]
+        self.cmd_candidates = [args.iotc_cmd_sock, f"/home/{user}/snap/iotconnect/common/iotc_cmd.sock" if user else "", "/var/snap/iotconnect/common/iotc_cmd.sock"]
+        self.tx_sock = pick_socket(self.tx_candidates)
+        self.cmd_sock = pick_socket(self.cmd_candidates)
+        self._sock_checked = time.time()
+
+    def _recheck_sockets(self):
+        """The snap's socket service may start after us (it waits for the network at boot) or be
+        restarted: look again for the sockets every few seconds while we have none."""
+        if time.time() - self._sock_checked < 5:
+            return
+        self._sock_checked = time.time()
+        if not self.tx_sock:
+            self.tx_sock = pick_socket(self.tx_candidates)
+            if self.tx_sock:
+                log("TX", f"telemetry socket appeared: {self.tx_sock}")
+        if not self.cmd_sock:
+            self.cmd_sock = pick_socket(self.cmd_candidates)
+            if self.cmd_sock:
+                log("CMD", f"command socket appeared: {self.cmd_sock}")
 
     # ---------------- publishing ----------------
     def publish(self, extra=None):
+        if not self.tx_sock:
+            self._recheck_sockets()
         with self.lock:
             payload = dict(self.state)
         payload["ts"] = int(time.time())
@@ -999,9 +1033,13 @@ class Narrator:
             if self.lens.busy:
                 return False, "autofocus already running", {}
             arg = (args[0] if args else "auto").lower()
-            if arg in ("auto", "af"):
+            if arg == "auto" and self.lens.saved() is not None and not self.lens.homed:
+                # a restart: go back to where the lens was, no sweep (sweep with "focus sweep")
+                threading.Thread(target=self._focus_bg, args=(self.lens.saved(),), daemon=True).start()
+                return True, f"restoring the saved focus position {self.lens.saved()}", {}
+            if arg in ("auto", "af", "sweep"):
                 threading.Thread(target=self._focus_bg, args=("auto",), daemon=True).start()
-                return True, "autofocus started (~20 s)", {}
+                return True, "autofocus started (~30 s)", {}
             if arg == "home":
                 threading.Thread(target=self._focus_bg, args=("home",), daemon=True).start()
                 return True, "homing lens", {}
@@ -1038,6 +1076,7 @@ class Narrator:
                 self.lens.move_to(what)
                 time.sleep(0.2)
                 self.lens.sharpness()
+                self.lens.save()
         except Exception as e:
             log("LENS", f"focus failed: {e}")
         finally:
@@ -1054,9 +1093,14 @@ class Narrator:
 
     def command_loop(self):
         if not self.cmd_sock:
-            log("CMD", "command socket not found; command listener disabled")
-            return
+            log("CMD", "command socket not found yet; will keep looking")
         while not self.stop_event.is_set():
+            if not self.cmd_sock:
+                self._sock_checked = 0
+                self._recheck_sockets()
+                if not self.cmd_sock:
+                    self.stop_event.wait(5.0)
+                    continue
             try:
                 s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
                 s.connect(self.cmd_sock)
@@ -1153,8 +1197,8 @@ def main():
     ap.add_argument("--paused", action="store_true")
     ap.add_argument("--iotc-sock", default=env("IOTC_SOCKET", ""))
     ap.add_argument("--iotc-cmd-sock", default=env("IOTC_CMD_SOCK", ""))
-    ap.add_argument("--focus", default=env("VLM_FOCUS", ""), metavar="auto|home|N",
-                    help="iCAM-540 lens at start: 'auto' sweeps for the sharpest image (~20 s), or a position 0-2294")
+    ap.add_argument("--focus", default=env("VLM_FOCUS", ""), metavar="auto|sweep|home|N",
+                    help="iCAM-540 lens at start: 'auto' restores the last saved position (or sweeps if none), 'sweep' always sweeps (~30 s), or a position 0-2294")
     ap.add_argument("--zoom", type=float, default=float(env("VLM_ZOOM", "1.0")), help="digital zoom 1.0-4.0 (centre crop; the lens has no optical zoom)")
     ap.add_argument("--rotate", type=int, choices=[0, 90, 180, 270], default=int(env("VLM_ROTATE", "0")), help="rotate frames clockwise")
     ap.add_argument("--web", type=int, default=int(env("VLM_WEB", "0")), metavar="PORT",

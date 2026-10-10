@@ -76,9 +76,13 @@ Then check: `journalctl -u vlm-narrator -f` shows `[TX] telemetry socket` and `[
 - **In your AWS account** (the booth-ready option, nothing on the camera's network needed): `aws/deploy_ec2.sh` with the AWS CLI and a key that has `AmazonEC2FullAccess` creates a t4g.micro with a fixed Elastic IP, ships the site and settings, runs it as a locked-down service behind Caddy. `DOMAIN=booth.example.com ./aws/deploy_ec2.sh` after pointing a DNS record at the IP turns on HTTPS. `./aws/deploy_ec2.sh destroy` removes everything. About 7 USD a month.
 - **Through a tunnel from the camera** (no account): `./install_tunnel.sh` runs a Cloudflare quick tunnel; the address is random and changes at every restart (`./install_tunnel.sh url`).
 
-### 3.4 Show-day checklist
+### 3.4 Unattended: plug in and it runs
 
-- Camera: `systemctl is-active vlm-narrator kvs-webrtc ollama snap.iotconnect.socket booth-site`.
+Power and network are all the camera needs; no monitor, keyboard or login. At boot systemd starts Ollama, the snap's socket service (after the network is up, retrying until DNS answers), then the narrator, the KVS WebRTC master, the booth site and the tunnel, every one with `Restart=always` and no start limit. The narrator's unit declares `Conflicts=web.service autoui.service`, so the stock web UI is stopped before the sensor is opened and cannot take it back. The narrator keeps looking for the snap's sockets every 5 s until they exist, so it attaches even when the snap comes up after it. The lens position is saved to `.focus` after every autofocus or nudge and restored at the next start (about 4 s instead of a 30 s sweep); `focus sweep` forces a new sweep. The 20 W power mode persists across reboots. When a monitor is connected, the desktop logs in by itself and opens the booth page full-screen; without one, nothing waits for it. Verified by stopping the desktop and by a cold reboot.
+
+### 3.5 Show-day checklist
+
+- Camera: `systemctl is-active vlm-narrator kvs-webrtc ollama snap.iotconnect.socket booth-site` (all should come up on their own after power-on; give it two minutes).
 - Aim and focus: open the live view, press **Autofocus** on something with detail at booth distance (section 4.3); **Near** / **Far** nudge by 25 steps.
 - Power mode 20 W (`sudo nvpmodel -q`), temperature `tegrastats` (tj was ~77 C indoors under full load).
 - The booth page shows "camera online · updated N s ago" with N under 20.
@@ -88,7 +92,7 @@ Then check: `journalctl -u vlm-narrator -f` shows `[TX] telemetry socket` and `[
 
 ### 4.1 `vlm_narrator.py` (service `vlm-narrator`)
 
-Capture thread (v4l2-ctl stream, see 7), VLM cycle, JSON parsing, snap telemetry and commands, lens control, live view. Settings in `/etc/default/vlm-narrator` (interval, web port, focus, model, zoom, rotate, socket paths). Options: `--source v4l2:/dev/video0 | rtsp://... | file:///x.jpg | http://.../snap.jpg`, `--endpoint`, `--model`, `--api auto|ollama|openai`, `--interval`, `--max-tokens`, `--max-width` (640 px is plenty, section 8), `--web PORT`, `--focus auto|home|N`, `--zoom 1-4`, `--rotate 90|180|270`, `--v4l2-size`, `--v4l2-ctrls`, `--alert "<rule>"`, `--paused`, `--once`, `--print-telemetry`.
+Capture thread (v4l2-ctl stream, see 7), VLM cycle, JSON parsing, snap telemetry and commands, lens control, live view. Settings in `/etc/default/vlm-narrator` (interval, web port, focus, model, zoom, rotate, socket paths). Options: `--source v4l2:/dev/video0 | rtsp://... | file:///x.jpg | http://.../snap.jpg`, `--endpoint`, `--model`, `--api auto|ollama|openai`, `--interval`, `--max-tokens`, `--max-width` (640 px is plenty, section 8), `--web PORT`, `--focus auto|sweep|home|N` (auto restores the saved position), `--zoom 1-4`, `--rotate 90|180|270`, `--v4l2-size`, `--v4l2-ctrls`, `--alert "<rule>"`, `--paused`, `--once`, `--print-telemetry`.
 
 Desk test without a camera: `./vlm_narrator.py --source file:///opt/nvidia/deepstream/deepstream/samples/streams/sample_720p.jpg --once`.
 
@@ -130,7 +134,7 @@ Commands arrive on the snap command socket as JSON `{"name": "ask", "args": ["is
 | `vlm_model <tag>` | switch model on the endpoint; alias `set_model` |
 | `vlm_max_tokens <n>` | alias `set_max_tokens` |
 | `vlm_pause` / `vlm_resume` / `vlm_status` / `vlm_ping` | aliases `pause` / `resume` / `status` / `ping` |
-| `focus auto` / `focus home` / `focus <0-2294>` / `focus +N` / `-N` | lens (4.3); alias `vlm_focus` |
+| `focus auto` / `focus sweep` / `focus home` / `focus <0-2294>` / `focus +N` / `-N` | lens (4.3): `auto` restores the saved position when there is one, `sweep` always sweeps; alias `vlm_focus` |
 | `zoom <1.0-4.0>` / `zoom +` / `zoom -` | digital zoom; alias `vlm_zoom` |
 
 The `vlm_` names exist because the Vision Arena agent on the same socket owns `set_interval`, `set_model`, `status` and `ping`.

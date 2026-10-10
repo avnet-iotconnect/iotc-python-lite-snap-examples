@@ -4,6 +4,8 @@ Description=Ask the camera: live video to /IOTCONNECT Kinesis Video Streams (Web
 After=network-online.target vlm-narrator.service
 Wants=vlm-narrator.service
 
+StartLimitIntervalSec=0
+
 [Service]
 Environment=PYTHONUNBUFFERED=1
 Type=simple

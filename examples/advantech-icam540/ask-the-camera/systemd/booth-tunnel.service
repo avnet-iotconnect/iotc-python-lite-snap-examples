@@ -3,6 +3,8 @@ Description=Ask the camera: public HTTPS tunnel to the booth site (Cloudflare qu
 After=network-online.target booth-site.service
 Wants=network-online.target
 
+StartLimitIntervalSec=0
+
 [Service]
 Type=simple
 # A quick tunnel needs no account and gets a random *.trycloudflare.com address at every start;
