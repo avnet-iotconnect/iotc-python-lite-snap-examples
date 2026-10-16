@@ -837,7 +837,15 @@ class Narrator:
                              api_key=os.environ.get("VLM_API_KEY", ""), api=args.api)
         self.frames.rotate = int(args.rotate)
         self.zoom_total = 1.0
-        self.apply_zoom(float(args.zoom))
+        self.ZOOM_FILE = os.path.join(HERE, ".zoom")
+        z = args.zoom
+        if str(z).lower() == "saved":   # keep whatever was set last (default); falls back to 1x
+            try:
+                with open(self.ZOOM_FILE) as f:
+                    z = float(f.read().strip())
+            except (OSError, ValueError):
+                z = 1.0
+        self.apply_zoom(float(z))
         self.lens = LensFocus(self.frames._v4l2_node(), self.frames) if self.frames.kind == "v4l2" else None
         self.interval = float(args.interval)
         self.paused = args.paused
@@ -1146,6 +1154,11 @@ class Narrator:
         if hasattr(self, "state"):
             with self.lock:
                 self.state["zoom"] = self.zoom_total
+            try:
+                with open(self.ZOOM_FILE, "w") as f:
+                    f.write(str(self.zoom_total))
+            except OSError:
+                pass
         return self.zoom_total
 
     def _focus_bg(self, what):
@@ -1285,7 +1298,7 @@ def main():
     ap.add_argument("--iotc-cmd-sock", default=env("IOTC_CMD_SOCK", ""))
     ap.add_argument("--focus", default=env("VLM_FOCUS", ""), metavar="auto|sweep|home|N",
                     help="iCAM-540 lens at start: 'auto' restores the last saved position (or sweeps if none), 'sweep' always sweeps (~30 s), or a position 0-2294")
-    ap.add_argument("--zoom", type=float, default=float(env("VLM_ZOOM", "1.0")), help="zoom 1.0-4.0: up to 2x a crop of the 1080p stream, from 2.7x the sensor's native 1408x1080 window")
+    ap.add_argument("--zoom", default=env("VLM_ZOOM", "saved"), help="zoom 1.0-4.0 (up to 2x a crop of the 1080p stream, from 2.7x the sensor's native 1408x1080 window), or 'saved' to keep the last setting (default)")
     ap.add_argument("--rotate", type=int, choices=[0, 90, 180, 270], default=int(env("VLM_ROTATE", "0")), help="rotate frames clockwise")
     ap.add_argument("--web", type=int, default=int(env("VLM_WEB", "0")), metavar="PORT",
                     help="serve the live view (video + narration + ask box) on this port, e.g. 8088; 0 = off")
