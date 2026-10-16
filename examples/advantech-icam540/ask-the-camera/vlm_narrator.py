@@ -128,6 +128,11 @@ class FrameSource:
         self.v4l2_ctrls = v4l2_ctrls.strip()
         self.zoom = 1.0          # digital zoom: centre crop factor applied to every frame handed out
         self.rotate = 0          # 0 | 90 | 180 | 270, clockwise
+        # sensor window: the iCAM-540 offers a 1408x1080 mode that is a native-resolution window into
+        # the 3840x2160 sensor (about 2.7x narrower field than the 1920x1080 mode, which is the whole
+        # field downscaled). Switching to it is a real zoom with no loss of detail.
+        self.mode = (self.v4l2_size[0], self.v4l2_size[1], 0, 0)   # (w, h, x_offset, y_offset) wanted
+        self.mode_live = None
         self.kind = "file"
         if source.startswith("v4l2:"):
             self.kind = "v4l2"
@@ -156,6 +161,19 @@ class FrameSource:
         if self.kind in ("v4l2", "rtsp") and self.thread is None:
             self.thread = threading.Thread(target=self._capture_loop, name="capture", daemon=True)
             self.thread.start()
+
+    def set_mode(self, w, h, x_off=0, y_off=0):
+        """Switch the sensor mode; the capture thread restarts v4l2-ctl with it."""
+        want = (int(w), int(h), int(x_off), int(y_off))
+        if want == self.mode:
+            return
+        self.mode = want
+        p = self.proc
+        if p is not None:
+            try:
+                p.kill()
+            except Exception:
+                pass
 
     def stop(self):
         self.stop_event.set()
@@ -200,7 +218,8 @@ class FrameSource:
                 if self.kind == "v4l2":
                     self._apply_v4l2_ctrls()
                     node = self._v4l2_node()
-                    w, h = self.v4l2_size
+                    w, h, xo, yo = self.mode
+                    subprocess.run(["v4l2-ctl", "-d", node, "-c", f"x_offset={xo},y_offset={yo}"], capture_output=True, timeout=10)
                     cap = cv2.VideoCapture(node, cv2.CAP_V4L2,
                                            [cv2.CAP_PROP_FRAME_WIDTH, w, cv2.CAP_PROP_FRAME_HEIGHT, h])
                     if cap.isOpened():
@@ -219,6 +238,9 @@ class FrameSource:
                     self.backend = "opencv"
                     self._opencv_stream(cap)
             except Exception as e:
+                if self.kind == "v4l2" and self.mode != self.mode_live:
+                    log("SRC", f"switching the sensor to {self.mode[0]}x{self.mode[1]} at offset {self.mode[2]},{self.mode[3]}")
+                    continue   # a requested mode change, not a failure
                 self.last_error = f"{type(e).__name__}: {e}"
                 log("SRC", f"capture stopped: {self.last_error}; retry in 2 s")
                 self.stop_event.wait(2.0)
@@ -237,6 +259,7 @@ class FrameSource:
         cmd = ["v4l2-ctl", "-d", node, f"--set-fmt-video=width={w},height={h},pixelformat=YUYV",
                "--stream-mmap", "--stream-count=0", "--stream-to=-"]
         self.proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, bufsize=0)
+        self.mode_live = self.mode
         n = w * h * 2
         buf = bytearray(n)
         view = memoryview(buf)
@@ -248,7 +271,7 @@ class FrameSource:
                     if not k:
                         raise RuntimeError("v4l2-ctl stream ended")
                     got += k
-                self._publish(("yuyv", bytes(buf)))
+                self._publish(("yuyv", bytes(buf), w, h))
         finally:
             try:
                 self.proc.kill()
@@ -270,12 +293,12 @@ class FrameSource:
                         raise RuntimeError(f"no frame from {self.source} ({self.last_error or 'capture not started'})")
                     break
                 self.cond.wait(min(left, 0.5))
-            kind, data = self.latest
-        if kind == "yuyv":
-            w, h = self.v4l2_size
+            item = self.latest
+        if item[0] == "yuyv":
+            _, data, w, h = item
             frame = cv2.cvtColor(np.frombuffer(data, dtype=np.uint8).reshape(h, w, 2), cv2.COLOR_YUV2BGR_YUYV)
         else:
-            frame = data
+            frame = item[1]
         return self.view(frame)
 
     def view(self, frame):
@@ -426,6 +449,33 @@ class LensFocus:
                 time.sleep(0.2)
                 self.sharpness()
                 log("LENS", f"autofocus done: position {best[0]}, sharpness {best[1]:.1f}")
+                self.save()
+                return best
+            finally:
+                self.busy = False
+
+    def refine(self, span=120, step=20):
+        """Quick focus: search only around the current position (a few seconds), for when the
+        scene or the distance changed a little. A full sweep is `autofocus`."""
+        with self.lock:
+            self.busy = True
+            try:
+                if not self.homed:
+                    self.home()
+                start = self.read_position()
+                best = (start, -1.0)
+                lo, hi = max(0, start - span), min(self.MAX, start + span)
+                self.move_to(lo)
+                for p in range(lo, hi + 1, step):
+                    self.move_to(p)
+                    time.sleep(0.15)
+                    sc = self.sharpness()
+                    if sc > best[1]:
+                        best = (p, sc)
+                self.move_to(best[0])
+                time.sleep(0.2)
+                self.sharpness()
+                log("LENS", f"refine done: {start} -> {best[0]}, sharpness {best[1]:.1f}")
                 self.save()
                 return best
             finally:
@@ -612,7 +662,8 @@ PAGE = """<!doctype html>
  <button type="submit">Ask</button>
  <button type="button" class="alt" onclick="send('set_alert')">Add alert</button>
  <button type="button" class="grey" onclick="send('clear_alerts')">Clear</button>
- <button type="button" class="grey" onclick="send('focus','auto')" title="sweep the lens for the sharpest image (~20 s)">Autofocus</button>
+ <button type="button" class="grey" onclick="send('focus','sweep')" title="sweep the whole focus range (~30 s)">Autofocus</button>
+ <button type="button" class="grey" onclick="send('focus','refine')" title="quick search around the current focus (~6 s)">Refine</button>
  <button type="button" class="grey" onclick="send('focus','-25')">Near</button>
  <button type="button" class="grey" onclick="send('focus','+25')">Far</button>
  <button type="button" class="grey" onclick="send('zoom','-')">Zoom &minus;</button>
@@ -784,8 +835,9 @@ class Narrator:
                                   v4l2_ctrls=args.v4l2_ctrls)
         self.vlm = VLMClient(args.endpoint, args.model, max_tokens=args.max_tokens, timeout=args.timeout,
                              api_key=os.environ.get("VLM_API_KEY", ""), api=args.api)
-        self.frames.zoom = max(1.0, float(args.zoom))
         self.frames.rotate = int(args.rotate)
+        self.zoom_total = 1.0
+        self.apply_zoom(float(args.zoom))
         self.lens = LensFocus(self.frames._v4l2_node(), self.frames) if self.frames.kind == "v4l2" else None
         self.interval = float(args.interval)
         self.paused = args.paused
@@ -798,10 +850,11 @@ class Narrator:
             "alert_rules": len(self.alerts), "alerts_active": 0, "alert_text": "",
             "vlm_latency_ms": 0, "vlm_prefill_ms": 0, "vlm_tok_s": 0.0, "vlm_prompt_tokens": 0, "vlm_completion_tokens": 0,
             "vlm_cycle": 0, "message": "",
-            "lens_pos": 0, "focus_score": 0.0, "focusing": 0, "zoom": self.frames.zoom,
+            "lens_pos": 0, "focus_score": 0.0, "focusing": 0, "zoom": 1.0,
         }
         for i in range(1, 4):
             self.state[f"alert_{i}"] = 0
+        self.state["zoom"] = self.zoom_total
         user = os.environ.get("SUDO_USER") or os.environ.get("USER", "")
         self.tx_candidates = [args.iotc_sock, f"/home/{user}/snap/iotconnect/common/iotc.sock" if user else "", "/var/snap/iotconnect/common/iotc.sock"]
         self.cmd_candidates = [args.iotc_cmd_sock, f"/home/{user}/snap/iotconnect/common/iotc_cmd.sock" if user else "", "/var/snap/iotconnect/common/iotc_cmd.sock"]
@@ -1040,6 +1093,9 @@ class Narrator:
             if arg in ("auto", "af", "sweep"):
                 threading.Thread(target=self._focus_bg, args=("auto",), daemon=True).start()
                 return True, "autofocus started (~30 s)", {}
+            if arg == "refine":
+                threading.Thread(target=self._focus_bg, args=("refine",), daemon=True).start()
+                return True, "refining focus around the current position (~6 s)", {}
             if arg == "home":
                 threading.Thread(target=self._focus_bg, args=("home",), daemon=True).start()
                 return True, "homing lens", {}
@@ -1049,20 +1105,48 @@ class Narrator:
                 else:
                     target = int(arg)
             except ValueError:
-                return False, "usage: focus auto | home | <0-2294> | +N | -N", {}
+                return False, "usage: focus auto | sweep | refine | home | <0-2294> | +N | -N", {}
             threading.Thread(target=self._focus_bg, args=(target,), daemon=True).start()
             return True, f"moving lens to {max(0, min(LensFocus.MAX, target))}", {}
         if cmd in ("zoom", "vlm_zoom"):
             try:
                 arg = args[0]
-                z = self.frames.zoom * 1.25 if arg == "+" else self.frames.zoom / 1.25 if arg == "-" else float(arg)
+                steps = self.ZOOM_STEPS
+                if arg in ("+", "-"):
+                    cur = min(range(len(steps)), key=lambda i: abs(steps[i] - self.zoom_total))
+                    z = steps[min(len(steps) - 1, cur + 1)] if arg == "+" else steps[max(0, cur - 1)]
+                else:
+                    z = float(arg)
             except (IndexError, ValueError):
                 return False, "usage: zoom <1.0-4.0> | + | -", {}
-            self.frames.zoom = round(max(1.0, min(4.0, z)), 2)
-            with self.lock:
-                self.state["zoom"] = self.frames.zoom
-            return True, f"zoom={self.frames.zoom}x (digital, centre crop)", {}
+            z = self.apply_zoom(z)
+            how = "sensor window, native detail" if (self.frames.kind == "v4l2" and z >= self.WINDOW_ZOOM - 0.05) else "crop of the full field"
+            return True, f"zoom={z}x ({how})", {}
         return None, f"not mine: '{cmd}'", {}
+
+    ZOOM_STEPS = [1.0, 1.5, 2.0, 2.7, 3.5, 4.0]
+    WINDOW = (1408, 1080)          # the sensor's native-resolution window mode
+    SENSOR = (3840, 2160)
+    WINDOW_ZOOM = SENSOR[0] / WINDOW[0]   # 2.73: the field of view of that window vs the full sensor
+
+    def apply_zoom(self, z):
+        """z is the field-of-view factor the user asked for. Up to 2x: a centre crop of the full-field
+        1080p stream. From 2.7x: the sensor's 1408x1080 native window (no detail lost), plus a crop
+        on top of it for the remainder."""
+        z = max(1.0, min(4.0, float(z)))
+        if self.frames.kind == "v4l2" and z >= self.WINDOW_ZOOM - 0.05:
+            w, h = self.WINDOW
+            self.frames.set_mode(w, h, (self.SENSOR[0] - w) // 2, (self.SENSOR[1] - h) // 2)
+            self.frames.zoom = round(max(1.0, z / self.WINDOW_ZOOM), 3)
+        else:
+            if self.frames.kind == "v4l2":
+                self.frames.set_mode(self.args.v4l2_size[0], self.args.v4l2_size[1], 0, 0)
+            self.frames.zoom = round(z, 3)
+        self.zoom_total = round(z, 2)
+        if hasattr(self, "state"):
+            with self.lock:
+                self.state["zoom"] = self.zoom_total
+        return self.zoom_total
 
     def _focus_bg(self, what):
         with self.lock:
@@ -1070,6 +1154,8 @@ class Narrator:
         try:
             if what == "auto":
                 self.lens.autofocus()
+            elif what == "refine":
+                self.lens.refine()
             elif what == "home":
                 self.lens.home()
             else:
@@ -1199,7 +1285,7 @@ def main():
     ap.add_argument("--iotc-cmd-sock", default=env("IOTC_CMD_SOCK", ""))
     ap.add_argument("--focus", default=env("VLM_FOCUS", ""), metavar="auto|sweep|home|N",
                     help="iCAM-540 lens at start: 'auto' restores the last saved position (or sweeps if none), 'sweep' always sweeps (~30 s), or a position 0-2294")
-    ap.add_argument("--zoom", type=float, default=float(env("VLM_ZOOM", "1.0")), help="digital zoom 1.0-4.0 (centre crop; the lens has no optical zoom)")
+    ap.add_argument("--zoom", type=float, default=float(env("VLM_ZOOM", "1.0")), help="zoom 1.0-4.0: up to 2x a crop of the 1080p stream, from 2.7x the sensor's native 1408x1080 window")
     ap.add_argument("--rotate", type=int, choices=[0, 90, 180, 270], default=int(env("VLM_ROTATE", "0")), help="rotate frames clockwise")
     ap.add_argument("--web", type=int, default=int(env("VLM_WEB", "0")), metavar="PORT",
                     help="serve the live view (video + narration + ask box) on this port, e.g. 8088; 0 = off")
