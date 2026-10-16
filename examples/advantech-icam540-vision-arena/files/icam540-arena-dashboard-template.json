@@ -2,7 +2,7 @@
   "ddType": 2,
   "items": [
     {
-      "widgetGuid": "575A3AA5-E442-4FC4-8EAF-B6C223C7C379",
+      "widgetGuid": "525ACCFB-7121-4C48-B161-FDF496D9E03C",
       "widgetProperties": {
         "i": "Label",
         "background": "#0b1226",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "widgetGuid": "A85353CD-45D8-4E55-B7D8-24C52D044BAF",
+      "widgetGuid": "3A7EA45F-7E3B-48B1-A4FA-28E7CB13E385",
       "widgetProperties": {
         "i": "Label",
         "background": "#EE2E24",
@@ -50,7 +50,7 @@
       }
     },
     {
-      "widgetGuid": "0DF52304-447B-4ABC-920C-3AD3137737AC",
+      "widgetGuid": "DFBB5A1B-725A-4DDC-9973-429D2E84AC85",
       "widgetProperties": {
         "i": "Label",
         "background": "#76b900",
@@ -74,7 +74,7 @@
       }
     },
     {
-      "widgetGuid": "4402CD58-6681-43A4-8ECE-43E85FC7A113",
+      "widgetGuid": "BAE28C54-3EFE-4DEF-89C2-0987B94049F6",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -141,7 +141,7 @@
       }
     },
     {
-      "widgetGuid": "30975FE0-885A-4710-8673-137799A1C086",
+      "widgetGuid": "0D364A24-458B-489B-BA01-6BC978CE903B",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -208,7 +208,7 @@
       }
     },
     {
-      "widgetGuid": "D47A524A-79AA-486E-819A-EB996F210D9D",
+      "widgetGuid": "247D5D64-9F65-404A-B5D0-38F938D7AFB8",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -275,7 +275,7 @@
       }
     },
     {
-      "widgetGuid": "02705111-5BDD-426B-8567-BAE1DCBD8D8C",
+      "widgetGuid": "15CE1324-8C9C-49D6-9B89-662C7DB91E04",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -342,7 +342,7 @@
       }
     },
     {
-      "widgetGuid": "273335C8-AD38-406A-9F4D-DA8ED093588E",
+      "widgetGuid": "99C55518-9DE4-4FC1-BD57-0027CB21D52C",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -409,7 +409,7 @@
       }
     },
     {
-      "widgetGuid": "43D6D732-7514-4048-A3D7-786F73D084B5",
+      "widgetGuid": "B589E346-280B-4204-8E7C-6C762467EE53",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -476,7 +476,7 @@
       }
     },
     {
-      "widgetGuid": "634809E5-1A5E-46DA-A3DA-2D412873A335",
+      "widgetGuid": "1AEAECD4-70F9-4EE5-A19B-4FA2AF282D47",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -543,7 +543,7 @@
       }
     },
     {
-      "widgetGuid": "40CB60A5-CFD1-4080-A592-98A5F4D0051D",
+      "widgetGuid": "CCA9B20B-3CE9-4A2A-A1DA-698791415505",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -610,7 +610,7 @@
       }
     },
     {
-      "widgetGuid": "613B00B6-0CB3-4D2A-A55B-5BCF9DB51CAC",
+      "widgetGuid": "23EF912D-2E25-4845-8C4A-D6A9A3BB58AB",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -666,7 +666,7 @@
       }
     },
     {
-      "widgetGuid": "C36195B5-3713-4DFA-9150-E8481B034186",
+      "widgetGuid": "066B5656-CDA4-475E-9AF1-64F109426034",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -722,7 +722,7 @@
       }
     },
     {
-      "widgetGuid": "B8F27E5E-99EB-43D3-A124-AB9AA24BA358",
+      "widgetGuid": "DD6C6F37-F2F0-4B1F-84B3-12AD7BB11D4D",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -778,7 +778,7 @@
       }
     },
     {
-      "widgetGuid": "5E950C4C-B2EF-4A57-A11F-C3EBDFC77BF0",
+      "widgetGuid": "DA7DC552-A474-48DB-B719-E098DB383080",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -834,7 +834,7 @@
       }
     },
     {
-      "widgetGuid": "92F0DB84-79FD-4055-A555-948E79358DF1",
+      "widgetGuid": "17E239C9-9346-407C-BAE5-18045640BBEA",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -890,7 +890,7 @@
       }
     },
     {
-      "widgetGuid": "600BD89D-3FF2-45B0-BFC7-B73B7154A19B",
+      "widgetGuid": "B498BA72-598B-4B58-BC52-7BE8B74A5E4B",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -946,7 +946,7 @@
       }
     },
     {
-      "widgetGuid": "2BB7BEDF-8F96-4969-90EA-96F7D3A2CA8C",
+      "widgetGuid": "0FC347EE-4F4C-4C9F-8C0A-B29B89667566",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -1002,7 +1002,7 @@
       }
     },
     {
-      "widgetGuid": "5EB7545B-9530-4B1F-B314-28C5C70F15B9",
+      "widgetGuid": "2A75131F-EB45-42B5-950A-9636E8E1AD71",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -1058,7 +1058,7 @@
       }
     },
     {
-      "widgetGuid": "A0CE278A-2614-40A3-A405-9CEB2EC56EFD",
+      "widgetGuid": "7EE1239D-B0AA-4E9D-BE3E-9A682714AC75",
       "widgetProperties": {
         "i": "LiveLineChart",
         "background": "#ffffff",
@@ -1811,6 +1811,50 @@
                   "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
                   "gatewayUpdatedDate": "NA",
                   "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "zoom",
+                  "attributeName": "zoom",
+                  "displayName": "zoom",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "lens_pos",
+                  "attributeName": "lens_pos",
+                  "displayName": "lens_pos",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focus_score",
+                  "attributeName": "focus_score",
+                  "displayName": "focus_score",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focusing",
+                  "attributeName": "focusing",
+                  "displayName": "focusing",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
                 }
               ]
             },
@@ -1837,7 +1881,7 @@
       }
     },
     {
-      "widgetGuid": "F59CBAAB-A759-4F0F-9E98-6FCF2F5DD3F7",
+      "widgetGuid": "DECD5E2A-DC8C-4BF3-9CF3-A0C5281A9584",
       "widgetProperties": {
         "i": "LiveLineChart",
         "background": "#ffffff",
@@ -2590,6 +2634,50 @@
                   "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
                   "gatewayUpdatedDate": "NA",
                   "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "zoom",
+                  "attributeName": "zoom",
+                  "displayName": "zoom",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "lens_pos",
+                  "attributeName": "lens_pos",
+                  "displayName": "lens_pos",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focus_score",
+                  "attributeName": "focus_score",
+                  "displayName": "focus_score",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focusing",
+                  "attributeName": "focusing",
+                  "displayName": "focusing",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
                 }
               ]
             },
@@ -2616,7 +2704,7 @@
       }
     },
     {
-      "widgetGuid": "4F60E138-0748-435D-9B5B-88C14B3E160E",
+      "widgetGuid": "4C2B5C7A-9289-4A16-96B9-CA249B6AFFCE",
       "widgetProperties": {
         "i": "Label",
         "background": "#343434",
@@ -2640,7 +2728,7 @@
       }
     },
     {
-      "widgetGuid": "54421B2F-092C-41C1-96CE-7D8704CEBEE5",
+      "widgetGuid": "CD830899-F85E-4523-BF14-B544D9E1D48E",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2684,7 +2772,7 @@
       }
     },
     {
-      "widgetGuid": "013C9D73-6F24-4EE3-9067-76AF141D161B",
+      "widgetGuid": "6F5D45E0-9B3F-44D8-AF52-C2A79068DD4F",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2728,7 +2816,7 @@
       }
     },
     {
-      "widgetGuid": "5238338B-9E52-4B4B-BAE5-49AF8B772AE5",
+      "widgetGuid": "23E445C4-7487-4862-86DD-61E0EA141B54",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2772,7 +2860,7 @@
       }
     },
     {
-      "widgetGuid": "BE88F0E8-8651-4247-A822-FEFD8786B530",
+      "widgetGuid": "CA1AF148-6183-48CB-915B-6AED2ACEF192",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2816,7 +2904,7 @@
       }
     },
     {
-      "widgetGuid": "B46104D6-2C9E-48FF-B33E-66CA1905E716",
+      "widgetGuid": "2E38EEC3-B479-4C0A-BA57-7B22745BDA9C",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2860,7 +2948,7 @@
       }
     },
     {
-      "widgetGuid": "7E2A2AF9-83FF-4445-AEBC-6415C83BCFA6",
+      "widgetGuid": "55691AAA-CBB0-48B9-976B-B12A28D4A20E",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2904,7 +2992,7 @@
       }
     },
     {
-      "widgetGuid": "E1CFF465-7141-4608-9D67-344ECAEFED74",
+      "widgetGuid": "B2403A43-FBE8-4177-BD96-EF2F0CC8F8F4",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2948,7 +3036,7 @@
       }
     },
     {
-      "widgetGuid": "80C3630E-D218-428C-A675-02A744D1B1BA",
+      "widgetGuid": "BA06C083-B677-4369-AE9A-28210FD0B204",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -2992,7 +3080,7 @@
       }
     },
     {
-      "widgetGuid": "581C5FD8-A380-4418-8412-9818C5442E11",
+      "widgetGuid": "47870B6D-C38E-4708-8950-6E9673FB7122",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -3036,7 +3124,7 @@
       }
     },
     {
-      "widgetGuid": "BB4A8C40-F820-44A0-9925-203526E8034A",
+      "widgetGuid": "F3060770-D1EC-4ABA-8872-81F5B1FFEB0A",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -3092,7 +3180,7 @@
       }
     },
     {
-      "widgetGuid": "FA4C8CC1-5217-49BF-B789-903E64EFDF7F",
+      "widgetGuid": "1C7FD5B8-91E0-4B41-A1A0-3393DC4B2B83",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -3148,7 +3236,7 @@
       }
     },
     {
-      "widgetGuid": "4EAEB36F-A161-4239-A9BC-D58EF3C17D71",
+      "widgetGuid": "DB089505-B0C0-47A0-B33C-CE734AF8B043",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -3204,7 +3292,7 @@
       }
     },
     {
-      "widgetGuid": "66B28CAD-9AAE-4718-A313-2BFE135C9AF7",
+      "widgetGuid": "0A8741E6-2C0F-4197-AC54-6B93DB5072AC",
       "widgetProperties": {
         "i": "DeviceCommand",
         "background": "#fff",
@@ -3235,7 +3323,7 @@
       }
     },
     {
-      "widgetGuid": "96E595CA-17E6-42CE-8E44-35F8240988EA",
+      "widgetGuid": "3267748F-D9DD-4D0D-A0BF-F73FAF9E6C2D",
       "widgetProperties": {
         "i": "Label",
         "background": "#0b1226",
@@ -3259,7 +3347,7 @@
       }
     },
     {
-      "widgetGuid": "89184250-5A9D-40D6-8D70-B303DFF0CC75",
+      "widgetGuid": "CA1CA062-5BFC-4899-9C7C-D757F7860BE1",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -3326,7 +3414,7 @@
       }
     },
     {
-      "widgetGuid": "5D6E4722-39D8-4FFC-8F3A-2ED2EF9CE20A",
+      "widgetGuid": "385BD46A-15B1-46AA-B2B9-A3B53BD747F5",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -3393,7 +3481,7 @@
       }
     },
     {
-      "widgetGuid": "D387BBC6-DDFD-4075-8445-5CD97842BF88",
+      "widgetGuid": "C1F50140-ACBA-42AB-9C4E-BFFE34AE5229",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -3460,7 +3548,7 @@
       }
     },
     {
-      "widgetGuid": "0B4DC20C-54D7-4822-BA12-2030F3BE2419",
+      "widgetGuid": "36FBA7F7-083E-4670-961F-69F7C77C4170",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -3527,7 +3615,7 @@
       }
     },
     {
-      "widgetGuid": "3F30C227-0C6C-4C7D-BBD5-6D75BBCA1D22",
+      "widgetGuid": "EE2C70D4-39CA-464A-8B4F-97A1F3D246B8",
       "widgetProperties": {
         "i": "LiveLineChart",
         "background": "#ffffff",
@@ -4280,6 +4368,50 @@
                   "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
                   "gatewayUpdatedDate": "NA",
                   "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "zoom",
+                  "attributeName": "zoom",
+                  "displayName": "zoom",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "lens_pos",
+                  "attributeName": "lens_pos",
+                  "displayName": "lens_pos",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focus_score",
+                  "attributeName": "focus_score",
+                  "displayName": "focus_score",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focusing",
+                  "attributeName": "focusing",
+                  "displayName": "focusing",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
                 }
               ]
             },
@@ -4306,7 +4438,7 @@
       }
     },
     {
-      "widgetGuid": "0672946E-D1B8-49DA-82B9-0F52AE047512",
+      "widgetGuid": "54E75952-30BE-4F9A-833A-126127733647",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4362,7 +4494,7 @@
       }
     },
     {
-      "widgetGuid": "79D603C8-A34C-450F-809E-B6062E9BC107",
+      "widgetGuid": "C46DE028-C1EA-49F5-B1D2-59FD6F495810",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4418,7 +4550,7 @@
       }
     },
     {
-      "widgetGuid": "E2C99096-2226-4B91-B240-5CD0CCB45ABD",
+      "widgetGuid": "EFB128C8-2FDD-41AE-AEFB-C70E81763D16",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4474,7 +4606,7 @@
       }
     },
     {
-      "widgetGuid": "0A850EE4-C78A-40AC-92CA-E7DB6B26F588",
+      "widgetGuid": "70A0DA04-F3DA-4913-97B9-535478A1C187",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4530,7 +4662,7 @@
       }
     },
     {
-      "widgetGuid": "5EC68846-F321-422A-AAD4-3C38784100BC",
+      "widgetGuid": "89B1EACC-190D-48EF-8A59-8B86C898FE6C",
       "widgetProperties": {
         "i": "Label",
         "background": "#7b64ff",
@@ -4554,7 +4686,7 @@
       }
     },
     {
-      "widgetGuid": "B7BA2979-3A15-4DD5-9C4D-B09D7BC9CC4C",
+      "widgetGuid": "66F54142-E96B-41B6-A68F-29A287E25585",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4610,7 +4742,7 @@
       }
     },
     {
-      "widgetGuid": "B116B5A0-124F-4068-9F98-03087C6662AA",
+      "widgetGuid": "FC45C420-2868-4769-8942-E39CBE786DC9",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4666,7 +4798,7 @@
       }
     },
     {
-      "widgetGuid": "8597E0D1-E230-4C4C-8DEA-BA4827012B4C",
+      "widgetGuid": "F3BC5F11-2C0B-42C4-B105-578B56119E22",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4722,7 +4854,7 @@
       }
     },
     {
-      "widgetGuid": "984738CE-EA05-4FD4-9F73-690AF20A356B",
+      "widgetGuid": "B2358498-93F4-4446-AA22-4F523FF2638B",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4778,7 +4910,7 @@
       }
     },
     {
-      "widgetGuid": "3786E787-CB68-4820-8CA4-4D22F988850D",
+      "widgetGuid": "9A27D1CE-CB5B-43C5-8B7C-B4037D752CDB",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4834,7 +4966,7 @@
       }
     },
     {
-      "widgetGuid": "760C271D-1083-4074-A732-8598A05D706D",
+      "widgetGuid": "65B4868A-AF74-449C-9AC8-28C207A701F9",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4890,7 +5022,7 @@
       }
     },
     {
-      "widgetGuid": "003D3190-95F1-40B0-92BD-419237EBCB38",
+      "widgetGuid": "C6B8C967-BD42-4976-818F-C2658277D6DC",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -4946,7 +5078,7 @@
       }
     },
     {
-      "widgetGuid": "CF76D403-270F-456A-9630-7EC4D1022382",
+      "widgetGuid": "55C0151B-B202-4DD0-817A-49373F4C19B7",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -5002,7 +5134,7 @@
       }
     },
     {
-      "widgetGuid": "178729D1-799C-4DD6-BDDB-B20FE1C6AE90",
+      "widgetGuid": "7B880E4C-8EC6-4952-A624-840A3CAB42E1",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -5069,7 +5201,7 @@
       }
     },
     {
-      "widgetGuid": "067CBC03-D5BE-418D-9D86-A1136528ECD6",
+      "widgetGuid": "BF236DB2-98D9-424E-B1E5-0B1B8B181C2C",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -5136,7 +5268,7 @@
       }
     },
     {
-      "widgetGuid": "43E3C503-D2D8-4C90-BDAA-0F0AC92543FE",
+      "widgetGuid": "5D5E2E7F-A475-45D9-B639-15A30E2CB123",
       "widgetProperties": {
         "i": "gauge",
         "background": "#000000",
@@ -5203,7 +5335,7 @@
       }
     },
     {
-      "widgetGuid": "BDE282EC-ACFA-4D2D-A7B0-59534F33937B",
+      "widgetGuid": "FB374ADE-6A1B-4F4D-B1ED-790D5412B553",
       "widgetProperties": {
         "i": "LiveLineChart",
         "background": "#ffffff",
@@ -5956,6 +6088,50 @@
                   "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
                   "gatewayUpdatedDate": "NA",
                   "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "zoom",
+                  "attributeName": "zoom",
+                  "displayName": "zoom",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "lens_pos",
+                  "attributeName": "lens_pos",
+                  "displayName": "lens_pos",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focus_score",
+                  "attributeName": "focus_score",
+                  "displayName": "focus_score",
+                  "checked": "false",
+                  "dataType": "DECIMAL",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
+                },
+                {
+                  "attributeGuid": "focusing",
+                  "attributeName": "focusing",
+                  "displayName": "focusing",
+                  "checked": "false",
+                  "dataType": "INTEGER",
+                  "attributeLatestValue": "",
+                  "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                  "gatewayUpdatedDate": "NA",
+                  "attributeValue": "NA"
                 }
               ]
             },
@@ -5982,7 +6158,7 @@
       }
     },
     {
-      "widgetGuid": "B1DBFC5A-8111-43C9-A383-CD475829A13C",
+      "widgetGuid": "91B3A938-6A53-486A-A84C-6FE840605708",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6038,7 +6214,7 @@
       }
     },
     {
-      "widgetGuid": "C1850884-7279-4F24-9E67-ABF87036259B",
+      "widgetGuid": "5AE0F9A9-ECDF-4D8D-8D61-C9DA4B3F8FA5",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6094,7 +6270,7 @@
       }
     },
     {
-      "widgetGuid": "F57FE209-B670-4F21-A2A8-0D8CF13BEB9D",
+      "widgetGuid": "49788F2F-224B-4BD2-85BF-873DF913C958",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6150,7 +6326,7 @@
       }
     },
     {
-      "widgetGuid": "1857536F-5E39-4BED-8D33-C9B755535A19",
+      "widgetGuid": "2F218D01-575D-4927-8B9E-1D6F6E6D9B85",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6206,7 +6382,7 @@
       }
     },
     {
-      "widgetGuid": "923EE89C-3A64-46FC-9DC5-C94988AD95F4",
+      "widgetGuid": "3DA14183-F8B7-4557-8270-CA6AD597F7BB",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6262,7 +6438,7 @@
       }
     },
     {
-      "widgetGuid": "D8F20AA1-7254-4484-88F1-7827BFDB595F",
+      "widgetGuid": "0479B391-C6C6-4E31-B3E6-9A2D75E3DB3D",
       "widgetProperties": {
         "i": "Label",
         "background": "#343434",
@@ -6286,7 +6462,7 @@
       }
     },
     {
-      "widgetGuid": "40E15AC4-931F-449E-ABBB-954BF427D2F3",
+      "widgetGuid": "EEAD3E28-88A7-4962-8708-060942952DDC",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -6330,7 +6506,7 @@
       }
     },
     {
-      "widgetGuid": "9FCC6705-88F5-4950-BA21-363386336781",
+      "widgetGuid": "3EFDF064-DCFC-4BC8-8662-8631705FF709",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -6374,7 +6550,7 @@
       }
     },
     {
-      "widgetGuid": "69FF3B81-E6E8-4DF4-BDB8-87EB3A0C6D4E",
+      "widgetGuid": "63D998E2-9278-4BF0-A3CC-45CAF9727A46",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -6418,7 +6594,7 @@
       }
     },
     {
-      "widgetGuid": "6CF754FD-C1DF-4915-81E5-986AC3E9A2BA",
+      "widgetGuid": "CFC6B6ED-82DD-494C-A828-A2123AB6B0DF",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -6462,7 +6638,7 @@
       }
     },
     {
-      "widgetGuid": "D1CBFA3E-9795-4808-8149-064596F7153C",
+      "widgetGuid": "AE8691D7-B272-4EC5-B16C-B56C3DCC38DA",
       "widgetProperties": {
         "i": "Control",
         "background": "#fff",
@@ -6506,7 +6682,251 @@
       }
     },
     {
-      "widgetGuid": "397F39BE-B890-4283-B370-317A5B6EC955",
+      "widgetGuid": "93E14977-77B8-41C8-BAB1-7DA9EF9FA095",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Zoom",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Zoom -",
+            "leftCommand": "vlm_zoom",
+            "leftSwitchColor": "#4a90e2",
+            "leftBackgroundColor": "",
+            "leftParam": "-",
+            "rightText": "Zoom +",
+            "rightCommand": "vlm_zoom",
+            "rightSwitchColor": "#7b64ff",
+            "rightBackgroundColor": "",
+            "rightParam": "+",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "0",
+        "y": "90",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "F1D32A09-DF56-4396-A3FD-184FF5CCFC6E",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Focus",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Autofocus",
+            "leftCommand": "vlm_focus",
+            "leftSwitchColor": "#7ed321",
+            "leftBackgroundColor": "",
+            "leftParam": "sweep",
+            "rightText": "Near 25",
+            "rightCommand": "vlm_focus",
+            "rightSwitchColor": "#f5a623",
+            "rightBackgroundColor": "",
+            "rightParam": "-25",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "10",
+        "y": "90",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "8F18C6BF-964F-41D2-8B25-042980AFF1A3",
+      "widgetProperties": {
+        "i": "Control",
+        "background": "#fff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Focus 2",
+        "titleAlign": "",
+        "contents": {
+          "control": {
+            "device": "mclICAM540arena",
+            "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+            "controlType": "button",
+            "leftText": "Far 25",
+            "leftCommand": "vlm_focus",
+            "leftSwitchColor": "#f5a623",
+            "leftBackgroundColor": "",
+            "leftParam": "+25",
+            "rightText": "Reset zoom",
+            "rightCommand": "vlm_zoom",
+            "rightSwitchColor": "#9b9b9b",
+            "rightBackgroundColor": "",
+            "rightParam": "1",
+            "showStatus": "true",
+            "template": "00000000-0000-4000-8000-00000000AA11",
+            "key": "control"
+          }
+        }
+      },
+      "properties": {
+        "x": "20",
+        "y": "90",
+        "w": "10",
+        "h": "6",
+        "i": "Control",
+        "isStatic": "false",
+        "minW": "9",
+        "minH": "6",
+        "maxH": "15",
+        "maxW": "15"
+      }
+    },
+    {
+      "widgetGuid": "FF905758-DD4F-44B7-B8CD-5DE137860DAB",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#7b64ff",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Zoom",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "zoom",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "zoom",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "zoom",
+                "attributeName": "zoom",
+                "displayName": "zoom",
+                "checked": "true",
+                "dataType": "DECIMAL",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "30",
+        "y": "90",
+        "w": "10",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "3E4665C6-5A7C-4DB4-92B7-C32C492F2158",
+      "widgetProperties": {
+        "i": "Live",
+        "background": "#ffffff",
+        "fontColor": "#343434",
+        "fontFamily": "Proxima Nova",
+        "fontSize": "18",
+        "title": "Lens",
+        "titleAlign": "",
+        "contents": {
+          "attributeValue": {
+            "attributeName": "lens_pos",
+            "key": "attributeValue"
+          },
+          "attributeTime": {
+            "attributeName": "lens_pos",
+            "key": "attributeTime"
+          },
+          "live": {
+            "device": {
+              "deviceGuid": "00000000-0000-4000-8000-00000000A540",
+              "deviceUniqueId": "mclICAM540arena"
+            },
+            "attributes": {
+              "attribute": {
+                "attributeGuid": "lens_pos",
+                "attributeName": "lens_pos",
+                "displayName": "lens_pos",
+                "checked": "true",
+                "dataType": "INTEGER",
+                "attributeLatestValue": "",
+                "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                "gatewayUpdatedDate": "NA",
+                "attributeValue": "NA"
+              }
+            },
+            "rules": "",
+            "attrType": "1",
+            "key": "live"
+          }
+        }
+      },
+      "properties": {
+        "x": "40",
+        "y": "90",
+        "w": "10",
+        "h": "4",
+        "i": "Live",
+        "isStatic": "false",
+        "minW": "7",
+        "minH": "4",
+        "maxH": "4",
+        "maxW": "20"
+      }
+    },
+    {
+      "widgetGuid": "CCDD1015-D34B-4988-A659-3E4F97077883",
       "widgetProperties": {
         "i": "DeviceCommand",
         "background": "#fff",
@@ -6537,7 +6957,7 @@
       }
     },
     {
-      "widgetGuid": "F8DE7451-2601-461E-A13B-FABF85A21304",
+      "widgetGuid": "18774450-06FB-4444-8ED7-99DFFE35FBE0",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6593,7 +7013,7 @@
       }
     },
     {
-      "widgetGuid": "6621993C-8041-49B7-8EF9-383ED7021486",
+      "widgetGuid": "59539D9A-521D-40A1-B497-F825FB5BA9DA",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",
@@ -6649,7 +7069,7 @@
       }
     },
     {
-      "widgetGuid": "6EA0DFC1-693F-4550-B65C-8EB55C02AB6E",
+      "widgetGuid": "E877F6B0-09BE-4DEF-8324-1901EC312537",
       "widgetProperties": {
         "i": "Live",
         "background": "#ffffff",

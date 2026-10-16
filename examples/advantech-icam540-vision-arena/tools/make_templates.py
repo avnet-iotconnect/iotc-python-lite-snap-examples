@@ -106,6 +106,10 @@ attr("vlm_tok_s", "VLM Decode Speed", "DECIMAL", "Generated tokens per second on
 attr("vlm_prompt_tokens", "VLM Prompt Tokens", "INTEGER", "Tokens in the prompt, mostly the image (~1100 for a 640 px frame)")
 attr("vlm_completion_tokens", "VLM Completion Tokens", "INTEGER", "Tokens generated for the answer")
 attr("vlm_cycle", "VLM Cycle", "INTEGER", "Narration cycles since the narrator started")
+attr("zoom", "Digital Zoom", "DECIMAL", "Centre-crop factor applied to the frame the VLM sees and the live view (1.0 to 4.0)", "x")
+attr("lens_pos", "Lens Position", "INTEGER", "Motorised focus position (0 to 2294 steps)")
+attr("focus_score", "Focus Sharpness", "DECIMAL", "Sharpness measure at the current lens position (bigger is sharper)")
+attr("focusing", "Autofocus Running", "INTEGER", "1 while an autofocus sweep is in progress")
 
 # ---------------------------------------------------------------- commands
 C = []
@@ -151,6 +155,8 @@ cmd("VLM: Pause", "vlm_pause")
 cmd("VLM: Resume", "vlm_resume")
 cmd("VLM: Status", "vlm_status")
 cmd("VLM: Ping", "vlm_ping")
+cmd("VLM: Zoom (1-4 | + | -)", "vlm_zoom", param=True)
+cmd("VLM: Focus (auto | sweep | +N | -N | 0-2294)", "vlm_focus", param=True)
 
 device_template = {
     "code": "ICAM540A",
@@ -355,6 +361,11 @@ items.append(control("Alert Rule", 10, 84, ("Hard hat", "set_alert", "someone is
 items.append(control("Alerts", 20, 84, ("Clear", "clear_alerts", "", "#9b9b9b"), ("Status", "vlm_status", "", BLUE)))
 items.append(control("Narrator", 30, 84, ("Pause", "vlm_pause", "", RED), ("Resume", "vlm_resume", "", GREEN)))
 items.append(control("Cycle", 40, 84, ("Every 8 s", "vlm_interval", "8", GREEN), ("Every 20 s", "vlm_interval", "20", AMBER)))
+items.append(control("Zoom", 0, 90, ("Zoom -", "vlm_zoom", "-", BLUE), ("Zoom +", "vlm_zoom", "+", PURPLE)))
+items.append(control("Focus", 10, 90, ("Autofocus", "vlm_focus", "sweep", GREEN), ("Near 25", "vlm_focus", "-25", AMBER)))
+items.append(control("Focus 2", 20, 90, ("Far 25", "vlm_focus", "+25", AMBER), ("Reset zoom", "vlm_zoom", "1", "#9b9b9b")))
+items.append(live("Zoom", "zoom", 30, 90, 10, fg=PURPLE, size="18"))
+items.append(live("Lens", "lens_pos", 40, 90, 10, fg="#343434", size="18"))
 items.append(device_command("VLM Console (ask <question>, set_alert <rule>, vlm_model <tag>, vlm_max_tokens <n>)", 50, 84, 33, 12))
 items.append(live("Cycle #", "vlm_cycle", 83, 84, 20, fg="#343434", size="18"))
 items.append(live("Prompt Tokens (image)", "vlm_prompt_tokens", 83, 88, 20, fg="#343434", size="18"))

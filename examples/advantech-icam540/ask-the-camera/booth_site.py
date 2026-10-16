@@ -382,7 +382,7 @@ class DayLog:
             return f"The busiest hour was {h['hour']:02d}:00 to {h['hour'] + 1:02d}:00, with people in {h['people']} of {h['looks']} looks." if h and h["people"] else "No busy period yet; I have not seen people."
         return r["summary"]
 ALLOWED_COMMANDS = {"ask", "set_alert", "clear_alerts", "vlm_pause", "vlm_resume", "vlm_status", "vlm_ping",
-                    "vlm_interval", "vlm_max_tokens", "status", "ping", "reset_counts", "preset booth"}
+                    "vlm_interval", "vlm_max_tokens", "vlm_zoom", "vlm_focus", "status", "ping", "reset_counts", "preset booth"}
 
 
 class Booth:
@@ -441,7 +441,7 @@ class Booth:
                                                    "isConnected", "lastActivityDate", "isActive")}
                 with self.lock:
                     dev["info"] = keep
-                if not dev["commands"]:
+                if not dev["commands"] or full:   # commands can be added to the template while we run
                     cmds = self.api.commands(keep["deviceTemplateGuid"])
                     with self.lock:
                         dev["commands"] = {c["command"]: {"guid": c["guid"], "name": c["name"], "param": c.get("requiredParam")} for c in cmds}

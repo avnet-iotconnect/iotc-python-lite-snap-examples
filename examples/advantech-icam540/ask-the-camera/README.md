@@ -118,7 +118,7 @@ A standard-library Python server holds the portal credentials (`/etc/default/boo
 
 - **State** every 3 s from the newest message in the recent-history feed, by the device's own `ts` (the "latest telemetry" endpoint returned minutes-old, inconsistent snapshots for this device; the history feed is in order and within a second). Attribute names and a fallback come from the latest endpoint.
 - **Video**: a WebRTC viewer of the camera's KVS channel, using the viewer kit from `GET /Device/client-streaming-url?isWebRTC=true` (what the portal's tab uses); the server signs the signaling URL (SigV4) and hands the page only that and the TURN servers. `?source=direct` or the "direct" button uses the camera's MJPEG when the page is served on the camera's network.
-- **Commands**: `POST /template-command/device/{guid}/send` for `ask`, `set_alert`, `clear_alerts`, `vlm_pause`, `vlm_resume`, `vlm_ping`, `vlm_interval`, `vlm_max_tokens`, `status`, `ping`, `reset_counts`, `preset booth`. Enter sends. No login on the page: anyone who reaches it can ask and set rules, which is the intent at a booth.
+- **Commands**: `POST /template-command/device/{guid}/send` for `ask`, `set_alert`, `clear_alerts`, `vlm_pause`, `vlm_resume`, `vlm_ping`, `vlm_interval`, `vlm_max_tokens`, `vlm_zoom`, `vlm_focus`, `status`, `ping`, `reset_counts`, `preset booth`. Enter sends. The Zoom −/+, Autofocus, Near and Far buttons send `vlm_zoom` / `vlm_focus` through the cloud, and a header pill shows the camera's reported zoom and lens position (`zoom`, `lens_pos`, `focus_score`, `focusing` are telemetry attributes). No login on the page: anyone who reaches it can ask and set rules, which is the intent at a booth.
 - **Today**: at start the server rebuilds the day from `POST /Telemetry/device/{uniqueId}/attribute-history` since local midnight (500 messages a page, about a second a page) and keeps appending. The page shows a plain-language summary (looks, people seen, visits, peak, busiest hour, questions, alerts, the scenes most of the day looked like), per-hour bars, and tabs with scenes, visits, questions and alerts. Questions about the day (today, so far, earlier, how many people, busiest, questions asked, alerts) are answered from this log and marked so; the four quick buttons ask the common ones.
 
 ## 5. Commands and telemetry
@@ -136,6 +136,8 @@ Commands arrive on the snap command socket as JSON `{"name": "ask", "args": ["is
 | `vlm_pause` / `vlm_resume` / `vlm_status` / `vlm_ping` | aliases `pause` / `resume` / `status` / `ping` |
 | `focus auto` / `focus sweep` / `focus home` / `focus <0-2294>` / `focus +N` / `-N` | lens (4.3): `auto` restores the saved position when there is one, `sweep` always sweeps; alias `vlm_focus` |
 | `zoom <1.0-4.0>` / `zoom +` / `zoom -` | digital zoom; alias `vlm_zoom` |
+
+`vlm_zoom` and `vlm_focus` are template commands too, so they can be sent from the portal (Zoom and Focus controls in the dashboard export) and from the booth page, not only from the camera's live view.
 
 The `vlm_` names exist because the Vision Arena agent on the same socket owns `set_interval`, `set_model`, `status` and `ping`.
 

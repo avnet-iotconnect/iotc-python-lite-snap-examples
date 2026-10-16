@@ -557,6 +557,38 @@
       "description": "Narration cycles since the narrator started",
       "unit": "",
       "aggregateTypes": []
+    },
+    {
+      "name": "zoom",
+      "displayName": "Digital Zoom",
+      "type": "DECIMAL",
+      "description": "Centre-crop factor applied to the frame the VLM sees and the live view (1.0 to 4.0)",
+      "unit": "x",
+      "aggregateTypes": []
+    },
+    {
+      "name": "lens_pos",
+      "displayName": "Lens Position",
+      "type": "INTEGER",
+      "description": "Motorised focus position (0 to 2294 steps)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "focus_score",
+      "displayName": "Focus Sharpness",
+      "type": "DECIMAL",
+      "description": "Sharpness measure at the current lens position (bigger is sharper)",
+      "unit": "",
+      "aggregateTypes": []
+    },
+    {
+      "name": "focusing",
+      "displayName": "Autofocus Running",
+      "type": "INTEGER",
+      "description": "1 while an autofocus sweep is in progress",
+      "unit": "",
+      "aggregateTypes": []
     }
   ],
   "commands": [
@@ -788,6 +820,20 @@
       "name": "VLM: Ping",
       "command": "vlm_ping",
       "requiredParam": false,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Zoom (1-4 | + | -)",
+      "command": "vlm_zoom",
+      "requiredParam": true,
+      "requiredAck": true,
+      "isOTACommand": false
+    },
+    {
+      "name": "VLM: Focus (auto | sweep | +N | -N | 0-2294)",
+      "command": "vlm_focus",
+      "requiredParam": true,
       "requiredAck": true,
       "isOTACommand": false
     }

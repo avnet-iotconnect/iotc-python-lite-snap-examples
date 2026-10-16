@@ -85,6 +85,7 @@
   button:disabled { opacity: .5; cursor: default; }
   button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
   .ctl .row { display: flex; gap: 0.4vw; align-items: center; flex-wrap: wrap; }
+  .ctl .row .sep { width: 1px; height: 1.6em; background: var(--line); margin: 0 0.2vw; }
   #note { font-size: clamp(11px, 0.75vw, 18px); color: var(--brand); font-weight: 600; margin-left: auto; }
   .events { list-style: none; margin: 0.4vw 0 0; padding: 0; font-size: clamp(10px, 0.7vw, 16px); color: var(--text-secondary); max-height: 2.6em; overflow: hidden; }
   .events li { padding: 0.15vw 0; border-top: 1px solid var(--line); display: flex; gap: 0.5vw; white-space: nowrap; overflow: hidden; }
@@ -148,6 +149,7 @@
   <div class="pills">
     <span class="pill" id="conn"><span class="dot"></span><span id="conntext">connecting to /IOTCONNECT…</span></span>
     <span class="pill" id="model"><span>model</span><b id="modelname">–</b></span>
+    <span class="pill" id="lenspill" hidden><span>zoom</span><b id="zoomv">–</b><span>· lens</span><b id="lensv">–</b></span>
     <span class="pill"><span>polled</span><b id="updated">–</b></span>
   </div>
 </header>
@@ -205,6 +207,12 @@
           <button class="grey" onclick="send('clear_alerts')">Clear alerts</button>
           <button class="grey" onclick="send('vlm_pause')">Pause</button>
           <button class="grey" onclick="send('vlm_resume')">Resume</button>
+          <span class="sep"></span>
+          <button class="grey" onclick="sendArg('vlm_zoom','-')" title="digital zoom out">Zoom &minus;</button>
+          <button class="grey" onclick="sendArg('vlm_zoom','+')" title="digital zoom in">Zoom +</button>
+          <button class="grey" onclick="sendArg('vlm_focus','sweep')" title="autofocus sweep (~30 s)">Autofocus</button>
+          <button class="grey" onclick="sendArg('vlm_focus','-25')" title="focus nearer by 25 steps">Near</button>
+          <button class="grey" onclick="sendArg('vlm_focus','+25')" title="focus farther by 25 steps">Far</button>
           <span id="note" hidden></span>
         </div>
       </div>
@@ -299,6 +307,7 @@ async function tick() {
   $('conn').className = 'pill ' + (info.isConnected || fresh ? 'on' : 'off');
   $('conntext').textContent = (info.isConnected || fresh ? 'camera online' : 'camera offline') + (a.ts ? ' · updated ' + fmtAgo(a.ts.t) : '') + (d.error ? ' · ' + d.error : '');
   $('modelname').textContent = v(a, 'vlm_model', '–');
+  if (a.zoom || a.lens_pos) { $('lenspill').hidden = false; $('zoomv').textContent = (v(a, 'zoom', '1') + 'x'); $('lensv').textContent = v(a, 'focusing', '0') == 1 ? 'focusing…' : v(a, 'lens_pos', '–'); }
   const cap = v(a, 'scene_caption');
   if (cap) { $('caption').innerHTML = esc(cap) + `<small>${esc(fmtAgo(a.scene_caption.t))}${v(a,'unusual') ? ' · unusual: ' + esc(v(a,'unusual')) : ''}</small>`; }
   $('people').textContent = v(a, 'people_vlm', '–');
@@ -373,6 +382,7 @@ async function tickToday() {
   $('hours').innerHTML = hs.map(h => `<div class="h" title="${h.hour}:00 · ${h.people} of ${h.looks} looks with people"><div class="bar" style="height:${Math.max(3, 40 * h.looks / mx)}px"><i style="height:${h.looks ? 100 * h.people / h.looks : 0}%"></i></div><span class="l">${String(h.hour).padStart(2,'0')}</span></div>`).join('');
   renderTimeline();
 }
+function sendArg(cmd, arg) { const i = $('q'); const keep = i.value; i.value = arg; send(cmd, i).then(() => { i.value = keep; }); }
 function askDay(text) { $('q').value = text; send('ask', $('q')); }
 
 async function send(cmd, inputEl) {
